@@ -1,67 +1,77 @@
-import Link from 'next/link';
-
-import FooterMenu from 'components/layout/footer-menu';
-import LogoSquare from 'components/logo-square';
-import { getMenu } from 'lib/shopify';
-import { Suspense } from 'react';
+import Image from 'next/image';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
 export default async function Footer() {
-  const currentYear = new Date().getFullYear();
-  const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : '');
-  const skeleton = 'w-full h-6 animate-pulse rounded bg-neutral-200 dark:bg-neutral-700';
-  const menu = await getMenu('next-js-frontend-footer-menu');
-  const copyrightName = COMPANY_NAME || SITE_NAME || '';
+  // const currentYear = new Date().getFullYear();
+  // const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : '');
+  // const skeleton = 'w-full h-6 animate-pulse rounded bg-neutral-200 dark:bg-neutral-700';
+  // const menu = await getMenu('next-js-frontend-footer-menu');
+  // const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
-    <footer className="text-sm text-neutral-500 dark:text-neutral-400">
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 border-t border-neutral-200 px-6 py-12 text-sm md:flex-row md:gap-12 md:px-4 min-[1320px]:px-0 dark:border-neutral-700">
-        <div>
-          <Link className="flex items-center gap-2 text-black md:pt-1 dark:text-white" href="/">
-            <LogoSquare size="sm" />
-            <span className="uppercase">{SITE_NAME}</span>
-          </Link>
-        </div>
-        <Suspense
-          fallback={
-            <div className="flex h-[188px] w-[200px] flex-col gap-2">
-              <div className={skeleton} />
-              <div className={skeleton} />
-              <div className={skeleton} />
-              <div className={skeleton} />
-              <div className={skeleton} />
-              <div className={skeleton} />
+    <footer className="bg-[#532826] font-portland text-sm font-semibold">
+      {/*  space-y-16 py-16 */}
+      <div className="mx-auto w-10/12 space-y-9 pb-9 pt-14 lg:max-w-[1280px] lg:space-y-12 lg:pb-12 lg:pt-16">
+        <div className="flex flex-col lg:flex-row">
+          <div className="mr-auto">
+            <h2 className="font-plam-canyon-drive text-5xl font-normal">Join our familia!</h2>
+          </div>
+          <div className="mt-9 lg:order-last lg:ml-20 lg:mt-0 lg:flex lg:flex-col lg:justify-between">
+            <div className="flex items-center space-x-4">
+              <a href="">
+                <Image
+                  src="/images/icon-ig.svg"
+                  alt="Follow us on Instagram"
+                  width={40}
+                  height={40}
+                />
+              </a>
+              <a href="">
+                <Image src="/images/icon-tt.svg" alt="Follow us on Tiktok" width={40} height={40} />
+              </a>
+              <a href="">
+                <Image
+                  src="/images/icon-fb.svg"
+                  alt="Follow us on facebook"
+                  width={40}
+                  height={40}
+                />
+              </a>
+              <a href="">
+                <Image
+                  src="/images/icon-sptfy.svg"
+                  alt="Listen us on Spotify"
+                  width={40}
+                  height={40}
+                />
+              </a>
             </div>
-          }
-        >
-          <FooterMenu menu={menu} />
-        </Suspense>
-        <div className="md:ml-auto">
-          <a
-            className="flex h-8 w-max flex-none items-center justify-center rounded-md border border-neutral-200 bg-white text-xs text-black dark:border-neutral-700 dark:bg-black dark:text-white"
-            aria-label="Deploy on Vercel"
-            href="https://vercel.com/templates/next.js/nextjs-commerce"
-          >
-            <span className="px-3">▲</span>
-            <hr className="h-full border-r border-neutral-200 dark:border-neutral-700" />
-            <span className="px-3">Deploy</span>
-          </a>
+            <a>nanufoodsllc@gmail.com</a>
+          </div>
+          <nav className="mt-16 grid grid-cols-2 lg:mt-0 lg:gap-8">
+            <div className="flex flex-col space-y-2">
+              <a>SHOP</a>
+              <a>ABOUT US</a>
+              <a>RECIPES</a>
+            </div>
+            <div className="flex flex-col space-y-2">
+              <a>FIND IN STORE</a>
+              <a>FAQ</a>
+              <a>CONTACT US</a>
+            </div>
+          </nav>
         </div>
-      </div>
-      <div className="border-t border-neutral-200 py-6 text-sm dark:border-neutral-700">
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-1 px-4 md:flex-row md:gap-0 md:px-4 min-[1320px]:px-0">
-          <p>
-            &copy; {copyrightDate} {copyrightName}
-            {copyrightName.length && !copyrightName.endsWith('.') ? '.' : ''} All rights reserved.
-          </p>
-          <hr className="mx-4 hidden h-4 w-[1px] border-l border-neutral-400 md:inline-block" />
-          <p>Designed in California</p>
-          <p className="md:ml-auto">
-            <a href="https://vercel.com" className="text-black dark:text-white">
-              Crafted by ▲ Vercel
-            </a>
-          </p>
+        <div className="relative aspect-[3/1]">
+          <Image src="/images/elements/nanu.svg" alt="Nenu Heritage Foods" fill={true} />
+        </div>
+        {/* <div className="flex items-center justify-between"> */}
+        <div className="grid-row-2 grid grid-cols-2 items-center justify-center gap-y-3 lg:flex lg:justify-between">
+          <span className="col-span-2 row-start-2 place-self-center">
+            © 2023 Nanu Herritage Foods
+          </span>
+          <span className="place-self-center">Terms & Conditions</span>
+          <span className="place-self-center">Privacy Policy</span>
         </div>
       </div>
     </footer>

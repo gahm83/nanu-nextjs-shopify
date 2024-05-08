@@ -1,20 +1,39 @@
-import Cart from 'components/cart';
-import OpenCart from 'components/cart/open-cart';
-import LogoSquare from 'components/logo-square';
-import { getMenu } from 'lib/shopify';
-import { Menu } from 'lib/shopify/types';
+// import Cart from 'components/cart';
+// import OpenCart from 'components/cart/open-cart';
+// import { getMenu } from 'lib/shopify';
 import Link from 'next/link';
-import { Suspense } from 'react';
-import MobileMenu from './mobile-menu';
-import Search, { SearchSkeleton } from './search';
+import Logo from './logo';
 const { SITE_NAME } = process.env;
 
 export default async function Navbar() {
-  const menu = await getMenu('next-js-frontend-header-menu');
+  // const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
-    <nav className="relative flex items-center justify-between p-4 lg:px-6">
-      <div className="block flex-none md:hidden">
+    <div className="absolute inset-x-0 top-0 z-50 py-5">
+      <div className="relative mx-auto flex w-11/12 items-end lg:max-w-[1420px]">
+        <Link href="/" className="relative z-10 mx-auto w-[180px]">
+          <Logo className="w-full fill-[#f6e7e0]" />
+        </Link>
+
+        <nav className="absolute left-0 flex w-full items-center space-x-4 pr-24 font-portland font-bold uppercase">
+          <Link href="/" className="py-2">
+            Shop
+          </Link>
+          <Link href="/" className="py-2">
+            About
+          </Link>
+          <Link href="/" className="!ml-auto py-2">
+            Contact
+          </Link>
+        </nav>
+
+        <div className="absolute right-0">
+          {/* <Suspense fallback={<OpenCart />}>
+            <Cart />
+          </Suspense> */}
+        </div>
+      </div>
+      {/* <div className="block flex-none md:hidden">
         <Suspense fallback={null}>
           <MobileMenu menu={menu} />
         </Suspense>
@@ -52,7 +71,7 @@ export default async function Navbar() {
             <Cart />
           </Suspense>
         </div>
-      </div>
-    </nav>
+      </div> */}
+    </div>
   );
 }

@@ -1,5 +1,5 @@
+import Footer from 'components/layout/footer';
 import Navbar from 'components/layout/navbar';
-import { GeistSans } from 'geist/font/sans';
 import { ensureStartsWith } from 'lib/utils';
 import { ReactNode } from 'react';
 import './globals.css';
@@ -11,6 +11,7 @@ const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
 const twitterCreator = TWITTER_CREATOR ? ensureStartsWith(TWITTER_CREATOR, '@') : undefined;
 const twitterSite = TWITTER_SITE ? ensureStartsWith(TWITTER_SITE, 'https://') : undefined;
 
+/*
 export const metadata = {
   metadataBase: new URL(baseUrl),
   title: {
@@ -30,13 +31,15 @@ export const metadata = {
       }
     })
 };
+*/
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={GeistSans.variable}>
-      <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
+    <html lang="en">
+      <body className="bg-[#532826] antialiased">
         <Navbar />
-        <main>{children}</main>
+        <main className="bg-[#F6E7E0]">{children}</main>
+        <Footer />
       </body>
     </html>
   );

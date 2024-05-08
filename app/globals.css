@@ -2,6 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Athiti';
+  src: url('fonts/Athiti/Athiti-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Athiti';
+  src: url('fonts/Athiti/Athiti-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Athiti';
+  src: url('fonts/Athiti/Athiti-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Athiti';
+  src: url('fonts/Athiti/Athiti-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Athiti';
+  src: url('fonts/Athiti/Athiti-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Camera-Obscura';
+  src: url('fonts/Camera-Obscura/CameraObscuraIkiikocom-3zyGM.otf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plam-Canyon-Drive';
+  font-weight: 400;
+  src: url('fonts/Plam-Canyon-Drive/PalmCanyonDrive-Light.otf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Portland';
+  src: url('fonts/Portland/Portland-Black.otf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Portland';
+  src: url('fonts/Portland/Portland-Bold.otf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Portland';
+  src: url('fonts/Portland/Portland-Regular.otf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  @apply font-athiti;
+}
+
+.bg-border-diamond {
+  border-image-source: url('/images/elements/dot.svg');
+  border-image-repeat: repeat;
+  border-image-width: 4px;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

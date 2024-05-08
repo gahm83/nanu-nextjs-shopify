@@ -1,6 +1,6 @@
-import { Carousel } from 'components/carousel';
-import { ThreeItemGrid } from 'components/grid/three-items';
-import Footer from 'components/layout/footer';
+import Hero from 'components/homepage/hero';
+import MeetOurFamily from 'components/homepage/meetOurFamily';
+import WeHateLettuceTacos from 'components/homepage/weHateLettuceTacos';
 
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
@@ -12,9 +12,10 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
-      <ThreeItemGrid />
-      <Carousel />
-      <Footer />
+      <Hero />
+      <MeetOurFamily />
+      <WeHateLettuceTacos />
+      {/* <Carousel /> */}
     </>
   );
 }
