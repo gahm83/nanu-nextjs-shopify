@@ -64,12 +64,12 @@ export type Page = {
 export type Product = Omit<ShopifyProduct, 'variants' | 'images'> & {
   variants: ProductVariant[];
   images: Image[];
-  stars: any;
-  numberReviews: any;
-  price: any;
-  quantity: any;
-  weight: any;
-  stock: number
+  stars?: any;
+  numberReviews?: any;
+  price?: any;
+  quantity?: any;
+  weight?: any;
+  stock?: number;
 };
 
 export type ProductOption = {
@@ -87,7 +87,7 @@ export type ProductVariant = {
     value: string;
   }[];
   price: {
-    amount: any
+    amount: any;
   };
 };
 
