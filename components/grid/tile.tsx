@@ -18,24 +18,17 @@ export function GridTileImage({
   };
 } & React.ComponentProps<typeof Image>) {
   return (
-    <div
-      className={clsx(
-        'group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-white hover:border-blue-600 dark:bg-black',
-        {
-          relative: label,
-          'border-2 border-blue-600': active,
-          'border-neutral-200 dark:border-neutral-800': !active
-        }
-      )}
-    >
+    <figure className="relative aspect-[0.8/1] bg-[#F2D2C3] w-full">
       {props.src ? (
         // eslint-disable-next-line jsx-a11y/alt-text -- `alt` is inherited from `props`, which is being enforced with TypeScript
-        <Image
-          className={clsx('relative h-full w-full object-contain', {
-            'transition duration-300 ease-in-out group-hover:scale-105': isInteractive
-          })}
-          {...props}
-        />
+        
+          <Image
+            className={clsx('absolute h-full w-full object-contain', {
+              'transition duration-300 ease-in-out group-hover:scale-105': isInteractive
+            })}
+            {...props}
+          />
+        
       ) : null}
       {label ? (
         <Label
@@ -45,6 +38,6 @@ export function GridTileImage({
           position={label.position}
         />
       ) : null}
-    </div>
+    </figure>
   );
 }
