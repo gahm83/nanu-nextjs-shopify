@@ -81,6 +81,11 @@ module.exports = {
           backgroundSize: '9px auto',
           backgroundPosition: 'center'
         },
+        '.bg-add-to-cart': {
+          backgroundImage: "url('/images/add-to-bag.svg')",
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        },
         '.text-shadow': {
           textShadow: '1px 1px 0 #000000'
         }
