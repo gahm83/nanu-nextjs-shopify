@@ -1,4 +1,4 @@
-import inferior from "@/images/Rectangle 72.png";
+import inferior from '@/images/Rectangle 72.png';
 import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
@@ -77,11 +77,15 @@ export default async function ProductPage({ params }: { params: { handle: string
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      <div className="mx-auto max-w-[1120px]">
+      <div className="mx-auto max-w-[1120px] py-10">
         <div className="lg:grid lg:grid-cols-2 lg:gap-16">
           <div>
-            <div className="bg-[#F2D2C3] rounded-xl">
-              <Suspense fallback={<div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden" />}>
+            <div className="rounded-xl bg-[#F2D2C3]">
+              <Suspense
+                fallback={
+                  <div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden" />
+                }
+              >
                 <Gallery
                   images={product.images.map((image: TImage) => ({
                     src: image.url,
@@ -90,19 +94,13 @@ export default async function ProductPage({ params }: { params: { handle: string
                 />
               </Suspense>
             </div>
-            <div className="bg-[#F2D2C3] rounded-xl">
-              <Image 
-                src={inferior} 
-                alt="" 
-                className="w-full mt-5"
-              />
+            <div className="rounded-xl bg-[#F2D2C3]">
+              <Image src={inferior} alt="" className="mt-5 w-full" />
             </div>
           </div>
-          <div className="bg-[#FFF5F0] rounded-xl">
-
+          <div className="rounded-xl bg-[#FFF5F0]">
             <ProductDescription product={product} />
           </div>
-
         </div>
         {/* <RelatedProducts id={product.id} /> */}
       </div>

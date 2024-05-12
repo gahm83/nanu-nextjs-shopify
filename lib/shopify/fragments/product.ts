@@ -24,6 +24,23 @@ const productFragment = /* GraphQL */ `
         currencyCode
       }
     }
+    collections(first: 1) {
+      edges {
+        node {
+          handle
+        }
+      }
+    }
+    weight: metafield(namespace: "custom", key: "weight") {
+      value
+    }
+    quantity: metafield(namespace: "custom", key: "quantity") {
+      value
+    }
+    stock: totalInventory
+    ingredients: metafield(namespace: "custom", key: "ingredients") {
+      value
+    }
     variants(first: 250) {
       edges {
         node {

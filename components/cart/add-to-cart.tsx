@@ -10,14 +10,19 @@ import { useFormState, useFormStatus } from 'react-dom';
 
 function SubmitButton({
   availableForSale,
-  selectedVariantId
+  selectedVariantId,
+  isProduct
 }: {
   availableForSale: boolean;
   selectedVariantId: string | undefined;
+  isProduct: boolean;
 }) {
   const { pending } = useFormStatus();
-  const buttonClasses =
-    'relative bg-add-to-cart bg-[23px auto] flex w-20 h-12 items-center justify-center bg-[#EDD3C5]';
+  const buttonClasses = isProduct
+    ? 'bg-[#532826] border-2 border-[#532826] font-portland font-bold text-xl flex-grow-1 uppercase h-[50px] w-full'
+    : 'relative bg-add-to-cart bg-[23px auto] flex w-20 h-12 items-center justify-center bg-[#EDD3C5]';
+
+  isProduct;
   const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
 
   if (!availableForSale) {
@@ -55,18 +60,21 @@ function SubmitButton({
       })}
     >
       <div className="absolute left-0 ml-4">
-        {pending ? <LoadingDots className="mb-3 bg-white" /> : null }
+        {pending ? <LoadingDots className="mb-3 bg-white" /> : null}
       </div>
+      {isProduct && 'Add to Bag'}
     </button>
   );
 }
 
 export function AddToCart({
   variants,
-  availableForSale
+  availableForSale,
+  isProduct = false
 }: {
   variants: ProductVariant[];
   availableForSale: boolean;
+  isProduct?: boolean;
 }) {
   const [message, formAction] = useFormState(addItem, null);
   const searchParams = useSearchParams();
@@ -80,8 +88,12 @@ export function AddToCart({
   const actionWithVariant = formAction.bind(null, selectedVariantId);
 
   return (
-    <form action={actionWithVariant}>
-      <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />
+    <form action={actionWithVariant} className="flex-grow">
+      <SubmitButton
+        availableForSale={availableForSale}
+        selectedVariantId={selectedVariantId}
+        isProduct={isProduct}
+      />
       <p aria-live="polite" className="sr-only" role="status">
         {message}
       </p>
