@@ -1,13 +1,12 @@
 'use client';
-import badges from '@/images/Badges.png';
-import imageClose from '@/images/Close.png';
-import dashedIngredients from '@/images/ingredientes-dashed.png';
 import Prose from 'components/prose';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Product } from 'lib/shopify/types';
-import Image from 'next/image';
 import React, { Suspense } from 'react';
 import { AddToCart } from '../cart/add-to-cart';
+// import badges from '/images/Badges.png';
+// import imageClose from '/images/Close.png';
+// import dashedIngredients from '/images/ingredientes-dashed.png';
 
 export function ProductDescription({ product }: { product: Product }) {
   const [cantidad, setCantidad] = React.useState(1);
@@ -45,13 +44,13 @@ export function ProductDescription({ product }: { product: Product }) {
             >
               <div className="relative rounded-lg bg-[#532826] p-8">
                 <button className="absolute -right-6 -top-6 p-0" onClick={togglePopup}>
-                  <Image
+                  {/* <Image
                     src={imageClose}
                     alt={'Close'}
                     className="mx-auto h-auto w-auto cursor-pointer"
                     width={406}
                     height={500}
-                  />
+                  /> */}
                 </button>
                 <div className="flex gap-6">
                   {/* TODO: FALTAN INGREDIENTES */}
@@ -63,13 +62,13 @@ export function ProductDescription({ product }: { product: Product }) {
                               /> */}
                   <div className="flex w-1/2 flex-col justify-between">
                     <div>
-                      <Image
+                      {/* <Image
                         src={dashedIngredients}
                         alt={'Dashed Image'}
                         className="w-full"
                         width={282}
                         height={5}
-                      />
+                      /> */}
                       <h3 className="Portland pb-2 pt-5 text-center text-[24px] font-black leading-[1.2] text-[#F6E7E0]">
                         INGREDIENTS
                       </h3>
@@ -78,7 +77,7 @@ export function ProductDescription({ product }: { product: Product }) {
                       </p>
                     </div>
                     <div className="flex flex-col gap-[20px]">
-                      <Image
+                      {/* <Image
                         src={badges}
                         alt={'Badges'}
                         className="w-full"
@@ -91,7 +90,7 @@ export function ProductDescription({ product }: { product: Product }) {
                         className="w-full"
                         width={282}
                         height={5}
-                      />
+                      /> */}
                     </div>
                   </div>
                 </div>
