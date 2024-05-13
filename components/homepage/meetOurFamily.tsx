@@ -3,14 +3,17 @@ import Link from 'next/link';
 
 const collectionItems = [
   {
+    url: '/shop/tortillas',
     image: '/images/home/meet-our-family/shop-tortillas.jpg',
     title: 'Shop Tortillas'
   },
   {
+    url: '/shop/sauces',
     image: '/images/home/meet-our-family/shop-salsas.jpg',
     title: 'Shop Salsas'
   },
   {
+    url: '/shop/bundles',
     image: '/images/home/meet-our-family/shop-bundles.jpg',
     title: 'Shop Bundles'
   }
@@ -19,22 +22,22 @@ const collectionItems = [
 const MeetOurFamily = () => {
   return (
     <section>
-      <div className="mx-auto w-10/12 py-[60px] lg:grid lg:max-w-[1280px] lg:auto-rows-max lg:grid-cols-2 lg:gap-10">
-        <div className="flex items-center">
-          <h2 className="font-portland text-5xl font-black uppercase text-[#532826]">
+      <div className="mx-auto flex w-10/12 flex-col py-[60px] lg:grid lg:max-w-[1280px] lg:auto-rows-max lg:grid-cols-2 lg:gap-10">
+        <div className="flex items-center pb-4">
+          <h2 className="font-portland text-3xl font-black uppercase text-[#532826] lg:text-5xl">
             Meet our Family
           </h2>
         </div>
-        <div className="flex items-center justify-end space-x-6">
+        <div className="order-last mt-5 flex items-center justify-between space-x-5 lg:mt-0 lg:space-x-6">
           <Link
-            href="/productos"
-            className="border-2 border-solid border-[#532826] bg-[#532826] px-10 py-4 font-portland text-lg font-black uppercase text-[#F6E7E0] lg:px-6 lg:py-2"
+            href="/shop"
+            className="flex-grow border-2 border-solid border-[#532826] bg-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#F6E7E0] lg:px-6 lg:py-2"
           >
             Shop all
           </Link>
           <Link
             href="#"
-            className="border-2 border-solid border-[#532826] px-10 py-4 font-portland text-lg font-black uppercase text-[#532826] lg:px-6 lg:py-2"
+            className="flex-grow border-2 border-solid border-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#532826] lg:px-6 lg:py-2"
           >
             Find in store
           </Link>
@@ -47,14 +50,14 @@ const MeetOurFamily = () => {
                 key={index}
               >
                 <div className="relative z-10 -mb-[5rem] flex items-end justify-end pr-10 pt-14">
-                  <a href="" className="right-10 top-14 block h-[80px] w-[80px]">
+                  <Link href={item.url} className="right-10 top-14 block h-[80px] w-[80px]">
                     <Image
                       src="images/elements/go-to.svg"
                       alt={item.title}
                       width={80}
                       height={80}
                     />
-                  </a>
+                  </Link>
                 </div>
                 <figure className="relative aspect-square">
                   <Image

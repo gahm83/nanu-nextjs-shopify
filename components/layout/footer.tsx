@@ -20,6 +20,7 @@ export default async function Footer() {
           </div>
           <div className="mt-9 lg:order-last lg:ml-20 lg:mt-0 lg:flex lg:flex-col lg:justify-between">
             <SocialMenu classname="text-[#F6E7E0]" />
+            <a>nanufoodsllc@gmail.com</a>
           </div>
           <nav className="mt-16 grid grid-cols-2 lg:mt-0 lg:gap-8">
             <div className="flex flex-col space-y-2">

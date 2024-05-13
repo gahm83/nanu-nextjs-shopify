@@ -7,6 +7,7 @@ import { Fragment, useEffect, useState } from 'react';
 
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Menu } from 'lib/shopify/types';
+
 import SocialMenu from '../social-menu';
 
 export default function MobileMenu({ menu }: { menu: Menu[] }) {
@@ -35,9 +36,9 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
       <button
         onClick={openMobileMenu}
         aria-label="Open mobile menu"
-        className="flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors md:hidden dark:border-neutral-700 dark:text-white"
+        className="flex h-12 w-12 items-center justify-center text-[#F6E7E0] outline-none transition-colors lg:hidden"
       >
-        <Bars3Icon className="h-4" />
+        <Bars3Icon className="h-9" />
       </button>
       <Transition show={isOpen}>
         <Dialog onClose={closeMobileMenu} className="relative z-50">
@@ -62,14 +63,17 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
             leaveTo="translate-x-[-100%]"
           >
             <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col bg-[#F6E7E0] pb-6">
-              <div className="p-4">
-                <button
-                  className="mb-4 flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white"
-                  onClick={closeMobileMenu}
-                  aria-label="Close mobile menu"
-                >
-                  <XMarkIcon className="h-6" />
-                </button>
+              <div className="p-6">
+                <div className="flex justify-end">
+                  <button
+                    className="group relative flex h-11 w-11 items-center justify-center text-[#532826]"
+                    onClick={closeMobileMenu}
+                    aria-label="Close mobile menu"
+                  >
+                    <span className="absolute block h-11 w-11 rotate-45 transform bg-[#8DC8E8]"></span>
+                    <XMarkIcon className="relative h-6 w-6 transition-all duration-300 ease-in-out group-hover:scale-125" />
+                  </button>
+                </div>
 
                 <nav className="flex flex-col divide-y divide-[#532826]">
                   <div className="py-2">
@@ -114,8 +118,14 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                   </Link>
                 </nav>
               </div>
-              <div className="mt-auto flex items-center">
+              <div className="mt-auto flex flex-col items-center space-y-2">
                 <SocialMenu classname="text-[#532826] justify-center w-full" />
+                <a
+                  href="mailto:nanufoodsllc@gmail.com"
+                  className="font-portland text-lg  font-bold text-[#532826]"
+                >
+                  nanufoodsllc@gmail.com
+                </a>
               </div>
             </Dialog.Panel>
           </Transition.Child>
