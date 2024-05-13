@@ -63,7 +63,7 @@ export default async function Footer() {
           </nav>
         </div>
         <div className="relative aspect-[3/1]">
-          <Image src="/images/elements/nanu.svg" alt="Nenu Heritage Foods" fill={true} />
+          <Image src="/images/nanu.svg" alt="Nenu Heritage Foods" fill={true} />
         </div>
         {/* <div className="flex items-center justify-between"> */}
         <div className="grid-row-2 grid grid-cols-2 items-center justify-center gap-y-3 lg:flex lg:justify-between">
