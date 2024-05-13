@@ -3,11 +3,11 @@
 import { Dialog, Transition } from '@headlessui/react';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { Fragment, Suspense, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Menu } from 'lib/shopify/types';
-import Search, { SearchSkeleton } from './search';
+import SocialMenu from '../social-menu';
 
 export default function MobileMenu({ menu }: { menu: Menu[] }) {
   const pathname = usePathname();
@@ -50,7 +50,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
             leaveFrom="opacity-100 backdrop-blur-[.5px]"
             leaveTo="opacity-0 backdrop-blur-none"
           >
-            <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+            <div className="fixed inset-0 bg-[#F6E7E0]" aria-hidden="true" />
           </Transition.Child>
           <Transition.Child
             as={Fragment}
@@ -61,7 +61,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-[-100%]"
           >
-            <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col bg-white pb-6 dark:bg-black">
+            <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col bg-[#F6E7E0] pb-6">
               <div className="p-4">
                 <button
                   className="mb-4 flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white"
@@ -71,25 +71,51 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                   <XMarkIcon className="h-6" />
                 </button>
 
-                <div className="mb-4 w-full">
-                  <Suspense fallback={<SearchSkeleton />}>
-                    <Search />
-                  </Suspense>
-                </div>
-                {menu.length ? (
-                  <ul className="flex w-full flex-col">
-                    {menu.map((item: Menu) => (
-                      <li
-                        className="py-2 text-xl text-black transition-colors hover:text-neutral-500 dark:text-white"
-                        key={item.title}
+                <nav className="flex flex-col divide-y divide-[#532826]">
+                  <div className="py-2">
+                    <p className="font-portland text-2xl font-bold uppercase text-[#532826]">
+                      Shop
+                    </p>
+                    <div className="flex flex-col">
+                      <Link href="/shop/" className="font-portland uppercase text-[#532826]">
+                        Shop all
+                      </Link>
+                      <Link
+                        href="/shop/tortillas"
+                        className="font-portland uppercase text-[#532826]"
                       >
-                        <Link href={item.path} onClick={closeMobileMenu}>
-                          {item.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
+                        Tortillas
+                      </Link>
+                      <Link href="/shop/sauces" className="font-portland uppercase text-[#532826]">
+                        Sauces
+                      </Link>
+                      <Link href="/shop/bundles" className="font-portland uppercase text-[#532826]">
+                        Bundles
+                      </Link>
+                    </div>
+                  </div>
+                  <Link
+                    href="/"
+                    className="py-2 font-portland text-2xl font-bold uppercase text-[#532826]"
+                  >
+                    About
+                  </Link>
+                  <Link
+                    href="/"
+                    className="py-2 font-portland text-2xl font-bold uppercase text-[#532826]"
+                  >
+                    Contact
+                  </Link>
+                  <Link
+                    href="/"
+                    className="py-2 font-portland text-2xl font-bold uppercase text-[#532826]"
+                  >
+                    Find in Store
+                  </Link>
+                </nav>
+              </div>
+              <div className="mt-auto flex items-center">
+                <SocialMenu classname="text-[#532826] justify-center w-full" />
               </div>
             </Dialog.Panel>
           </Transition.Child>

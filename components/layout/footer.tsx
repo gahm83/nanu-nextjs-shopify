@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import SocialMenu from './social-menu';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
@@ -18,36 +19,7 @@ export default async function Footer() {
             <h2 className="font-plam-canyon-drive text-5xl font-normal">Join our familia!</h2>
           </div>
           <div className="mt-9 lg:order-last lg:ml-20 lg:mt-0 lg:flex lg:flex-col lg:justify-between">
-            <div className="flex items-center space-x-4">
-              <a href="">
-                <Image
-                  src="/images/icon-ig.svg"
-                  alt="Follow us on Instagram"
-                  width={40}
-                  height={40}
-                />
-              </a>
-              <a href="">
-                <Image src="/images/icon-tt.svg" alt="Follow us on Tiktok" width={40} height={40} />
-              </a>
-              <a href="">
-                <Image
-                  src="/images/icon-fb.svg"
-                  alt="Follow us on facebook"
-                  width={40}
-                  height={40}
-                />
-              </a>
-              <a href="">
-                <Image
-                  src="/images/icon-sptfy.svg"
-                  alt="Listen us on Spotify"
-                  width={40}
-                  height={40}
-                />
-              </a>
-            </div>
-            <a>nanufoodsllc@gmail.com</a>
+            <SocialMenu classname="text-[#F6E7E0]" />
           </div>
           <nav className="mt-16 grid grid-cols-2 lg:mt-0 lg:gap-8">
             <div className="flex flex-col space-y-2">
