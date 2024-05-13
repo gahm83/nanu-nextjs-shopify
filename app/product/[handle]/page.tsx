@@ -77,9 +77,9 @@ export default async function ProductPage({ params }: { params: { handle: string
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      <div className="mx-auto max-w-[1120px] py-10">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-16">
-          <div>
+      <div className="mx-auto max-w-[1120px] py-5 lg:py-10">
+        <div className="grid gap-5 lg:grid-cols-2 lg:gap-10">
+          <div className="px-5 lg:space-y-5 lg:p-0">
             <div className="rounded-xl bg-[#F2D2C3]">
               <Suspense
                 fallback={
@@ -94,12 +94,14 @@ export default async function ProductPage({ params }: { params: { handle: string
                 />
               </Suspense>
             </div>
-            <div className="rounded-xl bg-[#F2D2C3]">
-              <Image src={inferior} alt="" className="mt-5 w-full" />
+            <div className="hidden overflow-hidden rounded-xl bg-[#F2D2C3] lg:block">
+              <Image src={inferior} alt="" className="w-full" />
             </div>
           </div>
-          <div className="rounded-xl bg-[#FFF5F0]">
-            <ProductDescription product={product} />
+          <div className="px-5 lg:p-0">
+            <div className="rounded-xl bg-[#FFF5F0]">
+              <ProductDescription product={product} />
+            </div>
           </div>
         </div>
         {/* <RelatedProducts id={product.id} /> */}

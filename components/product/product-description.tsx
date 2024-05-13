@@ -20,8 +20,9 @@ export function ProductDescription({ product }: { product: Product }) {
   const handleIncrement = () => {
     if (cantidad < (product?.stock ?? 0)) {
       setCantidad((prev) => prev + 1);
+    } else {
+      setCantidad((prev) => prev + 1);
     }
-    setCantidad((prev) => prev + 1);
   };
 
   const handleDecrement = () => {
@@ -99,7 +100,7 @@ export function ProductDescription({ product }: { product: Product }) {
           </div>
         )}
       </AnimatePresence>
-      <div className="flex flex-col space-y-5 px-10 py-8">
+      <div className="flex flex-col space-y-5 px-6 py-5 lg:px-10 lg:py-8">
         <div className="relative pb-5 after:inset-x-10 after:bottom-0 after:block after:h-[5px] after:bg-border-sky after:bg-repeat-space after:content-['']">
           <h4 className="pb-5 font-plam-canyon-drive text-5xl font-normal text-[#532826]">
             Collection (Pendiente)
@@ -108,14 +109,14 @@ export function ProductDescription({ product }: { product: Product }) {
         <h1 className="mb-2 font-portland text-4xl font-bold uppercase text-[#532826]">
           {product.title}
         </h1>
-        <div className="flex items-center justify-stretch divide-x-2 divide-[#532826] border-2 border-[#532826] text-center font-portland uppercase text-[#532826]">
-          <div className="flex h-[50px] items-center justify-center bg-[#EDD3C5] px-4 text-2xl font-bold">
+        <div className="grid grid-flow-row grid-cols-2 items-center justify-stretch border-2 border-[#532826] text-center font-portland uppercase text-[#532826] lg:flex lg:divide-x-2 lg:divide-[#532826]">
+          <div className="col-span-1 flex h-[50px] items-center justify-center border-r-2 border-[#532826] bg-[#EDD3C5] px-4 text-2xl font-bold lg:border-r-0">
             ${Number(product.priceRange.maxVariantPrice.amount).toString().replace(/\.0$/, '')}
           </div>
-          <div className="flex h-[50px] items-center justify-center px-4 font-bold leading-none">
+          <div className="col-span-2 row-start-2 flex h-[50px] items-center justify-center border-t-2 border-[#532826] px-4 font-bold leading-none lg:border-t-0">
             {product.quantity?.value}
           </div>
-          <div className="flex h-[50px] items-center justify-center whitespace-nowrap px-4 font-bold">
+          <div className="col-span-1 flex h-[50px] items-center justify-center whitespace-nowrap px-4 font-bold">
             {product.weight?.value} OZ
           </div>
         </div>
@@ -138,7 +139,7 @@ export function ProductDescription({ product }: { product: Product }) {
         <div className="flex items-center gap-5">
           <div className="flex items-center bg-[#EDD3C5]">
             <button
-              className="px-4 py-2 font-portland text-[24px] font-normal transition-all hover:bg-[#df9e7c]"
+              className="flex h-[50px] w-8 items-center justify-end transition-all hover:bg-[#df9e7c]"
               onClick={handleDecrement}
             >
               <svg
@@ -155,10 +156,10 @@ export function ProductDescription({ product }: { product: Product }) {
               type="text"
               value={cantidad}
               readOnly
-              className="h-[50px] w-10 border-0 bg-transparent p-0 text-center font-portland text-2xl text-[#532826]"
+              className="h-[50px] w-12 border-0 bg-transparent p-0 text-center font-portland text-2xl text-[#532826]"
             />
             <button
-              className="rounded-r px-4 py-2 font-portland text-[24px] font-normal transition-all hover:bg-[#df9e7c]"
+              className="flex h-[50px] w-8 items-center justify-start transition-all hover:bg-[#df9e7c]"
               onClick={handleIncrement}
             >
               <svg

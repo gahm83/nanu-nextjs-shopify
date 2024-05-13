@@ -28,7 +28,7 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
 
   return (
     <>
-      <div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden">
+      <div className="relative aspect-video h-full max-h-[550px] w-full overflow-hidden lg:aspect-square">
         {images[imageIndex] && (
           <Image
             className="h-full w-full object-contain"
