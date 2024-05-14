@@ -24,7 +24,7 @@ const productFragment = /* GraphQL */ `
         currencyCode
       }
     }
-    collections(first: 1) {
+    collection: collections(first: 1) {
       edges {
         node {
           handle

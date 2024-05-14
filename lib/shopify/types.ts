@@ -70,7 +70,6 @@ export type Product = Omit<ShopifyProduct, 'variants' | 'images'> & {
   quantity?: any;
   weight?: any;
   stock?: number;
-  collections: any;
 };
 
 export type ProductOption = {
@@ -124,6 +123,7 @@ export type ShopifyProduct = {
   title: string;
   description: string;
   descriptionHtml: string;
+  collections: any;
   options: ProductOption[];
   priceRange: {
     maxVariantPrice: Money;

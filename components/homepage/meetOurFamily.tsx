@@ -22,13 +22,13 @@ const collectionItems = [
 const MeetOurFamily = () => {
   return (
     <section>
-      <div className="mx-auto flex w-10/12 flex-col py-[60px] lg:grid lg:max-w-[1280px] lg:auto-rows-max lg:grid-cols-2 lg:gap-10">
-        <div className="flex items-center pb-4">
+      <div className="mx-auto flex w-10/12 flex-col py-[60px] lg:grid lg:max-w-[1280px] lg:auto-rows-max lg:grid-cols-3 lg:gap-8">
+        <div className="flex items-center pb-4 lg:col-span-2">
           <h2 className="font-portland text-3xl font-black uppercase text-[#532826] lg:text-5xl">
             Meet our Family
           </h2>
         </div>
-        <div className="order-last mt-5 flex items-center justify-between space-x-5 lg:mt-0 lg:space-x-6">
+        <div className="order-last mt-5 flex items-center justify-between space-x-5 lg:col-start-3 lg:row-start-1 lg:mt-0 lg:space-x-6">
           <Link
             href="/shop"
             className="flex-grow border-2 border-solid border-[#532826] bg-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#F6E7E0] lg:px-6 lg:py-2"
@@ -42,7 +42,7 @@ const MeetOurFamily = () => {
             Find in store
           </Link>
         </div>
-        <div className="flex flex-col gap-8 lg:col-span-2 lg:grid lg:grid-cols-3">
+        <div className="flex flex-col gap-8 lg:col-span-3 lg:grid lg:grid-cols-3">
           {collectionItems &&
             collectionItems.map((item, index) => (
               <div
