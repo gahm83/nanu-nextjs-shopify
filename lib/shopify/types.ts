@@ -70,6 +70,7 @@ export type Product = Omit<ShopifyProduct, 'variants' | 'images'> & {
   quantity?: any;
   weight?: any;
   stock?: number;
+  collections: any;
 };
 
 export type ProductOption = {

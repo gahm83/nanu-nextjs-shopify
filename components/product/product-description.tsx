@@ -1,9 +1,11 @@
 'use client';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 import Prose from 'components/prose';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Product } from 'lib/shopify/types';
 import React, { Suspense } from 'react';
 import { AddToCart } from '../cart/add-to-cart';
+
 // import badges from '/images/Badges.png';
 // import imageClose from '/images/Close.png';
 // import dashedIngredients from '/images/ingredientes-dashed.png';
@@ -30,28 +32,29 @@ export function ProductDescription({ product }: { product: Product }) {
       setCantidad((prev) => prev - 1);
     }
   };
-
-  return (
+  //www.godaddy.com/es/seguridad-web
+  https: return (
     <>
       <AnimatePresence>
         {showPopup && (
-          <div className="fixed left-0 top-0 z-[9999] flex h-full w-full items-center justify-center bg-black bg-opacity-50">
+          <div
+            className="fixed inset-0 z-[9999] flex h-full w-full items-center justify-center bg-black/70"
+            onClick={togglePopup}
+          >
             <motion.div
-              className="fixed left-0 top-0 z-[99999] flex h-full w-full items-center justify-center bg-opacity-50"
+              className="fixed left-0 top-0 z-[99999] flex h-full w-full items-center justify-center bg-opacity-50 px-10"
               initial={{ opacity: 0, y: -200 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -200 }}
               transition={{ duration: 0.4 }}
             >
-              <div className="relative rounded-lg bg-[#532826] p-8">
-                <button className="absolute -right-6 -top-6 p-0" onClick={togglePopup}>
-                  {/* <Image
-                    src={imageClose}
-                    alt={'Close'}
-                    className="mx-auto h-auto w-auto cursor-pointer"
-                    width={406}
-                    height={500}
-                  /> */}
+              <div className="relative rounded-lg bg-[#532826]">
+                <button
+                  onClick={togglePopup}
+                  className="group absolute left-full top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-[#532826]"
+                >
+                  <span className="absolute block h-11 w-11 rotate-45 transform bg-[#8DC8E8]"></span>
+                  <XMarkIcon className="relative h-6 w-6 transition-all duration-300 ease-in-out group-hover:scale-125" />
                 </button>
                 <div className="flex gap-6">
                   {/* TODO: FALTAN INGREDIENTES */}
@@ -102,8 +105,8 @@ export function ProductDescription({ product }: { product: Product }) {
       </AnimatePresence>
       <div className="flex flex-col space-y-5 px-6 py-5 lg:px-10 lg:py-8">
         <div className="relative pb-5 after:inset-x-10 after:bottom-0 after:block after:h-[5px] after:bg-border-sky after:bg-repeat-space after:content-['']">
-          <h4 className="pb-5 font-plam-canyon-drive text-5xl font-normal text-[#532826]">
-            Collection (Pendiente)
+          <h4 className="pb-5 font-plam-canyon-drive text-5xl font-normal capitalize text-[#532826]">
+            {product.collections.edges[0].node.handle}
           </h4>
         </div>
         <h1 className="mb-2 font-portland text-4xl font-bold uppercase text-[#532826]">
