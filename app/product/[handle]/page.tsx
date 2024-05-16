@@ -1,3 +1,5 @@
+import { CustomerReviews } from '@/components/product/customer-reviews';
+import { VersatileCompanion } from '@/components/product/versatile-companion';
 import inferior from '@/images/Rectangle 72.png';
 import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
@@ -106,6 +108,8 @@ export default async function ProductPage({ params }: { params: { handle: string
         </div>
         {/* <RelatedProducts id={product.id} /> */}
       </div>
+      <VersatileCompanion />
+      <CustomerReviews />
     </>
   );
 }

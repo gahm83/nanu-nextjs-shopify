@@ -8,12 +8,17 @@ const WeHateLettuceTacos = () => {
           <div className="relative">
             <span>We hate </span>
             <figure className="absolute left-full top-1/2 z-[1] aspect-square w-[15vw] translate-x-[40%] translate-y-[-50%] md:w-[10vw]">
-              <Image src="/images/home/benefits/gluten-free.svg" fill={true} alt="Gluten free!" />
+              <Image
+                src="/images/home/benefits/gluten-free.svg"
+                fill={true}
+                alt="Gluten free!"
+                className="animate-spin duration-1000"
+              />
             </figure>
           </div>
           <div className="relative">
             <span>our tacos on a </span>
-            <figure className="absolute right-full top-1/2 z-[1] aspect-square w-[16vw] translate-x-[15%] translate-y-[-40%] lg:w-[11vw]">
+            <figure className="absolute right-full top-1/2 z-[1] aspect-square w-[16vw] translate-x-[15%] translate-y-[-40%] animate-wave-15 lg:w-[11vw]">
               <Image src="/images/home/benefits/100-vegan.svg" fill={true} alt="100% Vegan" />
             </figure>
           </div>

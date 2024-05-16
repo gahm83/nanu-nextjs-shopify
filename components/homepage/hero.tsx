@@ -36,7 +36,7 @@ const ctoItems = [
 const Hero = () => {
   return (
     <section>
-      <div className="relative flex w-full flex-col justify-center before:bg-hero lg:before:bg-hero-desktop before:absolute before:inset-x-0 before:top-0 before:aspect-[1/2.4] before:w-full before:content-[''] lg:before:aspect-[1.44/1] lg:before:max-h-[1000px]">
+      <div className="before:bg-hero relative flex w-full flex-col justify-center before:absolute before:inset-x-0 before:top-0 before:aspect-[1/2.4] before:w-full before:content-[''] lg:before:aspect-[1.44/1] lg:before:max-h-[1000px]">
         <div className="relative flex flex-grow flex-col items-center pb-20 pt-60">
           <figure className="flex items-center justify-center px-6">
             <Image
@@ -71,10 +71,10 @@ const Hero = () => {
                 ctoItems.map((cto, index) => (
                   <div
                     key={index}
-                    className={`bg-sphere-mobile flex flex-col items-center justify-center bg-[#8DC8E8] bg-blue-circle bg-no-repeat ${cto.classname} aspect-[1.09/1] w-[90px] rounded-full font-portland font-bold uppercase text-[#532826] lg:w-[120px] lg:text-xl`}
+                    className={`bg-button-hero bg-blue-circle flex flex-col items-center justify-center bg-[#8DC8E8] bg-no-repeat ${cto.classname} aspect-[1.09/1] w-[90px] rounded-full font-portland font-bold uppercase text-[#532826] lg:w-[120px] lg:text-xl`}
                   >
-                    <span className="block leading-none">{cto.top}</span>
-                    <span className="block text-xl leading-none lg:text-2xl">{cto.bottom}</span>
+                    <span className="-mb-2 block font-black">{cto.top}</span>
+                    <span className="block text-xl font-black lg:text-2xl">{cto.bottom}</span>
                   </div>
                 ))}
               <div className="relative order-2 mx-auto flex w-[80px] items-center justify-center lg:w-[120px]">

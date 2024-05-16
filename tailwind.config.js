@@ -12,8 +12,7 @@ module.exports = {
       backgroundImage: {
         'cart-qty': "url('/images/shopping-bag.svg')",
         'border-sky': "url('/images/elements/dot-sky.svg')",
-        'border-wood': "url('/images/elements/dot-wood.svg')",
-        'blue-circle': "url('/images/elements/bg-blue-circle.png')"
+        'border-wood': "url('/images/elements/dot-wood.svg')"
       },
       fontFamily: {
         athiti: 'Athiti',
@@ -35,12 +34,24 @@ module.exports = {
           '0%': { opacity: 0.2 },
           '20%': { opacity: 1 },
           '100% ': { opacity: 0.2 }
+        },
+        'wave-15': {
+          '0%': { transform: 'rotate(15deg)' },
+          '50%': { transform: 'rotate(0)' },
+          '100% ': { transform: 'rotate(15deg)' }
+        },
+        'wave-20': {
+          '0%': { transform: 'rotate(-20deg)' },
+          '50%': { transform: 'rotate(0)' },
+          '100% ': { transform: 'rotate(-20deg)' }
         }
       },
       animation: {
         fadeIn: 'fadeIn .3s ease-in-out',
         carousel: 'marquee 60s linear infinite',
-        blink: 'blink 1.4s both infinite'
+        blink: 'blink 1.4s both infinite',
+        'wave-15': 'wave-15 1s linear infinite',
+        'wave-20': 'wave-20 1s linear infinite'
       }
     }
   },
@@ -66,21 +77,6 @@ module.exports = {
     }),
     plugin(function ({ addComponents }) {
       addComponents({
-        '.bg-hero': {
-          backgroundImage:
-            'url(/images/home/hero/bg-hero-bottom.png), url(/images/home/hero/bg-hero.jpg)',
-          backgroundRepeat: 'repeat-x, no-repeat',
-          backgroundPosition: 'bottom, 84% 0',
-          backgroundSize: '14px, 420vw'
-        },
-        '.bg-hero-desktop': {
-          backgroundPosition: 'bottom, top',
-          backgroundSize: '14px, 100vw'
-        },
-        '.bg-sphere-mobile': {
-          backgroundSize: '9px auto',
-          backgroundPosition: 'center'
-        },
         '.bg-add-to-cart': {
           backgroundImage: "url('/images/add-to-bag.svg')",
           backgroundPosition: 'center',
