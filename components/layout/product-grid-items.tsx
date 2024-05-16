@@ -1,16 +1,14 @@
-import { AddToCart } from 'components/cart/add-to-cart';
 import Grid from 'components/grid';
 import { Product } from 'lib/shopify/types';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Suspense } from 'react';
+import { ProductCard } from '../grid/product-card';
 
 export default function ProductGridItems({ products }: { products: Product[] }) {
   return (
     <>
       {products.map((product) => (
         <Grid.Item key={product.handle} className="animate-fadeIn">
-          <div className="relative flex flex-col items-center justify-stretch">
+          <ProductCard product={product} />
+          {/* <div className="relative flex flex-col items-center justify-stretch">
             <Link href={`/product/${product.handle}`}>
               <Image src={product.featuredImage?.url} width={405} height={500} alt={product.title} />
             </Link>
@@ -24,7 +22,7 @@ export default function ProductGridItems({ products }: { products: Product[] }) 
                 </Suspense>
               </div>
             </div>
-          </div>
+          </div> */}
         </Grid.Item>
       ))}
     </>

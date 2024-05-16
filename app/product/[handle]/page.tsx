@@ -1,4 +1,4 @@
-import { GridTileImage } from '@/components/grid/tile';
+import { ProductCard } from '@/components/grid/product-card';
 import { CustomerReviews } from '@/components/product/customer-reviews';
 import { StraighFromOurKitchen } from '@/components/product/straight-from-our-kitchen';
 import { VersatileCompanion } from '@/components/product/versatile-companion';
@@ -125,26 +125,15 @@ async function RelatedProducts({ id }: { id: string }) {
   if (!relatedProducts.length) return null;
 
   return (
-    <div className="py-8">
-      <h2 className="mb-4 text-2xl font-bold">Related Products</h2>
-      <ul className="flex w-full gap-4 overflow-x-auto pt-1">
-        {relatedProducts.map((product) => (
-          <li
-            key={product.handle}
-            className="aspect-square w-full flex-none min-[475px]:w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
-          >
+    <div className="mx-auto w-10/12 py-16 lg:max-w-[1280px]">
+      <h2 className="mb-14 text-center font-portland text-4xl font-black uppercase text-[#532826]">
+        Related Products
+      </h2>
+      <ul className="grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {relatedProducts.slice(0, 3).map((product) => (
+          <li key={product.handle} className="animate-fadeIn transition-opacity">
             <Link className="relative h-full w-full" href={`/product/${product.handle}`}>
-              <GridTileImage
-                alt={product.title}
-                label={{
-                  title: product.title,
-                  amount: product.priceRange.maxVariantPrice.amount,
-                  currencyCode: product.priceRange.maxVariantPrice.currencyCode
-                }}
-                src={product.featuredImage?.url}
-                fill
-                sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, (min-width: 475px) 50vw, 100vw"
-              />
+              <ProductCard product={product} />
             </Link>
           </li>
         ))}
