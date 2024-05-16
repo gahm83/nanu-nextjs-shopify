@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import StarRating from '../product/starRating';
+import StarRating from '../product/star-rating';
 
 interface Review {
   image?: string;
