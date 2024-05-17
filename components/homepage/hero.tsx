@@ -1,4 +1,12 @@
+'use client';
+// import gsap from 'gsap';
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 import Image from 'next/image';
+import { useRef } from 'react';
+
+gsap.registerPlugin(useGSAP);
 
 const cardItems = [
   {
@@ -16,7 +24,7 @@ const cardItems = [
   {
     icon: '/images/home/hero/happier-gut-life.svg',
     title: 'Happier gut, happier life',
-    description: ' Gluten-free, low carb, made with natural ingredients and lots of love!'
+    description: 'Gluten-free, low carb, made with natural ingredients and lots of love!'
   }
 ];
 
@@ -34,8 +42,39 @@ const ctoItems = [
 ];
 
 const Hero = () => {
+  const container = useRef();
+  // const heritage = useRef();
+  const tl = useRef();
+
+  useGSAP(
+    () => {
+      // use selectors...
+      // gsap.fromTo(heritage.current, { opacity: "0", duration: 3 }, { rotation: "+=360", duration: 3 });
+      tl.current = gsap
+        .timeline()
+        .fromTo('.heritage', { y: 100, opacity: 0 }, { y: 0, opacity: 1 })
+        .fromTo('.friendlyFoods', { y: 100, opacity: 0 }, { y: 0, opacity: 1 })
+        .fromTo('.hyr', { scale: 1.5, opacity: 0, y: 24 }, { scale: 1, opacity: 100, y: 0 })
+        .fromTo('.eyw', { scale: 1.5, opacity: 0, y: 24 }, { scale: 1, opacity: 100, y: 0 })
+        .fromTo('.snowflake', { width: 40, opacity: 0 }, { width: 120, opacity: 100 })
+        .fromTo(
+          '.button-1',
+          { x: 60, scale: 0.7, opacity: 0 },
+          { x: 0, scale: 1, opacity: 100 },
+          '<'
+        )
+        .fromTo(
+          '.button-2',
+          { x: -60, scale: 0.7, opacity: 0 },
+          { x: 0, scale: 1, opacity: 100 },
+          '<'
+        );
+    },
+    { scope: container }
+  ); // <-- scope for selector text (optional)
+
   return (
-    <section>
+    <section ref={container}>
       <div className="before:bg-hero relative flex w-full flex-col justify-center before:absolute before:inset-x-0 before:top-0 before:aspect-[1/2.4] before:w-full before:content-[''] lg:before:aspect-[1.44/1] lg:before:max-h-[1000px]">
         <div className="relative flex flex-grow flex-col items-center pb-20 pt-60">
           <figure className="flex items-center justify-center px-6">
@@ -52,32 +91,32 @@ const Hero = () => {
             width={447}
             height={110}
             alt="Heritage"
-            className="mx-auto hidden drop-shadow-md lg:block"
+            className="heritage mx-auto hidden opacity-0 drop-shadow-md lg:block"
           />
           <Image
             src="/images/home/hero/title-bottom.svg"
             width={760}
             height={153}
             alt="Friendly Foods"
-            className="mx-auto -mt-9 hidden drop-shadow-md lg:block"
+            className="friendlyFoods mx-auto -mt-9 hidden opacity-0 drop-shadow-md lg:block"
           />
           <div className="space-y-16">
             <h1 className="text-center font-portland text-2xl">
-              <span className="text-shadow block">HONOR YOUR ROOTS,</span>
-              <span className="text-shadow block">EMBRACE YOUR WELLNESS</span>
+              <span className="hyr text-shadow block opacity-0">HONOR YOUR ROOTS,</span>
+              <span className="eyw text-shadow block opacity-0">EMBRACE YOUR WELLNESS</span>
             </h1>
             <div className="flex items-center justify-center space-x-6 lg:space-x-[60px]">
               {ctoItems &&
                 ctoItems.map((cto, index) => (
                   <div
                     key={index}
-                    className={`bg-button-hero bg-blue-circle flex flex-col items-center justify-center bg-[#8DC8E8] bg-no-repeat ${cto.classname} aspect-[1.09/1] w-[90px] rounded-full font-portland font-bold uppercase text-[#532826] lg:w-[120px] lg:text-xl`}
+                    className={`bg-button-hero bg-blue-circle flex flex-col items-center justify-center bg-[#8DC8E8] bg-no-repeat ${cto.classname} aspect-[1.09/1] w-[90px] rounded-full font-portland font-bold uppercase text-[#532826] opacity-0 lg:w-[120px] lg:text-xl button-${index + 1}`}
                   >
                     <span className="-mb-2 block font-black">{cto.top}</span>
                     <span className="block text-xl font-black lg:text-2xl">{cto.bottom}</span>
                   </div>
                 ))}
-              <div className="relative order-2 mx-auto flex w-[80px] items-center justify-center lg:w-[120px]">
+              <div className="snowflake relative order-2 mx-auto flex w-[40px] items-center justify-center opacity-0 lg:w-[120px]">
                 <Image
                   src="/images/elements/dot-lg.png"
                   width={40}

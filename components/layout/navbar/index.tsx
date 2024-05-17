@@ -11,7 +11,8 @@ export default async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
-    <div className="relative inset-x-0 top-0 z-50 bg-[#532826] py-5">
+    // <div className="absolute inset-x-0 top-0 z-50 bg-[#532826] py-5">
+    <div className="absolute inset-x-0 top-0 z-50 py-5">
       <div className="relative mx-auto flex w-11/12 items-center lg:max-w-[1420px] lg:items-end ">
         <div className="lg:hidden">
           <Suspense fallback={null}>
