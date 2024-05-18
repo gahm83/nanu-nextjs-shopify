@@ -48,15 +48,13 @@ const Hero = () => {
 
   useGSAP(
     () => {
-      // use selectors...
-      // gsap.fromTo(heritage.current, { opacity: "0", duration: 3 }, { rotation: "+=360", duration: 3 });
       tl.current = gsap
         .timeline()
         .fromTo('.heritage', { y: 100, opacity: 0 }, { y: 0, opacity: 1 })
         .fromTo('.friendlyFoods', { y: 100, opacity: 0 }, { y: 0, opacity: 1 })
-        .fromTo('.hyr', { scale: 1.5, opacity: 0, y: 24 }, { scale: 1, opacity: 100, y: 0 })
-        .fromTo('.eyw', { scale: 1.5, opacity: 0, y: 24 }, { scale: 1, opacity: 100, y: 0 })
         .fromTo('.snowflake', { width: 40, opacity: 0 }, { width: 120, opacity: 100 })
+        .fromTo('.hyr', { scale: 1.5, opacity: 0, y: 24 }, { scale: 1, opacity: 100, y: 0 })
+        .fromTo('.eyw', { scale: 1.5, opacity: 0, y: 24 }, { scale: 1, opacity: 100, y: 0 }, '<')
         .fromTo(
           '.button-1',
           { x: 60, scale: 0.7, opacity: 0 },
