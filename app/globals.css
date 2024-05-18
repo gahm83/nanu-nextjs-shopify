@@ -76,7 +76,7 @@ body {
 }
 
 .bg-border-diamond {
-  border-image-source: url('/images/elements/dot.svg');
+  border-image-source: url('/images/dot.svg');
   border-image-repeat: repeat;
   border-image-width: 4px;
 }

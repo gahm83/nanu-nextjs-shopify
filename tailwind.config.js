@@ -11,8 +11,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         'cart-qty': "url('/images/shopping-bag.svg')",
-        'border-sky': "url('/images/elements/dot-sky.svg')",
-        'border-wood': "url('/images/elements/dot-wood.svg')"
+        'border-sky': "url('/images/border-blue.svg')",
+        'border-wood': "url('/images/border-wood.svg')"
       },
       fontFamily: {
         athiti: 'Athiti',

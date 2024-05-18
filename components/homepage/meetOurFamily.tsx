@@ -51,12 +51,7 @@ const MeetOurFamily = () => {
               >
                 <div className="relative z-10 -mb-[5rem] flex items-end justify-end pr-10 pt-14">
                   <Link href={item.url} className="right-10 top-14 block h-[80px] w-[80px]">
-                    <Image
-                      src="images/elements/go-to.svg"
-                      alt={item.title}
-                      width={80}
-                      height={80}
-                    />
+                    <Image src="images/go-to.svg" alt={item.title} width={80} height={80} />
                   </Link>
                 </div>
                 <figure className="relative aspect-square">

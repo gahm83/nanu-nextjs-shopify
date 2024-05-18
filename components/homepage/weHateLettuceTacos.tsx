@@ -9,29 +9,50 @@ gsap.registerPlugin(useGSAP);
 const WeHateLettuceTacos = () => {
   const container = useRef();
 
-  useGSAP(
-    () => {
-      gsap.to('.rotate-15', {
-        duration: 0.75,
-        rotation: 15,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      });
+  useGSAP(() => {
+    gsap.to('.rotate-15', {
+      duration: 0.75,
+      rotation: 15,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
 
-      gsap.to('.-rotate-15', {
-        duration: 0.9,
-        rotation: -15,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      });
-    },
-    { scope: container }
-  );
+    gsap.to('.-rotate-15', {
+      duration: 0.9,
+      rotation: -15,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
+
+    gsap.to('.blink-1', {
+      delay: 1.5,
+      scale: 0,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
+
+    gsap.to('.blink-2', {
+      delay: 3,
+      scale: 0,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
+
+    gsap.to('.blink-3', {
+      delay: 4.5,
+      scale: 0,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
+  });
 
   return (
-    <section ref={container}>
+    <section>
       <div className="mx-auto w-10/12 py-28 lg:max-w-[1280px]">
         <h2 className="flex flex-col items-center font-portland text-[8vw] uppercase leading-tight text-[#532826] lg:text-[5vw]">
           <div className="relative">
@@ -42,6 +63,20 @@ const WeHateLettuceTacos = () => {
                 fill={true}
                 alt="Gluten free!"
                 className="rotate-15"
+              />
+              <Image
+                src="/images/square-sky.svg"
+                alt="Gluten free!"
+                width={20}
+                height={20}
+                className="blink-1 absolute right-[110%] top-[70%]"
+              />
+              <Image
+                src="/images/square-sky.svg"
+                alt="Gluten free!"
+                width={20}
+                height={20}
+                className="blink-2 absolute left-[70%] top-[-20%]"
               />
             </figure>
           </div>
@@ -54,6 +89,27 @@ const WeHateLettuceTacos = () => {
                 fill={true}
                 className="-rotate-15"
               />
+              <Image
+                src="/images/snowflake-blue.svg"
+                alt="Honor your roots"
+                width={40}
+                height={40}
+                className="blink absolute left-0 top-full"
+              />
+              <Image
+                src="/images/square-sky.svg"
+                alt="Honor your roots"
+                width={20}
+                height={20}
+                className="blink-2 absolute right-[110%] top-[70%]"
+              />
+              <Image
+                src="/images/square-sky.svg"
+                alt="Honor your roots"
+                width={20}
+                height={20}
+                className="blink-3 absolute left-[70%] top-[-20%]"
+              />
             </figure>
           </div>
           <div className="relative">
@@ -61,12 +117,26 @@ const WeHateLettuceTacos = () => {
           </div>
           <div className="relative">
             <span>so we crafted </span>
-            <figure className="absolute left-full top-[60%] z-[1] aspect-[1.77/1] w-[21vw] translate-x-[-30%] -rotate-[15deg] lg:top-full lg:w-[14vw] lg:translate-x-[-50%]">
+            <figure className="absolute left-[110%] top-[60%] z-[1] aspect-[1.77/1] w-[21vw] translate-x-[-30%] -rotate-[15deg] lg:top-[60%] lg:w-[14vw] lg:translate-x-[-50%]">
               <Image
                 src="/images/home/benefits/women-owned.svg"
                 alt="Women Owned"
                 fill={true}
                 className="rotate-15"
+              />
+              <Image
+                src="/images/square-sky.svg"
+                alt="Honor your roots"
+                width={20}
+                height={20}
+                className="blink-2 absolute left-[70%] top-[-40%]"
+              />
+              <Image
+                src="/images/square-sky.svg"
+                alt="Honor your roots"
+                width={20}
+                height={20}
+                className="blink-1 absolute left-[80%] top-[130%]"
               />
             </figure>
           </div>
@@ -85,6 +155,27 @@ const WeHateLettuceTacos = () => {
                 fill={true}
                 className="-rotate-15"
               />
+              <Image
+                src="/images/snowflake-blue.svg"
+                alt="Made with few ingredients"
+                width={40}
+                height={40}
+                className="blink-2 absolute -left-5 top-[120%]"
+              />
+              <Image
+                src="/images/square-sky.svg"
+                alt="Made with few ingredients"
+                width={20}
+                height={20}
+                className="blink-1 absolute left-0 top-[-20%]"
+              />
+              <Image
+                src="/images/square-sky.svg"
+                alt="Made with few ingredients"
+                width={20}
+                height={20}
+                className="blink-3 absolute left-[-40%] top-[80%]"
+              />
             </figure>
           </div>
           <div className="relative">
@@ -95,6 +186,20 @@ const WeHateLettuceTacos = () => {
                 alt="Honor your roots"
                 fill={true}
                 className="rotate-15"
+              />
+              <Image
+                src="/images/snowflake-blue.svg"
+                alt="Honor your roots"
+                width={40}
+                height={40}
+                className="blink-2 absolute left-full top-0"
+              />
+              <Image
+                src="/images/square-sky.svg"
+                alt="Honor your roots"
+                width={20}
+                height={20}
+                className="blink-1 absolute left-[20%] top-full"
               />
             </figure>
           </div>

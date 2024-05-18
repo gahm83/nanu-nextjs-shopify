@@ -4,7 +4,6 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import Image from 'next/image';
-import { useRef } from 'react';
 
 gsap.registerPlugin(useGSAP);
 
@@ -42,37 +41,28 @@ const ctoItems = [
 ];
 
 const Hero = () => {
-  const container = useRef();
-  // const heritage = useRef();
-  const tl = useRef();
-
-  useGSAP(
-    () => {
-      tl.current = gsap
-        .timeline()
-        .fromTo('.heritage', { y: 100, opacity: 0 }, { y: 0, opacity: 1 })
-        .fromTo('.friendlyFoods', { y: 100, opacity: 0 }, { y: 0, opacity: 1 })
-        .fromTo('.snowflake', { width: 40, opacity: 0 }, { width: 120, opacity: 100 })
-        .fromTo('.hyr', { scale: 1.5, opacity: 0, y: 24 }, { scale: 1, opacity: 100, y: 0 })
-        .fromTo('.eyw', { scale: 1.5, opacity: 0, y: 24 }, { scale: 1, opacity: 100, y: 0 }, '<')
-        .fromTo(
-          '.button-1',
-          { x: 60, scale: 0.7, opacity: 0 },
-          { x: 0, scale: 1, opacity: 100 },
-          '<'
-        )
-        .fromTo(
-          '.button-2',
-          { x: -60, scale: 0.7, opacity: 0 },
-          { x: 0, scale: 1, opacity: 100 },
-          '<'
-        );
-    },
-    { scope: container }
-  ); // <-- scope for selector text (optional)
+  // const container = useRef<HTMLDivElement | null>(null);
+  useGSAP(() => {
+    // if (container.current) {
+    const tl = gsap
+      .timeline()
+      .fromTo('.heritage', { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
+      .fromTo('.friendlyFoods', { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
+      .fromTo('.hyr', { x: -100, opacity: 0 }, { x: 1, opacity: 100 })
+      .fromTo('.eyw', { x: 100, opacity: 0 }, { x: 0, opacity: 100 })
+      .fromTo('.snowflake', { width: 40, opacity: 0 }, { x: 0, opacity: 100 })
+      .fromTo('.button-1', { x: 60, scale: 0.7, opacity: 0 }, { x: 0, scale: 1, opacity: 100 })
+      .fromTo(
+        '.button-2',
+        { x: -60, scale: 0.7, opacity: 0 },
+        { x: 0, scale: 1, opacity: 100 },
+        '<'
+      );
+    // }
+  });
 
   return (
-    <section ref={container}>
+    <div>
       <div className="before:bg-hero relative flex w-full flex-col justify-center before:absolute before:inset-x-0 before:top-0 before:aspect-[1/2.4] before:w-full before:content-[''] lg:before:aspect-[1.44/1] lg:before:max-h-[1000px]">
         <div className="relative flex flex-grow flex-col items-center pb-20 pt-60">
           <figure className="flex items-center justify-center px-6">
@@ -116,21 +106,21 @@ const Hero = () => {
                 ))}
               <div className="snowflake relative order-2 mx-auto flex w-[40px] items-center justify-center opacity-0 lg:w-[120px]">
                 <Image
-                  src="/images/elements/dot-lg.png"
+                  src="/images/dot-lg.png"
                   width={40}
                   height={40}
                   alt="Just a dot"
                   className="absolute left-0 h-3 w-3 lg:h-5 lg:w-5"
                 />
                 <Image
-                  src="/images/elements/shape-lg.png"
+                  src="/images/snowflake-blue.svg"
                   width={40}
                   height={40}
                   alt="Just a shape"
                   className="h-6 w-6 lg:h-10 lg:w-10"
                 />
                 <Image
-                  src="/images/elements/dot-lg.png"
+                  src="/images/dot-lg.png"
                   width={40}
                   height={40}
                   alt="Just a dot"
@@ -159,7 +149,7 @@ const Hero = () => {
             ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
