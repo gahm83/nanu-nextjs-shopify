@@ -1,18 +1,23 @@
+// import useRouteClassName from '@/app/hooks/useRouteClassName';
+import FreeShippingBanner from '@/components/free-shipping-banner';
 import { getMenu } from '@/lib/shopify';
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
+import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import Logo from './logo';
 import MobileMenu from './mobile-menu';
 const { SITE_NAME } = process.env;
 
-export default async function Navbar() {
+const Navbar: React.FC<Props> = async ({ pageUrl, pathname }) => {
   const menu = await getMenu('next-js-frontend-header-menu');
+  // const className = useRouteClassName();
 
   return (
     // <div className="absolute inset-x-0 top-0 z-50 bg-[#532826] py-5">
-    <div className="absolute inset-x-0 top-0 z-50 py-5">
+    <div className={`sticky inset-x-0 top-0 z-50 py-5 ${pathname} ${pageUrl}`}>
+      <FreeShippingBanner />
       <div className="relative mx-auto flex w-11/12 items-center lg:max-w-[1420px] lg:items-end ">
         <div className="lg:hidden">
           <Suspense fallback={null}>
@@ -75,4 +80,23 @@ export default async function Navbar() {
       </div> */}
     </div>
   );
+};
+
+export default Navbar;
+
+interface Props {
+  pageUrl: string;
+  pathname: string;
 }
+// getServerSideProps with type annotation
+export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
+  const pageUrl = process.env.SITE_URL || '';
+  const pathname = context.resolvedUrl; // or context.req.url for the raw URL
+
+  return {
+    props: {
+      pageUrl,
+      pathname
+    }
+  };
+};

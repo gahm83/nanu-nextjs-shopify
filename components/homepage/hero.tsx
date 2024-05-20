@@ -78,7 +78,7 @@ const Hero = () => {
   });
 
   return (
-    <div>
+    <div className="hero-banner">
       <div className="before:bg-hero relative flex w-full flex-col justify-center before:absolute before:inset-x-0 before:top-0 before:aspect-[1/2.4] before:w-full before:content-[''] lg:before:aspect-[1.44/1] lg:before:max-h-[1000px]">
         <div className="relative flex flex-grow flex-col items-center pb-20 pt-60">
           <figure className="flex items-center justify-center px-6">
