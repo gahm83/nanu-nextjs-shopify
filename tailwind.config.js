@@ -61,6 +61,7 @@ module.exports = {
   plugins: [
     require('@tailwindcss/container-queries'),
     require('@tailwindcss/typography'),
+    require('postcss-nested'),
     plugin(({ matchUtilities, theme }) => {
       matchUtilities(
         {

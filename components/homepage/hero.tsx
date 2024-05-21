@@ -1,11 +1,11 @@
 'use client';
-// import gsap from 'gsap';
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 
 gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 const cardItems = [
   {
@@ -41,11 +41,27 @@ const ctoItems = [
 ];
 
 const Hero = () => {
+  // const navbar = useRef(null);
   // const container = useRef<HTMLDivElement | null>(null);
   useGSAP(() => {
-    // if (container.current) {
-    const tl = gsap
-      .timeline()
+    ScrollTrigger.create({
+      trigger: 'body',
+      start: 60,
+      end: 'bottom',
+      scrub: true,
+      toggleClass: { targets: '.navbar', className: 'sticky-navbar' }
+    });
+
+    const heroTimeline = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.hero-banner',
+          start: 120,
+          end: '75%',
+          scrub: true,
+          pin: true
+        }
+      })
       .set('.heritage, .friendlyFoods', { y: 100, opacity: 0 })
       .set('.hyr', { x: -100, opacity: 0 })
       .set('.eyw', { x: 100, opacity: 0 })
@@ -64,7 +80,36 @@ const Hero = () => {
       .to('.rombo-2', { rotate: 0, scale: 1 }, '<')
       .to('.snowflake', { opacity: 1 })
       .to('.button-1', { opacity: 1, scale: 1, x: 0 })
-      .to('.button-2', { opacity: 1, scale: 1, x: 0 });
+      .to('.button-2', { opacity: 1, scale: 1, x: 0 })
+      .to('.logo-full', { y: -100 })
+      .to('.logo-full', { height: 0 }, '<')
+      .to('.logo-nanu', { height: 38 }, '<')
+      .to('.navbar-wrapper', { backgroundColor: '#532826' });
+
+    // freeShippingTL.to('.free-shipping-banner', { height: 0 });
+
+    // if (container.current) {
+    // const tl = gsap
+    // .timeline()
+    // .set('.heritage, .friendlyFoods', { y: 100, opacity: 0 })
+    // .set('.hyr', { x: -100, opacity: 0 })
+    // .set('.eyw', { x: 100, opacity: 0 })
+    // .set('.shapes', { width: 40 })
+    // .set('.rombo-1', { rotate: -45, scale: 0 })
+    // .set('.rombo-2', { rotate: 45, scale: 0 })
+    // .set('.snowflake', { opacity: 0 })
+    // .set('.button-1', { opacity: 0, scale: 0, x: 100 })
+    // .set('.button-2', { opacity: 0, scale: 0, x: -100 })
+    // .to('.heritage', { y: 0, opacity: 1 }, 3)
+    // .to('.friendlyFoods', { y: 0, opacity: 1 }, '<50%')
+    // .to('.hyr', { x: 1, opacity: 100 }, '<50%')
+    // .to('.eyw', { x: 0, opacity: 100 }, '<50%')
+    // .to('.shapes', { width: 120 })
+    // .to('.rombo-1', { rotate: 0, scale: 1 }, '<')
+    // .to('.rombo-2', { rotate: 0, scale: 1 }, '<')
+    // .to('.snowflake', { opacity: 1 })
+    // .to('.button-1', { opacity: 1, scale: 1, x: 0 })
+    // .to('.button-2', { opacity: 1, scale: 1, x: 0 });
 
     // .fromTo('.snowflake', { width: 40, opacity: 0 }, { x: 0, opacity: 100 })
     // .fromTo('.button-1', { x: 60, scale: 0.7, opacity: 0 }, { x: 0, scale: 1, opacity: 100 })
@@ -79,8 +124,8 @@ const Hero = () => {
 
   return (
     <div className="hero-banner">
-      <div className="before:bg-hero relative flex w-full flex-col justify-center before:absolute before:inset-x-0 before:top-0 before:aspect-[1/2.4] before:w-full before:content-[''] lg:before:aspect-[1.44/1] lg:before:max-h-[1000px]">
-        <div className="relative flex flex-grow flex-col items-center pb-20 pt-60">
+      <div className="before:bg-hero relative flex w-full flex-col justify-center before:absolute before:inset-x-0 before:top-0 before:aspect-[1/2.4] before:w-full before:content-[''] lg:before:aspect-[1.44/1] lg:before:max-h-[1200px]">
+        <div className="relative flex flex-grow flex-col items-center pb-24 pt-[24vw]">
           <figure className="flex items-center justify-center px-6">
             <Image
               src="/images/home/hero/title-mobile.svg"

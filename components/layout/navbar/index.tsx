@@ -1,49 +1,65 @@
-// import useRouteClassName from '@/app/hooks/useRouteClassName';
 import FreeShippingBanner from '@/components/free-shipping-banner';
 import { getMenu } from '@/lib/shopify';
+import clsx from 'clsx';
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
-import { GetServerSideProps } from 'next';
+import { headers } from 'next/headers';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import Logo from './logo';
 import MobileMenu from './mobile-menu';
 const { SITE_NAME } = process.env;
 
-const Navbar: React.FC<Props> = async ({ pageUrl, pathname }) => {
+export default async function Navbar() {
+  const headerList = headers();
+  const pathname = headerList.get('x-current-path');
   const menu = await getMenu('next-js-frontend-header-menu');
-  // const className = useRouteClassName();
 
   return (
-    // <div className="absolute inset-x-0 top-0 z-50 bg-[#532826] py-5">
-    <div className={`sticky inset-x-0 top-0 z-50 py-5 ${pathname} ${pageUrl}`}>
+    // <div className={`navbar sticky ${pathname === "/" ? 'bg-transparent' : 'bg-[#532826] py-5'} inset-x-0 top-0 z-50`}>
+    <header className="navbar">
       <FreeShippingBanner />
-      <div className="relative mx-auto flex w-11/12 items-center lg:max-w-[1420px] lg:items-end ">
-        <div className="lg:hidden">
-          <Suspense fallback={null}>
-            <MobileMenu menu={menu} />
-          </Suspense>
+      <nav className="navbar-wrapper bg-[#532826]/0 transition-all duration-300">
+        <div
+          className={clsx(
+            'relative mx-auto flex w-11/12 items-center lg:max-w-[1420px] lg:items-end',
+            { 'py-5': pathname === '/' }
+          )}
+        >
+          <div className="lg:hidden">
+            <Suspense fallback={null}>
+              <MobileMenu menu={menu} />
+            </Suspense>
+          </div>
+          <Link href="/" className="relative z-10 mx-auto w-[180px]">
+            <Logo className="logo-full w-full fill-[#f6e7e0]" />
+            <Image
+              src="/images/nanu.svg"
+              alt="Navbar Logo"
+              width={113.88}
+              height={0}
+              className="logo-nanu mx-auto block h-0"
+            />
+          </Link>
+          <nav className="absolute left-0 hidden w-full  items-center space-x-4 pr-24 font-portland font-bold uppercase lg:flex">
+            <Link href="/shop" className="py-2">
+              Shop
+            </Link>
+            <Link href="/" className="py-2">
+              About
+            </Link>
+            <Link href="/" className="!ml-auto py-2">
+              Contact
+            </Link>
+          </nav>
+          <div className="lg:absolute lg:right-0">
+            <Suspense fallback={<OpenCart />}>
+              <Cart />
+            </Suspense>
+          </div>
         </div>
-        <Link href="/" className="relative z-10 mx-auto w-[180px]">
-          <Logo className="w-full fill-[#f6e7e0]" />
-        </Link>
-        <nav className="absolute left-0 hidden w-full  items-center space-x-4 pr-24 font-portland font-bold uppercase lg:flex">
-          <Link href="/shop" className="py-2">
-            Shop
-          </Link>
-          <Link href="/" className="py-2">
-            About
-          </Link>
-          <Link href="/" className="!ml-auto py-2">
-            Contact
-          </Link>
-        </nav>
-        <div className="lg:absolute lg:right-0">
-          <Suspense fallback={<OpenCart />}>
-            <Cart />
-          </Suspense>
-        </div>
-      </div>
+      </nav>
       {/* <div className="flex w-full items-center">
         <div className="flex w-full md:w-1/3">
           <Link href="/" className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6">
@@ -78,25 +94,6 @@ const Navbar: React.FC<Props> = async ({ pageUrl, pathname }) => {
           </Suspense>
         </div>
       </div> */}
-    </div>
+    </header>
   );
-};
-
-export default Navbar;
-
-interface Props {
-  pageUrl: string;
-  pathname: string;
 }
-// getServerSideProps with type annotation
-export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const pageUrl = process.env.SITE_URL || '';
-  const pathname = context.resolvedUrl; // or context.req.url for the raw URL
-
-  return {
-    props: {
-      pageUrl,
-      pathname
-    }
-  };
-};

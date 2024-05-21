@@ -75,10 +75,11 @@ body {
   @apply font-athiti;
 }
 
-.bg-border-diamond {
-  border-image-source: url('/images/dot.svg');
-  border-image-repeat: repeat;
-  border-image-width: 4px;
+.navbar {
+  @apply absolute inset-x-0 top-0 z-50 pb-5;
+  &.sticky-navbar {
+    @apply !fixed !-top-[60px];
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -125,6 +126,7 @@ button {
         top 13px center;
     }
   }
+
   .star-line,
   .star-fill {
     background-image: url(/images/rating-star.png);
