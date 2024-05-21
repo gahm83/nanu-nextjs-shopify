@@ -82,7 +82,7 @@ export default async function ProductPage({ params }: { params: { handle: string
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      <div className="mx-auto max-w-[1120px] py-5 lg:py-10">
+      <div className="mx-auto max-w-[1120px] pb-10 pt-40 lg:pb-16 lg:pt-52">
         <div className="grid gap-5 lg:grid-cols-2 lg:gap-10">
           <div className="px-5 lg:space-y-5 lg:p-0">
             <div className="rounded-xl bg-[#F2D2C3]">

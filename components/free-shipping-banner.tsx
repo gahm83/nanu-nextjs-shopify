@@ -24,7 +24,7 @@ const FreeShippingBanner = () => {
   });
 
   return (
-    <div className="free-shipping-banner flex h-[60px] w-full items-center justify-center space-x-4 overflow-hidden bg-[#8DC8E8] transition-all duration-300">
+    <div className="free-shipping-banner flex h-[48px] w-full items-center justify-center space-x-4 overflow-hidden bg-[#8DC8E8] transition-all duration-300 lg:h-[60px]">
       <div className="relative block h-3 w-3 lg:h-4 lg:w-4">
         <Image src="/images/square-wood.svg" fill={true} alt="Free Shipping Banner Dot" />
       </div>

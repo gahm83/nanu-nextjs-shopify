@@ -62,8 +62,11 @@ function SubmitButton({
       <div className="absolute left-0 ml-4">
         {pending ? <LoadingDots className="mb-3 bg-white" /> : null}
       </div>
-      {isProduct && 'Add to Bag'}
-      <AddToBagIcon className="h-[24px] w-[46px] group-hover:fill-[#EDD3C5]" />
+      {isProduct ? (
+        <span>Add to Bag</span>
+      ) : (
+        <AddToBagIcon className="h-[24px] w-[46px] group-hover:fill-[#EDD3C5]" />
+      )}
     </button>
   );
 }

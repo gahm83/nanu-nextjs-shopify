@@ -7,7 +7,7 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
   // const pathname = usePathname();
   return (
     <>
-      <div className="w-full py-9 lg:mx-auto lg:w-[60%] lg:pb-16 lg:pt-56">
+      <div className="w-full pb-10 pt-40 lg:mx-auto lg:w-[60%] lg:pb-16 lg:pt-52">
         <p className="pb-8 text-center font-portland text-2xl font-black uppercase text-[#532826]">
           Filter by
         </p>
