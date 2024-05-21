@@ -18,13 +18,18 @@ export default async function Navbar() {
 
   return (
     // <div className={`navbar sticky ${pathname === "/" ? 'bg-transparent' : 'bg-[#532826] py-5'} inset-x-0 top-0 z-50`}>
-    <header className="navbar">
+    <header className={pathname === '/' ? 'navbar-home' : 'navbar-site'}>
       <FreeShippingBanner />
-      <nav className="navbar-wrapper bg-[#532826]/0 transition-all duration-300">
+      <nav
+        className={
+          pathname === '/'
+            ? 'navbar-wrapper bg-[#532826]/0 transition-all duration-300'
+            : 'bg-[#532826] drop-shadow-md'
+        }
+      >
         <div
           className={clsx(
-            'relative mx-auto flex w-11/12 items-center lg:max-w-[1420px] lg:items-end',
-            { 'py-5': pathname === '/' }
+            `relative mx-auto flex w-11/12 items-center py-3 lg:max-w-[1420px] lg:items-end lg:py-5`
           )}
         >
           <div className="lg:hidden">
@@ -33,13 +38,13 @@ export default async function Navbar() {
             </Suspense>
           </div>
           <Link href="/" className="relative z-10 mx-auto w-[180px]">
-            <Logo className="logo-full w-full fill-[#f6e7e0]" />
+            {pathname === '/' && <Logo className="logo-full w-full fill-[#f6e7e0]" />}
             <Image
               src="/images/nanu.svg"
               alt="Navbar Logo"
-              width={113.88}
-              height={0}
-              className="logo-nanu mx-auto block h-0"
+              width={114}
+              height={40}
+              className={`logo-nanu mx-auto block ${pathname === '/' ? 'h-0' : 'h-[40px]'}`}
             />
           </Link>
           <nav className="absolute left-0 hidden w-full  items-center space-x-4 pr-24 font-portland font-bold uppercase lg:flex">

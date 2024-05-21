@@ -14,6 +14,14 @@ module.exports = {
         'border-sky': "url('/images/border-blue.svg')",
         'border-wood': "url('/images/border-wood.svg')"
       },
+      backgroundSize: {
+        'sze-sm': '14px, 420vw',
+        'sze-lg': '14px, 100vw'
+      },
+      backgroundPosition: {
+        'pos-sm': 'bottom, 84% 0',
+        'pos-lg': 'bottom. top'
+      },
       fontFamily: {
         athiti: 'Athiti',
         'camera-obscura': 'Camera-Obscura',
@@ -29,29 +37,7 @@ module.exports = {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' }
-        },
-        blink: {
-          '0%': { opacity: 0.2 },
-          '20%': { opacity: 1 },
-          '100% ': { opacity: 0.2 }
-        },
-        'wave-15': {
-          '0%': { transform: 'rotate(15deg)' },
-          '50%': { transform: 'rotate(0)' },
-          '100% ': { transform: 'rotate(15deg)' }
-        },
-        'wave-20': {
-          '0%': { transform: 'rotate(-20deg)' },
-          '50%': { transform: 'rotate(0)' },
-          '100% ': { transform: 'rotate(-20deg)' }
         }
-      },
-      animation: {
-        fadeIn: 'fadeIn .3s ease-in-out',
-        carousel: 'marquee 60s linear infinite',
-        blink: 'blink 1.4s both infinite',
-        'wave-15': 'wave-15 1s linear infinite',
-        'wave-20': 'wave-20 1s linear infinite'
       }
     }
   },
