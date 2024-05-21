@@ -14,9 +14,9 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
         <Collections />
       </div>
       <div className="mx-auto w-10/12 lg:max-w-[1280px]">{children}</div>
-      <div className="relative py-28 before:absolute before:left-1 before:right-1 before:top-10 before:block before:h-[5px] before:bg-border-wood before:bg-repeat-space before:content-['']">
+      {/* <div className="relative py-28 before:absolute before:left-1 before:right-1 before:top-10 before:block before:h-[5px] before:bg-border-wood before:bg-repeat-space before:content-['']">
         <div className="flex items-center"></div>
-      </div>
+      </div> */}
     </>
   );
 }
