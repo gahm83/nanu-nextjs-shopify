@@ -58,6 +58,15 @@ const WeHateLettuceTacos = () => {
       <div className="mx-auto w-10/12 py-28 lg:max-w-[1280px]">
         <h2 className="flex flex-col items-center font-portland text-[8vw] uppercase leading-tight text-[#532826] lg:text-[5vw]">
           <div className="relative">
+            <figure className="mx-auto mb-5 w-[10vw]">
+              <Image
+                src="/images/nanu-logo-top.svg"
+                width={200}
+                height={230}
+                objectFit="cover"
+                alt="Nanu Roots"
+              />
+            </figure>
             <span>We hate </span>
             <figure className="absolute left-full top-1/2 z-[1] aspect-square w-[15vw] translate-x-[40%] translate-y-[-50%] md:w-[10vw]">
               <Image

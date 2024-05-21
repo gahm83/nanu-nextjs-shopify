@@ -3,19 +3,24 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
 const FreeShippingBanner = () => {
+  const pathname = usePathname();
+
   useGSAP(() => {
-    ScrollTrigger.create({
-      trigger: '.navbar',
-      start: 'top',
-      end: 'bottom',
-      scrub: true,
-      toggleClass: { targets: '.free-shipping-banner', className: '!h-0' }
-    });
+    if (pathname !== '/') {
+      ScrollTrigger.create({
+        trigger: '.navbar',
+        start: 'top',
+        end: 'bottom',
+        scrub: true,
+        toggleClass: { targets: '.free-shipping-banner', className: '!h-0' }
+      });
+    }
   });
 
   return (

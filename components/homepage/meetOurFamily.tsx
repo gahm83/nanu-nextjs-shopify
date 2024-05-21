@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import GoToIcon from '../icons/go-to';
 
 const collectionItems = [
   {
@@ -46,12 +47,12 @@ const MeetOurFamily = () => {
           {collectionItems &&
             collectionItems.map((item, index) => (
               <div
-                className="after:bg-[auto 5px] relative flex flex-col items-stretch justify-around bg-[#EDD3C5] after:absolute after:bottom-10 after:left-10 after:right-10 after:block after:h-[5px] after:bg-border-wood after:bg-repeat-space after:content-['']"
+                className="group/productcard after:bg-[auto 5px] relative flex flex-col items-stretch justify-around bg-[#EDD3C5] after:absolute after:bottom-10 after:left-10 after:right-10 after:block after:h-[5px] after:bg-border-wood after:bg-repeat-space after:content-['']"
                 key={index}
               >
                 <div className="relative z-10 -mb-[5rem] flex items-end justify-end pr-10 pt-14">
                   <Link href={item.url} className="right-10 top-14 block h-[80px] w-[80px]">
-                    <Image src="images/go-to.svg" alt={item.title} width={80} height={80} />
+                    <GoToIcon />
                   </Link>
                 </div>
                 <figure className="relative aspect-square">

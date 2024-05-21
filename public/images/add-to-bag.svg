@@ -1,7 +1,12 @@
-<svg width="46" height="24" viewBox="0 0 46 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M38.5254 5.80003V18.2" stroke="#532826" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
-<path d="M32.3262 12H44.7262" stroke="#532826" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
-<path d="M5.97783 7.04361C5.97783 3.42967 8.6153 1.49998 11.8688 1.49998C15.1223 1.49998 17.7598 3.42967 17.7598 7.04361" stroke="#532826" stroke-width="2" stroke-linejoin="round"/>
-<path d="M22.3262 7.05602H1.32617V22.5H22.3262V7.05602Z" fill="#EDD3C5" stroke="#532826" stroke-width="2"/>
-<path d="M22.3262 12.228H1.32617" stroke="#532826" stroke-width="2"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 46 24" style="enable-background:new 0 0 46 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#532826;}
+</style>
+<polygon class="st0" points="46,11 39.8,11 39.8,4.8 37.8,4.8 37.8,11 31.6,11 31.6,13 37.8,13 37.8,19.2 39.8,19.2 39.8,13 46,13 
+	"/>
+<path class="st0" d="M19,5.8C18.5,2.3,15.8,0,11.9,0S5.2,2.3,4.8,5.8h-4.9V24h24V5.8H19z M11.9,2.1c2.2,0,4.5,1,5,3.7h-10
+	C7.3,3.1,9.7,2.1,11.9,2.1z M21.7,7.9v3.3H1.9V7.9H21.7z M1.9,21.9v-8.6h19.8v8.6H1.9z"/>
 </svg>

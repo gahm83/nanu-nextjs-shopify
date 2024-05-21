@@ -15,9 +15,9 @@ export default async function Navbar() {
   const headerList = headers();
   const pathname = headerList.get('x-current-path');
   const menu = await getMenu('next-js-frontend-header-menu');
+  const shopPathPattern = /^\/shop\/.*$/;
 
   return (
-    // <div className={`navbar sticky ${pathname === "/" ? 'bg-transparent' : 'bg-[#532826] py-5'} inset-x-0 top-0 z-50`}>
     <header className={pathname === '/' ? 'navbar-home' : 'navbar-site'}>
       <FreeShippingBanner />
       <nav
@@ -47,15 +47,22 @@ export default async function Navbar() {
               className={`logo-nanu mx-auto block ${pathname === '/' ? 'h-0' : 'h-[40px]'}`}
             />
           </Link>
-          <nav className="absolute left-0 hidden w-full  items-center space-x-4 pr-24 font-portland font-bold uppercase lg:flex">
-            <Link href="/shop" className="py-2">
-              Shop
+          <nav className="absolute left-0 hidden w-full  items-center space-x-8 pr-24 font-portland font-bold uppercase lg:flex">
+            {/* <Link href="/shop" className={`py-2 ${ pathname === '/shop'}`}> */}
+            <Link
+              href="/shop"
+              className={clsx('relative py-2', {
+                "relativebefore:content-[''] *:drop-shadow-md before:absolute before:bottom-2 before:left-[-10%] before:block before:h-3 before:w-[120%] before:bg-[#8DC8E8]":
+                  shopPathPattern.test(pathname as string)
+              })}
+            >
+              <span className="relative">Shop</span>
             </Link>
             <Link href="/" className="py-2">
-              About
+              <span className="relative">About</span>
             </Link>
             <Link href="/" className="!ml-auto py-2">
-              Contact
+              <span className="relative">Contact</span>
             </Link>
           </nav>
           <div className="lg:absolute lg:right-0">

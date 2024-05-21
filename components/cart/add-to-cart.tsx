@@ -7,7 +7,7 @@ import LoadingDots from 'components/loading-dots';
 import { ProductVariant } from 'lib/shopify/types';
 import { useSearchParams } from 'next/navigation';
 import { useFormState, useFormStatus } from 'react-dom';
-
+import AddToBagIcon from '../icons/add-to-bag';
 function SubmitButton({
   availableForSale,
   selectedVariantId,
@@ -20,7 +20,7 @@ function SubmitButton({
   const { pending } = useFormStatus();
   const buttonClasses = isProduct
     ? 'bg-[#532826] border-2 border-[#532826] font-portland font-bold text-xl flex-grow-1 uppercase h-[50px] w-full'
-    : 'relative bg-add-to-cart bg-[23px auto] flex w-20 h-12 items-center justify-center bg-[#EDD3C5]';
+    : 'relative group flex items-center justify-center w-20 h-12 transition-all duration-300 bg-[#EDD3C5] hover:bg-[#532826]';
 
   isProduct;
   const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
@@ -63,6 +63,7 @@ function SubmitButton({
         {pending ? <LoadingDots className="mb-3 bg-white" /> : null}
       </div>
       {isProduct && 'Add to Bag'}
+      <AddToBagIcon className="h-[24px] w-[46px] group-hover:fill-[#EDD3C5]" />
     </button>
   );
 }

@@ -79,6 +79,9 @@ body {
   @apply absolute inset-x-0 top-0 z-50 pb-5;
   &.sticky-navbar {
     @apply !fixed !-top-[60px];
+    .navbar-wrapper {
+      @apply drop-shadow-md;
+    }
   }
 }
 
@@ -145,7 +148,7 @@ button {
   }
 
   .bg-add-to-cart {
-    background-image: "url('/images/add-to-bag.svg')";
+    background-image: url('/images/add-to-bag.svg');
     background-position: center;
     background-repeat: no-repeat;
   }

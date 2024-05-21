@@ -50,7 +50,7 @@ const Hero = () => {
       start: 60,
       end: 'bottom',
       scrub: true,
-      toggleClass: { targets: '.navbar', className: 'sticky-navbar' }
+      toggleClass: { targets: '.navbar-home', className: 'sticky-navbar' }
     });
 
     const heroTimeline = gsap
