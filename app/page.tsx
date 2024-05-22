@@ -1,6 +1,8 @@
-import Hero from 'components/homepage/hero';
-import MeetOurFamily from 'components/homepage/meetOurFamily';
-import WeHateLettuceTacos from 'components/homepage/weHateLettuceTacos';
+import Hero from '@/components/homepage/hero-banner';
+import MeetOurFamily from '@/components/homepage/meet-our-family';
+import NanusCookBook from '@/components/homepage/nanus-cook-book';
+import ProductTabs from '@/components/homepage/product-tabs';
+import WeHateLettuceTacos from '@/components/homepage/we-hate-lettuce-tacos';
 
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
@@ -15,7 +17,8 @@ export default async function HomePage() {
       <Hero />
       <MeetOurFamily />
       <WeHateLettuceTacos />
-      {/* <Carousel /> */}
+      <ProductTabs />
+      <NanusCookBook />
     </>
   );
 }

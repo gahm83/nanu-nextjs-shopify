@@ -53,14 +53,29 @@ const Hero = () => {
       toggleClass: { targets: '.navbar-home', className: 'sticky-navbar' }
     });
 
-    const heroTimeline = gsap
+    const navbarTimeline = gsap
       .timeline({
         scrollTrigger: {
           trigger: '.hero-banner',
           start: 120,
-          end: matches ? '75%' : 'bottom',
-          scrub: true,
-          pin: true
+          end: 800,
+          scrub: true
+        }
+      })
+      .to('.logo-full', { y: -100 })
+      .to('.logo-full', { height: 0 }, '<')
+      .to('.logo-nanu', { height: 38 }, '<')
+      .to('.navbar-wrapper', { backgroundColor: '#532826' });
+    // });
+    const heroTimeline = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.hero-banner',
+          start: 60,
+          end: 500,
+          pin: true,
+          scrub: false,
+          markers: true
         }
       })
       .set('.heritage, .friendlyFoods, .friendly, .foods', { y: 100, opacity: 0 })
@@ -83,17 +98,36 @@ const Hero = () => {
       .to('.rombo-2', { rotate: 0, scale: 1 }, '<')
       .to('.snowflake', { opacity: 1 })
       .to('.button-1', { opacity: 1, scale: 1, x: 0 })
-      .to('.button-2', { opacity: 1, scale: 1, x: 0 })
-      .to('.logo-full', { y: -100 })
-      .to('.logo-full', { height: 0 }, '<')
-      .to('.logo-nanu', { height: 38 }, '<')
-      .to('.navbar-wrapper', { backgroundColor: '#532826' });
+      .to('.button-2', { opacity: 1, scale: 1, x: 0 });
   });
 
   return (
-    <div className="hero-banner">
-      <div className="before:bg-hero relative flex w-full flex-col justify-center before:absolute before:inset-x-0 before:top-0 before:aspect-[1/2.4] before:w-full before:bg-sze-sm before:bg-pos-sm before:content-[''] lg:before:aspect-[1.44/1] lg:before:max-h-[1200px] lg:before:bg-sze-lg lg:before:bg-pos-lg">
-        <div className="relative flex flex-grow flex-col items-center pb-24 pt-[80vw] lg:pt-[24vw]">
+    <div
+      className="hero-banner
+    before:bg-hero
+      relative
+      before:absolute
+      before:inset-x-0
+      before:top-0
+      before:block
+      before:h-[1000px]
+      before:w-full
+      before:bg-sze-sm
+      before:bg-pos-sm
+      before:content-['']
+      lg:before:bg-sze-lg
+      lg:before:bg-pos-lg"
+    >
+      <div
+        className="
+      
+      flex
+      w-full
+      flex-col
+      justify-center
+      "
+      >
+        <div className="relative flex flex-grow flex-col items-center pb-24 pt-[80vw] lg:pt-72">
           <Image
             src="/images/home/hero/title-heritage.svg"
             width={447}
@@ -165,7 +199,43 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="before:bg-[auto 6px] after:bg-[auto 5px] relative mx-auto flex w-[86vw] flex-col bg-[#532826] px-6 py-24 before:absolute before:left-6 before:right-6 before:top-10 before:block before:h-[6px] before:bg-border-sky before:bg-repeat-space before:content-[''] after:absolute after:bottom-10 after:left-6 after:right-6 after:block after:h-[5px] after:bg-border-sky after:bg-repeat-space after:content-[''] lg:max-w-[1120px] lg:px-24">
+      <div
+        className="
+      
+      relative
+      mx-auto
+      flex
+      w-11/12
+      max-w-screen-xl
+      flex-col
+      rounded-lg
+      bg-[#532826]
+      px-6
+      py-24
+      before:absolute
+      before:left-6
+      before:right-6
+      before:top-10
+      before:block
+      before:h-[6px]
+      before:bg-border-sky
+      before:bg-[auto_6px]
+      before:bg-repeat-space
+      before:content-['']
+      after:absolute
+      after:bottom-10
+      after:left-6
+      after:right-6
+      after:block
+      after:h-[5px]
+      after:bg-border-sky
+      after:bg-[auto_5px]
+      after:bg-repeat-space
+      after:content-['']
+      lg:px-24
+
+"
+      >
         <div className="grid gap-16 lg:grid-cols-3">
           {cardItems &&
             cardItems.map((item, index) => (

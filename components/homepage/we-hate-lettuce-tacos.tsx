@@ -55,7 +55,7 @@ const WeHateLettuceTacos = () => {
 
   return (
     <section className="overflow-hidden">
-      <div className="mx-auto w-10/12 py-28 lg:max-w-[1280px]">
+      <div className="mx-auto w-10/12 py-28 lg:max-w-screen-xl">
         <h2 className="flex flex-col items-center font-portland text-[8vw] uppercase leading-tight text-[#532826] lg:text-[5vw]">
           <div className="relative">
             <figure className="mx-auto mb-5 w-[10vw]">
@@ -222,6 +222,14 @@ const WeHateLettuceTacos = () => {
             </figure>
           </div>
         </h2>
+        <div className="mt-24 flex items-center justify-center">
+          <a
+            href="#"
+            className="w-48 border-2 border-solid border-[#532826] bg-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#F6E7E0] lg:py-2"
+          >
+            Show more
+          </a>
+        </div>
       </div>
     </section>
   );

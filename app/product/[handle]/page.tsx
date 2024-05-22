@@ -125,9 +125,9 @@ async function RelatedProducts({ id }: { id: string }) {
   if (!relatedProducts.length) return null;
 
   return (
-    <div className="mx-auto w-10/12 py-16 lg:max-w-[1280px]">
+    <div className="mx-auto w-10/12 py-16 lg:max-w-screen-xl">
       <h2 className="mb-14 text-center font-portland text-4xl font-black uppercase text-[#532826]">
-        Related Products
+        Shop More Products
       </h2>
       <ul className="grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {relatedProducts.slice(0, 3).map((product) => (

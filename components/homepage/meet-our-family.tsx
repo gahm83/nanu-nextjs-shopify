@@ -23,27 +23,27 @@ const collectionItems = [
 const MeetOurFamily = () => {
   return (
     <section>
-      <div className="mx-auto flex w-10/12 flex-col py-[60px] lg:grid lg:max-w-[1280px] lg:auto-rows-max lg:grid-cols-3 lg:gap-8">
-        <div className="flex items-center pb-4 lg:col-span-2">
-          <h2 className="font-portland text-3xl font-black uppercase text-[#532826] lg:text-5xl">
+      <div className="mx-auto flex w-11/12 flex-col py-24 lg:grid lg:max-w-screen-xl lg:auto-rows-max lg:grid-cols-6 lg:gap-8">
+        <div className="flex items-center pb-4 lg:col-span-3">
+          <h2 className="font-portland text-3xl font-black uppercase text-[#532826] lg:text-4xl">
             Meet our Family
           </h2>
         </div>
-        <div className="order-last mt-5 flex items-center justify-between space-x-5 lg:col-start-3 lg:row-start-1 lg:mt-0 lg:space-x-6">
+        <div className="order-last mt-5 flex items-center justify-end space-x-5 lg:col-span-3 lg:col-start-4 lg:row-start-1 lg:mt-0 lg:space-x-6">
           <Link
             href="/shop"
-            className="flex-grow border-2 border-solid border-[#532826] bg-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#F6E7E0] lg:px-6 lg:py-2"
+            className="min-w-48 border-2 border-solid border-[#532826] bg-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#F6E7E0] max-lg:flex-grow lg:px-6 lg:py-2"
           >
             Shop all
           </Link>
           <Link
             href="#"
-            className="flex-grow border-2 border-solid border-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#532826] lg:px-6 lg:py-2"
+            className="min-w-48 border-2 border-solid border-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#532826] max-lg:flex-grow lg:px-6 lg:py-2"
           >
             Find in store
           </Link>
         </div>
-        <div className="flex flex-col gap-8 lg:col-span-3 lg:grid lg:grid-cols-3">
+        <div className="flex flex-col gap-8 lg:col-span-6 lg:grid lg:grid-cols-3">
           {collectionItems &&
             collectionItems.map((item, index) => (
               <div
