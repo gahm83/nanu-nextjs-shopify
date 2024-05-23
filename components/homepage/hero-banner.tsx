@@ -102,31 +102,8 @@ const Hero = () => {
   });
 
   return (
-    <div
-      className="hero-banner
-    before:bg-hero
-      relative
-      before:absolute
-      before:inset-x-0
-      before:top-0
-      before:block
-      before:h-[1000px]
-      before:w-full
-      before:bg-sze-sm
-      before:bg-pos-sm
-      before:content-['']
-      lg:before:bg-sze-lg
-      lg:before:bg-pos-lg"
-    >
-      <div
-        className="
-      
-      flex
-      w-full
-      flex-col
-      justify-center
-      "
-      >
+    <div className="hero-banner before:bg-hero relative before:absolute before:inset-x-0 before:top-0 before:block before:h-[1000px] before:w-full before:bg-sze-sm before:bg-pos-sm before:content-[''] lg:before:bg-sze-lg lg:before:bg-pos-lg">
+      <div className="flex w-full flex-col justify-center">
         <div className="relative flex flex-grow flex-col items-center pb-24 pt-[80vw] lg:pt-72">
           <Image
             src="/images/home/hero/title-heritage.svg"
@@ -199,43 +176,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div
-        className="
-      
-      relative
-      mx-auto
-      flex
-      w-11/12
-      max-w-screen-xl
-      flex-col
-      rounded-lg
-      bg-[#532826]
-      px-6
-      py-24
-      before:absolute
-      before:left-6
-      before:right-6
-      before:top-10
-      before:block
-      before:h-[6px]
-      before:bg-border-sky
-      before:bg-[auto_6px]
-      before:bg-repeat-space
-      before:content-['']
-      after:absolute
-      after:bottom-10
-      after:left-6
-      after:right-6
-      after:block
-      after:h-[5px]
-      after:bg-border-sky
-      after:bg-[auto_5px]
-      after:bg-repeat-space
-      after:content-['']
-      lg:px-24
-
-"
-      >
+      <div className="relative mx-auto flex w-11/12 max-w-screen-xl flex-col rounded-lg bg-[#532826] px-6 py-24 before:absolute before:left-6 before:right-6 before:top-10 before:block before:h-[6px] before:bg-border-sky before:bg-[auto_6px] before:bg-repeat-space before:content-[''] after:absolute after:bottom-10 after:left-6 after:right-6 after:block after:h-[5px] after:bg-border-sky after:bg-[auto_5px] after:bg-repeat-space after:content-[''] lg:px-24">
         <div className="grid gap-16 lg:grid-cols-3">
           {cardItems &&
             cardItems.map((item, index) => (
