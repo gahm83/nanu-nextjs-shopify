@@ -12,7 +12,9 @@ module.exports = {
       backgroundImage: {
         'cart-qty': "url('/images/shopping-bag.svg')",
         'border-sky': "url('/images/border-blue.svg')",
-        'border-wood': "url('/images/border-wood.svg')"
+        'border-wood': "url('/images/border-wood.svg')",
+        'border-pyramid-top': "url('/images/pyramid-top.png')",
+        'border-pyramid-bottom': "url('/images/pyramid-bottom.png')"
       },
       backgroundSize: {
         'sze-sm': '14px, 420vw',

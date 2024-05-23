@@ -1,4 +1,6 @@
+import BannerHomeIsCloser from '@/components/homepage/banner-home-is-closer';
 import Hero from '@/components/homepage/hero-banner';
+import JoinOurTable from '@/components/homepage/join-our-table';
 import MeetOurFamily from '@/components/homepage/meet-our-family';
 import NanusCookBook from '@/components/homepage/nanus-cook-book';
 import ProductTabs from '@/components/homepage/product-tabs';
@@ -19,6 +21,8 @@ export default async function HomePage() {
       <WeHateLettuceTacos />
       <ProductTabs />
       <NanusCookBook />
+      <BannerHomeIsCloser />
+      <JoinOurTable />
     </>
   );
 }

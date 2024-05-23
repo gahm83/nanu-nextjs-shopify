@@ -29,7 +29,7 @@ function NanusCookBook() {
           <h2 className="text-center font-portland text-3xl font-black uppercase text-[#532826] lg:text-4xl">
             Nanu's Cook Book
           </h2>
-          <p className="text-center font-athiti text-2xl font-bold uppercase text-[#532826]">
+          <p className="text-center font-athiti text-2xl font-medium uppercase text-[#532826]">
             A few recipes from home to get you inspired
           </p>
           <div className="mt-12 grid grid-cols-12 overflow-hidden rounded-lg">

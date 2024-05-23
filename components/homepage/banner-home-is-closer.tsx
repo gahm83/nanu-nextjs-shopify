@@ -24,37 +24,31 @@ function BannerHomeIsCloser() {
 
   return (
     <section>
-      <div className="relative py-16">
-        <div className="mx-auto w-11/12 max-w-screen-xl">
-          <h2 className="text-center font-portland text-3xl font-black uppercase text-[#532826] lg:text-4xl">
-            Nanu's Cook Book
-          </h2>
-          <p className="text-center font-athiti text-2xl font-bold uppercase text-[#532826]">
-            A few recipes from home to get you inspired
-          </p>
-          <div className="mt-12 grid grid-cols-12 overflow-hidden rounded-lg">
-            <div className="col-span-4 flex bg-[#532826] p-8">
-              <div className="relative py-5">
-                <div className="border-top-sky border-bottom-sky">
-                  <h2 className="font-portland text-3xl font-black uppercase leading-none tracking-tighter text-[#F6E7E0]">
-                    Nanu's Shrimp Tacos
-                  </h2>
-                  <p className="text-xl font-medium leading-none text-[#F6E7E0]">
-                    Place shrimps into your favorite tortilla and drizzle with our Chilli & Oil
-                    sauce. (Fit up to 4 lines of text)
-                  </p>
+      <div className="py-16">
+        <div className="border-pyramid-top border-pyramid-bottom relative flex aspect-[3/1] w-full items-center justify-center">
+          <figure className="absolute inset-0 h-full w-full">
+            <Image
+              src="/images/home/bg-banner.jpg"
+              alt="Home is closer than you think"
+              className="object-cover object-center"
+              fill
+            />
+          </figure>
+          <div className="relative w-11/12 max-w-screen-xl">
+            <div className="grid grid-cols-2">
+              <div className="col-start-2">
+                <h2 className="mb-5 font-athiti text-7xl uppercase text-white">
+                  Home is closer than you think
+                </h2>
+                <div className="flex items-center justify-start">
+                  <a
+                    href="#"
+                    className="block border-2 border-solid border-[#8DC8E8] bg-[#8DC8E8] py-4 text-center font-portland text-lg font-black uppercase text-[#532826] transition-all duration-150 hover:bg-transparent hover:text-[#8DC8E8] lg:py-2"
+                  >
+                    Find Nanu Near You
+                  </a>
                 </div>
               </div>
-            </div>
-            <div className="col-span-8">
-              <figure className="relative aspect-square">
-                <Image
-                  src="/images/nanu-shrimp-tacos.jpg"
-                  fill
-                  alt="Nanu's Shrimp Tacos"
-                  className="object-cover"
-                />
-              </figure>
             </div>
           </div>
         </div>
