@@ -61,6 +61,20 @@ export type Page = {
   updatedAt: string;
 };
 
+type nutritionFacts = {
+  value: string;
+  reference: {
+    image: {
+      src: string;
+      altText: string;
+    };
+  };
+};
+
+type metaValue = {
+  value: string;
+};
+
 export type Product = Omit<ShopifyProduct, 'variants' | 'images'> & {
   variants: ProductVariant[];
   images: Image[];
@@ -68,8 +82,10 @@ export type Product = Omit<ShopifyProduct, 'variants' | 'images'> & {
   numberReviews?: any;
   price?: any;
   quantity?: any;
-  weight?: any;
+  weight?: metaValue;
   stock?: number;
+  ingredients?: metaValue;
+  nutritionFacts?: nutritionFacts;
 };
 
 export type ProductOption = {

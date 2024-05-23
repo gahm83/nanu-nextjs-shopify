@@ -8,7 +8,6 @@ import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
 import { Image as TImage } from 'lib/shopify/types';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
@@ -20,6 +19,8 @@ export async function generateMetadata({
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
+
+  console.log(product);
 
   const { url, width, height, altText: alt } = product.featuredImage || {};
   const indexable = !product.tags.includes(HIDDEN_PRODUCT_TAG);
@@ -130,9 +131,7 @@ async function RelatedProducts({ id }: { id: string }) {
       <ul className="grid grid-flow-row grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {relatedProducts.slice(0, 3).map((product) => (
           <li key={product.handle} className="animate-fadeIn transition-opacity">
-            <Link className="relative h-full w-full" href={`/product/${product.handle}`}>
-              <ProductCard product={product} />
-            </Link>
+            <ProductCard product={product} />
           </li>
         ))}
       </ul>

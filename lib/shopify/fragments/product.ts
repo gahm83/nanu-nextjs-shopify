@@ -31,17 +31,28 @@ const productFragment = /* GraphQL */ `
         }
       }
     }
+    stock: totalInventory
     weight: metafield(namespace: "custom", key: "weight") {
       value
     }
     quantity: metafield(namespace: "custom", key: "quantity") {
       value
     }
-    stock: totalInventory
     ingredients: metafield(namespace: "custom", key: "ingredients") {
       value
     }
-    variants(first: 250) {
+    nutritionFacts: metafield(namespace: "custom", key: "nutrition_facts") {
+      value
+      reference {
+        ... on MediaImage {
+          image {
+            src
+            altText
+          }
+        }
+      }
+    }
+    variants(first: 10) {
       edges {
         node {
           id

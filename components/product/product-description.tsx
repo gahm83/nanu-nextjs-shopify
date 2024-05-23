@@ -3,9 +3,9 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 import Prose from 'components/prose';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Product } from 'lib/shopify/types';
+import Image from 'next/image';
 import React, { Suspense } from 'react';
 import { AddToCart } from '../cart/add-to-cart';
-
 // import badges from '/images/Badges.png';
 // import imageClose from '/images/Close.png';
 // import dashedIngredients from '/images/ingredientes-dashed.png';
@@ -38,17 +38,17 @@ export function ProductDescription({ product }: { product: Product }) {
       <AnimatePresence>
         {showPopup && (
           <div
-            className="fixed inset-0 z-[9999] flex h-full w-full items-center justify-center bg-black/70"
             onClick={togglePopup}
+            className="fixed inset-0 z-[9999] flex h-full w-full items-center justify-center bg-black/70"
           >
             <motion.div
-              className="fixed left-0 top-0 z-[99999] flex h-full w-full items-center justify-center bg-opacity-50 px-10"
+              className="fixed left-0 top-0 z-[99999] flex h-full w-full items-center justify-center bg-opacity-50 px-5"
               initial={{ opacity: 0, y: -200 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -200 }}
               transition={{ duration: 0.4 }}
             >
-              <div className="relative rounded-lg bg-[#532826]">
+              <div className="relative rounded-lg bg-[#532826] p-5 pt-8">
                 <button
                   onClick={togglePopup}
                   className="group absolute left-full top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-[#532826]"
@@ -56,46 +56,18 @@ export function ProductDescription({ product }: { product: Product }) {
                   <span className="absolute block h-11 w-11 rotate-45 transform bg-[#8DC8E8]"></span>
                   <XMarkIcon className="relative h-6 w-6 transition-all duration-300 ease-in-out group-hover:scale-125" />
                 </button>
-                <div className="flex gap-6">
-                  {/* TODO: FALTAN INGREDIENTES */}
-                  {/* <Image 
-                                  src={product.imageIngredients}
-                                  alt={product.title} 
-                                  className="w-1/2 h-auto mx-auto cursor-pointer"
-                                  width={406} height={500}
-                              /> */}
-                  <div className="flex w-1/2 flex-col justify-between">
-                    <div>
-                      {/* <Image
-                        src={dashedIngredients}
-                        alt={'Dashed Image'}
-                        className="w-full"
-                        width={282}
-                        height={5}
-                      /> */}
-                      <h3 className="Portland pb-2 pt-5 text-center text-[24px] font-black leading-[1.2] text-[#F6E7E0]">
-                        INGREDIENTS
-                      </h3>
-                      <p className="Portland mx-auto w-[232px] text-center text-[19px] font-light leading-[1.2] text-[#F6E7E0]">
-                        Oats, water, salt and lots of love!
-                      </p>
-                    </div>
-                    <div className="flex flex-col gap-[20px]">
-                      {/* <Image
-                        src={badges}
-                        alt={'Badges'}
-                        className="w-full"
-                        width={282}
-                        height={199}
-                      />
-                      <Image
-                        src={dashedIngredients}
-                        alt={'Dashed Image'}
-                        className="w-full"
-                        width={282}
-                        height={5}
-                      /> */}
-                    </div>
+                <div className="grid gap-6 lg:grid-cols-12">
+                  <div className="max-lg:row-start-2 lg:col-span-5">
+                    <Image
+                      src={product.nutritionFacts?.reference?.image.src as string}
+                      alt={product.title}
+                      className="mx-auto h-auto w-full cursor-pointer"
+                      width={406}
+                      height={500}
+                    />
+                  </div>
+                  <div className="lg:col-span-7">
+                    <p>{product.ingredients?.value}</p>
                   </div>
                 </div>
               </div>
