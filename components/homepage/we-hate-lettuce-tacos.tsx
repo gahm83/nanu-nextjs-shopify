@@ -56,7 +56,7 @@ const WeHateLettuceTacos = () => {
   return (
     <section className="overflow-hidden">
       <div className="mx-auto w-10/12 py-28 lg:max-w-screen-xl">
-        <h2 className="flex flex-col items-center font-portland text-[8vw] uppercase leading-tight text-[#532826] lg:text-[5vw]">
+        <h2 className="flex flex-col items-center font-portland text-[8vw] uppercase leading-tight text-[#532826] lg:text-[4vw]">
           <div className="relative">
             <figure className="mx-auto mb-5 w-[10vw]">
               <Image
