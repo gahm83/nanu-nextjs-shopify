@@ -21,21 +21,21 @@ function BannerHomeIsCloser() {
                   alt="Honor your roots"
                   width={40}
                   height={40}
-                  className="blink-1 absolute left-[-60px] top-[-60px] h-[40px] w-[40px] lg:h-[80px] lg:w-[80px]"
+                  className="blink-1 absolute left-[-60px] top-[-60px] h-[20px] w-[20px] lg:h-[40px] lg:w-[40px]"
                 />
                 <Image
                   src="/images/square-sky.svg"
                   alt="Honor your roots"
                   width={20}
                   height={20}
-                  className="blink-3 absolute left-[-10%] top-[10%] h-[20px] w-[20px] lg:h-[40px] lg:w-[40px]"
+                  className="blink-3 absolute left-[-10%] top-[10%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px]"
                 />
                 <Image
                   src="/images/square-sky.svg"
                   alt="Honor your roots"
                   width={20}
                   height={20}
-                  className="blink-2 absolute left-[10%] top-[-20%] h-[20px] w-[20px] lg:h-[40px] lg:w-[40px]"
+                  className="blink-2 absolute left-[10%] top-[-20%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px]"
                 />
                 <h2 className="leading- mb-5 font-portland text-5xl uppercase leading-snug text-white lg:text-7xl">
                   Home is closer than you think

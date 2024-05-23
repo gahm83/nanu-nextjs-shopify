@@ -34,9 +34,9 @@ function ProductTabs() {
   return (
     <section>
       <div className="relative py-16">
-        <div className="grid w-full grid-cols-[37.5%_62.5%]">
-          <div className="relative col-start-2">
-            <div className="absolute inset-y-0 -left-8 w-[390px] -translate-x-full [&_button]:text-black">
+        <div className="w-full lg:grid lg:grid-cols-[37.5%_62.5%]">
+          <div className="relative lg:col-start-2">
+            <div className="lg:absolute lg:inset-y-0 lg:-left-8 lg:w-[30%] lg:max-w-[390px] lg:-translate-x-full [&_button]:text-black">
               <div className="mb-5 flex items-center justify-between space-x-8">
                 <button
                   onClick={() => setSlide('tortillas')}

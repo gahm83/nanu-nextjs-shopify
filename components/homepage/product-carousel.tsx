@@ -20,8 +20,14 @@ function ProductCarousel({ products }: { products: Product[] }) {
           prevEl: prevRef.current!,
           nextEl: nextRef.current!
         }}
-        spaceBetween={32}
-        slidesPerView={2.4}
+        spaceBetween={24}
+        slidesPerView={1.4}
+        breakpoints={{
+          1024: {
+            slidesPerView: 2.4,
+            spaceBetween: 32
+          }
+        }}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
         className="w-full"

@@ -31,13 +31,13 @@ const MeetOurFamily = () => {
         <div className="order-last mt-5 flex items-center justify-end space-x-5 lg:col-span-3 lg:col-start-4 lg:row-start-1 lg:mt-0 lg:space-x-6">
           <Link
             href="/shop"
-            className="min-w-48 border-2 border-solid border-[#532826] bg-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#F6E7E0] max-lg:flex-grow lg:px-6 lg:py-2"
+            className="border-2 border-solid border-[#532826] bg-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#F6E7E0] max-lg:flex-grow lg:min-w-48 lg:px-6 lg:py-2"
           >
             Shop all
           </Link>
           <Link
             href="#"
-            className="min-w-48 border-2 border-solid border-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#532826] max-lg:flex-grow lg:px-6 lg:py-2"
+            className="border-2 border-solid border-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#532826] max-lg:flex-grow lg:min-w-48 lg:px-6 lg:py-2"
           >
             Find in store
           </Link>

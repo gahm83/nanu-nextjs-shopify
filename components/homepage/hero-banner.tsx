@@ -73,9 +73,7 @@ const Hero = () => {
           trigger: '.hero-banner',
           start: 60,
           end: 500,
-          pin: true,
-          scrub: false,
-          markers: true
+          pin: true
         }
       })
       .set('.heritage, .friendlyFoods, .friendly, .foods', { y: 100, opacity: 0 })

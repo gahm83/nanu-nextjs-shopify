@@ -56,7 +56,7 @@ const WeHateLettuceTacos = () => {
   return (
     <section className="overflow-hidden">
       <div className="mx-auto w-10/12 py-28 lg:max-w-screen-xl">
-        <h2 className="flex flex-col items-center font-portland text-[8vw] uppercase leading-tight text-[#532826] lg:text-[4vw]">
+        <h2 className="flex flex-col items-center font-portland text-[8vw] uppercase leading-tight text-[#532826] lg:text-[4.3vw]">
           <div className="relative">
             <figure className="mx-auto mb-5 w-[10vw]">
               <Image
@@ -80,21 +80,21 @@ const WeHateLettuceTacos = () => {
                 alt="Gluten free!"
                 width={20}
                 height={20}
-                className="blink-1 absolute right-[110%] top-[70%] h-[.98vw] w-[.98vw]"
+                className="blink-1 absolute right-[110%] top-[70%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px]"
               />
               <Image
                 src="/images/square-sky.svg"
                 alt="Gluten free!"
                 width={20}
                 height={20}
-                className="blink-2 absolute left-[70%] top-[-20%] h-[.98vw] w-[.98vw]"
+                className="blink-2 absolute left-[70%] top-[-20%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px]"
               />
               <Image
                 src="/images/square-sky.svg"
                 alt="Gluten free!"
                 width={20}
                 height={20}
-                className="blink-4 absolute left-[120%] top-[65%] h-[.98vw] w-[.98vw]"
+                className="blink-4 absolute left-[120%] top-[65%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px]"
               />
             </figure>
           </div>
@@ -112,21 +112,21 @@ const WeHateLettuceTacos = () => {
                 alt="Honor your roots"
                 width={40}
                 height={40}
-                className="blink-1 absolute left-0 top-full h-[1.96vw] w-[1.96vw]"
+                className="blink-1 absolute left-0 top-full h-[20px] w-[20px] lg:h-[40px] lg:w-[40px]"
               />
               <Image
                 src="/images/square-sky.svg"
                 alt="Honor your roots"
                 width={20}
                 height={20}
-                className="blink-3 absolute right-[110%] top-[70%] h-[.98vw] w-[.98vw]"
+                className="blink-3 absolute right-[110%] top-[70%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px]"
               />
               <Image
                 src="/images/square-sky.svg"
                 alt="Honor your roots"
                 width={20}
                 height={20}
-                className="blink-2 absolute left-[70%] top-[-20%] h-[.98vw] w-[.98vw]"
+                className="blink-2 absolute left-[70%] top-[-20%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px]"
               />
             </figure>
           </div>
@@ -147,14 +147,14 @@ const WeHateLettuceTacos = () => {
                 alt="Honor your roots"
                 width={20}
                 height={20}
-                className="blink-2 absolute left-[70%] top-[-40%] h-[.98vw] w-[.98vw]"
+                className="blink-2 absolute left-[70%] top-[-40%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px]"
               />
               <Image
                 src="/images/square-sky.svg"
                 alt="Honor your roots"
                 width={20}
                 height={20}
-                className="blink-1 absolute left-[80%] top-[130%] h-[.98vw] w-[.98vw]"
+                className="blink-1 absolute left-[80%] top-[130%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px]"
               />
             </figure>
           </div>
@@ -178,21 +178,21 @@ const WeHateLettuceTacos = () => {
                 alt="Made with few ingredients"
                 width={40}
                 height={40}
-                className="blink-3 absolute -left-5 top-[120%] h-[1.96vw] w-[1.96vw]"
+                className="blink-3 absolute -left-5 top-[120%] h-[20px] w-[20px] lg:h-[40px] lg:w-[40px]"
               />
               <Image
                 src="/images/square-sky.svg"
                 alt="Made with few ingredients"
                 width={20}
                 height={20}
-                className="blink-2 absolute left-0 top-[-20%] h-[.98vw] w-[.98vw]"
+                className="blink-2 absolute left-0 top-[-20%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px]"
               />
               <Image
                 src="/images/square-sky.svg"
                 alt="Made with few ingredients"
                 width={20}
                 height={20}
-                className="blink-1 absolute left-[-40%] top-[80%] h-[.98vw] w-[.98vw]"
+                className="blink-1 absolute left-[-40%] top-[80%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px]"
               />
             </figure>
           </div>
@@ -210,14 +210,14 @@ const WeHateLettuceTacos = () => {
                 alt="Honor your roots"
                 width={40}
                 height={40}
-                className="blink-2 absolute left-full top-0 h-[1.96vw] w-[1.96vw]"
+                className="blink-2 absolute left-full top-0 h-[20px] w-[20px] lg:h-[40px] lg:w-[40px]"
               />
               <Image
                 src="/images/square-sky.svg"
                 alt="Honor your roots"
                 width={20}
                 height={20}
-                className="blink-1 absolute left-[20%] top-full h-[.98vw] w-[.98vw]"
+                className="blink-1 absolute left-[20%] top-full h-[10px] w-[10px] lg:h-[20px] lg:w-[20px]"
               />
             </figure>
           </div>
