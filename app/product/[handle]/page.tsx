@@ -2,14 +2,12 @@ import { ProductCard } from '@/components/grid/product-card';
 import { CustomerReviews } from '@/components/product/customer-reviews';
 import { StraighFromOurKitchen } from '@/components/product/straight-from-our-kitchen';
 import { VersatileCompanion } from '@/components/product/versatile-companion';
-import inferior from '@/images/Rectangle 72.png';
 import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
 import { Image as TImage } from 'lib/shopify/types';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
@@ -99,9 +97,9 @@ export default async function ProductPage({ params }: { params: { handle: string
                 />
               </Suspense>
             </div>
-            <div className="hidden overflow-hidden rounded-xl bg-[#F2D2C3] lg:block">
+            {/* <div className="hidden overflow-hidden rounded-xl bg-[#F2D2C3] lg:block">
               <Image src={inferior} alt="" className="w-full" />
-            </div>
+            </div> */}
           </div>
           <div className="px-5 lg:p-0">
             <div className="rounded-xl bg-[#FFF5F0]">

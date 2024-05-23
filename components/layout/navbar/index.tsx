@@ -18,7 +18,7 @@ export default async function Navbar() {
   const shopPathPattern = /^\/shop\/.*$/;
 
   return (
-    <header className={pathname === '/' ? 'navbar-home' : 'navbar-site'}>
+    <header className={pathname !== '/' ? 'navbar-site' : 'navbar-home'}>
       <FreeShippingBanner />
       <nav
         className={
