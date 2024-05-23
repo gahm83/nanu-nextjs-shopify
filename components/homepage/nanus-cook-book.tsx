@@ -29,10 +29,10 @@ function NanusCookBook() {
           <h2 className="text-center font-portland text-3xl font-black uppercase text-[#532826] lg:text-4xl">
             Nanu's Cook Book
           </h2>
-          <p className="text-center font-athiti text-2xl font-medium uppercase text-[#532826]">
+          <p className="text-center font-portland text-lg font-medium uppercase text-[#532826] lg:text-2xl">
             A few recipes from home to get you inspired
           </p>
-          <div className="mt-12 grid grid-cols-12 overflow-hidden rounded-lg">
+          <div className="mt-12 overflow-hidden rounded-lg lg:grid lg:grid-cols-12">
             <div className="col-span-4 flex bg-[#532826] p-8">
               <div className="relative py-5">
                 <div className="border-top-sky border-bottom-sky">
@@ -46,7 +46,7 @@ function NanusCookBook() {
                 </div>
               </div>
             </div>
-            <div className="col-span-8">
+            <div className="col-span-8 hidden lg:block">
               <figure className="relative aspect-square">
                 <Image
                   src="/images/nanu-shrimp-tacos.jpg"

@@ -29,7 +29,7 @@ export default async function Navbar() {
       >
         <div
           className={clsx(
-            `relative mx-auto flex w-11/12 items-center py-3 lg:max-w-[1420px] lg:items-end lg:py-5`
+            `relative mx-auto flex w-11/12 items-center py-3 lg:max-w-[1420px] lg:items-start lg:py-5`
           )}
         >
           <div className="lg:hidden">

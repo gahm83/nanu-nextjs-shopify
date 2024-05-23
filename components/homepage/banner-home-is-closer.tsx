@@ -3,8 +3,8 @@ import Image from 'next/image';
 function BannerHomeIsCloser() {
   return (
     <section>
-      <div className="py-16">
-        <div className="border-pyramid-top border-pyramid-bottom relative flex aspect-[3/1] w-full items-center justify-center">
+      <div className="py-8 lg:py-16">
+        <div className="border-pyramid-top border-pyramid-bottom relative flex aspect-[0.65/1] w-full items-center justify-center lg:aspect-[3/1]">
           <figure className="absolute inset-0 h-full w-full">
             <Image
               src="/images/home/bg-banner.jpg"
@@ -13,37 +13,37 @@ function BannerHomeIsCloser() {
               fill
             />
           </figure>
-          <div className="relative w-11/12 max-w-screen-xl">
-            <div className="grid grid-cols-2">
-              <div className="relative col-start-2">
+          <div className="relative w-9/12 max-w-screen-xl lg:w-11/12">
+            <div className="lg:grid lg:grid-cols-2">
+              <div className="relative lg:col-start-2">
                 <Image
                   src="/images/snowflake-blue.svg"
                   alt="Honor your roots"
                   width={40}
                   height={40}
-                  className="blink-1 absolute left-[-60px] top-[-60px] h-[1.96vw] w-[1.96vw]"
+                  className="blink-1 absolute left-[-60px] top-[-60px] h-[40px] w-[40px] lg:h-[80px] lg:w-[80px]"
                 />
                 <Image
                   src="/images/square-sky.svg"
                   alt="Honor your roots"
                   width={20}
                   height={20}
-                  className="blink-3 absolute left-[-10%] top-[10%] h-[1vw] w-[1vw]"
+                  className="blink-3 absolute left-[-10%] top-[10%] h-[20px] w-[20px] lg:h-[40px] lg:w-[40px]"
                 />
                 <Image
                   src="/images/square-sky.svg"
                   alt="Honor your roots"
                   width={20}
                   height={20}
-                  className="blink-2 absolute left-[10%] top-[-20%] h-[1vw] w-[1vw]"
+                  className="blink-2 absolute left-[10%] top-[-20%] h-[20px] w-[20px] lg:h-[40px] lg:w-[40px]"
                 />
-                <h2 className="mb-5 font-portland text-7xl uppercase text-white">
+                <h2 className="leading- mb-5 font-portland text-5xl uppercase leading-snug text-white lg:text-7xl">
                   Home is closer than you think
                 </h2>
                 <div className="flex items-center justify-start">
                   <a
                     href="#"
-                    className="block border-2 border-solid border-[#8DC8E8] bg-[#8DC8E8] px-6 py-4 text-center font-portland text-lg font-black uppercase text-[#532826] transition-all duration-150 hover:bg-transparent hover:text-[#8DC8E8] lg:py-2"
+                    className="block border-2 border-solid border-[#8DC8E8] bg-[#8DC8E8] px-6 py-4 text-center font-portland text-lg text-sm font-black uppercase text-[#532826] transition-all duration-150 hover:bg-transparent hover:text-[#8DC8E8] lg:py-2"
                   >
                     Find Nanu Near You
                   </a>

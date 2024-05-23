@@ -7,14 +7,22 @@ import ProductCarousel from './product-carousel';
 
 function ProductTabs() {
   const [slide, setSlide] = useState('tortillas');
-  const [products, setProducts] = useState<Product[]>([]);
+  const [tortillas, setTortillas] = useState<Product[]>([]);
+  const [salsas, setSalsas] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.post('/api/products', { collection: 'tortillas' });
-        setProducts(response.data);
-        console.log(response.data);
+        const fetchTortillas = axios.post('/api/products', { collection: 'tortillas' });
+        const fetchSalsas = axios.post('/api/products', { collection: 'sauces' });
+
+        const [tortillasResponse, salsasResponse] = await Promise.all([
+          fetchTortillas,
+          fetchSalsas
+        ]);
+
+        setTortillas(tortillasResponse.data?.products);
+        setSalsas(salsasResponse.data?.products);
       } catch (error) {
         console.error('Error fetching products:', error);
       }
@@ -59,18 +67,8 @@ function ProductTabs() {
                 Nanu is your companion in every bite
               </h2>
             </div>
-            <div className="aspect-video w-full">
-              {/* {slide === "tortillas" && (
-                <ul>
-                  {productosTortillas.map((product, index) => <ProductCard product={product} key={index} />)}
-                </ul>
-              )}
-              {slide === "salsas" && (
-                <ul>
-                  {productosSalsas.map((product, index) => <ProductCard product={product} key={index} />)}
-                </ul>
-              )} */}
-              <ProductCarousel />
+            <div className="relative aspect-video w-full">
+              <ProductCarousel products={slide === 'tortillas' ? tortillas : salsas} />
             </div>
           </div>
         </div>
