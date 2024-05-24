@@ -40,16 +40,26 @@ module.exports = {
           '100%': { transform: 'translateX(-100%)' }
         },
         blink: {
-          '0%': { opacity: 0.2 },
-          '20%': { opacity: 1 },
-          '100% ': { opacity: 0.2 }
+          from: { transform: 'scale(0)' },
+          to: { transform: 'scale(1)' }
+        },
+        spin: {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(360deg)' }
+        },
+        'spin-reverse': {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(-360deg)' }
         }
       },
       animation: {
         fadeIn: 'fadeIn .3s ease-in-out',
         carousel: 'marquee 60s linear infinite',
-        blink: 'blink 1.4s both infinite',
-        'spin-slow': 'spin 3s linear infinite'
+        blink: 'blink .5s ease-in infinite alternate',
+        'blink-delayed': 'blink .5s ease-in .5s infinite alternate',
+        // 'spin-slow': 'spin 3s linear infinite',
+        spin: 'spin 5s linear infinite',
+        'spin-reverse': 'spin-reverse 5s linear infinite'
       }
     }
   },
