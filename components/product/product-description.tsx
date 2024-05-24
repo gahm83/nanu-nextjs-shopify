@@ -6,6 +6,7 @@ import { Product } from 'lib/shopify/types';
 import Image from 'next/image';
 import React, { Suspense } from 'react';
 import { AddToCart } from '../cart/add-to-cart';
+import Price from '../price';
 // import badges from '/images/Badges.png';
 // import imageClose from '/images/Close.png';
 // import dashedIngredients from '/images/ingredientes-dashed.png';
@@ -36,7 +37,7 @@ export function ProductDescription({ product }: { product: Product }) {
     <>
       <AnimatePresence>
         {showPopup && (
-          <div className="fixed inset-0 z-[100] h-screen w-screen overflow-y-auto bg-black/70 lg:flex lg:items-center lg:justify-center">
+          <div className="fixed inset-0 z-[100] h-screen w-screen overflow-y-auto bg-black/70 md:flex md:items-center md:justify-center">
             <motion.div
               // className="fixed left-0 top-0 z-[99999] flex h-full w-full items-center justify-center bg-opacity-50 px-5"
               className="w-full p-10 pt-12 "
@@ -45,7 +46,7 @@ export function ProductDescription({ product }: { product: Product }) {
               exit={{ opacity: 0, y: -200 }}
               transition={{ duration: 0.4 }}
             >
-              <div className="relative mx-auto w-full rounded-lg bg-[#532826] p-5 max-md:max-w-[380px] md:max-w-screen-md">
+              <div className="relative mx-auto w-full rounded-lg bg-[#532826] p-5 max-md:max-w-[380px] md:w-9/12 md:max-w-[720px]">
                 <button
                   onClick={togglePopup}
                   className="group absolute left-full top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-[#532826]"
@@ -53,8 +54,8 @@ export function ProductDescription({ product }: { product: Product }) {
                   <span className="absolute block h-11 w-11 rotate-45 transform bg-[#8DC8E8]"></span>
                   <XMarkIcon className="relative h-6 w-6 transition-all duration-300 ease-in-out group-hover:scale-125" />
                 </button>
-                <div className="ma grid gap-6 md:grid-cols-12">
-                  <div className="max-md:row-start-2 md:col-span-5">
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div className="max-md:row-start-2">
                     <Image
                       src={product.nutritionFacts?.reference?.image.src as string}
                       alt={product.title}
@@ -63,7 +64,7 @@ export function ProductDescription({ product }: { product: Product }) {
                       height={500}
                     />
                   </div>
-                  <div className="md:col-span-7 md:flex">
+                  <div className="md:flex">
                     <div className="border-top-sky border-bottom-sky relative flex flex-grow flex-col items-stretch justify-between py-6">
                       <div className="space-y-2 text-center">
                         <h2 className="font-portland text-xl font-semibold uppercase text-[#F6E7E0]">
@@ -71,7 +72,7 @@ export function ProductDescription({ product }: { product: Product }) {
                         </h2>
                         <p>{product.ingredients?.value}</p>
                       </div>
-                      <div className="flex aspect-[2/1] justify-between lg:aspect-[3/1]">
+                      <div className="flex aspect-[16/8] justify-between">
                         <div className="relative aspect-square w-[100px] self-start">
                           <Image
                             src="/images/home/benefits/gluten-free.svg"
@@ -94,20 +95,19 @@ export function ProductDescription({ product }: { product: Product }) {
                             fill={true}
                             className="-rotate-15 h-24 w-24"
                           />
-
                           <Image
                             src="/images/square-sky.svg"
                             alt="Honor your roots"
                             width={20}
                             height={20}
-                            className="blink-1 absolute left-0 top-0 h-[10] w-[10]"
+                            className="blink-1 absolute left-[145%] top-[80%] h-[10] w-[10]"
                           />
                           <Image
                             src="/images/square-sky.svg"
                             alt="Honor your roots"
                             width={20}
                             height={20}
-                            className="blink-1 absolute right-[70%] top-[35%] h-[10] w-[10]"
+                            className="blink-1 absolute right-[170%] top-[60%] h-[10] w-[10]"
                           />
                         </div>
                         <div className="relative aspect-square w-[100px] self-start">
@@ -122,7 +122,7 @@ export function ProductDescription({ product }: { product: Product }) {
                             alt="Honor your roots"
                             width={40}
                             height={40}
-                            className="blink-4 absolute left-0 top-[110%] h-5 w-5"
+                            className="blink-4 absolute right-0 top-[110%] h-5 w-5"
                           />
                         </div>
                       </div>
@@ -143,11 +143,14 @@ export function ProductDescription({ product }: { product: Product }) {
         <h1 className="mb-2 font-portland text-4xl font-bold uppercase text-[#532826]">
           {product.title}
         </h1>
-        <div className="mb-auto grid grid-flow-row grid-cols-2 items-center justify-stretch border-2 border-[#532826] text-center font-portland uppercase text-[#532826] lg:flex lg:divide-x-2 lg:divide-[#532826]">
+        <div className="my-auto grid grid-flow-row grid-cols-2 items-center justify-stretch border-2 border-[#532826] text-center font-portland uppercase text-[#532826] lg:flex lg:grid-cols-3 lg:divide-x-2 lg:divide-[#532826]">
           <div className="col-span-1 flex h-[50px] items-center justify-center border-r-2 border-[#532826] bg-[#EDD3C5] px-4 text-2xl font-bold lg:border-r-0">
-            ${Number(product.priceRange.maxVariantPrice.amount).toString().replace(/\.0$/, '')}
+            <Price
+              amount={product.priceRange.maxVariantPrice.amount}
+              currencyCode={product.priceRange.maxVariantPrice.currencyCode}
+            />
           </div>
-          <div className="col-span-2 row-start-2 flex h-[50px] items-center justify-center border-t-2 border-[#532826] px-4 font-bold leading-none lg:border-t-0">
+          <div className="col-span-2 row-start-2 flex h-[50px] items-center justify-center border-t-2 border-[#532826] px-4 font-bold leading-none lg:col-span-1 lg:row-start-1 lg:border-t-0">
             {product.quantity?.value}
           </div>
           <div className="col-span-1 flex h-[50px] items-center justify-center whitespace-nowrap px-4 font-bold">
@@ -156,8 +159,8 @@ export function ProductDescription({ product }: { product: Product }) {
         </div>
         {product.descriptionHtml ? (
           <Prose
-            className="font-athiti text-lg font-medium text-[#532826]"
             html={product.descriptionHtml}
+            className="font-athiti text-lg font-medium text-[#532826]"
           />
         ) : (
           <p className="font-athiti text-lg font-medium text-[#532826]">{product.description}</p>
@@ -168,8 +171,7 @@ export function ProductDescription({ product }: { product: Product }) {
             currencyCode={product.priceRange.maxVariantPrice.currencyCode}
           />
         </div> */}
-        space-y-5
-        <div className="mt-auto flex items-center gap-8">
+        <div className="my-auto flex items-center gap-8">
           <div className="flex items-center bg-[#EDD3C5]">
             <button
               className="flex h-[50px] w-8 items-center justify-end transition-all hover:bg-[#df9e7c]"

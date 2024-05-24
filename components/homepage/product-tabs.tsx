@@ -15,12 +15,10 @@ function ProductTabs() {
       try {
         const fetchTortillas = axios.post('/api/products', { collection: 'tortillas' });
         const fetchSalsas = axios.post('/api/products', { collection: 'sauces' });
-
         const [tortillasResponse, salsasResponse] = await Promise.all([
           fetchTortillas,
           fetchSalsas
         ]);
-
         setTortillas(tortillasResponse.data?.products);
         setSalsas(salsasResponse.data?.products);
       } catch (error) {
@@ -36,7 +34,7 @@ function ProductTabs() {
       <div className="relative py-16">
         <div className="w-full lg:grid lg:grid-cols-[37.5%_62.5%]">
           <div className="relative lg:col-start-2">
-            <div className="lg:absolute lg:inset-y-0 lg:-left-8 lg:w-[30%] lg:max-w-[390px] lg:-translate-x-full [&_button]:text-black">
+            <div className="lg:absolute lg:inset-y-0 lg:-left-8 lg:w-[28.1271vw] lg:max-w-[405.33px] lg:-translate-x-full [&_button]:text-black">
               <div className="mb-5 flex items-center justify-between space-x-8">
                 <button
                   onClick={() => setSlide('tortillas')}
