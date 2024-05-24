@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { RecipeCardSlideshow } from './recipe-card';
 
 const recipeItems = [
@@ -57,10 +58,18 @@ export function StraighFromOurKitchen() {
       <h1 className="text-center font-portland text-4xl font-black uppercase text-[#F6E7E0]">
         Straight from our kitchen
       </h1>
+      <div className="relative flex items-center justify-center"></div>
       <div className="relative mx-auto w-10/12 py-10 lg:max-w-[1120px]">
-        <div className="flex flex-col gap-8 lg:grid lg:grid-cols-3">
+        <div className="absolute aspect-[0.7/1] w-full lg:w-[122%]">
+          <Image
+            src="/images/shapes-behind.svg"
+            fill
+            alt="Straight from our kitchen Background Shapes"
+          />
+        </div>
+        <div className="flex flex-shrink-0 flex-col lg:grid lg:grid-cols-3 lg:gap-8">
           {recipeItems &&
-            recipeItems.map((recipe, index) => <RecipeCardSlideshow recipe={recipe} />)}
+            recipeItems.map((recipe, index) => <RecipeCardSlideshow key={index} recipe={recipe} />)}
         </div>
       </div>
     </section>

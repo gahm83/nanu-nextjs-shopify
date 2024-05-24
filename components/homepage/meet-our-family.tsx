@@ -46,8 +46,8 @@ const MeetOurFamily = () => {
           {collectionItems &&
             collectionItems.map((item, index) => (
               <div
-                className="group/productcard after:bg-[auto 5px] relative flex flex-col items-stretch justify-around bg-[#EDD3C5] after:absolute after:bottom-10 after:left-10 after:right-10 after:block after:h-[5px] after:bg-border-wood after:bg-repeat-space after:content-['']"
                 key={index}
+                className="group/productcard after:bg-[auto 5px] relative flex flex-col items-stretch justify-around bg-[#EDD3C5] after:absolute after:bottom-10 after:left-10 after:right-10 after:block after:h-[5px] after:bg-border-wood after:bg-repeat-space after:content-['']"
               >
                 <div className="relative z-10 -mb-[5rem] flex items-end justify-end pr-10 pt-14">
                   <Link

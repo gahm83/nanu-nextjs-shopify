@@ -18,7 +18,6 @@ export function ProductDescription({ product }: { product: Product }) {
     setShowPopup(!showPopup);
   };
 
-  console.log('*********************', product, product.variants);
   const handleIncrement = () => {
     if (cantidad < (product?.stock ?? 0)) {
       setCantidad((prev) => prev + 1);
@@ -135,7 +134,7 @@ export function ProductDescription({ product }: { product: Product }) {
           </div>
         )}
       </AnimatePresence>
-      <div className="flex flex-col space-y-5 px-6 py-5 lg:px-10 lg:py-8">
+      <div className="flex flex-grow flex-col space-y-5 px-6 py-5 lg:px-10 lg:py-8">
         <div className="border-bottom-sky relative pb-5">
           <h4 className="pb-5 font-plam-canyon-drive text-5xl font-normal capitalize text-[#532826]">
             {product.collections.edges[0].node.handle}
@@ -144,7 +143,7 @@ export function ProductDescription({ product }: { product: Product }) {
         <h1 className="mb-2 font-portland text-4xl font-bold uppercase text-[#532826]">
           {product.title}
         </h1>
-        <div className="grid grid-flow-row grid-cols-2 items-center justify-stretch border-2 border-[#532826] text-center font-portland uppercase text-[#532826] lg:flex lg:divide-x-2 lg:divide-[#532826]">
+        <div className="mb-auto grid grid-flow-row grid-cols-2 items-center justify-stretch border-2 border-[#532826] text-center font-portland uppercase text-[#532826] lg:flex lg:divide-x-2 lg:divide-[#532826]">
           <div className="col-span-1 flex h-[50px] items-center justify-center border-r-2 border-[#532826] bg-[#EDD3C5] px-4 text-2xl font-bold lg:border-r-0">
             ${Number(product.priceRange.maxVariantPrice.amount).toString().replace(/\.0$/, '')}
           </div>
@@ -157,13 +156,11 @@ export function ProductDescription({ product }: { product: Product }) {
         </div>
         {product.descriptionHtml ? (
           <Prose
-            className="font-athiti text-lg font-medium leading-none text-[#532826]"
+            className="font-athiti text-lg font-medium text-[#532826]"
             html={product.descriptionHtml}
           />
         ) : (
-          <p className="font-athiti text-lg font-medium leading-none text-[#532826]">
-            XXX{product.description}
-          </p>
+          <p className="font-athiti text-lg font-medium text-[#532826]">{product.description}</p>
         )}
         {/* <div className="mr-auto w-auto rounded-full bg-blue-600 p-2 text-sm text-white">
           <Price
@@ -171,7 +168,7 @@ export function ProductDescription({ product }: { product: Product }) {
             currencyCode={product.priceRange.maxVariantPrice.currencyCode}
           />
         </div> */}
-        <div className="flex items-center gap-5">
+        <div className="mt-auto flex items-center gap-8">
           <div className="flex items-center bg-[#EDD3C5]">
             <button
               className="flex h-[50px] w-8 items-center justify-end transition-all hover:bg-[#df9e7c]"
@@ -217,10 +214,19 @@ export function ProductDescription({ product }: { product: Product }) {
           </Suspense>
         </div>
         <a
-          className="Portland mb-2 mt-3 cursor-pointer py-3 text-center text-[15px] font-black leading-[15px] text-[#532826]"
+          className="mt-4 flex cursor-pointer items-center justify-center py-3 text-center font-portland font-bold uppercase leading-none text-[#532826] lg:text-lg"
           onClick={togglePopup}
         >
-          Ingredients & nutrition +
+          <span>Ingredients & nutrition</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            className="h-6 w-6 text-current"
+          >
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z" />
+          </svg>
         </a>
         {/* <Suspense fallback={null}>
         <VariantSelector options={product.options} variants={product.variants} />

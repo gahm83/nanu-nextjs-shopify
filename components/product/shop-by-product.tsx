@@ -122,7 +122,7 @@ export function ShopByProduct() {
             </h2>
             <div className="ml-24 flex items-center justify-center space-x-32">
               {shopByItems.map((button, index) => (
-                <Link href={button.url} className="group flex flex-col justify-center">
+                <Link href={button.url} key={index} className="group flex flex-col justify-center">
                   <figure className="relative flex aspect-square w-36 items-center justify-center">
                     <img
                       src="/images/snowflake-puff.png"

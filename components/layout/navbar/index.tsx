@@ -21,17 +21,15 @@ export default async function Navbar() {
     <header className={pathname !== '/' ? 'navbar-site' : 'navbar-home'}>
       <FreeShippingBanner />
       <nav
-        className={
-          pathname === '/'
-            ? 'navbar-wrapper bg-[#532826]/0 transition-all duration-300'
-            : 'bg-[#532826] drop-shadow-md'
-        }
+        className={clsx(
+          'navbar-wrapper',
+          {
+            'bg-[#532826]/0 transition-all duration-300': pathname === '/' || pathname === '/shop'
+          },
+          { 'bg-[#532826] drop-shadow-md': pathname !== '/' && pathname !== '/shop' }
+        )}
       >
-        <div
-          className={clsx(
-            `relative mx-auto flex w-11/12 items-center py-3 lg:max-w-[1420px] lg:items-start lg:py-5`
-          )}
-        >
+        <div className="relative mx-auto flex w-11/12 items-center py-3 lg:max-w-[1420px] lg:items-start lg:py-5">
           <div className="lg:hidden">
             <Suspense fallback={null}>
               <MobileMenu menu={menu} />
@@ -48,7 +46,6 @@ export default async function Navbar() {
             />
           </Link>
           <nav className="absolute left-0 hidden w-full  items-center space-x-8 pr-24 font-portland font-bold uppercase lg:flex">
-            {/* <Link href="/shop" className={`py-2 ${ pathname === '/shop'}`}> */}
             <Link
               href="/shop"
               className={clsx('relative py-2', {
@@ -72,40 +69,6 @@ export default async function Navbar() {
           </div>
         </div>
       </nav>
-      {/* <div className="flex w-full items-center">
-        <div className="flex w-full md:w-1/3">
-          <Link href="/" className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6">
-            <LogoSquare />
-            <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
-              {SITE_NAME}
-            </div>
-          </Link>
-          {menu.length ? (
-            <ul className="hidden gap-6 text-sm md:flex md:items-center">
-              {menu.map((item: Menu) => (
-                <li key={item.title}>
-                  <Link
-                    href={item.path}
-                    className="text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
-                  >
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          ) : null}
-        </div>
-        <div className="hidden justify-center md:flex md:w-1/3">
-          <Suspense fallback={<SearchSkeleton />}>
-            <Search />
-          </Suspense>
-        </div>
-        <div className="flex justify-end md:w-1/3">
-          <Suspense fallback={<OpenCart />}>
-            <Cart />
-          </Suspense>
-        </div>
-      </div> */}
     </header>
   );
 }

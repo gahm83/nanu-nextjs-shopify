@@ -115,8 +115,8 @@ export function CustomerReviews() {
       <div className="relative mx-auto w-10/12 py-10 lg:max-w-[1120px]">
         <div className="relative after:absolute after:inset-x-0 after:bottom-0 after:z-10 after:block after:h-[380px] after:w-full after:bg-gradient-to-b after:from-transparent after:to-[#F6E7E0] after:content-[''] lg:max-h-[780px] lg:overflow-hidden">
           <div className="space-y-8 md:columns-2 md:gap-8 lg:columns-3">
-            {CustomerReviewsItems.map((item, idx) => (
-              <CustomerReviewCard review={item} key={idx} />
+            {CustomerReviewsItems.map((item, index) => (
+              <CustomerReviewCard key={index} review={item} />
             ))}
           </div>
         </div>

@@ -1,27 +1,7 @@
 'use client';
-import { Product } from '@/lib/shopify/types';
-import axios from 'axios';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
 function NanusCookBook() {
-  const [slide, setSlide] = useState('tortillas');
-  const [products, setProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.post('/api/products', { collection: 'tortillas' });
-        setProducts(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
   return (
     <section>
       <div className="relative py-16">

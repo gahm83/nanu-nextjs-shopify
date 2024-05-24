@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import Image from 'next/image';
 import 'swiper/css';
+import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 gsap.registerPlugin(useGSAP);
@@ -73,77 +74,83 @@ export function VersatileCompanion() {
               alt="Honor your roots"
               width={40}
               height={40}
-              className="blink-1 absolute bottom-full right-full h-[1.96vw] w-[1.96vw] -translate-x-1/2 -translate-y-1/2 transform"
+              className="blink-1 absolute bottom-full right-full h-5 w-5 -translate-x-1/2 -translate-y-1/2 transform lg:h-10 lg:w-10"
             />
             <Image
               src="/images/square-sky.svg"
               alt="Honor your roots"
               width={20}
               height={20}
-              className="blink-3 absolute bottom-full right-full h-[.98vw] w-[.98vw] -translate-x-12 translate-y-12 transform"
+              className="blink-3 absolute bottom-full right-full h-[10px] w-[10px] -translate-x-12 translate-y-12 transform lg:h-5 lg:w-5"
             />
             <Image
               src="/images/square-sky.svg"
               alt="Honor your roots"
               width={20}
               height={20}
-              className="blink-2 absolute bottom-full right-full h-[.98vw] w-[.98vw] -translate-y-9 translate-x-12 transform"
+              className="blink-2 absolute bottom-full right-full h-[10px] w-[10px] -translate-y-9 translate-x-12 transform lg:h-5 lg:w-5"
             />
             <Image
               src="/images/snowflake-blue.svg"
               alt="Honor your roots"
               width={40}
               height={40}
-              className="blink-4 absolute bottom-full left-full h-[1.96vw] w-[1.96vw]"
+              className="blink-4 absolute bottom-full left-full h-5 w-5"
             />
             <Image
               src="/images/square-sky.svg"
               alt="Honor your roots"
               width={20}
               height={20}
-              className="blink-1 absolute bottom-full left-full h-[.98vw] w-[.98vw] translate-x-12 translate-y-12 transform"
+              className="blink-1 absolute bottom-full left-full h-[10px] w-[10px] translate-x-12 translate-y-12 transform lg:h-5 lg:w-5"
             />
             <Image
               src="/images/square-sky.svg"
               alt="Honor your roots"
               width={20}
               height={20}
-              className="blink-3 absolute bottom-full left-full h-[.98vw] w-[.98vw] -translate-x-12 -translate-y-9 transform"
+              className="blink-3 absolute bottom-full left-full h-[10px] w-[10px] -translate-x-12 -translate-y-9 transform lg:h-5 lg:w-5"
             />
             <Image
               src="/images/snowflake-blue.svg"
               alt="Honor your roots"
               width={40}
               height={40}
-              className="blink-2 absolute bottom-0 left-full h-[1.96vw] w-[1.96vw] translate-x-full transform"
+              className="blink-2 absolute bottom-0 left-full h-5 w-5 translate-x-full transform"
             />
             <Image
               src="/images/square-sky.svg"
               alt="Honor your roots"
               width={20}
               height={20}
-              className="blink-4 absolute left-full top-full h-[.98vw] w-[.98vw] translate-y-8 transform"
+              className="blink-4 absolute left-full top-full h-[10px] w-[10px] translate-y-8 transform lg:h-5 lg:w-5"
             />
             <Image
               src="/images/snowflake-blue.svg"
               alt="Honor your roots"
               width={40}
               height={40}
-              className="blink-1 absolute right-full top-full h-[1.96vw] w-[1.96vw]"
+              className="blink-1 absolute right-full top-full h-5 w-5"
             />
             <Image
               src="/images/square-sky.svg"
               alt="Honor your roots"
               width={20}
               height={20}
-              className="blink-2 absolute right-full top-full h-[.98vw] w-[.98vw] -translate-x-4 -translate-y-8 transform"
+              className="blink-2 absolute right-full top-full h-[10px] w-[10px] -translate-x-4 -translate-y-8 transform lg:h-5 lg:w-5"
             />
             <h1 className="text-center font-portland text-4xl font-black uppercase">
               Your versatile companion
             </h1>
             <div className="mt-12 flex items-center justify-between">
               <Swiper
+                modules={[Autoplay]}
                 slidesPerView={2}
+                loop={true}
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false
+                }}
                 breakpoints={{
                   768: {
                     slidesPerView: 3

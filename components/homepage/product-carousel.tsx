@@ -28,8 +28,6 @@ function ProductCarousel({ products }: { products: Product[] }) {
             spaceBetween: 32
           }
         }}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
         className="w-full"
       >
         {products &&

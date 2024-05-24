@@ -8,9 +8,9 @@ import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
 import { Image as TImage } from 'lib/shopify/types';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
-
 export async function generateMetadata({
   params
 }: {
@@ -19,8 +19,6 @@ export async function generateMetadata({
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
-
-  console.log(product);
 
   const { url, width, height, altText: alt } = product.featuredImage || {};
   const indexable = !product.tags.includes(HIDDEN_PRODUCT_TAG);
@@ -83,8 +81,8 @@ export default async function ProductPage({ params }: { params: { handle: string
       />
       <div className="mx-auto max-w-[1120px] pb-10 pt-40 lg:pb-16 lg:pt-52">
         <div className="grid gap-5 lg:grid-cols-2 lg:gap-10">
-          <div className="px-5 lg:space-y-5 lg:p-0">
-            <div className="rounded-xl bg-[#F2D2C3]">
+          <div className="px-5 lg:p-0">
+            <div className="aspect-[1.2/1] rounded-xl bg-[#F2D2C3]">
               <Suspense
                 fallback={
                   <div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden" />
@@ -98,12 +96,17 @@ export default async function ProductPage({ params }: { params: { handle: string
                 />
               </Suspense>
             </div>
-            {/* <div className="hidden overflow-hidden rounded-xl bg-[#F2D2C3] lg:block">
-              <Image src={inferior} alt="" className="w-full" />
-            </div> */}
+            <div className="relative mt-5 hidden aspect-[4/1] w-full overflow-hidden rounded-xl bg-[#F2D2C3] lg:block">
+              <Image
+                src="/images/hero-producto.jpg"
+                alt="Nanu's Heritage Doods"
+                fill
+                className="w-full object-cover"
+              />
+            </div>
           </div>
-          <div className="px-5 lg:p-0">
-            <div className="rounded-xl bg-[#FFF5F0]">
+          <div className="flex px-5 lg:p-0">
+            <div className="flex flex-grow rounded-xl bg-[#FFF5F0]">
               <ProductDescription product={product} />
             </div>
           </div>
