@@ -1,6 +1,6 @@
 'use client';
 import 'swiper/css';
-import { Autoplay } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ShapeRomboid from '../svg/ShapeRomboid';
 import { default as ShapePuff, default as ShapeSnowflake } from '../svg/ShapeSnowflake';
@@ -58,8 +58,15 @@ const recipeItems = [
 ];
 
 export function StraighFromOurKitchen() {
+  const pagination = {
+    clickable: true,
+    renderBullet: function (index: number, className: string) {
+      return '<span class="' + className + '"></span>';
+    }
+  };
+
   return (
-    <section className="aspect-video overflow-hidden">
+    <section className="overflow-hidden lg:aspect-video">
       <div className="h-full bg-[#532826] py-24">
         <h1 className="text-center font-portland text-4xl font-black uppercase text-[#F6E7E0]">
           Straight from our kitchen
@@ -68,14 +75,11 @@ export function StraighFromOurKitchen() {
           <div className="relative flex w-full items-center justify-center">
             <AnimatedShapesBG />
             <Swiper
-              modules={[Autoplay]}
+              modules={[Navigation, Pagination]}
+              navigation={true}
+              pagination={pagination}
               spaceBetween={32}
               slidesPerView={1}
-              loop={true}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false
-              }}
               breakpoints={{
                 768: {
                   slidesPerView: 2
@@ -84,7 +88,7 @@ export function StraighFromOurKitchen() {
                   slidesPerView: 3
                 }
               }}
-              className="w-full lg:-mr-8"
+              className="pagination-dots w-full"
             >
               {recipeItems &&
                 recipeItems.map((recipe, index) => (

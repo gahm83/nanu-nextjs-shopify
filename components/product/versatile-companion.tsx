@@ -66,7 +66,7 @@ export function VersatileCompanion() {
 
   return (
     <section>
-      <div className="bg-[#532826] px-8 py-10">
+      <div className="overflow-hidden bg-[#532826] px-8 py-10">
         <div className="border-top-sky border-bottom-sky relative mx-auto flex w-full flex-col bg-[#532826] py-20">
           <div className="relative mx-auto w-11/12 lg:max-w-screen-xl">
             <Image

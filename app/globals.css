@@ -107,6 +107,96 @@ button {
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
 }
 
+.pagination-lines > .swiper-pagination {
+  @apply absolute
+    left-4
+    right-4
+    top-0
+    z-50
+    flex
+    items-center;
+  span {
+    @apply flex
+      h-8
+      w-full
+      flex-grow
+      items-center
+      justify-center
+      px-1
+      before:block
+      before:h-[2px]
+      before:w-full
+      before:rounded-[2px]
+      before:bg-white/50
+      before:content-[''];
+  }
+}
+.pagination-dots {
+  @apply max-lg:!grid
+    max-lg:grid-flow-row
+    max-lg:grid-cols-[1fr_min-content_1fr]
+    max-lg:gap-y-8;
+  .swiper-wrapper {
+    @apply max-lg:col-span-3;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    @apply flex
+        items-center
+        before:h-3
+        before:w-3
+        before:rotate-45
+        before:transform
+        before:border-[#F6E7E0]
+        before:content-[''];
+  }
+  .swiper-button-prev {
+    @apply col-span-1
+        row-start-2
+        justify-end
+        pr-2
+        before:border-b-2
+        before:border-l-2;
+  }
+  .swiper-button-next {
+    @apply col-span-1
+        col-start-3
+        row-start-2
+        justify-start
+        pl-2
+        before:border-r-2
+        before:border-t-2;
+  }
+  > .swiper-pagination {
+    @apply col-span-1
+      col-start-2
+      row-start-2
+      flex
+      items-center
+      justify-center;
+
+    span {
+      @apply flex
+        h-6
+        w-6
+        items-center
+        justify-center
+        px-1
+        before:block
+        before:h-3
+        before:w-3
+        before:rounded-full
+        before:border-2
+        before:border-[#F6E7E0]
+        before:bg-transparent
+        before:content-[''];
+      &.swiper-pagination-bullet-active {
+        @apply before:bg-[#8DC8E8];
+      }
+    }
+  }
+}
+
 @layer components {
   .bg-hero {
     background-image: url(/images/home/hero/bg-hero-bottom.png), url(/images/home/hero/bg-hero.jpg);
