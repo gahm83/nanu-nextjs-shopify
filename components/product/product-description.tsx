@@ -134,7 +134,7 @@ export function ProductDescription({ product }: { product: Product }) {
           </div>
         )}
       </AnimatePresence>
-      <div className="flex flex-grow flex-col space-y-5 px-6 py-5 lg:px-10 lg:py-8">
+      <div className="flex flex-grow flex-col px-6 py-5 lg:px-10 lg:py-8">
         <div className="border-bottom-sky relative pb-5">
           <h4 className="pb-5 font-plam-canyon-drive text-5xl font-normal capitalize text-[#532826]">
             {product.collections.edges[0].node.handle}
@@ -168,6 +168,7 @@ export function ProductDescription({ product }: { product: Product }) {
             currencyCode={product.priceRange.maxVariantPrice.currencyCode}
           />
         </div> */}
+        space-y-5
         <div className="mt-auto flex items-center gap-8">
           <div className="flex items-center bg-[#EDD3C5]">
             <button

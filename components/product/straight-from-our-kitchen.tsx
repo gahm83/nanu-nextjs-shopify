@@ -1,4 +1,8 @@
+'use client';
 import Image from 'next/image';
+import 'swiper/css';
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { RecipeCardSlideshow } from './recipe-card';
 
 const recipeItems = [
@@ -58,18 +62,41 @@ export function StraighFromOurKitchen() {
       <h1 className="text-center font-portland text-4xl font-black uppercase text-[#F6E7E0]">
         Straight from our kitchen
       </h1>
-      <div className="relative flex items-center justify-center"></div>
       <div className="relative mx-auto w-10/12 py-10 lg:max-w-[1120px]">
-        <div className="absolute aspect-[0.7/1] w-full lg:w-[122%]">
-          <Image
-            src="/images/shapes-behind.svg"
-            fill
-            alt="Straight from our kitchen Background Shapes"
-          />
-        </div>
-        <div className="flex flex-shrink-0 flex-col lg:grid lg:grid-cols-3 lg:gap-8">
-          {recipeItems &&
-            recipeItems.map((recipe, index) => <RecipeCardSlideshow key={index} recipe={recipe} />)}
+        <div className="relative flex w-full items-center justify-center">
+          <div className="absolute aspect-[0.7/1] w-full lg:w-[122%]">
+            <Image
+              src="/images/shapes-behind.svg"
+              fill
+              alt="Straight from our kitchen Background Shapes"
+            />
+          </div>
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={32}
+            slidesPerView={1}
+            loop={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false
+            }}
+            breakpoints={{
+              768: {
+                slidesPerView: 2
+              },
+              1024: {
+                slidesPerView: 3
+              }
+            }}
+            className="w-full"
+          >
+            {recipeItems &&
+              recipeItems.map((recipe, index) => (
+                <SwiperSlide>
+                  <RecipeCardSlideshow key={index} recipe={recipe} />
+                </SwiperSlide>
+              ))}
+          </Swiper>
         </div>
       </div>
     </section>
