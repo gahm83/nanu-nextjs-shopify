@@ -37,18 +37,16 @@ export function ProductDescription({ product }: { product: Product }) {
     <>
       <AnimatePresence>
         {showPopup && (
-          <div
-            onClick={togglePopup}
-            className="fixed inset-0 z-[9999] flex h-full w-full items-center justify-center bg-black/70"
-          >
+          <div className="fixed inset-0 z-[100] h-screen w-screen overflow-y-auto bg-black/70 lg:flex lg:items-center lg:justify-center">
             <motion.div
-              className="fixed left-0 top-0 z-[99999] flex h-full w-full items-center justify-center bg-opacity-50 px-5"
+              // className="fixed left-0 top-0 z-[99999] flex h-full w-full items-center justify-center bg-opacity-50 px-5"
+              className="w-full p-10 pt-12 "
               initial={{ opacity: 0, y: -200 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -200 }}
               transition={{ duration: 0.4 }}
             >
-              <div className="relative rounded-lg bg-[#532826] p-5 pt-8">
+              <div className="relative mx-auto w-full rounded-lg bg-[#532826] p-5 max-md:max-w-[380px] md:max-w-screen-md">
                 <button
                   onClick={togglePopup}
                   className="group absolute left-full top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-[#532826]"
@@ -56,8 +54,8 @@ export function ProductDescription({ product }: { product: Product }) {
                   <span className="absolute block h-11 w-11 rotate-45 transform bg-[#8DC8E8]"></span>
                   <XMarkIcon className="relative h-6 w-6 transition-all duration-300 ease-in-out group-hover:scale-125" />
                 </button>
-                <div className="grid gap-6 lg:grid-cols-12">
-                  <div className="max-lg:row-start-2 lg:col-span-5">
+                <div className="ma grid gap-6 md:grid-cols-12">
+                  <div className="max-md:row-start-2 md:col-span-5">
                     <Image
                       src={product.nutritionFacts?.reference?.image.src as string}
                       alt={product.title}
@@ -66,8 +64,70 @@ export function ProductDescription({ product }: { product: Product }) {
                       height={500}
                     />
                   </div>
-                  <div className="lg:col-span-7">
-                    <p>{product.ingredients?.value}</p>
+                  <div className="md:col-span-7 md:flex">
+                    <div className="border-top-sky border-bottom-sky relative flex flex-grow flex-col items-stretch justify-between py-6">
+                      <div className="space-y-2 text-center">
+                        <h2 className="font-portland text-xl font-semibold uppercase text-[#F6E7E0]">
+                          Ingredientes
+                        </h2>
+                        <p>{product.ingredients?.value}</p>
+                      </div>
+                      <div className="flex aspect-[2/1] justify-between lg:aspect-[3/1]">
+                        <div className="relative aspect-square w-[100px] self-start">
+                          <Image
+                            src="/images/home/benefits/gluten-free.svg"
+                            fill={true}
+                            alt="Gluten free!"
+                            className="rotate-15 h-24 w-24"
+                          />
+                          <Image
+                            src="/images/snowflake-blue.svg"
+                            alt="Honor your roots"
+                            width={20}
+                            height={20}
+                            className="blink-4 absolute bottom-full left-[120%] top-[20%] h-5 w-5"
+                          />
+                        </div>
+                        <div className="relative aspect-[0.77/1] w-[80px] self-end">
+                          <Image
+                            src="/images/home/benefits/made-with-few-ingredients.svg"
+                            alt="Made with few ingredients"
+                            fill={true}
+                            className="-rotate-15 h-24 w-24"
+                          />
+
+                          <Image
+                            src="/images/square-sky.svg"
+                            alt="Honor your roots"
+                            width={20}
+                            height={20}
+                            className="blink-1 absolute left-0 top-0 h-[10] w-[10]"
+                          />
+                          <Image
+                            src="/images/square-sky.svg"
+                            alt="Honor your roots"
+                            width={20}
+                            height={20}
+                            className="blink-1 absolute right-[70%] top-[35%] h-[10] w-[10]"
+                          />
+                        </div>
+                        <div className="relative aspect-square w-[100px] self-start">
+                          <Image
+                            src="/images/home/benefits/100-vegan.svg"
+                            alt="100% Vegan"
+                            fill={true}
+                            className="-rotate-15 h-24 w-24"
+                          />
+                          <Image
+                            src="/images/snowflake-blue.svg"
+                            alt="Honor your roots"
+                            width={40}
+                            height={40}
+                            className="blink-4 absolute left-0 top-[110%] h-5 w-5"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -76,7 +136,7 @@ export function ProductDescription({ product }: { product: Product }) {
         )}
       </AnimatePresence>
       <div className="flex flex-col space-y-5 px-6 py-5 lg:px-10 lg:py-8">
-        <div className="relative pb-5 after:inset-x-10 after:bottom-0 after:block after:h-[5px] after:bg-border-sky after:bg-repeat-space after:content-['']">
+        <div className="border-bottom-sky relative pb-5">
           <h4 className="pb-5 font-plam-canyon-drive text-5xl font-normal capitalize text-[#532826]">
             {product.collections.edges[0].node.handle}
           </h4>
