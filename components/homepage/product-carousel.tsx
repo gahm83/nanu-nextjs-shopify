@@ -1,6 +1,6 @@
 import { Product } from '@/lib/shopify/types';
 import { useRef } from 'react';
-// import 'swiper/css';
+import 'swiper/css';
 // import 'swiper/css/navigation';
 // import 'swiper/css/pagination';
 // import 'swiper/css/scrollbar';
@@ -20,7 +20,7 @@ function ProductCarousel({ products }: { products: Product[] }) {
           prevEl: prevRef.current!,
           nextEl: nextRef.current!
         }}
-        spaceBetween={24}
+        spaceBetween={20}
         slidesPerView={1.4}
         breakpoints={{
           1024: {
@@ -33,7 +33,7 @@ function ProductCarousel({ products }: { products: Product[] }) {
         {products &&
           products.map((product, index) => (
             <SwiperSlide key={index}>
-              <ProductCard product={product} />
+              <ProductCard product={product} hideDescription={true} />
             </SwiperSlide>
           ))}
       </Swiper>

@@ -4,7 +4,13 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import { AddToCart } from '../cart/add-to-cart';
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({
+  product,
+  hideDescription = false
+}: {
+  product: Product;
+  hideDescription?: boolean;
+}) {
   return (
     <div className="relative flex flex-col items-center justify-stretch">
       <Link href={`/product/${product.handle}`}>
@@ -15,12 +21,23 @@ export function ProductCard({ product }: { product: Product }) {
           {product.title}
         </h2>
         <div className="flex items-center">
-          <p className="font-athiti text-lg font-medium leading-none text-[#532826]">
-            {product.description}
-          </p>
-          <p className="me-5 flex h-12 items-center justify-center border-2 border-[#532826] px-3 font-portland text-2xl uppercase leading-none text-[#532826]">
-            ${Number(product.priceRange.maxVariantPrice.amount).toString().replace(/\.0$/, '')}
-          </p>
+          {hideDescription ? (
+            <Link
+              href={`/product/${product.handle}`}
+              className="max-w-52 border-2 border-solid border-[#532826] bg-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#F6E7E0] lg:px-6 lg:py-2"
+            >
+              Shop Now
+            </Link>
+          ) : (
+            <>
+              <p className="font-athiti text-lg font-medium leading-none text-[#532826]">
+                {product.description}
+              </p>
+              <p className="me-5 flex h-12 items-center justify-center border-2 border-[#532826] px-3 font-portland text-2xl uppercase leading-none text-[#532826]">
+                ${Number(product.priceRange.maxVariantPrice.amount).toString().replace(/\.0$/, '')}
+              </p>
+            </>
+          )}
           <Suspense fallback={null}>
             <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
           </Suspense>

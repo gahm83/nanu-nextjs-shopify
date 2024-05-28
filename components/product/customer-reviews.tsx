@@ -99,9 +99,6 @@ export function CustomerReviews() {
         Customer Reviews
       </h1>
       <div className="mx-auto w-11/12 lg:max-w-[1120px]">
-        {/* <div className="mx-auto flex w-11/12 items-center justify-between lg:max-w-[1120px]">
-      flex items-center justify-between
-       */}
         <div className="lg:flex lg:justify-between">
           <div className="flex items-center justify-between font-portland text-[#532826] lg:justify-center lg:space-x-4">
             <p className="text-2xl font-black tracking-tight lg:text-3xl">4.0</p>

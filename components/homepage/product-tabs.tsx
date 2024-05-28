@@ -34,7 +34,7 @@ function ProductTabs() {
       <div className="relative py-16">
         <div className="w-full lg:grid lg:grid-cols-[37.5%_62.5%]">
           <div className="relative lg:col-start-2">
-            <div className="lg:absolute lg:inset-y-0 lg:-left-8 lg:w-[28.1271vw] lg:max-w-[405.33px] lg:-translate-x-full [&_button]:text-black">
+            <div className="max-lg:mx-auto max-lg:w-11/12 lg:absolute lg:inset-y-0 lg:-left-8 lg:w-[28.1271vw] lg:max-w-[405.33px] lg:-translate-x-full [&_button]:text-black">
               <div className="mb-5 flex items-center justify-between space-x-8">
                 <button
                   onClick={() => setSlide('tortillas')}
@@ -65,7 +65,7 @@ function ProductTabs() {
                 Nanu is your companion in every bite
               </h2>
             </div>
-            <div className="relative aspect-video w-full">
+            <div className="relative w-full max-lg:mt-5 max-lg:pl-[4.1666665%]">
               <ProductCarousel products={slide === 'tortillas' ? tortillas : salsas} />
             </div>
           </div>
