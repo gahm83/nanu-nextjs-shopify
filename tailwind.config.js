@@ -55,6 +55,14 @@ module.exports = {
           '0%, 100%': { transform: 'scale(1)' },
           '25%, 75%': { transform: 'scale(1.2)' },
           '50%': { transform: 'scale(1.1)' }
+        },
+        'wave-1': {
+          '0%': { transform: 'rotate(15deg)' },
+          '100%': { transform: 'rotate(-15deg)' }
+        },
+        'wave-2': {
+          '0%': { transform: 'rotate(-15deg)' },
+          '100%': { transform: 'rotate(15deg)' }
         }
       },
       animation: {
@@ -68,7 +76,9 @@ module.exports = {
         'blink-3': 'blink .5s ease-in .75s infinite alternate',
         'blink-4': 'blink .5s ease-in 1s infinite alternate',
         spin: 'spin 5s linear infinite',
-        'spin-reverse': 'spin-reverse 5s linear infinite'
+        'spin-reverse': 'spin-reverse 5s linear infinite',
+        'wave-1': 'wave-1 1s ease-in-out infinite alternate',
+        'wave-2': 'wave-2 1s ease-in-out infinite alternate'
       }
     }
   },
