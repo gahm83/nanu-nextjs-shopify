@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useMediaQuery } from 'usehooks-ts';
 
 gsap.registerPlugin(useGSAP);
@@ -139,13 +140,14 @@ const Hero = () => {
             <div className="flex items-center justify-center space-x-6 lg:space-x-[60px]">
               {ctoItems &&
                 ctoItems.map((cto, index) => (
-                  <div
-                    key={index}
+                  <Link
+                    href="/shop"
                     className={`bg-button-hero bg-blue-circle flex flex-col items-center justify-center bg-[#8DC8E8] bg-no-repeat ${cto.classname} aspect-[1.09/1] w-[90px] rounded-full font-portland font-bold uppercase text-[#532826] lg:w-[120px] lg:text-xl button-${index + 1} drop-shadow-md`}
+                    key={index}
                   >
                     <span className="-mb-2 block font-black">{cto.top}</span>
                     <span className="block text-xl font-black lg:text-2xl">{cto.bottom}</span>
-                  </div>
+                  </Link>
                 ))}
               <div className="shapes relative order-2 mx-auto flex w-[40px] items-center justify-center lg:w-[120px]">
                 <Image

@@ -4,7 +4,7 @@ function BannerHomeIsCloser() {
   return (
     <section>
       <div className="py-8 lg:py-16">
-        <div className="border-pyramid-top border-pyramid-bottom relative flex aspect-[0.65/1] w-full items-center justify-center lg:aspect-[3/1]">
+        <div className="border-pyramid-top border-pyramid-bottom relative flex w-full items-center justify-center">
           <figure className="absolute inset-0 h-full w-full">
             <Image
               src="/images/home/bg-banner.jpg"
@@ -13,7 +13,7 @@ function BannerHomeIsCloser() {
               fill
             />
           </figure>
-          <div className="relative w-9/12 max-w-screen-xl lg:w-11/12">
+          <div className="relative w-9/12 max-w-screen-xl py-[24vw] md:py-[12vw] lg:w-11/12">
             <div className="lg:grid lg:grid-cols-2">
               <div className="relative lg:col-start-2">
                 <Image
@@ -37,7 +37,7 @@ function BannerHomeIsCloser() {
                   height={20}
                   className="blink-2 absolute left-[10%] top-[-20%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px]"
                 />
-                <h2 className="leading- mb-5 font-portland text-5xl uppercase leading-snug text-white lg:text-7xl">
+                <h2 className="leading- mb-5 font-portland text-4xl uppercase leading-snug text-white lg:text-7xl">
                   Home is closer than you think
                 </h2>
                 <div className="flex items-center justify-start">

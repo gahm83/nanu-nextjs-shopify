@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import ShapeFlower from '../svg/shape-puff';
 
 const CustomerReviewsItems = [
   {
@@ -123,14 +124,8 @@ export function ShopByProduct() {
             <div className="ml-24 flex items-center justify-center space-x-32">
               {shopByItems.map((button, index) => (
                 <Link href={button.url} key={index} className="group flex flex-col justify-center">
-                  <figure className="relative flex aspect-square w-36 items-center justify-center">
-                    <img
-                      src="/images/snowflake-puff.png"
-                      width={256}
-                      height={256}
-                      alt="Puffy Snowflake Shape"
-                      className="absolute h-full w-full group-hover:animate-spin-slow"
-                    />
+                  <figure className="relative flex aspect-square w-36 items-center justify-center [&_svg]:text-[#EDD3C5] group-hover:[&_svg]:animate-spin">
+                    <ShapeFlower />
                     <Image
                       src={button.image}
                       width={256}

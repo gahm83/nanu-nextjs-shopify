@@ -3,7 +3,7 @@ import Image from 'next/image';
 function HeroShop() {
   return (
     <section>
-      <div className="border-pyramid-bottom relative flex aspect-[3/1] w-full justify-center pt-32">
+      <div className="border-pyramid-bottom relative flex w-full items-center justify-center">
         <figure className="absolute inset-0 h-full w-full">
           <Image
             src="/images/home/bg-banner.jpg"
@@ -12,18 +12,10 @@ function HeroShop() {
             fill
           />
         </figure>
-        <div className="relative flex w-11/12 max-w-screen-xl flex-grow items-center justify-center">
-          <div className="lg:grid lg:grid-cols-2">
-            <div>
-              <h2 className="mb-5 font-portland text-7xl uppercase leading-none text-white">
-                Home is one bite away
-              </h2>
-            </div>
-          </div>
-          <div className="bg-button-hero bg-blue-circle absolute left-full top-full z-10 flex aspect-[1.09/1] w-[90px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-[#8DC8E8] bg-no-repeat font-portland font-bold uppercase text-[#532826] drop-shadow-md lg:w-[120px] lg:text-xl">
-            <span className="-mb-2 block font-black">FIND IN</span>
-            <span className="block text-xl font-black lg:text-2xl">STORE</span>
-          </div>
+        <div className="relative w-9/12 max-w-screen-xl pb-[12vw] pt-[32vw] lg:w-11/12 lg:pb-[8vw] lg:pt-[16vw]">
+          <h2 className="font-portland text-5xl uppercase leading-snug text-white lg:text-7xl">
+            Home is one bite away
+          </h2>
         </div>
       </div>
     </section>

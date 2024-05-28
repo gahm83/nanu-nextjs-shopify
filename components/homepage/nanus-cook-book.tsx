@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import ShapeRomboid from '../svg/shape-romboid';
 
 function NanusCookBook() {
   return (
@@ -34,6 +35,26 @@ function NanusCookBook() {
                   alt="Nanu's Shrimp Tacos"
                   className="object-cover"
                 />
+                <button className="group absolute left-[36%] top-[22%] h-[80px] w-[80px] text-[#8DC8E8]">
+                  <ShapeRomboid className="absolute inset-0 flex h-full w-full items-center justify-center [&>*:first-child]:absolute [&>*:first-child]:h-full [&>*:first-child]:w-full [&>*:first-child]:opacity-50 [&>*:last-child]:absolute [&>*:last-child]:h-[45px] [&>*:last-child]:w-[45px] ">
+                    <ShapeRomboid />
+                  </ShapeRomboid>
+                </button>
+                <button className="group absolute left-[63%] top-[23%] h-[80px] w-[80px] text-[#8DC8E8]">
+                  <ShapeRomboid className="absolute inset-0 flex h-full w-full items-center justify-center [&>*:first-child]:absolute [&>*:first-child]:h-full [&>*:first-child]:w-full [&>*:first-child]:opacity-50 [&>*:last-child]:absolute [&>*:last-child]:h-[45px] [&>*:last-child]:w-[45px] ">
+                    <ShapeRomboid />
+                  </ShapeRomboid>
+                </button>
+                <button className="group absolute left-[52%] top-[50%] h-[80px] w-[80px] text-[#8DC8E8]">
+                  <ShapeRomboid className="absolute inset-0 flex h-full w-full items-center justify-center [&>*:first-child]:absolute [&>*:first-child]:h-full [&>*:first-child]:w-full [&>*:first-child]:opacity-50 [&>*:last-child]:absolute [&>*:last-child]:h-[45px] [&>*:last-child]:w-[45px] ">
+                    <ShapeRomboid />
+                  </ShapeRomboid>
+                </button>
+                <button className="group absolute left-[27%] top-[40%] h-[80px] w-[80px] text-[#8DC8E8]">
+                  <ShapeRomboid className="absolute inset-0 flex h-full w-full items-center justify-center [&>*:first-child]:absolute [&>*:first-child]:h-full [&>*:first-child]:w-full [&>*:first-child]:opacity-50 [&>*:last-child]:absolute [&>*:last-child]:h-[45px] [&>*:last-child]:w-[45px] ">
+                    <ShapeRomboid />
+                  </ShapeRomboid>
+                </button>
               </figure>
             </div>
           </div>

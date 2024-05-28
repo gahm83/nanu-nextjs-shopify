@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import ShapeFlower from '../svg/shape-puff';
 
 const collectionItems = [
   {
@@ -47,38 +48,27 @@ const MeetOurFamily = () => {
             collectionItems.map((item, index) => (
               <div
                 key={index}
-                className="group/productcard after:bg-[auto 5px] relative flex flex-col items-stretch justify-around bg-[#EDD3C5] after:absolute after:bottom-10 after:left-10 after:right-10 after:block after:h-[5px] after:bg-border-wood after:bg-repeat-space after:content-['']"
+                className="after:bg-[auto 5px] relative flex flex-col items-stretch justify-around bg-[#EDD3C5] after:absolute after:bottom-10 after:left-10 after:right-10 after:block after:h-[5px] after:bg-border-wood after:bg-repeat-space after:content-['']"
               >
-                <div className="relative z-10 -mb-[5rem] flex items-end justify-end pr-10 pt-14">
+                <div className="group relative z-10 -mb-[5rem] flex items-end justify-end pr-10 pt-14">
                   <Link
                     href={item.url}
-                    className="group relative flex h-[80px] w-[80px] items-center justify-center"
+                    className="relative flex h-[80px] w-[80px] items-center justify-center"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={80}
-                      height={80}
-                      fill="none"
-                      className="absolute origin-center group-hover:animate-spin-slow"
-                    >
-                      <path
-                        fill="#8DC8E8"
-                        d="M69.368 25.77c4.994-12.325-2.812-20.135-15.137-15.137-1.369.554-2.956-.073-3.53-1.434-5.18-12.265-16.222-12.265-21.402 0-.575 1.36-2.161 1.988-3.53 1.434C13.444 5.638 5.635 13.444 10.632 25.77c.554 1.368-.072 2.955-1.433 3.53-12.265 5.18-12.265 16.222 0 21.402 1.36.575 1.987 2.162 1.433 3.53-4.994 12.325 2.812 20.135 15.137 15.137 1.369-.554 2.956.073 3.53 1.434 5.18 12.263 16.222 12.263 21.402 0 .575-1.36 2.161-1.988 3.53-1.434 12.325 4.995 20.134-2.812 15.137-15.137-.554-1.368.073-2.955 1.433-3.53 12.265-5.18 12.265-16.222 0-21.402-1.36-.575-1.987-2.162-1.433-3.53Z"
-                        className="group-hover/product-card:animate-[spin_3s_ease-in-out_infinite]] origin-center"
-                      />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={80}
-                      height={80}
-                      fill="none"
-                      className="absolute"
-                    >
-                      <path
-                        fill="#532826"
-                        d="M46.674 35.68 32.353 50.002 30 47.649l14.321-14.321H31.697V30H50v18.303h-3.328l.002-12.622Z"
-                      />
-                    </svg>
+                    <ShapeFlower className="h-full w-full [&_svg:first-child]:absolute [&_svg:first-child]:h-full [&_svg:first-child]:w-full [&_svg:first-child]:text-[#8DC8E8] group-hover:[&_svg:first-child]:animate-spin">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width={80}
+                        height={80}
+                        fill="none"
+                        className="absolute"
+                      >
+                        <path
+                          fill="#532826"
+                          d="M46.674 35.68 32.353 50.002 30 47.649l14.321-14.321H31.697V30H50v18.303h-3.328l.002-12.622Z"
+                        />
+                      </svg>
+                    </ShapeFlower>
                   </Link>
                 </div>
                 <figure className="relative aspect-square">
