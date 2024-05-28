@@ -107,28 +107,30 @@ button {
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
 }
 
-.pagination-lines > .swiper-pagination {
-  @apply absolute
-    left-4
-    right-4
-    top-0
-    z-50
-    flex
-    items-center;
-  span {
-    @apply flex
-      h-8
-      w-full
-      flex-grow
-      items-center
-      justify-center
-      px-1
-      before:block
-      before:h-[2px]
-      before:w-full
-      before:rounded-[2px]
-      before:bg-white/50
-      before:content-[''];
+.pagination-lines {
+  > .swiper-pagination {
+    @apply absolute
+      left-4
+      right-4
+      top-0
+      z-50
+      flex
+      items-center;
+    span {
+      @apply flex
+        h-8
+        w-full
+        flex-grow
+        items-center
+        justify-center
+        px-1
+        before:block
+        before:h-[2px]
+        before:w-full
+        before:rounded-[2px]
+        before:bg-white/50
+        before:content-[''];
+    }
   }
 }
 .pagination-dots {
@@ -156,7 +158,8 @@ button {
         justify-end
         pr-2
         before:border-b-2
-        before:border-l-2;
+        before:border-l-2
+        lg:hidden;
   }
   .swiper-button-next {
     @apply col-span-1
@@ -165,7 +168,8 @@ button {
         justify-start
         pl-2
         before:border-r-2
-        before:border-t-2;
+        before:border-t-2
+        lg:hidden;
   }
   > .swiper-pagination {
     @apply col-span-1
@@ -173,7 +177,8 @@ button {
       row-start-2
       flex
       items-center
-      justify-center;
+      justify-center
+      lg:hidden;
 
     span {
       @apply flex

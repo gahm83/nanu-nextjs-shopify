@@ -1,7 +1,5 @@
 'use client';
-import 'blaze-slider/dist/blaze.css';
 import Image from 'next/image';
-import 'swiper/css';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 

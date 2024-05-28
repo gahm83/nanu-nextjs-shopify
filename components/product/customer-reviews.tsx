@@ -98,10 +98,19 @@ export function CustomerReviews() {
       <h1 className="mb-14 text-center font-portland text-4xl font-black uppercase text-[#532826]">
         Customer Reviews
       </h1>
-      <div className="mx-auto flex w-10/12 items-center justify-between lg:max-w-[1120px]">
-        <div className="font-portland text-5xl">4.0</div>
-        <StarRating rating={4} />
-        <div className="text-sm">Based on 12 reviews</div>
+      <div className="mx-auto grid w-11/12 grid-cols-12 lg:max-w-[1120px]">
+        {/* <div className="mx-auto flex w-11/12 items-center justify-between lg:max-w-[1120px]">
+      flex items-center justify-between
+       */}
+        <div className="col-span-2">
+          <p className="font-portland text-5xl">4.0</p>
+        </div>
+        <div className="col-span-5">
+          <StarRating rating={4} />
+        </div>
+        <div className="col-span-5">
+          <p className="text-sm">Based on 12 reviews</p>
+        </div>
         <div className="">
           <a
             href="#"
@@ -112,7 +121,7 @@ export function CustomerReviews() {
         </div>
       </div>
 
-      <div className="relative mx-auto w-10/12 py-10 lg:max-w-[1120px]">
+      <div className="relative mx-auto w-11/12 py-10 lg:max-w-[1120px]">
         <div className="relative after:absolute after:inset-x-0 after:bottom-0 after:z-10 after:block after:h-[380px] after:w-full after:bg-gradient-to-b after:from-transparent after:to-[#F6E7E0] after:content-[''] lg:max-h-[780px] lg:overflow-hidden">
           <div className="space-y-8 md:columns-2 md:gap-8 lg:columns-3">
             {CustomerReviewsItems.map((item, index) => (

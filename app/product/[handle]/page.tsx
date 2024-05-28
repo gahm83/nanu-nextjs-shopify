@@ -127,7 +127,7 @@ async function RelatedProducts({ id }: { id: string }) {
   if (!relatedProducts.length) return null;
 
   return (
-    <div className="mx-auto w-10/12 py-16 lg:max-w-screen-xl">
+    <div className="mx-auto w-11/12 py-16 lg:max-w-screen-xl">
       <h2 className="mb-14 text-center font-portland text-4xl font-black uppercase text-[#532826]">
         Shop More Products
       </h2>

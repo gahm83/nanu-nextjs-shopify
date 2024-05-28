@@ -1,5 +1,5 @@
 'use client';
-import 'swiper/css';
+// import 'swiper/css';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ShapeRomboid from '../svg/shape-romboid';
@@ -66,12 +66,12 @@ export function StraighFromOurKitchen() {
   };
 
   return (
-    <section className="overflow-hidden lg:aspect-video">
+    <section className="overflow-hidden">
       <div className="h-full bg-[#532826] py-24">
         <h1 className="text-center font-portland text-4xl font-black uppercase text-[#F6E7E0]">
           Straight from our kitchen
         </h1>
-        <div className="relative mx-auto w-10/12 py-10 lg:max-w-[1120px]">
+        <div className="relative mx-auto mt-10 w-11/12 lg:max-w-[1120px]">
           <div className="relative flex w-full items-center justify-center">
             <AnimatedShapesBG />
             <Swiper

@@ -62,7 +62,7 @@ const WeHateLettuceTacos = () => {
 
   return (
     <section className="overflow-hidden">
-      <div className="mx-auto w-10/12 py-28 lg:max-w-screen-xl">
+      <div className="mx-auto w-11/12 py-28 lg:max-w-screen-xl">
         <figure className="mx-auto mb-5 w-[12vw]">
           <Image
             src="/images/nanu-logo-top.svg"
