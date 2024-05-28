@@ -98,26 +98,32 @@ export function CustomerReviews() {
       <h1 className="mb-14 text-center font-portland text-4xl font-black uppercase text-[#532826]">
         Customer Reviews
       </h1>
-      <div className="mx-auto grid w-11/12 grid-cols-12 lg:max-w-[1120px]">
+      <div className="mx-auto w-11/12 lg:max-w-[1120px]">
         {/* <div className="mx-auto flex w-11/12 items-center justify-between lg:max-w-[1120px]">
       flex items-center justify-between
        */}
-        <div className="col-span-2">
-          <p className="font-portland text-5xl">4.0</p>
-        </div>
-        <div className="col-span-5">
-          <StarRating rating={4} />
-        </div>
-        <div className="col-span-5">
-          <p className="text-sm">Based on 12 reviews</p>
-        </div>
-        <div className="">
-          <a
-            href="#"
-            className="flex-grow border-2 border-solid border-[#532826] bg-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#F6E7E0] lg:px-6 lg:py-2"
-          >
-            Write a review
-          </a>
+        <div className="lg:flex lg:justify-between">
+          <div className="flex items-center justify-between font-portland text-[#532826] lg:justify-center lg:space-x-4">
+            <p className="text-2xl font-black tracking-tight lg:text-3xl">4.0</p>
+            <StarRating rating={4} />
+            <p className="font-bold">Based on 12 reviews</p>
+          </div>
+          <div className="flex items-center justify-between font-portland text-xl uppercase text-[#532826] lg:space-x-12">
+            <p className="font-bold">Sort</p>
+            <div className="after:borde relative flex after:pointer-events-none after:absolute after:right-0 after:top-1/2 after:-ml-2 after:h-0 after:w-0 after:border-[6px] after:border-solid after:border-transparent after:border-t-[#532826] after:content-['']">
+              <select className="h-14 flex-grow appearance-none bg-transparent pr-7 font-black uppercase outline-none">
+                <option value="">Most Recent</option>
+              </select>
+            </div>
+          </div>
+          <div className="flex items-center">
+            <a
+              href="#"
+              className="flex-grow border-2 border-solid border-[#532826] bg-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#F6E7E0] lg:px-6 lg:py-2"
+            >
+              Write a review
+            </a>
+          </div>
         </div>
       </div>
 

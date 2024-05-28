@@ -5,6 +5,8 @@ import Image from 'next/image';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import ShapeRomboid from '../svg/shape-romboid';
+import ShapeSnowflake from '../svg/shape-snowflake';
 
 gsap.registerPlugin(useGSAP);
 
@@ -69,76 +71,16 @@ export function VersatileCompanion() {
       <div className="overflow-hidden bg-[#532826] px-8 py-10">
         <div className="border-top-sky border-bottom-sky relative mx-auto flex w-full flex-col bg-[#532826] py-20">
           <div className="relative mx-auto w-11/12 lg:max-w-screen-xl">
-            <Image
-              src="/images/snowflake-blue.svg"
-              alt="Honor your roots"
-              width={40}
-              height={40}
-              className="blink-1 absolute bottom-full right-full h-5 w-5 -translate-x-1/2 -translate-y-1/2 transform lg:h-10 lg:w-10"
-            />
-            <Image
-              src="/images/square-sky.svg"
-              alt="Honor your roots"
-              width={20}
-              height={20}
-              className="blink-3 absolute bottom-full right-full h-[10px] w-[10px] -translate-x-12 translate-y-12 transform lg:h-5 lg:w-5"
-            />
-            <Image
-              src="/images/square-sky.svg"
-              alt="Honor your roots"
-              width={20}
-              height={20}
-              className="blink-2 absolute bottom-full right-full h-[10px] w-[10px] -translate-y-9 translate-x-12 transform lg:h-5 lg:w-5"
-            />
-            <Image
-              src="/images/snowflake-blue.svg"
-              alt="Honor your roots"
-              width={40}
-              height={40}
-              className="blink-4 absolute bottom-full left-full h-5 w-5"
-            />
-            <Image
-              src="/images/square-sky.svg"
-              alt="Honor your roots"
-              width={20}
-              height={20}
-              className="blink-1 absolute bottom-full left-full h-[10px] w-[10px] translate-x-12 translate-y-12 transform lg:h-5 lg:w-5"
-            />
-            <Image
-              src="/images/square-sky.svg"
-              alt="Honor your roots"
-              width={20}
-              height={20}
-              className="blink-3 absolute bottom-full left-full h-[10px] w-[10px] -translate-x-12 -translate-y-9 transform lg:h-5 lg:w-5"
-            />
-            <Image
-              src="/images/snowflake-blue.svg"
-              alt="Honor your roots"
-              width={40}
-              height={40}
-              className="blink-2 absolute bottom-0 left-full h-5 w-5 translate-x-full transform"
-            />
-            <Image
-              src="/images/square-sky.svg"
-              alt="Honor your roots"
-              width={20}
-              height={20}
-              className="blink-4 absolute left-full top-full h-[10px] w-[10px] translate-y-8 transform lg:h-5 lg:w-5"
-            />
-            <Image
-              src="/images/snowflake-blue.svg"
-              alt="Honor your roots"
-              width={40}
-              height={40}
-              className="blink-1 absolute right-full top-full h-5 w-5"
-            />
-            <Image
-              src="/images/square-sky.svg"
-              alt="Honor your roots"
-              width={20}
-              height={20}
-              className="blink-2 absolute right-full top-full h-[10px] w-[10px] -translate-x-4 -translate-y-8 transform lg:h-5 lg:w-5"
-            />
+            <ShapeSnowflake className="blink-1 absolute bottom-full right-full h-5 w-5 -translate-x-1/2 -translate-y-1/2 transform text-[#8DC8E8] lg:h-10 lg:w-10 [&_svg]:animate-blink-1" />
+            <ShapeRomboid className="blink-3 absolute bottom-full right-full h-[10px] w-[10px] -translate-x-12 translate-y-12 transform text-[#8DC8E8] lg:h-5 lg:w-5 [&_svg]:animate-blink-3" />
+            <ShapeRomboid className="absolute bottom-full right-full h-[10px] w-[10px] -translate-y-9 translate-x-12 transform text-[#8DC8E8] lg:h-5 lg:w-5 [&_svg]:animate-blink-2" />
+            <ShapeSnowflake className="absolute bottom-full left-full h-5 w-5 text-[#8DC8E8] [&_svg]:animate-blink-4" />
+            <ShapeRomboid className="absolute bottom-full left-full h-[10px] w-[10px] translate-x-12 translate-y-12 transform text-[#8DC8E8] lg:h-5 lg:w-5 [&_svg]:animate-blink-1" />
+            <ShapeRomboid className="absolute bottom-full left-full h-[10px] w-[10px] -translate-x-12 -translate-y-9 transform text-[#8DC8E8] lg:h-5 lg:w-5 [&_svg]:animate-blink-3" />
+            <ShapeSnowflake className="absolute bottom-0 left-full h-5 w-5 translate-x-full transform text-[#8DC8E8] [&_svg]:animate-blink-2" />
+            <ShapeRomboid className="absolute left-full top-full h-[10px] w-[10px] translate-y-8 transform text-[#8DC8E8] lg:h-5 lg:w-5 [&_svg]:animate-blink-4" />
+            <ShapeSnowflake className="absolute right-full top-full h-5 w-5 text-[#8DC8E8] [&_svg]:animate-blink-1" />
+            <ShapeRomboid className="absolute right-full top-full h-[10px] w-[10px] -translate-x-4 -translate-y-8 transform text-[#8DC8E8] lg:h-5 lg:w-5 [&_svg]:animate-blink-2" />
             <h1 className="text-center font-portland text-4xl font-black uppercase">
               Your versatile companion
             </h1>

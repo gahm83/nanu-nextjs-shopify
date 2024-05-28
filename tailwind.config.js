@@ -50,14 +50,23 @@ module.exports = {
         'spin-reverse': {
           from: { transform: 'rotate(0deg)' },
           to: { transform: 'rotate(-360deg)' }
+        },
+        heartbeat: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '25%, 75%': { transform: 'scale(1.2)' },
+          '50%': { transform: 'scale(1.1)' }
         }
       },
       animation: {
         fadeIn: 'fadeIn .3s ease-in-out',
         carousel: 'marquee 60s linear infinite',
+        heartbeat: 'heartbeat 1s infinite',
         blink: 'blink .5s ease-in infinite alternate',
         'blink-delayed': 'blink .5s ease-in .5s infinite alternate',
-        // 'spin-slow': 'spin 3s linear infinite',
+        'blink-1': 'blink .5s ease-in .25s infinite alternate',
+        'blink-2': 'blink .5s ease-in .5s infinite alternate',
+        'blink-3': 'blink .5s ease-in .75s infinite alternate',
+        'blink-4': 'blink .5s ease-in 1s infinite alternate',
         spin: 'spin 5s linear infinite',
         'spin-reverse': 'spin-reverse 5s linear infinite'
       }

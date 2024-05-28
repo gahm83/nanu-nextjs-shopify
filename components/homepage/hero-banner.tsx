@@ -5,25 +5,28 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useMediaQuery } from 'usehooks-ts';
+import HappierGutLife from '../svg/happier-gut-life';
+import TasteOfHome from '../svg/taste-of-home';
+import UnmatchedCompanion from '../svg/unmatched-companion';
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
 const cardItems = [
   {
-    icon: '/images/home/hero/taste-of-home.svg',
+    icon: <TasteOfHome />,
     title: 'A taste of home',
     description:
       'We are your companion in every bite, providing heartfelt warmth no matter where you are.'
   },
   {
-    icon: '/images/home/hero/unmatched-companion.svg',
+    icon: <UnmatchedCompanion />,
     title: 'An unmatched companion',
     description:
       'For breakfast toast? Yup. For nachos? Yas! In tacos? Of course. Do your own thing!'
   },
   {
-    icon: '/images/home/hero/happier-gut-life.svg',
+    icon: <HappierGutLife />,
     title: 'Happier gut, happier life',
     description: 'Gluten-free, low carb, made with natural ingredients and lots of love!'
   }
@@ -181,9 +184,7 @@ const Hero = () => {
           {cardItems &&
             cardItems.map((item, index) => (
               <div key={index}>
-                <figure className="flex items-center justify-center">
-                  <Image src={item.icon} alt={item.title} height={78} width={141} />
-                </figure>
+                {item.icon}
                 <div className="mt-4 space-y-4 px-6 text-center">
                   <h2 className="mx-auto text-center font-portland text-2xl uppercase leading-none">
                     {item.title}
