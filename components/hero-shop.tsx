@@ -1,9 +1,26 @@
+'use client';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 
+gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
+
 function HeroShop() {
+  useGSAP(() => {
+    ScrollTrigger.create({
+      trigger: 'body',
+      start: 60,
+      end: 'bottom',
+      scrub: true,
+      toggleClass: { targets: '.navbar-wrapper', className: '!bg-[#532826]' }
+    });
+  });
+
   return (
     <section>
-      <div className="border-pyramid-bottom relative flex w-full items-center justify-center">
+      <div className="hero-shop border-pyramid-bottom relative flex w-full items-center justify-center">
         <figure className="absolute inset-0 h-full w-full">
           <Image
             src="/images/home/bg-banner.jpg"

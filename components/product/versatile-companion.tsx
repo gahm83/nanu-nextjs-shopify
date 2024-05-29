@@ -1,6 +1,4 @@
 'use client';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
 import Image from 'next/image';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
@@ -8,8 +6,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useMediaQuery } from 'usehooks-ts';
 import ShapeRomboid from '../svg/shape-romboid';
 import ShapeSnowflake from '../svg/shape-snowflake';
-
-gsap.registerPlugin(useGSAP);
 
 const versatileCompanionItems = [
   {
