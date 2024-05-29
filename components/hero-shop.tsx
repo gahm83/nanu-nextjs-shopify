@@ -12,8 +12,8 @@ function HeroShop() {
             fill
           />
         </figure>
-        <div className="relative w-9/12 max-w-screen-xl pb-[12vw] pt-[32vw] lg:w-11/12 lg:pb-[8vw] lg:pt-[16vw]">
-          <h2 className="font-portland text-5xl uppercase leading-snug text-white lg:text-7xl">
+        <div className="relative mx-auto w-9/12 max-w-screen-xl pb-[12vw] pt-[32vw] lg:w-11/12 lg:pb-[8vw] lg:pt-[16vw]">
+          <h2 className="font-portland text-5xl uppercase leading-none text-white lg:text-7xl">
             Home is one bite away
           </h2>
         </div>

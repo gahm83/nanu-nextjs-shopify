@@ -20,13 +20,13 @@ export function ProductCard({
         <h2 className="font-portland text-2xl font-semibold uppercase text-[#532826]">
           {product.title}
         </h2>
-        <div className="flex items-center">
+        <div className="mt-4 flex items-stretch space-x-4">
           {hideDescription ? (
             <Link
               href={`/product/${product.handle}`}
-              className="max-w-52 border-2 border-solid border-[#532826] bg-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#F6E7E0] lg:px-6 lg:py-2"
+              className="flex items-center justify-center border-2 border-solid border-[#532826] bg-[#532826] text-center font-portland text-lg font-black uppercase text-[#F6E7E0]"
             >
-              Shop Now
+              <span>Shop Now</span>
             </Link>
           ) : (
             <>

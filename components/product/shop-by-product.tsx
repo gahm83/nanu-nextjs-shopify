@@ -117,24 +117,24 @@ export function ShopByProduct() {
     <section className="relative before:absolute before:left-5 before:right-5 before:top-0 before:block before:h-[5px] before:bg-border-wood before:bg-repeat-space before:content-['']">
       <div className="py-16">
         <div className="mx-auto w-11/12 max-w-screen-lg">
-          <div className="flex items-center">
-            <h2 className="font-portland text-3xl font-black uppercase text-[#532826] lg:text-4xl">
+          <div className="flex flex-col items-center lg:flex-row">
+            <h2 className="px-[16%] text-center font-portland text-3xl font-black uppercase text-[#532826] lg:px-0 lg:text-4xl">
               Shop by Product
             </h2>
-            <div className="ml-24 flex items-center justify-center space-x-32">
+            <div className="mt-10 flex w-full items-center justify-around lg:ml-24 lg:mt-0 lg:w-auto lg:justify-center lg:space-x-32">
               {shopByItems.map((button, index) => (
                 <Link href={button.url} key={index} className="group flex flex-col justify-center">
-                  <figure className="relative flex aspect-square w-36 items-center justify-center [&_svg]:text-[#EDD3C5] group-hover:[&_svg]:animate-spin">
+                  <figure className="relative flex aspect-square w-24 items-center justify-center lg:w-36 [&_svg]:text-[#EDD3C5] group-hover:[&_svg]:animate-spin">
                     <ShapeFlower />
                     <Image
                       src={button.image}
                       width={256}
                       height={256}
                       alt={`Shop by ${button.name} Picture`}
-                      className="absolute h-28 w-28"
+                      className="absolute h-[77%] w-[77%]"
                     />
                   </figure>
-                  <span className="mx-auto mt-4 text-center font-portland text-2xl font-black uppercase leading-none text-[#532826]">
+                  <span className="mx-auto mt-4 text-center font-portland text-lg font-black uppercase leading-none text-[#532826] lg:text-2xl">
                     {button.name}
                   </span>
                 </Link>

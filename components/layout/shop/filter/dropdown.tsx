@@ -39,19 +39,15 @@ export default function FilterItemDropdown({ list }: { list: ListItem[] }) {
   return (
     <div className="relative" ref={ref}>
       <div
-        onClick={() => {
-          setOpenSelect(!openSelect);
-        }}
-        className="flex w-full items-center justify-between rounded border border-black/30 px-4 py-2 text-sm dark:border-white/30"
+        onClick={() => setOpenSelect(!openSelect)}
+        className="mx-auto flex w-11/12 items-center justify-between border-2 border-[#532826] px-4 py-2 text-lg font-bold text-[#532826]"
       >
         <div>{active}</div>
         <ChevronDownIcon className="h-4" />
       </div>
       {openSelect && (
         <div
-          onClick={() => {
-            setOpenSelect(false);
-          }}
+          onClick={() => setOpenSelect(false)}
           className="absolute z-40 w-full rounded-b-md bg-white p-4 shadow-md dark:bg-black"
         >
           {list.map((item: ListItem, i) => (

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useMediaQuery } from 'usehooks-ts';
 import ShapeRomboid from '../svg/shape-romboid';
 import ShapeSnowflake from '../svg/shape-snowflake';
 
@@ -34,37 +35,7 @@ const versatileCompanionItems = [
 ];
 
 export function VersatileCompanion() {
-  const loopSettings = {
-    repeat: -1,
-    yoyo: true,
-    ease: 'sine.inOut'
-  };
-
-  useGSAP(() => {
-    gsap.to('.blink-1', {
-      delay: 0.25,
-      scale: 0,
-      ...loopSettings
-    });
-
-    gsap.to('.blink-2', {
-      delay: 0.5,
-      scale: 0,
-      ...loopSettings
-    });
-
-    gsap.to('.blink-3', {
-      delay: 0.75,
-      scale: 0,
-      ...loopSettings
-    });
-
-    gsap.to('.blink-4', {
-      delay: 1,
-      scale: 0,
-      ...loopSettings
-    });
-  });
+  const isMobile = useMediaQuery('(max-width:1024px)');
 
   return (
     <section>
@@ -121,6 +92,34 @@ export function VersatileCompanion() {
           </div>
         </div>
       </div>
+      {isMobile && (
+        <div className="mx-auto mt-5 w-11/12 space-y-5">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-md">
+            <Image
+              src="/images/nanu-01.jpg"
+              fill
+              alt="Nanu Heritage Foods"
+              className="object-cover object-center"
+            />
+          </div>
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-md">
+            <Image
+              src="/images/nanu-02.jpg"
+              fill
+              alt="Nanu Heritage Foods"
+              className="object-cover object-center"
+            />
+          </div>
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-md">
+            <Image
+              src="/images/nanu-03.jpg"
+              fill
+              alt="Nanu Heritage Foods"
+              className="object-cover object-center"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

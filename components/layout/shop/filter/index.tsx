@@ -1,6 +1,5 @@
 import { SortFilterItem } from 'lib/constants';
 import { Suspense } from 'react';
-import FilterItemDropdown from './dropdown';
 import { FilterItem } from './item';
 
 export type ListItem = SortFilterItem | PathFilterItem;
@@ -19,16 +18,17 @@ function FilterItemList({ list }: { list: ListItem[] }) {
 export default function FilterList({ list, title }: { list: ListItem[]; title?: string }) {
   return (
     <nav>
-      <div className="hidden md:flex md:items-center md:space-x-7">
+      {/* <div className="hidden lg:flex lg:items-center lg:space-x-7"> */}
+      <div className="flex items-center justify-between space-x-4 max-lg:mx-auto max-lg:w-11/12 lg:space-x-5">
         <Suspense fallback={null}>
           <FilterItemList list={list} />
         </Suspense>
       </div>
-      <ul className="md:hidden">
+      {/* <ul className="lg:hidden">
         <Suspense fallback={null}>
           <FilterItemDropdown list={list} />
         </Suspense>
-      </ul>
+      </ul> */}
     </nav>
   );
 }
