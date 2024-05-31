@@ -17,8 +17,8 @@ module.exports = {
         'border-pyramid-bottom': "url('/images/pyramid-bottom.png')"
       },
       backgroundSize: {
-        'sze-sm': '14px, 420vw',
-        'sze-lg': '14px, 100vw'
+        'sze-sm': '14px, cover',
+        'sze-lg': '14px, cover'
       },
       backgroundPosition: {
         'pos-sm': 'bottom, 84% 0',

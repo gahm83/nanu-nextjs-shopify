@@ -24,7 +24,7 @@ export function ProductCard({
           {hideDescription ? (
             <Link
               href={`/product/${product.handle}`}
-              className="flex items-center justify-center border-2 border-solid border-[#532826] bg-[#532826] text-center font-portland text-lg font-black uppercase text-[#F6E7E0]"
+              className="flex flex-grow items-center justify-center border-2 border-solid border-[#532826] bg-[#532826] text-center font-portland text-lg font-black uppercase text-[#F6E7E0]"
             >
               <span>Shop Now</span>
             </Link>

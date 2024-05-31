@@ -104,7 +104,23 @@ const Hero = () => {
   });
 
   return (
-    <div className="hero-banner before:bg-hero relative before:absolute before:inset-x-0 before:top-0 before:block before:h-[1000px] before:w-full before:bg-sze-sm before:bg-pos-sm before:content-[''] lg:before:bg-sze-lg lg:before:bg-pos-lg">
+    <div
+      className="
+    hero-banner
+    before:bg-hero
+    relative
+    before:absolute
+    before:inset-x-0
+    before:top-0
+    before:block
+    before:h-[1000px]
+    before:w-full
+    before:bg-sze-sm
+    before:bg-pos-sm
+    before:content-['']
+    lg:before:bg-sze-lg
+    lg:before:bg-pos-lg"
+    >
       <div className="flex w-full flex-col justify-center">
         <div className="relative flex flex-grow flex-col items-center pb-24 pt-[80vw] lg:pt-72">
           <Image

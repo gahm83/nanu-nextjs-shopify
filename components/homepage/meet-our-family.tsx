@@ -55,7 +55,7 @@ const MeetOurFamily = () => {
                     href={item.url}
                     className="relative flex h-[80px] w-[80px] items-center justify-center"
                   >
-                    <ShapeFlower className="h-full w-full [&_svg:first-child]:absolute [&_svg:first-child]:h-full [&_svg:first-child]:w-full [&_svg:first-child]:text-[#8DC8E8] group-hover:[&_svg:first-child]:animate-spin">
+                    <ShapeFlower className="h-full w-full [&_svg:first-child]:absolute [&_svg:first-child]:h-full [&_svg:first-child]:w-full [&_svg:first-child]:text-[#8DC8E8] [&_svg:first-child]:transition [&_svg:first-child]:duration-300 group-hover:[&_svg:first-child]:rotate-90 ">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width={80}

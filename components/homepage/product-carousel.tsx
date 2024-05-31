@@ -22,6 +22,7 @@ function ProductCarousel({ products }: { products: Product[] }) {
         }}
         spaceBetween={20}
         slidesPerView={1.4}
+        loop={true}
         breakpoints={{
           1024: {
             slidesPerView: 2.4,
