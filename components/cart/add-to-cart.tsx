@@ -92,7 +92,7 @@ export function AddToCart({
   const actionWithVariant = formAction.bind(null, selectedVariantId);
 
   return (
-    <form action={actionWithVariant}>
+    <form action={actionWithVariant} className="flex-grow">
       <SubmitButton
         availableForSale={availableForSale}
         selectedVariantId={selectedVariantId}

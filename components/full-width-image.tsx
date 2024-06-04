@@ -15,14 +15,7 @@ const FullWidthImage = ({
 }) => {
   return (
     <figure className={`relative h-auto w-full ${className}`}>
-      <Image
-        src={src}
-        alt={alt}
-        layout="responsive"
-        width={width}
-        height={height}
-        className="object-cover"
-      />
+      <Image src={src} alt={alt} width={width} height={height} className="object-cover" />
     </figure>
   );
 };

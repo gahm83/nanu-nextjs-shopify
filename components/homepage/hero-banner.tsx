@@ -2,10 +2,15 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useMediaQuery } from 'usehooks-ts';
+import ButtonFindInStore from '../svg/button-find-in-store';
+import ButtonShopNow from '../svg/button-shop-now';
 import HappierGutLife from '../svg/happier-gut-life';
+import HeroDesktop from '../svg/hero-desktop';
+import HeroMobile from '../svg/hero-mobile';
+import ShapeRomboid from '../svg/shape-romboid';
+import ShapeSnowflake from '../svg/shape-snowflake';
 import TasteOfHome from '../svg/taste-of-home';
 import UnmatchedCompanion from '../svg/unmatched-companion';
 
@@ -70,128 +75,26 @@ const Hero = () => {
       .to('.logo-full', { height: 0 }, '<')
       .to('.logo-nanu', { height: 38 }, '<')
       .to('.navbar-wrapper', { backgroundColor: '#532826' });
-    // });
-    const heroTimeline = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: '.hero-banner',
-          start: 60,
-          end: 500,
-          pin: true
-        }
-      })
-      .set('.heritage, .friendlyFoods, .friendly, .foods', { y: 100, opacity: 0 })
-      .set('.hyr', { x: -100, opacity: 0 })
-      .set('.eyw', { x: 100, opacity: 0 })
-      .set('.shapes', { width: 40 })
-      .set('.rombo-1', { rotate: -45, scale: 0 })
-      .set('.rombo-2', { rotate: 45, scale: 0 })
-      .set('.snowflake', { opacity: 0 })
-      .set('.button-1', { opacity: 0, scale: 0, x: 100 })
-      .set('.button-2', { opacity: 0, scale: 0, x: -100 })
-      .to('.heritage', { y: 0, opacity: 1 })
-      .to('.friendlyFoods', { y: 0, opacity: 1 })
-      .to('.friendly', { y: 0, opacity: 1 }, '>')
-      .to('.foods', { y: 0, opacity: 1 }, '>')
-      .to('.hyr', { x: 1, opacity: 100 })
-      .to('.eyw', { x: 0, opacity: 100 })
-      .to('.shapes', { width: 120 })
-      .to('.rombo-1', { rotate: 0, scale: 1 }, '<')
-      .to('.rombo-2', { rotate: 0, scale: 1 }, '<')
-      .to('.snowflake', { opacity: 1 })
-      .to('.button-1', { opacity: 1, scale: 1, x: 0 })
-      .to('.button-2', { opacity: 1, scale: 1, x: 0 });
   });
 
   return (
-    <div
-      className="
-    hero-banner
-    before:bg-hero
-    relative
-    before:absolute
-    before:inset-x-0
-    before:top-0
-    before:block
-    before:h-[1000px]
-    before:w-full
-    before:bg-sze-sm
-    before:bg-pos-sm
-    before:content-['']
-    lg:before:bg-sze-lg
-    lg:before:bg-pos-lg"
-    >
+    <div className="hero-banner before:bg-hero relative before:absolute before:inset-x-0 before:top-0 before:block before:h-[1000px] before:w-full before:bg-sze-sm before:bg-pos-sm before:content-[''] lg:before:bg-sze-lg lg:before:bg-pos-lg">
       <div className="flex w-full flex-col justify-center">
-        <div className="relative flex flex-grow flex-col items-center pb-24 pt-[80vw] lg:pt-72">
-          <Image
-            src="/images/home/hero/title-heritage.svg"
-            width={447}
-            height={110}
-            alt="Heritage"
-            className="heritage mx-auto w-[85vw] drop-shadow-lg lg:w-auto"
-          />
-          <Image
-            src="/images/home/hero/title-friendly.svg"
-            width={817.51}
-            height={148}
-            alt="Heritage"
-            className="friendly mx-auto -mt-4 w-[85vw] drop-shadow-lg lg:hidden"
-          />
-          <Image
-            src="/images/home/hero/title-foods.svg"
-            width={817.51}
-            height={128}
-            alt="Heritage"
-            className="foods mx-auto w-[85vw] drop-shadow-lg lg:hidden"
-          />
-          <Image
-            src="/images/home/hero/title-friendly-foods.svg"
-            width={760}
-            height={153}
-            alt="Friendly Foods"
-            className="friendlyFoods drop-drop-shadow-md mx-auto -mt-9 hidden opacity-0 lg:block"
-          />
-          <div className="mt-5 space-y-16 lg:-mt-6">
-            <h1 className="text-center font-portland text-2xl">
-              <span className="hyr font-semibild text-shadow block">HONOR YOUR ROOTS,</span>
-              <span className="eyw font-semibild text-shadow block">EMBRACE YOUR WELLNESS</span>
-            </h1>
-            <div className="flex items-center justify-center space-x-6 lg:space-x-[60px]">
-              {ctoItems &&
-                ctoItems.map((cto, index) => (
-                  <Link
-                    href="/shop"
-                    className={`bg-button-hero bg-blue-circle flex flex-col items-center justify-center bg-[#8DC8E8] bg-no-repeat ${cto.classname} aspect-[1.09/1] w-[90px] rounded-full font-portland font-bold uppercase text-[#532826] lg:w-[120px] lg:text-xl button-${index + 1} drop-shadow-md`}
-                    key={index}
-                  >
-                    <span className="-mb-2 block font-black">{cto.top}</span>
-                    <span className="block text-xl font-black lg:text-2xl">{cto.bottom}</span>
-                  </Link>
-                ))}
-              <div className="shapes relative order-2 mx-auto flex w-[40px] items-center justify-center lg:w-[120px]">
-                <Image
-                  src="/images/dot-lg.png"
-                  width={80}
-                  height={80}
-                  alt="Just a dot"
-                  className="rombo-1 absolute left-0 h-3 w-3 drop-shadow-md lg:h-5 lg:w-5"
-                />
-                <Image
-                  src="/images/snowflake-blue.svg"
-                  width={80}
-                  height={80}
-                  alt="Just a shape"
-                  className="snowflake h-6 w-6 drop-shadow-md lg:h-10 lg:w-10"
-                />
-                <Image
-                  src="/images/dot-lg.png"
-                  width={80}
-                  height={80}
-                  alt="Just a dot"
-                  className="rombo-2 absolute right-0 h-3 w-3 drop-shadow-md lg:h-5 lg:w-5"
-                />
-              </div>
+        <div className="relative flex flex-grow flex-col items-center pb-24 pt-52 lg:pt-72">
+          <HeroMobile className="aspect-[1.31/1] w-[80vw] max-w-[420px] md:hidden" />
+          <HeroDesktop className="hidden aspect-[3.1/1] w-[80vw] max-w-[800px] md:block" />
+          <div className="mt-12 flex w-full items-center justify-center space-x-6 lg:space-x-[60px]">
+            <Link href="/shop" className="aspect-[1.09/1] w-[120px] lg:w-[90px]">
+              <ButtonShopNow className="h-full w-full" />
+            </Link>
+            <div className="relative mx-auto flex w-[80px] items-center justify-center lg:w-[120px]">
+              <ShapeRomboid className="absolute left-0 h-3 w-3 drop-shadow-md lg:h-5 lg:w-5 [&_svg]:fill-[#8DC8E8]" />
+              <ShapeSnowflake className="h-6 w-6 drop-shadow-md lg:h-10 lg:w-10 [&_svg]:fill-[#8DC8E8]" />
+              <ShapeRomboid className="absolute right-0 h-3 w-3 drop-shadow-md lg:h-5 lg:w-5 [&_svg]:fill-[#8DC8E8]" />
             </div>
+            <Link href="/shop" className="aspect-[1.09/1] w-[120px] lg:w-[90px]">
+              <ButtonFindInStore className="h-full w-full" />
+            </Link>
           </div>
         </div>
       </div>

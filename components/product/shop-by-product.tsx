@@ -124,7 +124,7 @@ export function ShopByProduct() {
             <div className="mt-10 flex w-full items-center justify-around lg:ml-24 lg:mt-0 lg:w-auto lg:justify-center lg:space-x-32">
               {shopByItems.map((button, index) => (
                 <Link href={button.url} key={index} className="group flex flex-col justify-center">
-                  <figure className="relative flex aspect-square w-24 items-center justify-center lg:w-36 [&_svg]:text-[#EDD3C5] group-hover:[&_svg]:animate-spin">
+                  <figure className="relative flex aspect-square w-24 items-center justify-center lg:w-36 [&_svg]:text-[#EDD3C5] [&_svg]:transition [&_svg]:duration-300 group-hover:[&_svg]:rotate-90">
                     <ShapeFlower />
                     <Image
                       src={button.image}

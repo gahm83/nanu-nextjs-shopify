@@ -135,12 +135,12 @@ export function ProductDescription({ product }: { product: Product }) {
         )}
       </AnimatePresence>
       <div className="flex flex-grow flex-col px-6 py-5 lg:px-10 lg:py-8">
-        <div className="border-bottom-sky relative pb-5">
-          <h4 className="pb-5 font-plam-canyon-drive text-5xl font-normal capitalize text-[#532826]">
+        <div className="border-bottom-sky relative hidden lg:block">
+          <h4 className="pb-4 font-plam-canyon-drive text-5xl font-normal capitalize text-[#532826]">
             {product.collections.edges[0].node.handle}
           </h4>
         </div>
-        <h1 className="mb-2 font-portland text-4xl font-bold uppercase text-[#532826]">
+        <h1 className="mb-2 mt-5 font-portland text-4xl font-bold uppercase text-[#532826]">
           {product.title}
         </h1>
         <div className="my-auto grid grid-flow-row grid-cols-2 items-center justify-stretch border-2 border-[#532826] text-center font-portland uppercase text-[#532826] lg:flex lg:grid-cols-3 lg:divide-x-2 lg:divide-[#532826]">
