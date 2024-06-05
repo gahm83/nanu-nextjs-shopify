@@ -46,32 +46,12 @@ const MeetOurFamily = () => {
         <div className="flex flex-col gap-8 lg:col-span-6 lg:grid lg:grid-cols-3">
           {collectionItems &&
             collectionItems.map((item, index) => (
-              <div
+              <Link
+                href={item.url}
                 key={index}
-                className="after:bg-[auto 5px] relative flex flex-col items-stretch justify-around bg-[#EDD3C5] after:absolute after:bottom-10 after:left-10 after:right-10 after:block after:h-[5px] after:bg-border-wood after:bg-repeat-space after:content-['']"
+                className="group relative flex aspect-[0.7/1] flex-col items-stretch justify-center bg-[#EDD3C5] after:absolute after:bottom-10 after:left-10 after:right-10 after:block after:h-[5px] after:bg-border-wood after:bg-repeat-space after:content-['']"
               >
-                <div className="group relative z-10 -mb-[5rem] flex items-end justify-end pr-10 pt-14">
-                  <Link
-                    href={item.url}
-                    className="relative flex h-[80px] w-[80px] items-center justify-center"
-                  >
-                    <ShapeFlower className="h-full w-full [&_svg:first-child]:absolute [&_svg:first-child]:h-full [&_svg:first-child]:w-full [&_svg:first-child]:text-[#8DC8E8] [&_svg:first-child]:transition [&_svg:first-child]:duration-300 group-hover:[&_svg:first-child]:rotate-90 ">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={80}
-                        height={80}
-                        fill="none"
-                        className="absolute"
-                      >
-                        <path
-                          fill="#532826"
-                          d="M46.674 35.68 32.353 50.002 30 47.649l14.321-14.321H31.697V30H50v18.303h-3.328l.002-12.622Z"
-                        />
-                      </svg>
-                    </ShapeFlower>
-                  </Link>
-                </div>
-                <figure className="relative aspect-square">
+                <figure className="relative mb-14 aspect-square">
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -79,13 +59,24 @@ const MeetOurFamily = () => {
                     height={512}
                     className="absolute inset-0 h-full w-full"
                   />
+                  <ShapeFlower className="absolute right-10 top-4 h-20 w-20 [&_svg:first-child]:absolute [&_svg:first-child]:h-full [&_svg:first-child]:w-full [&_svg:first-child]:text-[#8DC8E8] [&_svg:first-child]:transition [&_svg:first-child]:duration-300 group-hover:[&_svg:first-child]:rotate-90 ">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 80 80"
+                      fill="none"
+                      className="absolute h-full w-full"
+                    >
+                      <path
+                        fill="#532826"
+                        d="M46.674 35.68 32.353 50.002 30 47.649l14.321-14.321H31.697V30H50v18.303h-3.328l.002-12.622Z"
+                      />
+                    </svg>
+                  </ShapeFlower>
                 </figure>
-                <div className="px-10 pb-14">
-                  <h2 className="font-portland text-4xl font-semibold uppercase text-[#532826]">
-                    {item.title}
-                  </h2>
-                </div>
-              </div>
+                <h2 className="absolute bottom-14 left-10 right-10 font-portland text-4xl font-semibold uppercase text-[#532826]">
+                  {item.title}
+                </h2>
+              </Link>
             ))}
         </div>
       </div>
