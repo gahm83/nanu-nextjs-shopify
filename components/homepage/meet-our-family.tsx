@@ -23,7 +23,7 @@ const collectionItems = [
 const MeetOurFamily = () => {
   return (
     <section>
-      <div className="mx-auto flex w-11/12 flex-col py-12 lg:grid lg:max-w-screen-xl lg:auto-rows-max lg:grid-cols-6 lg:gap-8 lg:py-20">
+      <div className="meet-our-family mx-auto flex w-11/12 flex-col py-12 lg:grid lg:max-w-screen-xl lg:auto-rows-max lg:grid-cols-6 lg:gap-8 lg:py-20">
         <div className="flex items-center pb-4 lg:col-span-3">
           <h2 className="font-portland text-3xl font-black uppercase text-[#532826] lg:text-4xl">
             Meet our Family
