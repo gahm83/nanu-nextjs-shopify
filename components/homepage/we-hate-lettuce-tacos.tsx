@@ -1,8 +1,9 @@
 'use client';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// import { useGSAP } from '@gsap/react';
+// import gsap from 'gsap';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import { useRef } from 'react';
 import FullVegan from '../svg/full-vegan';
 import GlutenFree from '../svg/gluten-free';
 import HonorYourRoots from '../svg/honor-your-roots';
@@ -11,39 +12,43 @@ import ShapeRomboid from '../svg/shape-romboid';
 import ShapeSnowflake from '../svg/shape-snowflake';
 import WomenOwned from '../svg/women-owned';
 
-gsap.registerPlugin(useGSAP);
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(useGSAP);
+// gsap.registerPlugin(ScrollTrigger);
 
 const WeHateLettuceTacos = () => {
-  useGSAP(() => {
-    // ScrollTrigger.create({
-    //   trigger: 'body',
-    //   start: 60,
-    //   end: 'bottom',
-    //   scrub: true,
-    //   toggleClass: { targets: '.navbar-home', className: 'sticky-navbar' }
-    // });
+  const weHateRef = useRef(null);
 
-    const navbarTimeline = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: '.meet-our-family',
-          endTrigger: '.we-hate-lettuce-tacos',
-          start: '50%',
-          end: 'bottom',
-          scrub: 0.5
-        }
-      })
-      .from('.glutten-free', { y: 300 })
-      .from('.full-vegan', { y: 200 })
-      .from('.women-owned', { y: 200 })
-      .from('.made-with-few-ingredients', { y: 200 })
-      .from('.honor-your-roots', { y: 200 });
-  });
+  // useGSAP(() => {
+  // ScrollTrigger.create({
+  //   trigger: 'body',
+  //   start: 60,
+  //   end: 'bottom',
+  //   scrub: true,
+  //   toggleClass: { targets: '.navbar-home', className: 'sticky-navbar' }
+  // });
+
+  //   const navbarTimeline = gsap
+  //     .timeline({
+  //       scrollTrigger: {
+  //         trigger: '.we-hate-lettuce-tacos',
+  //         endTrigger: '.companion-in-every-bite',
+  //         start: 'top',
+  //         end: 'bottom',
+  //         scrub: true,
+  //         markers: true
+  //       }
+  //     })
+  //     .from('.glutten-free', { y: 200 })
+  //     .from('.full-vegan', { y: 200 })
+  //     .from('.women-owned', { y: 200 })
+  //     .from('.made-with-few-ingredients', { y: 200 })
+  //     .from('.honor-your-roots', { y: 200 });
+  // },
+  // { scope: weHateRef });
 
   return (
-    <section className="we-hate-lettuce-tacos overflow-hidden">
-      <div className="mx-auto w-11/12 py-12 lg:max-w-screen-xl lg:py-20">
+    <section className="overflow-x-hidden" ref={weHateRef}>
+      <div className="we-hate-lettuce-tacos mx-auto w-11/12 py-12 lg:max-w-screen-xl lg:py-20">
         <figure className="mx-auto mb-5 w-[12vw] lg:w-[9vw]">
           <Image
             src="/images/nanu-logo-top.svg"

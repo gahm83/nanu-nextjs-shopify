@@ -17,6 +17,8 @@ export default async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
   const shopPathPattern = /^\/shop\/.*$/;
 
+  console.log(pathname);
+
   return (
     <header className={pathname !== '/' ? 'navbar-site' : 'navbar-home'}>
       <FreeShippingBanner />

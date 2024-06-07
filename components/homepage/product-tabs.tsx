@@ -31,7 +31,7 @@ function ProductTabs() {
 
   return (
     <section>
-      <div className="relative py-16">
+      <div className="companion-in-every-bite relative py-16">
         <div className="w-full lg:grid lg:grid-cols-[37.5%_62.5%]">
           <div className="relative lg:col-start-2">
             <div className="max-lg:mx-auto max-lg:w-11/12 lg:absolute lg:inset-y-0 lg:-left-8 lg:w-[28.1271vw] lg:max-w-[405.33px] lg:-translate-x-full [&_button]:text-black">
