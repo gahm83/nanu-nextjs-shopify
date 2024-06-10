@@ -1,6 +1,11 @@
 const WomenOwned = ({ className, children }: { className: string; children: React.ReactNode }) => (
-  <span className={`origin-center -translate-x-1/2 -translate-y-1/2 transform ${className}`}>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 178 102" fill="none">
+  <span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 178 102"
+      fill="none"
+      className={`origin-center -translate-x-1/2 -translate-y-1/2 transform ${className}`}
+    >
       <path
         fill="#EA2D23"
         d="M140.112.187H36.948c-3.439 0-6.653 1.726-8.558 4.59L1.743 44.924a10.275 10.275 0 0 0 0 11.356L28.39 96.426a10.277 10.277 0 0 0 8.558 4.59h103.164c3.439 0 6.653-1.726 8.558-4.59l26.647-40.146a10.274 10.274 0 0 0 0-11.356L148.67 4.777a10.276 10.276 0 0 0-8.558-4.59Z"

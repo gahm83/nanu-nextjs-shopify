@@ -5,8 +5,8 @@ const MadeWithFewIngredients = ({
   className: string;
   children: React.ReactNode;
 }) => (
-  <span className={`origin-center -translate-x-1/2 -translate-y-1/2 transform ${className}`}>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 134">
+  <span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 134" className={className}>
       <path
         fill="#FF7200"
         d="M103.188 51.247C103.188 22.944 80.245 0 51.943 0 23.642 0 .7 22.944.7 51.247v31.264c0 28.303 22.943 51.247 51.244 51.247 28.302 0 51.245-22.944 51.245-51.247V51.247Z"

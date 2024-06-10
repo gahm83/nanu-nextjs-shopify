@@ -1,9 +1,7 @@
 import BannerHomeIsCloser from '@/components/homepage/banner-home-is-closer';
 import Hero from '@/components/homepage/hero-banner';
 import JoinOurTable from '@/components/homepage/join-our-table';
-import MeetOurFamily from '@/components/homepage/meet-our-family';
 import NanusCookBook from '@/components/homepage/nanus-cook-book';
-import ProductTabs from '@/components/homepage/product-tabs';
 import WeHateLettuceTacos from '@/components/homepage/we-hate-lettuce-tacos';
 
 export const metadata = {
@@ -17,9 +15,9 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
-      <MeetOurFamily />
+      {/* <MeetOurFamily /> */}
       <WeHateLettuceTacos />
-      <ProductTabs />
+      {/* <ProductTabs /> */}
       <NanusCookBook />
       <BannerHomeIsCloser />
       <JoinOurTable />

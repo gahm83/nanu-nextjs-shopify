@@ -1,3 +1,5 @@
+import React from 'react';
+
 const GlutenFree = ({ className, children }: { className: string; children: React.ReactNode }) => (
   <span
     className={`aspect-square origin-center -translate-x-1/2 -translate-y-1/2 transform ${className}`}
@@ -47,4 +49,5 @@ const GlutenFree = ({ className, children }: { className: string; children: Reac
     {children}
   </span>
 );
+
 export default GlutenFree;

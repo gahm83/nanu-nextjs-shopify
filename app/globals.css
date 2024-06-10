@@ -109,13 +109,7 @@ button {
 
 .pagination-lines {
   > .swiper-pagination {
-    @apply absolute
-      left-4
-      right-4
-      top-0
-      z-50
-      flex
-      items-center;
+    @apply absolute left-4 right-4 top-0 z-50 flex items-center;
     span {
       @apply flex
         h-8
@@ -271,16 +265,7 @@ button {
   }
 
   .border-pyramid-bottom {
-    @apply before:z-10
-      after:absolute
-      after:inset-x-0
-      after:bottom-0
-      after:block
-      after:h-[7px]
-      after:bg-border-pyramid-bottom
-      after:bg-contain
-      after:bg-repeat-x
-      after:content-[''];
+    @apply before:z-10 after:absolute after:inset-x-0 after:bottom-0 after:block after:h-[7px] after:bg-border-pyramid-bottom after:bg-contain after:bg-repeat-x after:content-[''];
   }
 
   .bg-add-to-cart {
