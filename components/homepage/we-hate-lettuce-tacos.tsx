@@ -34,7 +34,7 @@ const WeHateLettuceTacos = () => {
   const y5 = useParallax(scrollYProgress, 300);
 
   return (
-    <section className="overflow-x-hidden overflow-y-visible py-12 lg:py-20" ref={container}>
+    <section className="py-12 lg:py-20" ref={container}>
       <div className="we-hate-lettuce-tacos mx-auto w-11/12 lg:max-w-screen-xl">
         <figure className="mx-auto mb-5 w-[12vw] lg:w-[9vw]">
           <Image
@@ -76,10 +76,9 @@ const WeHateLettuceTacos = () => {
             className="absolute left-[100%] top-[48%] z-[1] w-[21vw] lg:top-[60%] lg:w-[12vw]"
             style={{ y: y3 }}
           >
-            <WomenOwned className="translate-x-[-30%] -rotate-[15deg] lg:translate-x-[-50%]">
-              <ShapeRomboid className="absolute left-[70%] top-[-40%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
-              <ShapeRomboid className="absolute left-[80%] top-[130%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
-            </WomenOwned>
+            <WomenOwned className="translate-x-[-30%] -rotate-[15deg] lg:translate-x-[-50%]" />
+            <ShapeRomboid className="absolute left-[70%] top-[-40%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
+            <ShapeRomboid className="absolute left-[80%] top-[130%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
           </motion.div>
           <motion.div
             className="made-with-few-ingredients absolute left-[20%] top-[70%] z-[1]  w-[13vw]  lg:left-[15%] lg:top-[83%] lg:w-[7.7vw]"

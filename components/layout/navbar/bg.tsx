@@ -7,9 +7,9 @@ const Bg = () => {
   const { scrollY } = useScroll();
   const pathName = usePathname();
   const controls = useAnimation();
-
-  const threshold = 120;
-  const thresholdX = 120;
+  const shopPathPattern = /^\/shop(\/(sauces|tortillas))?$/;
+  const animateBg = pathName === '/' || shopPathPattern.test(pathName);
+  const threshold = 90;
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     latest > threshold ? controls.start('visible') : controls.start('hidden');
@@ -27,8 +27,8 @@ const Bg = () => {
   return (
     <motion.div
       className="absolute h-full w-full bg-[#532826]/0"
-      initial={pathName === '/' ? 'hidden' : 'visible'}
-      animate={controls}
+      initial={animateBg ? 'hidden' : 'visible'}
+      animate={animateBg ? controls : false}
       variants={bgAnimation}
     ></motion.div>
   );
