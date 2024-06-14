@@ -27,7 +27,7 @@ const Bg = () => {
   return (
     <motion.div
       className="absolute h-full w-full bg-[#532826]/0"
-      initial="hidden"
+      initial={pathName === '/' ? 'hidden' : 'visible'}
       animate={controls}
       variants={bgAnimation}
     ></motion.div>

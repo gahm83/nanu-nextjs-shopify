@@ -83,28 +83,50 @@ export default async function ProductPage({ params }: { params: { handle: string
       />
       <div className="mx-auto max-w-[1120px] pb-10 pt-40 lg:pb-16 lg:pt-52">
         <div className="grid gap-5 lg:grid-cols-2 lg:gap-10">
-          <div className="px-5 lg:p-0">
-            <div className="aspect-[1.2/1] rounded-xl bg-[#F2D2C3]">
-              <Suspense
-                fallback={
-                  <div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden" />
-                }
-              >
-                <Gallery
-                  images={product.images.map((image: TImage) => ({
-                    src: image.url,
-                    altText: image.altText
-                  }))}
+          <div className="px-5 lg:max-h-[600px] lg:overflow-y-scroll lg:p-0">
+            <div className="grid grid-cols-2 gap-5">
+              <div className="col-span-2 aspect-[1.2/1] rounded-xl bg-[#F2D2C3]">
+                <Suspense
+                  fallback={
+                    <div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden" />
+                  }
+                >
+                  <Gallery
+                    images={product.images.map((image: TImage) => ({
+                      src: image.url,
+                      altText: image.altText
+                    }))}
+                  />
+                </Suspense>
+              </div>
+              <div className="relative col-span-2 hidden aspect-[16/9] w-full overflow-hidden rounded-xl bg-[#F2D2C3] lg:block ">
+                <Image
+                  src="/images/hero-producto.jpg"
+                  alt="Nanu's Heritage Doods"
+                  width={800}
+                  height={600}
+                  className="w-full object-cover"
                 />
-              </Suspense>
-            </div>
-            <div className="relative mt-5 hidden aspect-[4/1] w-full overflow-hidden rounded-xl bg-[#F2D2C3] lg:block">
-              <Image
-                src="/images/hero-producto.jpg"
-                alt="Nanu's Heritage Doods"
-                fill
-                className="w-full object-cover"
-              />
+              </div>
+
+              <div className="relative hidden aspect-square w-full overflow-hidden rounded-xl bg-[#F2D2C3] lg:block ">
+                <Image
+                  src="/images/nanu-01.jpg"
+                  alt="Nanu's Heritage Doods"
+                  width={800}
+                  height={600}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+              <div className="relative hidden aspect-square w-full overflow-hidden rounded-xl bg-[#F2D2C3] lg:block ">
+                <Image
+                  src="/images/nanu-02.jpg"
+                  alt="Nanu's Heritage Doods"
+                  width={800}
+                  height={600}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
             </div>
           </div>
           <div className="flex px-5 lg:p-0">
