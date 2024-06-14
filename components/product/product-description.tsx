@@ -4,9 +4,17 @@ import Prose from 'components/prose';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Product } from 'lib/shopify/types';
 import Image from 'next/image';
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { AddToCart } from '../cart/add-to-cart';
 import Price from '../price';
+import FullVegan from '../svg/full-vegan';
+import GlutenFree from '../svg/gluten-free';
+import HandmadeSmallBatches from '../svg/handmade-small-batches';
+import MadeWithCleanIngredients from '../svg/made-with-clean-ingredients';
+import MadeWithFewIngredients from '../svg/made-with-few-ingredients';
+import NoArtificialFlavours from '../svg/no-artificial-flavours';
+import ShapeRomboid from '../svg/shape-romboid';
+import ShapeSnowflake from '../svg/shape-snowflake';
 // import badges from '/images/Badges.png';
 // import imageClose from '/images/Close.png';
 // import dashedIngredients from '/images/ingredientes-dashed.png';
@@ -14,6 +22,7 @@ import Price from '../price';
 export function ProductDescription({ product }: { product: Product }) {
   const [cantidad, setCantidad] = React.useState(1);
   const [showPopup, setShowPopup] = React.useState(false);
+  const collection = product.collections.edges[0].node.handle;
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -32,6 +41,10 @@ export function ProductDescription({ product }: { product: Product }) {
       setCantidad((prev) => prev - 1);
     }
   };
+
+  useEffect(() => {
+    console.log(product.variants);
+  }, []);
   //www.godaddy.com/es/seguridad-web
   https: return (
     <>
@@ -39,7 +52,6 @@ export function ProductDescription({ product }: { product: Product }) {
         {showPopup && (
           <div className="fixed inset-0 z-[100] h-screen w-screen overflow-y-auto bg-black/70 md:flex md:items-center md:justify-center">
             <motion.div
-              // className="fixed left-0 top-0 z-[99999] flex h-full w-full items-center justify-center bg-opacity-50 px-5"
               className="w-full p-10 pt-12 "
               initial={{ opacity: 0, y: -200 }}
               animate={{ opacity: 1, y: 0 }}
@@ -68,64 +80,31 @@ export function ProductDescription({ product }: { product: Product }) {
                     <div className="border-top-sky border-bottom-sky relative flex flex-grow flex-col items-stretch justify-between py-6">
                       <div className="space-y-2 text-center">
                         <h2 className="font-portland text-xl font-semibold uppercase text-[#F6E7E0]">
-                          Ingredientes
+                          Ingredients
                         </h2>
                         <p>{product.ingredients?.value}</p>
                       </div>
-                      <div className="flex aspect-[16/8] justify-between">
-                        <div className="relative aspect-square w-[100px] self-start">
-                          <Image
-                            src="/images/home/benefits/gluten-free.svg"
-                            fill={true}
-                            alt="Gluten free!"
-                            className="rotate-15 h-24 w-24"
-                          />
-                          <Image
-                            src="/images/snowflake-blue.svg"
-                            alt="Honor your roots"
-                            width={20}
-                            height={20}
-                            className="blink-4 absolute bottom-full left-[120%] top-[20%] h-5 w-5"
-                          />
+                      {collection === 'tortillas' ? (
+                        <div className="relative flex aspect-[16/9] justify-between">
+                          <GlutenFree className="absolute top-0 w-28 rotate-[15deg]" />
+                          <MadeWithFewIngredients className="absolute bottom-0 left-[55%] w-24 -translate-x-1/2 rotate-[15deg]" />
+                          <FullVegan className="absolute right-4 w-28 -translate-y-1/2 rotate-[-16deg]" />
+                          <ShapeSnowflake className="absolute right-[10px] top-[140px] h-5 w-5 [&_svg]:fill-[#8DC8E8]" />
+                          <ShapeSnowflake className="absolute left-[42%] top-[6%] h-5 w-5 [&_svg]:fill-[#8DC8E8]" />
+                          <ShapeRomboid className="absolute left-[20%] top-[80%] h-[10] w-[10] [&_svg]:fill-[#8DC8E8]" />
+                          <ShapeRomboid className="absolute left-[78%] top-[90%] h-[10] w-[10] [&_svg]:fill-[#8DC8E8]" />
                         </div>
-                        <div className="relative aspect-[0.77/1] w-[80px] self-end">
-                          <Image
-                            src="/images/home/benefits/made-with-few-ingredients.svg"
-                            alt="Made with few ingredients"
-                            fill={true}
-                            className="-rotate-15 h-24 w-24"
-                          />
-                          <Image
-                            src="/images/square-sky.svg"
-                            alt="Honor your roots"
-                            width={20}
-                            height={20}
-                            className="blink-1 absolute left-[145%] top-[80%] h-[10] w-[10]"
-                          />
-                          <Image
-                            src="/images/square-sky.svg"
-                            alt="Honor your roots"
-                            width={20}
-                            height={20}
-                            className="blink-1 absolute right-[170%] top-[60%] h-[10] w-[10]"
-                          />
+                      ) : (
+                        <div className="relative flex aspect-[16/9] justify-between">
+                          <NoArtificialFlavours className="absolute top-0 w-28 rotate-[15deg]" />
+                          <MadeWithCleanIngredients className="absolute bottom-0 left-[55%] w-24 -translate-x-1/2 rotate-[15deg]" />
+                          <HandmadeSmallBatches className="absolute right-0 w-36 -translate-y-1/2 rotate-[-16deg]" />
+                          <ShapeSnowflake className="absolute right-[10px] top-[140px] h-5 w-5 [&_svg]:fill-[#8DC8E8]" />
+                          <ShapeSnowflake className="absolute left-[42%] top-[6%] h-5 w-5 [&_svg]:fill-[#8DC8E8]" />
+                          <ShapeRomboid className="absolute left-[20%] top-[80%] h-[10] w-[10] [&_svg]:fill-[#8DC8E8]" />
+                          <ShapeRomboid className="absolute left-[78%] top-[90%] h-[10] w-[10] [&_svg]:fill-[#8DC8E8]" />
                         </div>
-                        <div className="relative aspect-square w-[100px] self-start">
-                          <Image
-                            src="/images/home/benefits/100-vegan.svg"
-                            alt="100% Vegan"
-                            fill={true}
-                            className="-rotate-15 h-24 w-24"
-                          />
-                          <Image
-                            src="/images/snowflake-blue.svg"
-                            alt="Honor your roots"
-                            width={40}
-                            height={40}
-                            className="blink-4 absolute right-0 top-[110%] h-5 w-5"
-                          />
-                        </div>
-                      </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -137,7 +116,7 @@ export function ProductDescription({ product }: { product: Product }) {
       <div className="flex flex-grow flex-col px-6 py-5 lg:px-10 lg:py-8">
         <div className="border-bottom-sky relative hidden lg:block">
           <h4 className="pb-4 font-plam-canyon-drive text-5xl font-normal capitalize text-[#532826]">
-            {product.collections.edges[0].node.handle}
+            {collection}
           </h4>
         </div>
         <h1 className="mb-2 mt-5 font-portland text-4xl font-bold uppercase text-[#532826]">
@@ -165,12 +144,6 @@ export function ProductDescription({ product }: { product: Product }) {
         ) : (
           <p className="font-athiti text-lg font-medium text-[#532826]">{product.description}</p>
         )}
-        {/* <div className="mr-auto w-auto rounded-full bg-blue-600 p-2 text-sm text-white">
-          <Price
-            amount={product.priceRange.maxVariantPrice.amount}
-            currencyCode={product.priceRange.maxVariantPrice.currencyCode}
-          />
-        </div> */}
         <div className="my-auto flex items-center gap-8">
           <div className="flex items-center bg-[#EDD3C5]">
             <button

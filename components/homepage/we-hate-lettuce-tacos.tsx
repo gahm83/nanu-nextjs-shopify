@@ -2,7 +2,7 @@
 // import { useGSAP } from '@gsap/react';
 // import gsap from 'gsap';
 // import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MotionValue, motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
+import { MotionValue, motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { useRef } from 'react';
 import FullVegan from '../svg/full-vegan';
@@ -23,23 +23,19 @@ const WeHateLettuceTacos = () => {
   const useParallax = (value: MotionValue<number>, distance: number) =>
     useTransform(value, [0, 1], [distance, -distance]);
 
-  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    console.log('Page scroll: ', latest);
-  });
+  // useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+  //   console.log('Page scroll: ', latest);
+  // });
 
-  const y1 = useParallax(scrollYProgress, 300);
-  const y2 = useParallax(scrollYProgress, 200);
-  const y3 = useParallax(scrollYProgress, 150);
-  const y4 = useParallax(scrollYProgress, 250);
-  const y5 = useParallax(scrollYProgress, 100);
-
-  const r1 = useParallax(scrollYProgress, 60);
-  const r2 = useParallax(scrollYProgress, 10);
-  const r3 = useParallax(scrollYProgress, 60);
+  const y1 = useParallax(scrollYProgress, 100);
+  const y2 = useParallax(scrollYProgress, 250);
+  const y3 = useParallax(scrollYProgress, 200);
+  const y4 = useParallax(scrollYProgress, 150);
+  const y5 = useParallax(scrollYProgress, 300);
 
   return (
-    <section className="overflow-x-hidden" ref={container}>
-      <div className="we-hate-lettuce-tacos mx-auto w-11/12 py-12 lg:max-w-screen-xl lg:py-20">
+    <section className="overflow-x-hidden overflow-y-visible py-12 lg:py-20" ref={container}>
+      <div className="we-hate-lettuce-tacos mx-auto w-11/12 lg:max-w-screen-xl">
         <figure className="mx-auto mb-5 w-[12vw] lg:w-[9vw]">
           <Image
             src="/images/nanu-logo-top.svg"
@@ -59,77 +55,48 @@ const WeHateLettuceTacos = () => {
           to suit every <br className="hidden lg:block" />
           lifestyle <br className="hidden lg:block" />
           <motion.div
-            className="absolute right-[4%] top-0 z-[1] h-[15vw] w-[15vw] md:h-[10vw] md:w-[10vw] lg:top-[6%]"
+            className="absolute right-0 top-0 z-[1] h-[15vw] w-[15vw] md:-top-9 md:h-[10vw] md:w-[10vw]"
             style={{ y: y1 }}
           >
-            <GlutenFree className="aspect-square h-full w-full">
-              <motion.div style={{ y: r1 }}>
-                <ShapeRomboid className="absolute right-[110%] top-[70%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
-              </motion.div>
-              <motion.div style={{ y: r2 }}>
-                <ShapeRomboid className="absolute left-[70%] top-[-20%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
-              </motion.div>
-              <motion.div style={{ y: r3 }}>
-                <ShapeRomboid className="absolute left-[120%] top-[65%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
-              </motion.div>
-            </GlutenFree>
+            <GlutenFree className="aspect-square h-full w-full" />
+            <ShapeRomboid className="absolute right-[110%] top-[70%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
+            <ShapeRomboid className="absolute left-[70%] top-[-20%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
+            <ShapeRomboid className="absolute left-[120%] top-[65%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
           </motion.div>
           <motion.div
             className="absolute left-0 top-[16%] z-[1] h-[16vw] w-[16vw] md:h-[10vw] md:w-[10vw]"
             style={{ y: y2 }}
           >
-            <FullVegan className="aspect-square h-full w-full">
-              <motion.div style={{ y: r3 }}>
-                <ShapeSnowflake className="blink-1 absolute left-0 top-full h-[20px] w-[20px] lg:h-[40px] lg:w-[40px] [&_svg]:fill-[#8DC8E8]" />
-              </motion.div>
-              <motion.div style={{ y: r1 }}>
-                <ShapeRomboid className="absolute right-[110%] top-[70%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
-              </motion.div>
-              <motion.div style={{ y: r2 }}>
-                <ShapeRomboid className="absolute left-[70%] top-[-20%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
-              </motion.div>
-            </FullVegan>
+            <FullVegan className="aspect-square h-full w-full" />
+            <ShapeSnowflake className="blink-1 absolute left-0 top-full h-[20px] w-[20px] lg:h-[40px] lg:w-[40px] [&_svg]:fill-[#8DC8E8]" />
+            <ShapeRomboid className="absolute right-[110%] top-[70%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
+            <ShapeRomboid className="absolute left-[70%] top-[-20%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
           </motion.div>
           <motion.div
             className="absolute left-[100%] top-[48%] z-[1] w-[21vw] lg:top-[60%] lg:w-[12vw]"
             style={{ y: y3 }}
           >
-            <WomenOwned className="aspect-[1.77/1] translate-x-[-30%] -rotate-[15deg] lg:translate-x-[-50%]">
-              <motion.div>
-                <ShapeRomboid className="absolute left-[70%] top-[-40%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
-              </motion.div>
-              <motion.div>
-                <ShapeRomboid className="absolute left-[80%] top-[130%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
-              </motion.div>
+            <WomenOwned className="translate-x-[-30%] -rotate-[15deg] lg:translate-x-[-50%]">
+              <ShapeRomboid className="absolute left-[70%] top-[-40%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
+              <ShapeRomboid className="absolute left-[80%] top-[130%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
             </WomenOwned>
           </motion.div>
           <motion.div
-            className="made-with-few-ingredients absolute left-[20%] top-[70%] z-[1] aspect-[0.77/1] w-[13vw]  lg:left-[15%] lg:top-[83%] lg:w-[7.7vw]"
+            className="made-with-few-ingredients absolute left-[20%] top-[70%] z-[1]  w-[13vw]  lg:left-[15%] lg:top-[83%] lg:w-[7.7vw]"
             style={{ y: y4 }}
           >
-            <MadeWithFewIngredients className="translate-x-[-120%] translate-y-[-50%] -rotate-[13deg]">
-              <motion.div>
-                <ShapeSnowflake className="blink-3 absolute -left-5 top-[120%] h-[20px] w-[20px] lg:h-[40px] lg:w-[40px] [&_svg]:fill-[#8DC8E8]" />
-              </motion.div>
-              <motion.div>
-                <ShapeRomboid className="absolute left-0 top-[-20%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
-              </motion.div>
-              <motion.div>
-                <ShapeRomboid className="absolute left-[-40%] top-[80%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
-              </motion.div>
-            </MadeWithFewIngredients>
+            <MadeWithFewIngredients className="translate-x-[-120%] translate-y-[-50%] -rotate-[13deg]" />
+            <ShapeSnowflake className="absolute -left-5 top-[120%] h-[20px] w-[20px] lg:h-[40px] lg:w-[40px] [&_svg]:fill-[#8DC8E8]" />
+            <ShapeRomboid className="absolute left-0 top-[-20%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
+            <ShapeRomboid className="absolute left-[-40%] top-[80%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
           </motion.div>
           <motion.div
             className="absolute right-0 top-[95%] z-[1] w-[18vw] lg:w-[11vw]"
             style={{ y: y5 }}
           >
-            <HonorYourRoots className="-rotate-[13deg]"></HonorYourRoots>
-            <motion.div>
-              <ShapeSnowflake className="absolute left-full top-0 h-[20px] w-[20px] lg:h-[40px] lg:w-[40px] [&_svg]:fill-[#8DC8E8]" />
-            </motion.div>
-            <motion.div>
-              <ShapeRomboid className="absolute left-[20%] top-full h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
-            </motion.div>
+            <HonorYourRoots className="-rotate-[13deg]" />
+            <ShapeSnowflake className="absolute left-full top-0 h-[20px] w-[20px] lg:h-[40px] lg:w-[40px] [&_svg]:fill-[#8DC8E8]" />
+            <ShapeRomboid className="absolute left-[20%] top-full h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
           </motion.div>
         </h2>
         <div className="mt-12 flex items-center justify-center lg:mt-24">

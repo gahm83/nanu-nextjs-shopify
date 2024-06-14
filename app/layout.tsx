@@ -1,6 +1,7 @@
 import Footer from 'components/layout/footer';
 import Navbar from 'components/layout/navbar';
 import { ensureStartsWith } from 'lib/utils';
+import { headers } from 'next/headers';
 import { ReactNode } from 'react';
 import './globals.css';
 
@@ -32,10 +33,13 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
+  const headersList = headers();
+  const pathName = headersList.get('x-current-path');
+
   return (
     <html lang="en">
       <body className="bg-[#532826] antialiased">
-        <Navbar />
+        <Navbar pathName={pathName} />
         <main className="bg-[#F6E7E0]">{children}</main>
         <Footer />
       </body>

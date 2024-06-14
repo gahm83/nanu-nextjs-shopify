@@ -67,7 +67,7 @@ const Hero = () => {
   return (
     <div className="hero-banner before:bg-hero relative before:absolute before:inset-x-0 before:top-0 before:block before:h-[1000px] before:w-full before:bg-sze-sm before:bg-pos-sm before:content-[''] lg:before:bg-sze-lg lg:before:bg-pos-lg">
       <div className="flex w-full flex-col justify-center">
-        <div className="relative flex flex-grow flex-col items-center pb-24 pt-52 lg:pt-72">
+        <div className="relative flex flex-grow flex-col items-center pb-24 pt-56 lg:pt-80 ">
           <HeroMobile className="aspect-[1.31/1] w-[80vw] max-w-[420px] md:hidden" />
           <HeroDesktop className="hidden aspect-[3.1/1] w-[80vw] max-w-[800px] md:block" />
           <div className="mt-12 flex w-full items-center justify-center space-x-6 lg:space-x-[60px]">
