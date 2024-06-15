@@ -4,7 +4,7 @@ import Prose from 'components/prose';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Product } from 'lib/shopify/types';
 import Image from 'next/image';
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import { AddToCart } from '../cart/add-to-cart';
 import Price from '../price';
 import FullVegan from '../svg/full-vegan';
@@ -15,6 +15,7 @@ import MadeWithFewIngredients from '../svg/made-with-few-ingredients';
 import NoArtificialFlavours from '../svg/no-artificial-flavours';
 import ShapeRomboid from '../svg/shape-romboid';
 import ShapeSnowflake from '../svg/shape-snowflake';
+import { VariantSelector } from './variant-selector';
 // import badges from '/images/Badges.png';
 // import imageClose from '/images/Close.png';
 // import dashedIngredients from '/images/ingredientes-dashed.png';
@@ -42,10 +43,10 @@ export function ProductDescription({ product }: { product: Product }) {
     }
   };
 
-  useEffect(() => {
-    console.log(product.variants);
-  }, []);
-  //www.godaddy.com/es/seguridad-web
+  console.log(product.variants);
+  // useEffect(() => {
+  // }, []);
+  // //www.godaddy.com/es/seguridad-web
   https: return (
     <>
       <AnimatePresence>
@@ -189,8 +190,16 @@ export function ProductDescription({ product }: { product: Product }) {
             />
           </Suspense>
         </div>
+        <div className="flex items-end gap-5">
+          <Suspense fallback={null}>
+            <VariantSelector options={product.options} variants={product.variants} />
+          </Suspense>
+          <Suspense fallback={null}>
+            <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
+          </Suspense>
+        </div>
         <a
-          className="mt-4 flex cursor-pointer items-center justify-center py-3 text-center font-portland font-bold uppercase leading-none text-[#532826] lg:text-lg"
+          className="lg:text-md mt-4 flex cursor-pointer items-center justify-center py-3 text-center font-portland font-bold uppercase leading-none text-[#532826]"
           onClick={togglePopup}
         >
           <span>Ingredients & nutrition</span>
@@ -199,17 +208,11 @@ export function ProductDescription({ product }: { product: Product }) {
             width="40"
             height="40"
             viewBox="0 0 24 24"
-            className="h-6 w-6 text-current"
+            className="ml-2 h-5 w-5"
           >
-            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z" />
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z" className="fill-[#532826]" />
           </svg>
         </a>
-        {/* <Suspense fallback={null}>
-        <VariantSelector options={product.options} variants={product.variants} />
-      </Suspense> 
-      <Suspense fallback={null}>
-        <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
-      </Suspense> */}
       </div>
     </>
   );

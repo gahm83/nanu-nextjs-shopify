@@ -66,6 +66,8 @@ const productFragment = /* GraphQL */ `
             amount
             currencyCode
           }
+          weight
+          weightUnit
         }
       }
     }

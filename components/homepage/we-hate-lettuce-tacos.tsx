@@ -64,7 +64,7 @@ const WeHateLettuceTacos = () => {
             <ShapeRomboid className="absolute left-[120%] top-[65%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
           </motion.div>
           <motion.div
-            className="absolute left-0 top-[16%] z-[1] h-[16vw] w-[16vw] md:h-[10vw] md:w-[10vw]"
+            className="absolute -left-[15%] top-[16%] z-[1] h-[16vw] w-[16vw] md:h-[10vw] md:w-[10vw]"
             style={{ y: y2 }}
           >
             <FullVegan className="aspect-square h-full w-full" />

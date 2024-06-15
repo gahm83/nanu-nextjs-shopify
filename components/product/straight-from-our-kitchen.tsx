@@ -92,7 +92,7 @@ export function StraighFromOurKitchen() {
             >
               {recipeItems &&
                 recipeItems.map((recipe, index) => (
-                  <SwiperSlide>
+                  <SwiperSlide key={index}>
                     <RecipeCardSlideshow key={index} recipe={recipe} />
                   </SwiperSlide>
                 ))}

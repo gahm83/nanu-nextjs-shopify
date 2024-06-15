@@ -40,7 +40,7 @@ export default async function Navbar({ pathName }: { pathName?: string | null })
             <span className="relative">Contact</span>
           </Link>
         </nav>
-        <div className="h-10 lg:absolute lg:right-0">
+        <div className="flex h-10 items-center lg:absolute lg:right-0">
           <Suspense fallback={<OpenCart />}>
             <Cart />
           </Suspense>
