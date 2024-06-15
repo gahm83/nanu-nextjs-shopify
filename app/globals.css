@@ -251,6 +251,17 @@ button {
       after:content-[''];
   }
 
+  .border-bottom-sky-lg {
+    @apply after:absolute
+      after:inset-x-0
+      after:bottom-0
+      after:block
+      after:h-[10px]
+      after:bg-border-sky
+      after:bg-repeat-space
+      after:content-[''];
+  }
+
   .border-pyramid-top {
     @apply before:absolute
       before:inset-x-0

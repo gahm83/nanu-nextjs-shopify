@@ -10,10 +10,17 @@ const Logo = () => {
   const controlsTop = useAnimation();
   const controlsX = useAnimation();
 
-  const thresholdTop = 90;
-  const thresholdX = 120;
+  const shopPathPattern = /^\/shop(\/(sauces|tortillas))?$/;
+
+  const showLogo = pathName === '/' || pathName === '/about-us' || shopPathPattern.test(pathName);
+  const animateLogo =
+    pathName === '/' || pathName === '/about-us' || shopPathPattern.test(pathName);
+
+  const thresholdTop = pathName === '/about-us' ? 800 : 90;
+  const thresholdX = pathName === '/about-us' ? 920 : 120;
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
+    console.log(latest);
     latest > thresholdTop ? controlsTop.start('hidden') : controlsTop.start('visible');
     latest > thresholdX ? controlsX.start('hidden') : controlsX.start('visible');
   });
@@ -58,13 +65,13 @@ const Logo = () => {
       href="/"
       className="relative z-10 mx-auto flex w-[180px] flex-col items-center justify-between"
     >
-      {pathName === '/' && (
+      {showLogo && (
         <>
           <motion.svg
             viewBox="0 0 72.78 81.7"
             className="w-[28.43%] origin-center"
-            initial="visible"
-            animate={controlsTop}
+            initial={animateLogo ? 'hidden' : 'visible'}
+            animate={animateLogo ? controlsTop : false}
             variants={logoAnimation}
           >
             <path
@@ -75,8 +82,8 @@ const Logo = () => {
           <motion.svg
             viewBox="0 0 31.18 24.53"
             className="absolute bottom-[8%] left-0 block w-[12.17%] origin-right -translate-y-1/2"
-            initial="visible"
-            animate={controlsTop}
+            initial={animateLogo ? 'hidden' : 'visible'}
+            animate={animateLogo ? controlsTop : false}
             variants={leftItemAnimation}
           >
             <path
@@ -92,12 +99,12 @@ const Logo = () => {
           className="fill-[#f6e7e0]"
         />
       </svg>
-      {pathName === '/' && (
+      {showLogo && (
         <motion.svg
           viewBox="0 0 31.31 24.53"
           className="absolute bottom-[8%] right-0 block w-[12.23%] origin-left -translate-y-1/2"
-          initial="visible"
-          animate={controlsTop}
+          initial={animateLogo ? 'hidden' : 'visible'}
+          animate={animateLogo ? controlsTop : false}
           variants={rightItemAnimation}
         >
           <path
