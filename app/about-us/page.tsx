@@ -1,34 +1,11 @@
-// export async function generateMetadata({
-//   params
-// }: {
-//   params: { page: string };
-// }): Promise<Metadata> {
-//   const page = await getPage(params.page);
-
-//   if (!page) return notFound();
-
-//   return {
-//     title: page.seo?.title || page.title,
-//     description: page.seo?.description || page.bodySummary,
-//     openGraph: {
-//       publishedTime: page.createdAt,
-//       modifiedTime: page.updatedAt,
-//       type: 'article'
-//     }
-//   };
-// }
 import Image from 'next/image';
 
 export default async function Page({ params }: { params: { page: string } }) {
-  // const page = await getPage(params.page);
-
-  // if (!page) return notFound();
-
   return (
     <>
       <section>
         <div className="border-pyramid-bottom relative max-lg:h-[110vw] max-lg:max-h-[600px]">
-          <img
+          <Image
             src="/images/hero-about.jpg"
             alt="About Us"
             width={1440}
@@ -49,7 +26,7 @@ export default async function Page({ params }: { params: { page: string } }) {
               In a world full of diet trends, harmful images of what our bodies should look like,
               and confusing health advice, I, like many, fell victim to the chaos. For the last 10
               years, I tried numerous diets—keto, raw vegan, carnivore, and more—all ending in yet
-              another failed attempt to look and feel my best. Moreover, I noticed that these diets
+              another fa iled attempt to look and feel my best. Moreover, I noticed that these diets
               often made me miss out on my cultural foods, especially during our family’s Sunday
               dinners filled with salsas and tortillas.
             </p>
