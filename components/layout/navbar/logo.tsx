@@ -18,7 +18,8 @@ const Logo = () => {
     pathName === '/faqs' ||
     shopPathPattern.test(pathName);
 
-  const thresholdTop = pathName === '/about-us' || pathName === '/faqs' ? 800 : 90;
+  const thresholdTop =
+    pathName === '/about-us' || pathName === '/faqs' || pathName === '/contact-us' ? 800 : 90;
   const thresholdX = pathName === '/about-us' ? 920 : 120;
 
   useMotionValueEvent(scrollY, 'change', (latest) => {

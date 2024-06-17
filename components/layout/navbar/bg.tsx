@@ -8,8 +8,14 @@ const Bg = () => {
   const pathName = usePathname();
   const controls = useAnimation();
   const shopPathPattern = /^\/shop(\/(sauces|tortillas))?$/;
-  const animateBg = pathName === '/' || pathName === '/about-us' || shopPathPattern.test(pathName);
-  const threshold = pathName === '/about-us' ? 420 : 90;
+  const animateBg =
+    pathName === '/' ||
+    pathName === '/about-us' ||
+    pathName === '/faqs' ||
+    pathName === '/contact-us' ||
+    shopPathPattern.test(pathName);
+  const threshold =
+    pathName === '/about-us' || pathName === '/faqs' || pathName === '/contact-us' ? 420 : 90;
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     latest > threshold ? controls.start('visible') : controls.start('hidden');

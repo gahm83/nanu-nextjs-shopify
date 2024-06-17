@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import NewsletterForm from '../newsletter';
 import SocialMenu from './social-menu';
 
@@ -25,14 +26,14 @@ export default async function Footer() {
           </div>
           <nav className="mt-16 grid grid-cols-2 lg:mt-0 lg:gap-8">
             <div className="flex flex-col space-y-2">
-              <a>SHOP</a>
-              <a>ABOUT US</a>
+              <Link href="/shop">SHOP</Link>
+              <Link href="/about-us">ABOUT US</Link>
               <a>RECIPES</a>
             </div>
             <div className="flex flex-col space-y-2">
-              <a>FIND IN STORE</a>
-              <a>FAQ</a>
-              <a>CONTACT US</a>
+              <Link href="/shop">FIND IN STORE</Link>
+              <Link href="/faqs">FAQs</Link>
+              <Link href="/contact-us">CONTACT US</Link>
             </div>
           </nav>
         </div>
