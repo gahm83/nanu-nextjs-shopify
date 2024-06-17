@@ -12,11 +12,13 @@ const Logo = () => {
 
   const shopPathPattern = /^\/shop(\/(sauces|tortillas))?$/;
 
-  const showLogo = pathName === '/' || pathName === '/about-us' || shopPathPattern.test(pathName);
   const animateLogo =
-    pathName === '/' || pathName === '/about-us' || shopPathPattern.test(pathName);
+    pathName === '/' ||
+    pathName === '/about-us' ||
+    pathName === '/faqs' ||
+    shopPathPattern.test(pathName);
 
-  const thresholdTop = pathName === '/about-us' ? 800 : 90;
+  const thresholdTop = pathName === '/about-us' || pathName === '/faqs' ? 800 : 90;
   const thresholdX = pathName === '/about-us' ? 920 : 120;
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
@@ -65,7 +67,7 @@ const Logo = () => {
       href="/"
       className="relative z-10 mx-auto flex w-[180px] flex-col items-center justify-between"
     >
-      {showLogo && (
+      {animateLogo && (
         <>
           <motion.svg
             viewBox="0 0 72.78 81.7"
@@ -99,7 +101,7 @@ const Logo = () => {
           className="fill-[#f6e7e0]"
         />
       </svg>
-      {showLogo && (
+      {animateLogo && (
         <motion.svg
           viewBox="0 0 31.31 24.53"
           className="absolute bottom-[8%] right-0 block w-[12.23%] origin-left -translate-y-1/2"

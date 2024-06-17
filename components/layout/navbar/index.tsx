@@ -40,10 +40,16 @@ export default async function Navbar({ pathName }: { pathName?: string | null })
               { 'before:w-[120%]': pathName === '/about-us' }
             )}
           >
-            <span className="relative drop-shadow-sm">ABout</span>
+            <span className="relative drop-shadow-sm">About</span>
           </Link>
-          <Link href="/" className="!ml-auto py-2">
-            <span className="relative">Contact</span>
+          <Link
+            href="/contact-us"
+            className={clsx(
+              "relative !ml-auto before:absolute before:bottom-0 before:left-[-10%] before:block before:h-3 before:w-0 before:bg-[#8DC8E8] before:transition-all before:duration-300 before:content-[''] hover:before:w-[120%]",
+              { 'before:w-[120%]': pathName === '/contact-us' }
+            )}
+          >
+            <span className="relative drop-shadow-sm">Contact</span>
           </Link>
         </nav>
         <div className="flex h-10 items-center lg:absolute lg:right-0">

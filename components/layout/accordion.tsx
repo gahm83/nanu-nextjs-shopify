@@ -21,9 +21,9 @@ const AccordionItem = ({
   <div className="relative w-full py-10 after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-[5px] after:bg-border-wood after:bg-repeat-space after:content-[''] lg:py-16">
     <motion.div
       onClick={toggle}
-      className={`relative mx-auto flex max-w-[800px] cursor-pointer items-center justify-between ${isOpen && 'pb-5'}`}
+      className={`relative mx-auto flex items-end justify-between ${isOpen && 'pb-10'} max-w-[800px] cursor-pointer space-x-4`}
     >
-      <h2 className="max-w-[800px] font-portland text-2xl font-bold uppercase text-[#532826]">
+      <h2 className="max-w-[800px] font-portland text-lg font-bold uppercase text-[#532826] lg:text-2xl">
         {title}
       </h2>
       <span className="group relative flex h-16 w-16 shrink-0 items-center justify-center before:absolute before:block before:h-12 before:w-12 before:rotate-45 before:transform before:border-2 before:border-[#532826] before:transition before:duration-300 before:content-[''] hover:before:bg-[#532826]">

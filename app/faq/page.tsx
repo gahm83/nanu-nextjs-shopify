@@ -17,6 +17,7 @@
 //     }
 //   };
 // }
+
 import Accordion from '@/components/layout/accordion';
 import Image from 'next/image';
 
@@ -155,7 +156,7 @@ export default async function Page({ params }: { params: { page: string } }) {
       <section>
         <div className="border-pyramid-bottom relative max-lg:h-[110vw] max-lg:max-h-[600px]">
           <Image
-            src="/images/hero-about.jpg"
+            src="/images/hero-faq.jpg"
             alt="About Us"
             width={1440}
             height={720}
