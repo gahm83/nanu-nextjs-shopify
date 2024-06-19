@@ -27,7 +27,7 @@ export default async function Navbar({ pathName }: { pathName?: string | null })
           <Link
             href="/shop"
             className={clsx(
-              "relative before:absolute before:bottom-0 before:left-[-10%] before:block before:h-3 before:w-0 before:bg-[#8DC8E8] before:transition-all before:duration-300 before:content-[''] hover:before:w-[120%]",
+              "relative flex h-10 items-center before:absolute before:bottom-2 before:left-[-10%] before:block before:h-3 before:w-0 before:bg-[#8DC8E8] before:transition-all before:duration-300 before:content-[''] hover:before:w-[120%]",
               { 'before:w-[120%]': shopPathPattern.test(pathName as string) }
             )}
           >
@@ -36,7 +36,7 @@ export default async function Navbar({ pathName }: { pathName?: string | null })
           <Link
             href="/about-us"
             className={clsx(
-              "relative before:absolute before:bottom-0 before:left-[-10%] before:block before:h-3 before:w-0 before:bg-[#8DC8E8] before:transition-all before:duration-300 before:content-[''] hover:before:w-[120%]",
+              "relative flex h-10 items-center before:absolute before:bottom-2 before:left-[-10%] before:block before:h-3 before:w-0 before:bg-[#8DC8E8] before:transition-all before:duration-300 before:content-[''] hover:before:w-[120%]",
               { 'before:w-[120%]': pathName === '/about-us' }
             )}
           >
@@ -45,7 +45,7 @@ export default async function Navbar({ pathName }: { pathName?: string | null })
           <Link
             href="/contact-us"
             className={clsx(
-              "relative !ml-auto before:absolute before:bottom-0 before:left-[-10%] before:block before:h-3 before:w-0 before:bg-[#8DC8E8] before:transition-all before:duration-300 before:content-[''] hover:before:w-[120%]",
+              "relative !ml-auto flex h-10 items-center before:absolute before:bottom-2 before:left-[-10%] before:block before:h-3 before:w-0 before:bg-[#8DC8E8] before:transition-all before:duration-300 before:content-[''] hover:before:w-[120%]",
               { 'before:w-[120%]': pathName === '/contact-us' }
             )}
           >

@@ -75,7 +75,6 @@ export function VariantSelector({
             )
           );
 
-          // The option is active if it's in the url params.
           const isActive = searchParams.get(optionNameLowerCase) === value;
 
           return (

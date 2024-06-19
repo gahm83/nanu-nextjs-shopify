@@ -4,7 +4,8 @@ import Prose from 'components/prose';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Product } from 'lib/shopify/types';
 import Image from 'next/image';
-import React, { Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+import React, { Suspense, useEffect } from 'react';
 import { AddToCart } from '../cart/add-to-cart';
 import Price from '../price';
 import FullVegan from '../svg/full-vegan';
@@ -23,6 +24,7 @@ import { VariantSelector } from './variant-selector';
 export function ProductDescription({ product }: { product: Product }) {
   const [cantidad, setCantidad] = React.useState(1);
   const [showPopup, setShowPopup] = React.useState(false);
+  const searchParams = useSearchParams();
   const collection = product.collections.edges[0].node.handle;
 
   const togglePopup = () => {
@@ -44,9 +46,16 @@ export function ProductDescription({ product }: { product: Product }) {
   };
 
   console.log(product.variants);
-  // useEffect(() => {
-  // }, []);
-  // //www.godaddy.com/es/seguridad-web
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    console.log(
+      '::::::::::::::::::::: xxxxxxx',
+      searchParams.get('pack size'),
+      Object.fromEntries(searchParams.entries()),
+      params
+    );
+  }, [searchParams]);
+
   https: return (
     <>
       <AnimatePresence>

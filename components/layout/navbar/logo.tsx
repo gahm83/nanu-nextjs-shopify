@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 
 const Logo = () => {
   const { scrollY } = useScroll();
+
   const pathName = usePathname();
   const controlsTop = useAnimation();
   const controlsX = useAnimation();
@@ -18,12 +19,10 @@ const Logo = () => {
     pathName === '/faqs' ||
     shopPathPattern.test(pathName);
 
-  const thresholdTop =
-    pathName === '/about-us' || pathName === '/faqs' || pathName === '/contact-us' ? 800 : 90;
-  const thresholdX = pathName === '/about-us' ? 920 : 120;
+  const thresholdTop = animateLogo ? 800 : 90;
+  const thresholdX = animateLogo ? 920 : 120;
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    console.log(latest);
     latest > thresholdTop ? controlsTop.start('hidden') : controlsTop.start('visible');
     latest > thresholdX ? controlsX.start('hidden') : controlsX.start('visible');
   });
@@ -73,7 +72,7 @@ const Logo = () => {
           <motion.svg
             viewBox="0 0 72.78 81.7"
             className="w-[28.43%] origin-center"
-            initial={animateLogo ? 'hidden' : 'visible'}
+            initial={animateLogo ? 'visible' : 'hidden'}
             animate={animateLogo ? controlsTop : false}
             variants={logoAnimation}
           >
@@ -106,7 +105,7 @@ const Logo = () => {
         <motion.svg
           viewBox="0 0 31.31 24.53"
           className="absolute bottom-[8%] right-0 block w-[12.23%] origin-left -translate-y-1/2"
-          initial={animateLogo ? 'hidden' : 'visible'}
+          initial={animateLogo ? 'visible' : 'hidden'}
           animate={animateLogo ? controlsTop : false}
           variants={rightItemAnimation}
         >

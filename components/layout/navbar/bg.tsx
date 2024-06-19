@@ -14,6 +14,7 @@ const Bg = () => {
     pathName === '/faqs' ||
     pathName === '/contact-us' ||
     shopPathPattern.test(pathName);
+
   const threshold =
     pathName === '/about-us' || pathName === '/faqs' || pathName === '/contact-us' ? 420 : 90;
 

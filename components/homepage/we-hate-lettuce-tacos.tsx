@@ -34,8 +34,8 @@ const WeHateLettuceTacos = () => {
   const y5 = useParallax(scrollYProgress, 300);
 
   return (
-    <section className="py-12 lg:py-20" ref={container}>
-      <div className="we-hate-lettuce-tacos mx-auto w-11/12 lg:max-w-screen-xl">
+    <section className="overflow-x-hidden" ref={container}>
+      <div className="mx-auto w-11/12 py-12 lg:max-w-screen-xl lg:py-20">
         <figure className="mx-auto mb-5 w-[12vw] lg:w-[9vw]">
           <Image
             src="/images/nanu-logo-top.svg"
@@ -46,16 +46,8 @@ const WeHateLettuceTacos = () => {
           />
         </figure>
         <h2 className="relative mx-auto w-8/12 text-center font-portland text-[8vw] uppercase leading-tight text-[#532826] lg:w-7/12 lg:text-[4.3vw]">
-          We hate <br />
-          our tacos on a <br className="hidden lg:block" />
-          lettuce wrap, <br className="hidden lg:block" />
-          so we crafted <br className="hidden lg:block" />
-          heritage <br className="hidden lg:block" />
-          friendly foods <br className="hidden lg:block" />
-          to suit every <br className="hidden lg:block" />
-          lifestyle <br className="hidden lg:block" />
           <motion.div
-            className="absolute right-0 top-0 z-[1] h-[15vw] w-[15vw] md:-top-9 md:h-[10vw] md:w-[10vw]"
+            className="absolute left-[90%] top-0 -z-0 h-[15vw] w-[15vw] md:-top-9 md:h-[10vw] md:w-[10vw]"
             style={{ y: y1 }}
           >
             <GlutenFree className="aspect-square h-full w-full" />
@@ -64,7 +56,7 @@ const WeHateLettuceTacos = () => {
             <ShapeRomboid className="absolute left-[120%] top-[65%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
           </motion.div>
           <motion.div
-            className="absolute -left-[15%] top-[16%] z-[1] h-[16vw] w-[16vw] md:h-[10vw] md:w-[10vw]"
+            className="absolute -left-[15%] top-[16%] -z-0 h-[16vw] w-[16vw] md:h-[10vw] md:w-[10vw]"
             style={{ y: y2 }}
           >
             <FullVegan className="aspect-square h-full w-full" />
@@ -73,7 +65,7 @@ const WeHateLettuceTacos = () => {
             <ShapeRomboid className="absolute left-[70%] top-[-20%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
           </motion.div>
           <motion.div
-            className="absolute left-[100%] top-[48%] z-[1] w-[21vw] lg:top-[60%] lg:w-[12vw]"
+            className="absolute left-[100%] top-[48%] -z-0 w-[21vw] lg:top-[60%] lg:w-[12vw]"
             style={{ y: y3 }}
           >
             <WomenOwned className="translate-x-[-30%] -rotate-[15deg] lg:translate-x-[-50%]" />
@@ -81,7 +73,7 @@ const WeHateLettuceTacos = () => {
             <ShapeRomboid className="absolute left-[80%] top-[130%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
           </motion.div>
           <motion.div
-            className="made-with-few-ingredients absolute left-[20%] top-[70%] z-[1]  w-[13vw]  lg:left-[15%] lg:top-[83%] lg:w-[7.7vw]"
+            className="made-with-few-ingredients absolute left-0 top-[70%] -z-0 w-[13vw] lg:left-[15%] lg:top-[83%] lg:w-[7.7vw]"
             style={{ y: y4 }}
           >
             <MadeWithFewIngredients className="translate-x-[-120%] translate-y-[-50%] -rotate-[13deg]" />
@@ -90,13 +82,21 @@ const WeHateLettuceTacos = () => {
             <ShapeRomboid className="absolute left-[-40%] top-[80%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
           </motion.div>
           <motion.div
-            className="absolute right-0 top-[95%] z-[1] w-[18vw] lg:w-[11vw]"
+            className="absolute left-[90%] top-[95%] -z-0 w-[18vw] lg:w-[11vw]"
             style={{ y: y5 }}
           >
             <HonorYourRoots className="-rotate-[13deg]" />
             <ShapeSnowflake className="absolute left-full top-0 h-[20px] w-[20px] lg:h-[40px] lg:w-[40px] [&_svg]:fill-[#8DC8E8]" />
             <ShapeRomboid className="absolute left-[20%] top-full h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
           </motion.div>
+          We hate <br />
+          our tacos on a <br className="hidden lg:block" />
+          lettuce wrap, <br className="hidden lg:block" />
+          so we crafted <br className="hidden lg:block" />
+          heritage <br className="hidden lg:block" />
+          friendly foods <br className="hidden lg:block" />
+          to suit every <br className="hidden lg:block" />
+          lifestyle <br className="hidden lg:block" />
         </h2>
         <div className="mt-12 flex items-center justify-center lg:mt-24">
           <a
