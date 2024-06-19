@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { ProductOption, ProductVariant } from 'lib/shopify/types';
 import { createUrl } from 'lib/utils';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 
 type Combination = {
   id: string;
@@ -13,16 +14,32 @@ type Combination = {
 
 export function VariantSelector({
   options,
-  variants
+  variants,
+  defaultVariantID
 }: {
   options: ProductOption[];
   variants: ProductVariant[];
+  defaultVariantID?: string;
 }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const hasNoOptionsOrJustOneOption =
     !options.length || (options.length === 1 && options[0]?.values.length === 1);
+
+  useEffect(() => {
+    if (!defaultVariantID || searchParams.toString()) return;
+
+    const params = new URLSearchParams();
+
+    const defaultVariant = variants.find((variant) => variant.id === defaultVariantID);
+    if (defaultVariant) {
+      defaultVariant.selectedOptions.forEach((option) => {
+        params.set(option.name.toLowerCase(), option.value);
+      });
+      router.replace(createUrl(pathname, params), { scroll: false });
+    }
+  }, [defaultVariantID, pathname, router, searchParams, variants]);
 
   if (hasNoOptionsOrJustOneOption) {
     return null;
@@ -43,7 +60,7 @@ export function VariantSelector({
       <dt className="absolute left-0 top-0 font-portland font-bold uppercase text-[#532826] lg:text-lg">
         {option.name}
       </dt>
-      <dd className="flex gap-4">
+      <dd className="flex gap-5">
         {option.values.map((value) => {
           const optionNameLowerCase = option.name.toLowerCase();
 

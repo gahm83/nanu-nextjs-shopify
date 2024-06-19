@@ -24,8 +24,11 @@ import { VariantSelector } from './variant-selector';
 export function ProductDescription({ product }: { product: Product }) {
   const [cantidad, setCantidad] = React.useState(1);
   const [showPopup, setShowPopup] = React.useState(false);
+  const [variantQty, setVariantQty] = React.useState<string | null>('');
   const searchParams = useSearchParams();
   const collection = product.collections.edges[0].node.handle;
+  const defaultVariantId =
+    product?.variants?.length > 1 ? product?.variants[1]?.id : product?.variants[0]?.id;
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -45,15 +48,14 @@ export function ProductDescription({ product }: { product: Product }) {
     }
   };
 
-  console.log(product.variants);
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    console.log(
-      '::::::::::::::::::::: xxxxxxx',
-      searchParams.get('pack size'),
-      Object.fromEntries(searchParams.entries()),
-      params
-    );
+
+    const packSize = searchParams.get('pack size');
+    const packSizeArr = packSize?.split(' ');
+    const quantity = `${packSizeArr![0]} Salsas`;
+
+    setVariantQty(quantity);
   }, [searchParams]);
 
   https: return (
@@ -140,7 +142,7 @@ export function ProductDescription({ product }: { product: Product }) {
             />
           </div>
           <div className="col-span-2 row-start-2 flex h-[50px] items-center justify-center border-t-2 border-[#532826] px-4 font-bold leading-none lg:col-span-1 lg:row-start-1 lg:border-t-0">
-            {product.quantity?.value}
+            {variantQty! ? variantQty : product.quantity?.value}
           </div>
           <div className="col-span-1 flex h-[50px] items-center justify-center whitespace-nowrap px-4 font-bold">
             {product.weight?.value} OZ
@@ -154,7 +156,16 @@ export function ProductDescription({ product }: { product: Product }) {
         ) : (
           <p className="font-athiti text-lg font-medium text-[#532826]">{product.description}</p>
         )}
-        <div className="my-auto flex items-center gap-8">
+        <div className="my-auto flex items-end gap-5">
+          <Suspense fallback={null}>
+            <VariantSelector
+              options={product.options}
+              variants={product.variants}
+              defaultVariantID={defaultVariantId}
+            />
+          </Suspense>
+        </div>
+        <div className="my-auto flex items-center gap-5">
           <div className="flex items-center bg-[#EDD3C5]">
             <button
               className="flex h-[50px] w-8 items-center justify-end transition-all hover:bg-[#df9e7c]"
@@ -197,14 +208,6 @@ export function ProductDescription({ product }: { product: Product }) {
               availableForSale={product.availableForSale}
               isProduct={true}
             />
-          </Suspense>
-        </div>
-        <div className="flex items-end gap-5">
-          <Suspense fallback={null}>
-            <VariantSelector options={product.options} variants={product.variants} />
-          </Suspense>
-          <Suspense fallback={null}>
-            <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
           </Suspense>
         </div>
         <a
