@@ -27,7 +27,7 @@ function SubmitButton({ type }: { type: 'plus' | 'minus' }) {
       )}
     >
       {pending ? (
-        <LoadingDots className="bg-black dark:bg-white" />
+        <LoadingDots className="bg-black" />
       ) : type === 'plus' ? (
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
           <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z" />
@@ -36,7 +36,6 @@ function SubmitButton({ type }: { type: 'plus' | 'minus' }) {
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
           <path d="M19 13H5v-2h14z" />
         </svg>
-        // <MinusIcon className="h-4 w-4 dark:text-neutral-500" />
       )}
     </button>
   );
