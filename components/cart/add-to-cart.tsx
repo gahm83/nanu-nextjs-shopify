@@ -76,12 +76,14 @@ export function AddToCart({
   variants,
   availableForSale,
   isProduct = false,
-  defaultVariantId
+  defaultVariantId,
+  quantity = 1
 }: {
   variants: ProductVariant[];
   availableForSale: boolean;
   isProduct?: boolean;
   defaultVariantId?: string;
+  quantity?: number;
 }) {
   const [message, formAction] = useFormState(addItem, null);
   const searchParams = useSearchParams();
@@ -93,7 +95,7 @@ export function AddToCart({
   );
 
   const selectedVariantId = variant?.id || defaultVariantId;
-  const actionWithVariant = formAction.bind(null, selectedVariantId);
+  const actionWithVariant = formAction.bind(null, { selectedVariantId, quantity: quantity });
 
   return (
     <form action={actionWithVariant} className="flex-grow">

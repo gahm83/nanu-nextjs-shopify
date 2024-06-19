@@ -49,13 +49,13 @@ export function ProductDescription({ product }: { product: Product }) {
   };
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-
     const packSize = searchParams.get('pack size');
-    const packSizeArr = packSize?.split(' ');
-    const quantity = `${packSizeArr![0]} Salsas`;
 
-    setVariantQty(quantity);
+    if (packSize!!) {
+      const packSizeArr = packSize?.split(' ');
+      const quantity = `${packSizeArr![0]} Salsas`;
+      setVariantQty(quantity);
+    }
   }, [searchParams]);
 
   https: return (
@@ -207,6 +207,7 @@ export function ProductDescription({ product }: { product: Product }) {
               variants={product.variants}
               availableForSale={product.availableForSale}
               isProduct={true}
+              quantity={cantidad}
             />
           </Suspense>
         </div>

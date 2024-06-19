@@ -75,26 +75,6 @@ body {
   @apply font-athiti;
 }
 
-.navbar-home {
-  @apply absolute inset-x-0 top-0 z-50 pb-5;
-  &.sticky-navbar {
-    @apply !fixed !-top-[60px];
-    .navbar-wrapper {
-      @apply drop-shadow-md;
-    }
-  }
-}
-
-.navbar-site {
-  @apply fixed inset-x-0 top-0 z-50 pb-5;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
   img[loading='lazy'] {
     clip-path: inset(0.6px);
@@ -104,7 +84,7 @@ body {
 a,
 input,
 button {
-  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50;
+  @apply text-[#f6e7e0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50;
 }
 
 .pagination-lines {

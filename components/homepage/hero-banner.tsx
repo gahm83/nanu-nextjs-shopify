@@ -1,7 +1,4 @@
 'use client';
-// import { useGSAP } from '@gsap/react';
-// import gsap from 'gsap';
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
 import { useMediaQuery } from 'usehooks-ts';
 import ButtonFindInStore from '../svg/button-find-in-store';
@@ -13,9 +10,6 @@ import ShapeRomboid from '../svg/shape-romboid';
 import ShapeSnowflake from '../svg/shape-snowflake';
 import TasteOfHome from '../svg/taste-of-home';
 import UnmatchedCompanion from '../svg/unmatched-companion';
-
-// gsap.registerPlugin(useGSAP);
-// gsap.registerPlugin(ScrollTrigger);
 
 const cardItems = [
   {
@@ -39,30 +33,6 @@ const cardItems = [
 
 const Hero = () => {
   const matches = useMediaQuery('(min-width: 1024px)');
-
-  // useGSAP(() => {
-  //   ScrollTrigger.create({
-  //     trigger: 'body',
-  //     start: 60,
-  //     end: 'bottom',
-  //     scrub: true,
-  //     toggleClass: { targets: '.navbar-home', className: 'sticky-navbar' }
-  //   });
-
-  // const navbarTimeline = gsap
-  //   .timeline({
-  //     scrollTrigger: {
-  //       trigger: '.hero-banner',
-  //       start: 120,
-  //       end: 800,
-  //       scrub: true
-  //     }
-  //   })
-  //   .to('.logo-full', { y: -100 })
-  //   .to('.logo-full', { height: 0 }, '<')
-  //   .to('.logo-nanu', { height: 38 }, '<')
-  //   .to('.navbar-wrapper', { backgroundColor: '#532826' });
-  // });
 
   return (
     <div className="hero-banner before:bg-hero relative before:absolute before:inset-x-0 before:top-0 before:block before:h-[1000px] before:w-full before:bg-sze-sm before:bg-pos-sm before:content-[''] lg:before:bg-sze-lg lg:before:bg-pos-lg">
