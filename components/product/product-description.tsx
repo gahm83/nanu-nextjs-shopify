@@ -24,6 +24,8 @@ export function ProductDescription({ product }: { product: Product }) {
   const [cantidad, setCantidad] = React.useState(1);
   const [showPopup, setShowPopup] = React.useState(false);
   const collection = product.collections.edges[0].node.handle;
+  const defaultVariantId =
+    product?.variants?.length > 1 ? product?.variants[1]?.id : product?.variants[0]?.id;
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -43,10 +45,6 @@ export function ProductDescription({ product }: { product: Product }) {
     }
   };
 
-  console.log(product.variants);
-  // useEffect(() => {
-  // }, []);
-  // //www.godaddy.com/es/seguridad-web
   https: return (
     <>
       <AnimatePresence>
@@ -192,7 +190,11 @@ export function ProductDescription({ product }: { product: Product }) {
         </div>
         <div className="flex items-end gap-5">
           <Suspense fallback={null}>
-            <VariantSelector options={product.options} variants={product.variants} />
+            <VariantSelector
+              options={product.options}
+              variants={product.variants}
+              defaultVariantID={defaultVariantId}
+            />
           </Suspense>
           <Suspense fallback={null}>
             <AddToCart variants={product.variants} availableForSale={product.availableForSale} />

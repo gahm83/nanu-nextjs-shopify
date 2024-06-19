@@ -8,6 +8,7 @@ import { ProductVariant } from 'lib/shopify/types';
 import { useSearchParams } from 'next/navigation';
 import { useFormState, useFormStatus } from 'react-dom';
 import AddToBagIcon from '../icons/add-to-bag';
+
 function SubmitButton({
   availableForSale,
   selectedVariantId,
@@ -74,20 +75,23 @@ function SubmitButton({
 export function AddToCart({
   variants,
   availableForSale,
-  isProduct = false
+  isProduct = false,
+  defaultVariantId
 }: {
   variants: ProductVariant[];
   availableForSale: boolean;
   isProduct?: boolean;
+  defaultVariantId?: string;
 }) {
   const [message, formAction] = useFormState(addItem, null);
   const searchParams = useSearchParams();
-  const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;
+
   const variant = variants.find((variant: ProductVariant) =>
     variant.selectedOptions.every(
       (option) => option.value === searchParams.get(option.name.toLowerCase())
     )
   );
+
   const selectedVariantId = variant?.id || defaultVariantId;
   const actionWithVariant = formAction.bind(null, selectedVariantId);
 
