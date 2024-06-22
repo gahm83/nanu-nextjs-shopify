@@ -19,8 +19,8 @@ const Logo = () => {
     pathName === '/faqs' ||
     shopPathPattern.test(pathName);
 
-  const thresholdTop = animateLogo ? 800 : 90;
-  const thresholdX = animateLogo ? 920 : 120;
+  const thresholdTop = 60;
+  const thresholdX = 120;
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     latest > thresholdTop ? controlsTop.start('hidden') : controlsTop.start('visible');

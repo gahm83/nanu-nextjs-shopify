@@ -15,8 +15,7 @@ const Bg = () => {
     pathName === '/contact-us' ||
     shopPathPattern.test(pathName);
 
-  const threshold =
-    pathName === '/about-us' || pathName === '/faqs' || pathName === '/contact-us' ? 420 : 90;
+  const threshold = 90;
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     latest > threshold ? controls.start('visible') : controls.start('hidden');
