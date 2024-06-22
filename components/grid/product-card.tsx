@@ -27,9 +27,16 @@ export function ProductCard({
         />
       </Link>
       <div className="relative mt-2 w-full pt-5 before:absolute before:inset-x-0 before:top-0 before:block before:h-[5px] before:bg-border-sky before:bg-repeat-space before:content-['']">
-        <h2 className="font-portland text-2xl font-semibold uppercase text-[#532826]">
-          {product.title}
-        </h2>
+        <div className="flex items-center space-x-4">
+          <h2 className="truncate font-portland text-2xl font-semibold uppercase text-[#532826]">
+            {product.title}
+          </h2>
+          <div className="flex h-12 items-center justify-center border-2 border-[#532826] px-3">
+            <p className="font-portland text-2xl uppercase leading-none text-[#532826]">
+              ${Number(product.priceRange.minVariantPrice.amount).toString().replace(/\.0$/, '')}
+            </p>
+          </div>
+        </div>
         <div className="mt-4 flex items-stretch space-x-4">
           {hideDescription ? (
             <Link
@@ -50,9 +57,6 @@ export function ProductCard({
               defaultVariantId={defaultVariantId}
             />
           </Suspense>
-          <p className="me-5 flex h-12 items-center justify-center border-2 border-[#532826] px-3 font-portland text-2xl uppercase leading-none text-[#532826]">
-            ${Number(product.priceRange.minVariantPrice.amount).toString().replace(/\.0$/, '')}
-          </p>
         </div>
       </div>
     </div>

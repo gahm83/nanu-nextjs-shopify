@@ -21,7 +21,7 @@ function ProductCarousel({ products }: { products: Product[] }) {
           nextEl: nextRef.current!
         }}
         spaceBetween={20}
-        slidesPerView={1.4}
+        slidesPerView={1.2}
         loop={true}
         breakpoints={{
           1024: {

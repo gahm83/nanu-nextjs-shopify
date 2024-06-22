@@ -16,7 +16,7 @@ export default async function Navbar({ pathName }: { pathName?: string | null })
   return (
     <header className="fixed inset-x-0 top-0 z-50 w-full">
       <Bg />
-      <div className="relative mx-auto flex w-11/12 items-center py-3 lg:max-w-[1420px] lg:items-end lg:py-5">
+      <div className="relative mx-auto flex w-11/12 items-end py-3 lg:max-w-[1420px] lg:py-5">
         <div className="lg:hidden">
           <Suspense fallback={null}>
             <MobileMenu menu={menu} />
