@@ -11,8 +11,9 @@ export function ProductCard({
   product: Product;
   hideDescription?: boolean;
 }) {
-  const defaultVariantId =
-    product?.variants?.length > 1 ? product?.variants[1]?.id : product?.variants[0]?.id;
+  const defaultVariantId = product?.variants[0]?.id;
+
+  console.log(product);
 
   return (
     <div className="relative flex flex-col items-center justify-stretch">
@@ -42,7 +43,6 @@ export function ProductCard({
               {product.description}
             </p>
           )}
-
           <Suspense fallback={null}>
             <AddToCart
               variants={product.variants}
@@ -51,7 +51,7 @@ export function ProductCard({
             />
           </Suspense>
           <p className="me-5 flex h-12 items-center justify-center border-2 border-[#532826] px-3 font-portland text-2xl uppercase leading-none text-[#532826]">
-            ${Number(product.priceRange.maxVariantPrice.amount).toString().replace(/\.0$/, '')}
+            ${Number(product.priceRange.minVariantPrice.amount).toString().replace(/\.0$/, '')}
           </p>
         </div>
       </div>

@@ -27,8 +27,7 @@ export function ProductDescription({ product }: { product: Product }) {
   const [variantQty, setVariantQty] = React.useState<string | null>('');
   const searchParams = useSearchParams();
   const collection = product.collections.edges[0].node.handle;
-  const defaultVariantId =
-    product?.variants?.length > 1 ? product?.variants[1]?.id : product?.variants[0]?.id;
+  const defaultVariantId = product?.variants[0]?.id;
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -137,8 +136,8 @@ export function ProductDescription({ product }: { product: Product }) {
         <div className="my-auto grid grid-flow-row grid-cols-2 items-center justify-stretch border-2 border-[#532826] text-center font-portland uppercase text-[#532826] lg:flex lg:grid-cols-3 lg:divide-x-2 lg:divide-[#532826]">
           <div className="col-span-1 flex h-[50px] items-center justify-center border-r-2 border-[#532826] bg-[#EDD3C5] px-4 text-2xl font-bold lg:border-r-0">
             <Price
-              amount={product.priceRange.maxVariantPrice.amount}
-              currencyCode={product.priceRange.maxVariantPrice.currencyCode}
+              amount={product.priceRange.minVariantPrice.amount}
+              currencyCode={product.priceRange.minVariantPrice.currencyCode}
             />
           </div>
           <div className="col-span-2 row-start-2 flex h-[50px] items-center justify-center border-t-2 border-[#532826] px-4 font-bold leading-none lg:col-span-1 lg:row-start-1 lg:border-t-0">

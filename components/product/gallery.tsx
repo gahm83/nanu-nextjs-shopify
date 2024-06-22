@@ -1,11 +1,9 @@
 'use client';
 
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
-import { GridTileImage } from 'components/grid/tile';
 import { createUrl } from 'lib/utils';
 import Image from 'next/image';
-import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
+// import { useMediaQuery } from 'usehooks-ts';
 
 export function Gallery({ images }: { images: { src: string; altText: string }[] }) {
   const pathname = usePathname();
@@ -23,6 +21,8 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
   previousSearchParams.set('image', previousImageIndex.toString());
   const previousUrl = createUrl(pathname, previousSearchParams);
 
+  // const isDesktop = useMediaQuery('(min-width: 768px)')
+
   const buttonClassName =
     'h-full px-6 transition-all ease-in-out hover:scale-110 hover:text-black flex items-center justify-center';
 
@@ -30,18 +30,18 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
     <>
       <div className="relative aspect-square w-full overflow-hidden lg:max-h-[458px]">
         {/* <div className="relative h-full max-h-[550px] w-full overflow-hidden lg:aspect-square"> */}
-        {images[imageIndex] && (
+        {images.map((image, index) => (
           <Image
-            className="h-full w-full object-contain"
+            className={`h-full w-full object-contain ${index === 1 && 'opacity-0 transition-opacity duration-150 hover:opacity-100'}`}
             fill
             sizes="(min-width: 1024px) 66vw, 100vw"
-            alt={images[imageIndex]?.altText as string}
-            src={images[imageIndex]?.src as string}
+            alt={image.altText as string}
+            src={image.src as string}
             priority={true}
           />
-        )}
+        ))}
 
-        {images.length > 1 ? (
+        {/*images.length > 1 ? (
           <div className="absolute bottom-[15%] flex w-full justify-center">
             <div className="mx-auto flex h-11 items-center rounded-full border border-white bg-neutral-50/80 text-neutral-500 backdrop-blur">
               <Link
@@ -63,10 +63,10 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
               </Link>
             </div>
           </div>
-        ) : null}
+        ) : null*/}
       </div>
 
-      {images.length > 1 ? (
+      {/*images.length > 1 ? (
         <ul className="my-12 flex items-center justify-center gap-2 overflow-auto py-1 lg:mb-0">
           {images.map((image, index) => {
             const isActive = index === imageIndex;
@@ -94,7 +94,7 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
             );
           })}
         </ul>
-      ) : null}
+      ) : null*/}
     </>
   );
 }
