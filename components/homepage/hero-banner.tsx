@@ -55,13 +55,13 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="relative mx-auto flex w-11/12 max-w-screen-xl flex-col rounded-lg bg-[#532826] px-6 py-24 before:absolute before:left-6 before:right-6 before:top-10 before:block before:h-[6px] before:bg-border-sky before:bg-[auto_6px] before:bg-repeat-space before:content-[''] after:absolute after:bottom-10 after:left-6 after:right-6 after:block after:h-[5px] after:bg-border-sky after:bg-[auto_5px] after:bg-repeat-space after:content-[''] lg:px-24">
-        <div className="grid gap-16 lg:grid-cols-3">
+      <div className="relative mx-auto flex w-11/12 max-w-screen-xl flex-col rounded-lg bg-[#532826] px-6 py-24 before:absolute before:left-6 before:right-6 before:top-10 before:block before:h-[6px] before:bg-border-sky before:bg-[auto_6px] before:bg-repeat-space before:content-[''] after:absolute after:bottom-10 after:left-6 after:right-6 after:block after:h-[5px] after:bg-border-sky after:bg-[auto_5px] after:bg-repeat-space after:content-[''] xl:px-24">
+        <div className="grid gap-4 md:grid-cols-3">
           {cardItems &&
             cardItems.map((item, index) => (
-              <div key={index}>
+              <div key={index} className="max-w-80">
                 {item.icon}
-                <div className="mt-4 space-y-4 px-6 text-center">
+                <div className="mt-4 space-y-4 text-center lg:px-6">
                   <h2 className="mx-auto text-center font-portland text-2xl uppercase leading-none">
                     {item.title}
                   </h2>

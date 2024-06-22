@@ -1,3 +1,4 @@
+import FreeShippingBanner from '@/components/free-shipping-banner';
 import Footer from 'components/layout/footer';
 import Navbar from 'components/layout/navbar';
 import { ensureStartsWith } from 'lib/utils';
@@ -39,6 +40,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html lang="en">
       <body className="overflow-x-hidden bg-[#532826] text-[#F6E7E0] antialiased">
+        <FreeShippingBanner />
         <Navbar pathName={pathName} />
         <main className="bg-[#F6E7E0]">{children}</main>
         <Footer />

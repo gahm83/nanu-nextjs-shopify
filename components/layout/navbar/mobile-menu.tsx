@@ -74,7 +74,6 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                     <XMarkIcon className="relative h-6 w-6 transition-all duration-300 ease-in-out group-hover:scale-125" />
                   </button>
                 </div>
-
                 <nav className="flex flex-col divide-y divide-[#532826]">
                   <div className="py-2">
                     <p className="font-portland text-2xl font-bold uppercase text-[#532826]">
@@ -105,13 +104,13 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                     About
                   </Link>
                   <Link
-                    href="/"
+                    href="/contact-us"
                     className="py-2 font-portland text-2xl font-bold uppercase text-[#532826]"
                   >
                     Contact
                   </Link>
                   <Link
-                    href="/"
+                    href="/shop"
                     className="py-2 font-portland text-2xl font-bold uppercase text-[#532826]"
                   >
                     Find in Store

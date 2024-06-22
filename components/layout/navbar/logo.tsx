@@ -20,7 +20,7 @@ const Logo = () => {
     shopPathPattern.test(pathName);
 
   const thresholdTop = 60;
-  const thresholdX = 120;
+  const thresholdX = 90;
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     latest > thresholdTop ? controlsTop.start('hidden') : controlsTop.start('visible');
