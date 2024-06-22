@@ -34,7 +34,7 @@ const WeHateLettuceTacos = () => {
   const y5 = useParallax(scrollYProgress, 300);
 
   return (
-    <section className="overflow-x-hidden" ref={container}>
+    <section ref={container}>
       <div className="mx-auto w-11/12 py-12 lg:max-w-screen-xl lg:py-20">
         <figure className="mx-auto mb-5 w-[12vw] lg:w-[9vw]">
           <Image
@@ -89,14 +89,16 @@ const WeHateLettuceTacos = () => {
             <ShapeSnowflake className="absolute left-full top-0 h-[20px] w-[20px] lg:h-[40px] lg:w-[40px] [&_svg]:fill-[#8DC8E8]" />
             <ShapeRomboid className="absolute left-[20%] top-full h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
           </motion.div>
-          We hate <br />
-          our tacos on a <br className="hidden lg:block" />
-          lettuce wrap, <br className="hidden lg:block" />
-          so we crafted <br className="hidden lg:block" />
-          heritage <br className="hidden lg:block" />
-          friendly foods <br className="hidden lg:block" />
-          to suit every <br className="hidden lg:block" />
-          lifestyle <br className="hidden lg:block" />
+          <span className="relative">
+            We hate <br />
+            our tacos on a <br className="hidden lg:block" />
+            lettuce wrap, <br className="hidden lg:block" />
+            so we crafted <br className="hidden lg:block" />
+            heritage <br className="hidden lg:block" />
+            friendly foods <br className="hidden lg:block" />
+            to suit every <br className="hidden lg:block" />
+            lifestyle <br className="hidden lg:block" />
+          </span>
         </h2>
         <div className="mt-12 flex items-center justify-center lg:mt-24">
           <a

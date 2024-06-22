@@ -1,4 +1,5 @@
 'use client';
+import clsx from 'clsx';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 interface FormData {
@@ -80,8 +81,9 @@ const ContactForm = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors }
-  } = useForm<FormData>();
+  } = useForm<FormData>({ mode: 'onBlur', reValidateMode: 'onBlur' });
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
     console.log(data);
@@ -106,31 +108,40 @@ const ContactForm = () => {
         <div className="relative">
           <input
             id="name"
-            className="h-12 w-full appearance-none border-2 border-[#F3E5DE] bg-transparent px-4 font-portland text-lg font-bold uppercase outline-none placeholder:text-[#F3E5DE]/80 lg:w-80"
+            className={clsx(
+              'h-12 w-full appearance-none border-2 border-[#F3E5DE] bg-transparent px-4 font-portland text-lg font-medium outline-none placeholder:font-bold placeholder:uppercase placeholder:text-[#F3E5DE]/80 lg:w-80',
+              { 'border-[#EA2D23] text-[#EA2D23] placeholder:text-[#EA2D23]': errors.name }
+            )}
             placeholder="Your Name"
             {...register('name', {
               required: 'Name is required',
               minLength: { value: 2, message: 'Name must be at least 2 characters' }
             })}
           />
-          {errors.name && <p>{errors.name.message}</p>}
+          {errors.name && <p className="text-[#EA2D23]">{errors.name.message}</p>}
         </div>
         <div className="relative">
           <input
             id="email"
-            className="h-12 w-full appearance-none border-2 border-[#F3E5DE] bg-transparent px-4 font-portland text-lg font-bold uppercase outline-none placeholder:text-[#F3E5DE]/80 lg:w-80"
+            className={clsx(
+              'h-12 w-full appearance-none border-2 border-[#F3E5DE] bg-transparent px-4 font-portland text-lg font-medium outline-none placeholder:font-bold placeholder:uppercase placeholder:text-[#F3E5DE]/80 lg:w-80',
+              { 'border-[#EA2D23] text-[#EA2D23] placeholder:text-[#EA2D23]': errors.email }
+            )}
             placeholder="Your Email"
             {...register('email', {
               required: 'Email is required',
               pattern: { value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/, message: 'Email is invalid' }
             })}
           />
-          {errors.email && <p>{errors.email.message}</p>}
+          {errors.email && <p className="text-[#EA2D23]">{errors.email.message}</p>}
         </div>
         <div className="relative">
           <input
             id="phone"
-            className="h-12 w-full appearance-none border-2 border-[#F3E5DE] bg-transparent px-4 font-portland text-lg font-bold uppercase outline-none placeholder:text-[#F3E5DE]/80 lg:w-80"
+            className={clsx(
+              'h-12 w-full appearance-none border-2 border-[#F3E5DE] bg-transparent px-4 font-portland text-lg font-medium outline-none placeholder:font-bold placeholder:uppercase placeholder:text-[#F3E5DE]/80 lg:w-80',
+              { 'border-[#EA2D23] text-[#EA2D23] placeholder:text-[#EA2D23]': errors.phone }
+            )}
             placeholder="Phone number"
             {...register('phone', {
               required: 'Phone number is required',
@@ -140,14 +151,21 @@ const ContactForm = () => {
               }
             })}
           />
-          {errors.phone && <p>{errors.phone.message}</p>}
+          {errors.phone && <p className="text-[#EA2D23]">{errors.phone.message}</p>}
         </div>
         <div className="relative">
           {/* <label htmlFor="state">State</label> */}
-          <div className="relative h-12 w-full border-2 border-[#F3E5DE] lg:w-80">
+          <div
+            className={clsx('relative h-12 w-full border-2 border-[#F3E5DE] lg:w-80', {
+              'border-[#EA2D23]': errors.state
+            })}
+          >
             <select
               id="state"
-              className="h-full w-full appearance-none bg-transparent px-4 font-portland text-lg font-bold uppercase outline-none"
+              className={clsx(
+                'h-full w-full appearance-none bg-transparent px-4 font-portland text-lg font-medium outline-none placeholder:font-bold placeholder:uppercase',
+                { 'text-[#EA2D23]': errors.state }
+              )}
               {...register('state', { required: 'State is required' })}
             >
               {states.map((state) => (
@@ -157,19 +175,22 @@ const ContactForm = () => {
               ))}
             </select>
           </div>
-          {errors.state && <p>{errors.state.message}</p>}
+          {errors.state && <p className="text-[#EA2D23]">{errors.state.message}</p>}
         </div>
         <div className="relative">
           <textarea
             id="message"
-            className="h-36 w-full appearance-none border-2 border-[#F3E5DE] bg-transparent px-4 py-2 font-portland text-lg font-bold uppercase outline-none placeholder:text-[#F3E5DE]/80 lg:w-[380px]"
+            className={clsx(
+              'h-36 w-full appearance-none border-2 border-[#F3E5DE] bg-transparent px-4 py-2 font-portland text-lg font-medium outline-none placeholder:font-bold placeholder:uppercase placeholder:text-[#F3E5DE]/80 lg:w-[380px]',
+              { 'border-[#EA2D23] text-[#EA2D23] placeholder:text-[#EA2D23]': errors.message }
+            )}
             {...register('message', {
               required: 'Message is required',
               minLength: { value: 10, message: 'Message must be at least 10 characters' }
             })}
             placeholder="Your message"
           />
-          {errors.message && <p>{errors.message.message}</p>}
+          {errors.message && <p className="text-[#EA2D23]">{errors.message.message}</p>}
         </div>
 
         <div className="cursor-pointerç relative flex space-x-2">
@@ -181,7 +202,7 @@ const ContactForm = () => {
           />
           <span className="mt-[2px] block h-5 w-5 rounded-full border-2 border-[#8FC8E7] peer-checked:bg-[#8FC8E7] peer-checked:ring-[6px] peer-checked:ring-[#42201E]"></span>
           <label htmlFor="terms-conditions-agreement">I agree to the terms and conditions</label>
-          {errors.agreement && <p>{errors.agreement.message}</p>}
+          {errors.agreement && <p className="text-[#EA2D23]">{errors.agreement.message}</p>}
         </div>
 
         <button
