@@ -60,7 +60,7 @@ export function VariantSelector({
       <dt className="absolute left-0 top-0 font-portland font-bold uppercase text-[#532826] lg:text-lg">
         {option.name}
       </dt>
-      <dd className="flex gap-5">
+      <dd className="flex gap-4">
         {option.values.map((value) => {
           const optionNameLowerCase = option.name.toLowerCase();
 

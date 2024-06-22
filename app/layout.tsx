@@ -38,7 +38,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   return (
     <html lang="en">
-      <body className="bg-[#532826] text-[#F6E7E0] antialiased">
+      <body className="overflow-x-hidden bg-[#532826] text-[#F6E7E0] antialiased">
         <Navbar pathName={pathName} />
         <main className="bg-[#F6E7E0]">{children}</main>
         <Footer />

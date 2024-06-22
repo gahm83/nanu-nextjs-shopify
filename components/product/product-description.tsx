@@ -133,19 +133,50 @@ export function ProductDescription({ product }: { product: Product }) {
         <h1 className="mb-2 mt-5 font-portland text-4xl font-bold uppercase text-[#532826]">
           {product.title}
         </h1>
-        <div className="my-auto grid grid-flow-row grid-cols-2 items-center justify-stretch border-2 border-[#532826] text-center font-portland uppercase text-[#532826] lg:flex lg:grid-cols-3 lg:divide-x-2 lg:divide-[#532826]">
-          <div className="col-span-1 flex h-[50px] items-center justify-center border-r-2 border-[#532826] bg-[#EDD3C5] px-4 text-2xl font-bold lg:border-r-0">
+        {/* <div className="my-2
+        lg:my-auto
+        grid
+        grid-flow-row
+        grid-cols-2
+        items-center
+        justify-stretch
+        border-2
+        border-[#532826]
+        text-center
+        
+        lg:flex">
+          <div className="col-span-2 md:col-span-1 flex h-[50px] items-center justify-center bg-[#EDD3C5] px-4   lg:w-full md:border-r-2 max-lg:border-b-2 border-[#532826]">
+            
+          </div>
+          <div className="col-span-1 md:col-span-2 row-start-2 flex h-[50px] items-center justify-center px-4 font-bold leading-none lg:col-span-1 lg:row-start-1 lg:w-full border-r-2 md:border-r-0 md:border-b-0 border-[#532826]">
+            
+          </div>
+          <div className="col-span-1 flex h-[50px] items-center justify-center whitespace-nowrap px-4 font-bold lg:w-full md:border-r-2 md:border-b-2 border-[#532826] :border-0">
+            {product.weight?.value} OZ
+          </div>
+        </div> */}
+        <div
+          className="grid grid-cols-2 items-center border border-[#532826]
+        text-center
+        font-portland
+        text-xl
+        font-bold
+        uppercase
+        text-[#532826]
+        lg:flex
+        lg:items-stretch
+        "
+        >
+          <div className="col-span-2 border border-[#532826] bg-[#EDD3C5] py-2 text-2xl lg:col-span-1 lg:px-4">
             <Price
               amount={product.priceRange.minVariantPrice.amount}
               currencyCode={product.priceRange.minVariantPrice.currencyCode}
             />
           </div>
-          <div className="col-span-2 row-start-2 flex h-[50px] items-center justify-center border-t-2 border-[#532826] px-4 font-bold leading-none lg:col-span-1 lg:row-start-1 lg:border-t-0">
+          <div className="border border-[#532826] py-2 lg:w-full">
             {variantQty! ? variantQty : product.quantity?.value}
           </div>
-          <div className="col-span-1 flex h-[50px] items-center justify-center whitespace-nowrap px-4 font-bold">
-            {product.weight?.value} OZ
-          </div>
+          <div className="border border-[#532826] py-2 lg:w-full">{product.weight?.value} OZ</div>
         </div>
         {product.descriptionHtml ? (
           <Prose
@@ -155,7 +186,7 @@ export function ProductDescription({ product }: { product: Product }) {
         ) : (
           <p className="font-athiti text-lg font-medium text-[#532826]">{product.description}</p>
         )}
-        <div className="my-auto flex items-end gap-5">
+        <div className="my-2 flex items-end gap-4 lg:my-auto">
           <Suspense fallback={null}>
             <VariantSelector
               options={product.options}
@@ -164,7 +195,7 @@ export function ProductDescription({ product }: { product: Product }) {
             />
           </Suspense>
         </div>
-        <div className="my-auto flex items-center gap-5">
+        <div className="my-2 flex items-center gap-4 lg:my-auto">
           <div className="flex items-center bg-[#EDD3C5]">
             <button
               className="flex h-[50px] w-8 items-center justify-end transition-all hover:bg-[#df9e7c]"
