@@ -89,11 +89,11 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="px-32 py-20 text-[#F3E5DE]">
+    <form onSubmit={handleSubmit(onSubmit)} className="px-6 py-8 text-[#F3E5DE] lg:px-32 lg:py-20">
       <h2 className="font-portland text-2xl font-bold uppercase">
         We will be happy to hear from you
       </h2>
-      <div className="space-y-5 text-justify text-xl font-medium">
+      <div className="my-5 space-y-4 text-justify text-xl font-medium">
         <p>
           Do you have any comments about our products? Would you like to be part of our distributor
           network? Or you just want to say hello Nanu!
@@ -102,11 +102,11 @@ const ContactForm = () => {
           <strong>Just drop us a message!</strong>
         </p>
       </div>
-      <div className="space-y5">
+      <div className="mt-8 space-y-4 lg:mt-16">
         <div className="relative">
           <input
             id="name"
-            className="box-content h-12 w-full appearance-none border-2 border-[#F3E5DE] bg-transparent px-4 font-portland text-xl font-medium uppercase outline-none placeholder:text-[#F3E5DE]/80 lg:w-80"
+            className="h-12 w-full appearance-none border-2 border-[#F3E5DE] bg-transparent px-4 font-portland text-lg font-bold uppercase outline-none placeholder:text-[#F3E5DE]/80 lg:w-80"
             placeholder="Your Name"
             {...register('name', {
               required: 'Name is required',
@@ -118,7 +118,7 @@ const ContactForm = () => {
         <div className="relative">
           <input
             id="email"
-            className="box-content h-12 w-full appearance-none border-2 border-[#F3E5DE] bg-transparent px-4 font-portland text-xl font-medium uppercase outline-none placeholder:text-[#F3E5DE]/80 lg:w-80"
+            className="h-12 w-full appearance-none border-2 border-[#F3E5DE] bg-transparent px-4 font-portland text-lg font-bold uppercase outline-none placeholder:text-[#F3E5DE]/80 lg:w-80"
             placeholder="Your Email"
             {...register('email', {
               required: 'Email is required',
@@ -128,9 +128,10 @@ const ContactForm = () => {
           {errors.email && <p>{errors.email.message}</p>}
         </div>
         <div className="relative">
-          <label htmlFor="phone">Phone Number</label>
           <input
             id="phone"
+            className="h-12 w-full appearance-none border-2 border-[#F3E5DE] bg-transparent px-4 font-portland text-lg font-bold uppercase outline-none placeholder:text-[#F3E5DE]/80 lg:w-80"
+            placeholder="Phone number"
             {...register('phone', {
               required: 'Phone number is required',
               pattern: {
@@ -142,40 +143,53 @@ const ContactForm = () => {
           {errors.phone && <p>{errors.phone.message}</p>}
         </div>
         <div className="relative">
-          <label htmlFor="state">State</label>
-          <select id="state" {...register('state', { required: 'State is required' })}>
-            {states.map((state) => (
-              <option key={state.value} value={state.value}>
-                {state.label}
-              </option>
-            ))}
-          </select>
+          {/* <label htmlFor="state">State</label> */}
+          <div className="relative h-12 w-full border-2 border-[#F3E5DE] lg:w-80">
+            <select
+              id="state"
+              className="h-full w-full appearance-none bg-transparent px-4 font-portland text-lg font-bold uppercase outline-none"
+              {...register('state', { required: 'State is required' })}
+            >
+              {states.map((state) => (
+                <option key={state.value} value={state.value}>
+                  {state.label}
+                </option>
+              ))}
+            </select>
+          </div>
           {errors.state && <p>{errors.state.message}</p>}
         </div>
         <div className="relative">
-          <label htmlFor="message">Your Message</label>
           <textarea
             id="message"
+            className="h-36 w-full appearance-none border-2 border-[#F3E5DE] bg-transparent px-4 py-2 font-portland text-lg font-bold uppercase outline-none placeholder:text-[#F3E5DE]/80 lg:w-[380px]"
             {...register('message', {
               required: 'Message is required',
               minLength: { value: 10, message: 'Message must be at least 10 characters' }
             })}
+            placeholder="Your message"
           />
           {errors.message && <p>{errors.message.message}</p>}
         </div>
 
-        <div className="relative">
-          <label>
-            <input
-              type="checkbox"
-              {...register('agreement', { required: 'You must agree to the terms' })}
-            />
-            I agree to the terms and conditions
-          </label>
+        <div className="cursor-pointerç relative flex space-x-2">
+          <input
+            id="terms-conditions-agreement"
+            type="checkbox"
+            className="peer absolute opacity-0"
+            {...register('agreement', { required: 'You must agree to the terms' })}
+          />
+          <span className="mt-[2px] block h-5 w-5 rounded-full border-2 border-[#8FC8E7] peer-checked:bg-[#8FC8E7] peer-checked:ring-[6px] peer-checked:ring-[#42201E]"></span>
+          <label htmlFor="terms-conditions-agreement">I agree to the terms and conditions</label>
           {errors.agreement && <p>{errors.agreement.message}</p>}
         </div>
 
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          className="border-2 border-solid border-[#8FC8E7] bg-[#8FC8E7] px-6 py-2 py-4 text-center font-portland text-lg font-black uppercase text-[#532826] max-lg:flex-grow lg:min-w-48"
+        >
+          Send message
+        </button>
       </div>
     </form>
   );
