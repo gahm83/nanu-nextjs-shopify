@@ -98,7 +98,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                     </div>
                   </div>
                   <Link
-                    href="/"
+                    href="/about-us"
                     className="py-2 font-portland text-2xl font-bold uppercase text-[#532826]"
                   >
                     About
