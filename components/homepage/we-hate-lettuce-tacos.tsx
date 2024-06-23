@@ -36,7 +36,7 @@ const WeHateLettuceTacos = () => {
   return (
     <section ref={container}>
       <div className="mx-auto w-11/12 py-12 lg:max-w-screen-xl lg:py-20">
-        <figure className="mx-auto mb-5 w-[12vw] lg:w-[9vw]">
+        <figure className="mx-auto mb-5 w-[16.666667vw] lg:w-[9vw]">
           <Image
             src="/images/nanu-logo-top.svg"
             width={200}
@@ -47,7 +47,7 @@ const WeHateLettuceTacos = () => {
         </figure>
         <h2 className="relative mx-auto w-8/12 text-center font-portland text-[8vw] uppercase leading-tight text-[#532826] lg:w-7/12 lg:text-[4.3vw]">
           <motion.div
-            className="absolute left-[90%] top-0 -z-0 h-[15vw] w-[15vw] md:-top-9 md:h-[10vw] md:w-[10vw]"
+            className="absolute left-[90%] top-0 -z-0 h-[16vw] w-[16vw] md:-top-9 md:h-[10vw] md:w-[10vw]"
             style={{ y: y1 }}
           >
             <GlutenFree className="aspect-square h-full w-full" />
@@ -56,7 +56,7 @@ const WeHateLettuceTacos = () => {
             <ShapeRomboid className="absolute left-[120%] top-[65%] h-[10px] w-[10px] lg:h-[20px] lg:w-[20px] [&_svg]:fill-[#8DC8E8]" />
           </motion.div>
           <motion.div
-            className="absolute -left-[15%] top-[16%] -z-0 h-[16vw] w-[16vw] md:h-[10vw] md:w-[10vw]"
+            className="absolute left-[-20%] top-[16%] -z-0 h-[18vw] w-[18vw] md:h-[10vw] md:w-[10vw]"
             style={{ y: y2 }}
           >
             <FullVegan className="aspect-square h-full w-full" />

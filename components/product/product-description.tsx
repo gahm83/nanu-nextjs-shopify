@@ -124,7 +124,7 @@ export function ProductDescription({ product }: { product: Product }) {
           </div>
         )}
       </AnimatePresence>
-      <div className="flex flex-grow flex-col px-6 py-5 lg:px-10 lg:py-8">
+      <div className="flex flex-grow flex-col px-6 py-5 xl:px-10 xl:py-8">
         <div className="border-bottom-sky relative hidden lg:block">
           <h4 className="pb-4 font-plam-canyon-drive text-5xl font-normal capitalize text-[#532826]">
             {collection}
@@ -133,17 +133,19 @@ export function ProductDescription({ product }: { product: Product }) {
         <h1 className="mb-2 mt-5 font-portland text-4xl font-bold uppercase text-[#532826]">
           {product.title}
         </h1>
-        <div className="grid grid-cols-2 items-center border border-[#532826] text-center font-portland text-xl font-bold uppercase text-[#532826] lg:flex lg:items-stretch">
-          <div className="col-span-2 border border-[#532826] bg-[#EDD3C5] py-2 text-2xl lg:col-span-1 lg:px-4">
+        <div className="grid grid-cols-2 items-center border border-[#532826] text-center font-portland text-xl font-bold uppercase text-[#532826] max-lg:flex max-lg:items-stretch">
+          <div className="col-span-2 border border-[#532826] bg-[#EDD3C5] py-2 text-2xl max-lg:w-full max-lg:px-2">
             <Price
               amount={product.priceRange.minVariantPrice.amount}
               currencyCode={product.priceRange.minVariantPrice.currencyCode}
             />
           </div>
-          <div className="border border-[#532826] py-2 lg:w-full">
+          <div className="border border-[#532826] py-2 max-lg:w-full">
             {variantQty! ? variantQty : product.quantity?.value}
           </div>
-          <div className="border border-[#532826] py-2 lg:w-full">{product.weight?.value} OZ</div>
+          <div className="border border-[#532826] py-2 max-lg:w-full">
+            {product.weight?.value} OZ
+          </div>
         </div>
         {product.descriptionHtml ? (
           <Prose
