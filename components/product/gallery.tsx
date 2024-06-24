@@ -3,7 +3,9 @@
 import { createUrl } from 'lib/utils';
 import Image from 'next/image';
 import { usePathname, useSearchParams } from 'next/navigation';
-// import { useMediaQuery } from 'usehooks-ts';
+import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { useMediaQuery } from 'usehooks-ts';
 
 export function Gallery({ images }: { images: { src: string; altText: string }[] }) {
   const pathname = usePathname();
@@ -21,16 +23,21 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
   previousSearchParams.set('image', previousImageIndex.toString());
   const previousUrl = createUrl(pathname, previousSearchParams);
 
-  // const isDesktop = useMediaQuery('(min-width: 768px)')
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
 
-  const buttonClassName =
-    'h-full px-6 transition-all ease-in-out hover:scale-110 hover:text-black flex items-center justify-center';
+  // const buttonClassName = 'h-full px-6 transition-all ease-in-out hover:scale-110 hover:text-black flex items-center justify-center';
+
+  const pagination = {
+    clickable: true,
+    renderBullet: function (index: number, className: string) {
+      return '<span class="' + className + '"></span>';
+    }
+  };
 
   return (
-    <>
-      <div className="relative aspect-square w-full overflow-hidden lg:max-h-[458px]">
-        {/* <div className="relative h-full max-h-[550px] w-full overflow-hidden lg:aspect-square"> */}
-        {images.map((image, index) => (
+    <div className="relative w-full overflow-hidden lg:aspect-square">
+      {isDesktop ? (
+        images.map((image, index) => (
           <Image
             className={`h-full w-full object-contain ${index === 1 && 'opacity-0 transition-opacity duration-150 hover:opacity-100'}`}
             fill
@@ -39,62 +46,29 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
             src={image.src as string}
             priority={true}
           />
-        ))}
-
-        {/*images.length > 1 ? (
-          <div className="absolute bottom-[15%] flex w-full justify-center">
-            <div className="mx-auto flex h-11 items-center rounded-full border border-white bg-neutral-50/80 text-neutral-500 backdrop-blur">
-              <Link
-                aria-label="Previous product image"
-                href={previousUrl}
-                className={buttonClassName}
-                scroll={false}
-              >
-                <ArrowLeftIcon className="h-5" />
-              </Link>
-              <div className="mx-1 h-6 w-px bg-neutral-500"></div>
-              <Link
-                aria-label="Next product image"
-                href={nextUrl}
-                className={buttonClassName}
-                scroll={false}
-              >
-                <ArrowRightIcon className="h-5" />
-              </Link>
-            </div>
-          </div>
-        ) : null*/}
-      </div>
-
-      {/*images.length > 1 ? (
-        <ul className="my-12 flex items-center justify-center gap-2 overflow-auto py-1 lg:mb-0">
-          {images.map((image, index) => {
-            const isActive = index === imageIndex;
-            const imageSearchParams = new URLSearchParams(searchParams.toString());
-
-            imageSearchParams.set('image', index.toString());
-
-            return (
-              <li key={image.src} className="h-20 w-20">
-                <Link
-                  aria-label="Enlarge product image"
-                  href={createUrl(pathname, imageSearchParams)}
-                  scroll={false}
-                  className="h-full w-full"
-                >
-                  <GridTileImage
-                    alt={image.altText}
-                    src={image.src}
-                    width={80}
-                    height={80}
-                    active={isActive}
-                  />
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      ) : null*/}
-    </>
+        ))
+      ) : (
+        <Swiper
+          modules={[Navigation, Pagination]}
+          navigation={true}
+          pagination={pagination}
+          slidesPerView={1}
+          className="pagination-dots dark-foreground w-full"
+        >
+          {images.map((image, index) => (
+            <SwiperSlide key={index} className="aspect-square w-full">
+              <Image
+                className="h-full w-full object-cover"
+                fill
+                sizes="(min-width: 1024px) 66vw, 100vw"
+                alt={image.altText as string}
+                src={image.src as string}
+                priority={true}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
+    </div>
   );
 }

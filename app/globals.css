@@ -176,6 +176,21 @@ a {
       }
     }
   }
+  &.dark-foreground {
+    @apply grid grid-flow-row grid-cols-[1fr_min-content_1fr] gap-y-4 pb-4;
+    .swiper-button-prev,
+    .swiper-button-next {
+      @apply before:border-[#532826];
+    }
+    > .swiper-pagination {
+      span {
+        @apply before:border-[#532826];
+        &.swiper-pagination-bullet-active {
+          @apply before:bg-[#532826];
+        }
+      }
+    }
+  }
 }
 
 @layer components {

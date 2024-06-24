@@ -133,17 +133,17 @@ export function ProductDescription({ product }: { product: Product }) {
         <h1 className="mb-2 mt-5 font-portland text-4xl font-bold uppercase text-[#532826]">
           {product.title}
         </h1>
-        <div className="grid grid-cols-2 items-center border border-[#532826] text-center font-portland text-xl font-bold uppercase text-[#532826] max-lg:flex max-lg:items-stretch">
-          <div className="col-span-2 border border-[#532826] bg-[#EDD3C5] py-2 text-2xl max-lg:w-full max-lg:px-2">
+        <div className="grid grid-cols-2 items-center border border-[#532826] text-center font-portland text-xl font-bold uppercase text-[#532826] md:max-lg:flex md:max-lg:items-stretch xl:flex xl:items-stretch">
+          <div className="col-span-2 border border-[#532826] bg-[#EDD3C5] py-2 md:max-lg:flex-grow md:max-lg:px-2 xl:flex-grow xl:px-2">
             <Price
               amount={product.priceRange.minVariantPrice.amount}
               currencyCode={product.priceRange.minVariantPrice.currencyCode}
             />
           </div>
-          <div className="border border-[#532826] py-2 max-lg:w-full">
+          <div className="border border-[#532826] py-2 md:max-lg:flex-grow xl:flex-grow">
             {variantQty! ? variantQty : product.quantity?.value}
           </div>
-          <div className="border border-[#532826] py-2 max-lg:w-full">
+          <div className="border border-[#532826] py-2 md:max-lg:flex-grow xl:flex-grow">
             {product.weight?.value} OZ
           </div>
         </div>
