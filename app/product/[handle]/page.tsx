@@ -81,62 +81,61 @@ export default async function ProductPage({ params }: { params: { handle: string
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      <div className="py-8">
-        <div className="grid gap-4 lg:grid-cols-2 xl:gap-8">
-          <div className="px-5 lg:max-h-[600px] lg:overflow-y-scroll lg:p-0">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="col-span-2 aspect-[1.2/1] rounded-xl bg-[#F2D2C3]">
-                <Suspense
-                  fallback={
-                    <div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden" />
-                  }
-                >
-                  <Gallery
-                    images={product.images.map((image: TImage) => ({
-                      src: image.url,
-                      altText: image.altText
-                    }))}
+      <section>
+        <div className="mx-auto w-11/12 max-w-screen-xl py-8 ">
+          <div className="grid gap-4 lg:grid-cols-2 xl:gap-8">
+            <div className="px-5 lg:max-h-[600px] lg:overflow-y-scroll lg:p-0">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="col-span-2 aspect-[1.2/1] rounded-xl bg-[#F2D2C3]">
+                  <Suspense
+                    fallback={
+                      <div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden" />
+                    }
+                  >
+                    <Gallery
+                      images={product.images.map((image: TImage) => ({
+                        src: image.url,
+                        altText: image.altText
+                      }))}
+                    />
+                  </Suspense>
+                </div>
+                <div className="relative col-span-2 hidden aspect-[16/9] w-full overflow-hidden rounded-xl bg-[#F2D2C3] lg:block ">
+                  <Image
+                    src="/images/hero-producto.jpg"
+                    alt="Nanu's Heritage Doods"
+                    width={800}
+                    height={600}
+                    className="w-full object-cover"
                   />
-                </Suspense>
-              </div>
-              <div className="relative col-span-2 hidden aspect-[16/9] w-full overflow-hidden rounded-xl bg-[#F2D2C3] lg:block ">
-                <Image
-                  src="/images/hero-producto.jpg"
-                  alt="Nanu's Heritage Doods"
-                  width={800}
-                  height={600}
-                  className="w-full object-cover"
-                />
-              </div>
-              <div className="relative hidden aspect-square w-full overflow-hidden rounded-xl bg-[#F2D2C3] lg:block ">
-                <Image
-                  src="/images/nanu-01.jpg"
-                  alt="Nanu's Heritage Doods"
-                  width={800}
-                  height={600}
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-              </div>
-              <div className="relative hidden aspect-square w-full overflow-hidden rounded-xl bg-[#F2D2C3] lg:block ">
-                <Image
-                  src="/images/nanu-02.jpg"
-                  alt="Nanu's Heritage Doods"
-                  width={800}
-                  height={600}
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
+                </div>
+                <div className="relative hidden aspect-square w-full overflow-hidden rounded-xl bg-[#F2D2C3] lg:block ">
+                  <Image
+                    src="/images/nanu-01.jpg"
+                    alt="Nanu's Heritage Doods"
+                    width={800}
+                    height={600}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+                <div className="relative hidden aspect-square w-full overflow-hidden rounded-xl bg-[#F2D2C3] lg:block ">
+                  <Image
+                    src="/images/nanu-02.jpg"
+                    alt="Nanu's Heritage Doods"
+                    width={800}
+                    height={600}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          {/* <div className="flex px-5 lg:p-0"> */}
-          <div className="">
             <div className="flex flex-grow rounded-xl bg-[#FFF5F0]">
               <ProductDescription product={product} />
             </div>
           </div>
+          {/* <RelatedProducts id={product.id} /> */}
         </div>
-        {/* <RelatedProducts id={product.id} /> */}
-      </div>
+      </section>
       <VersatileCompanion />
       <CustomerReviews />
       <StraighFromOurKitchen />

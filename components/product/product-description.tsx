@@ -155,7 +155,7 @@ export function ProductDescription({ product }: { product: Product }) {
         ) : (
           <p className="font-athiti text-lg font-medium text-[#532826]">{product.description}</p>
         )}
-        <div className="my-2 flex items-end gap-4 lg:my-auto">
+        <div className="my-2 flex w-full items-end gap-4 xl:mt-auto">
           <Suspense fallback={null}>
             <VariantSelector
               options={product.options}
@@ -164,7 +164,7 @@ export function ProductDescription({ product }: { product: Product }) {
             />
           </Suspense>
         </div>
-        <div className="my-2 flex items-center gap-4 lg:my-auto">
+        <div className="my-2 flex w-full items-center gap-4 xl:mb-auto">
           <div className="flex items-center bg-[#EDD3C5]">
             <button
               className="flex h-[50px] w-8 items-center justify-end transition-all hover:bg-[#df9e7c]"
