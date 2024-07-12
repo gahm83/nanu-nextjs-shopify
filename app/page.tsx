@@ -2,6 +2,7 @@ import BannerHomeIsCloser from '@/components/homepage/banner-home-is-closer';
 import Hero from '@/components/homepage/hero-banner';
 import JoinOurTable from '@/components/homepage/join-our-table';
 import MeetOurFamily from '@/components/homepage/meet-our-family';
+import Modal from '@/components/homepage/modal';
 import NanusCookBook from '@/components/homepage/nanus-cook-book';
 import ProductTabs from '@/components/homepage/product-tabs';
 import WeHateLettuceTacos from '@/components/homepage/we-hate-lettuce-tacos';
@@ -23,6 +24,7 @@ export default async function HomePage() {
       <NanusCookBook />
       <BannerHomeIsCloser />
       <JoinOurTable />
+      <Modal />
     </>
   );
 }
