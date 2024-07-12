@@ -86,7 +86,6 @@ const ContactForm = () => {
   } = useForm<FormData>({ mode: 'onBlur', reValidateMode: 'onBlur' });
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log(data);
     alert('Form submitted successfully!');
   };
 

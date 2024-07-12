@@ -12,9 +12,6 @@ export function ProductCard({
   hideDescription?: boolean;
 }) {
   const defaultVariantId = product?.variants[0]?.id;
-
-  console.log(product);
-
   return (
     <div className="relative flex flex-col items-center justify-stretch">
       <Link href={`/product/${product.handle}`} className="block w-full">
