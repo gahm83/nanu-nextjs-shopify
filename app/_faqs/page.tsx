@@ -1,24 +1,28 @@
-// export async function generateMetadata({
-//   params
-// }: {
-//   params: { page: string };
-// }): Promise<Metadata> {
-//   const page = await getPage(params.page);
+import type { Metadata } from 'next';
 
-//   if (!page) return notFound();
+import { getPage } from 'lib/shopify';
+import { notFound } from 'next/navigation';
 
-//   return {
-//     title: page.seo?.title || page.title,
-//     description: page.seo?.description || page.bodySummary,
-//     openGraph: {
-//       publishedTime: page.createdAt,
-//       modifiedTime: page.updatedAt,
-//       type: 'article'
-//     }
-//   };
-// }
+export async function generateMetadata({
+  params
+}: {
+  params: { page: string };
+}): Promise<Metadata> {
+  const page = await getPage(params.page);
 
-import Accordion from '@/components/layout/accordion';
+  if (!page) return notFound();
+
+  return {
+    title: page.seo?.title || page.title,
+    description: page.seo?.description || page.bodySummary,
+    openGraph: {
+      publishedTime: page.createdAt,
+      modifiedTime: page.updatedAt,
+      type: 'article'
+    }
+  };
+}
+
 import Image from 'next/image';
 
 const FAQItems = [
@@ -151,6 +155,12 @@ const FAQItems = [
 ];
 
 export default async function Page({ params }: { params: { page: string } }) {
+  const page = await getPage(params.page);
+
+  if (!page) return notFound();
+
+  console.log(page);
+
   return (
     <>
       <section>
@@ -171,7 +181,7 @@ export default async function Page({ params }: { params: { page: string } }) {
               Frequently Asked Questions
             </h2>
           </div>
-          <Accordion accordionData={FAQItems} />
+          {/* <Accordion accordionData={page | []} /> */}
         </div>
       </section>
     </>

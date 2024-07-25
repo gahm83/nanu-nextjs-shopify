@@ -1,10 +1,11 @@
 'use client';
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
+import ShopifyRichText from './ShopifyRichText';
 
 interface AccordionData {
-  title: string;
-  content: React.ReactNode;
+  answer: string;
+  question: string;
 }
 
 const AccordionItem = ({
@@ -81,11 +82,17 @@ const Accordion = ({ accordionData }: { accordionData: AccordionData[] }) => {
       {accordionData.map((item, index) => (
         <AccordionItem
           key={index}
-          title={item.title}
+          title={item.question}
           isOpen={openIndex === index}
           toggle={() => toggleAccordion(index)}
         >
-          {item.content}
+          <ShopifyRichText
+            {...JSON.parse(item.answer)}
+            options={[
+              { type: 'bold', className: 'twcss-font-bold' },
+              { type: 'italic', className: 'twcss-font-italic' }
+            ]}
+          />
         </AccordionItem>
       ))}
     </div>
