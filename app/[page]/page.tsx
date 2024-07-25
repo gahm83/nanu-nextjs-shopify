@@ -30,6 +30,58 @@ export default async function Page({ params }: { params: { page: string } }) {
 
   if (!page) return notFound();
 
+  console.log(page);
+
+  if (page.title == 'About us') {
+    interface FAQ {
+      question: string;
+      answer: any;
+    }
+
+    const faqs: FAQ[] = page.faqs.references.nodes.map((node) => {
+      const faq: FAQ = {
+        question: '',
+        answer: ''
+      };
+
+      node.fields.forEach((field) => {
+        if (field.key === 'question') {
+          faq.question = field.value;
+        } else if (field.key === 'answer') {
+          faq.answer = field.value;
+        }
+      });
+
+      return faq;
+    });
+
+    return (
+      <>
+        <section>
+          <div className="border-pyramid-bottom relative max-lg:h-[110vw] max-lg:max-h-[600px]">
+            <Image
+              src="/images/hero-faq.jpg"
+              alt="About Us"
+              width={1440}
+              height={720}
+              className="block w-full object-cover object-center max-lg:absolute max-lg:inset-0 max-lg:h-full"
+            />
+          </div>
+        </section>
+        <section>
+          <div className="mx-auto w-11/12 pb-24">
+            <div className="border-bottom-sky-lg relative mx-auto my-14 max-w-[800px] px-10 py-14 text-center">
+              <h2 className="font-portland text-4xl font-bold uppercase text-[#532826] md:text-5xl">
+                Frequently Asked Questions
+              </h2>
+            </div>
+            <Accordion accordionData={faqs} />
+          </div>
+        </section>
+      </>
+    );
+  }
+
   if (page.title == 'FAQs') {
     interface FAQ {
       question: string;

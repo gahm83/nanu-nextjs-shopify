@@ -59,6 +59,16 @@ export type Page = {
   seo?: SEO;
   createdAt: string;
   updatedAt: string;
+  about: {
+    references: {
+      nodes: {
+        fields: {
+          key: string;
+          value: string;
+        }[];
+      }[];
+    };
+  };
   faqs: {
     references: {
       nodes: {
