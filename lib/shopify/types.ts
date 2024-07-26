@@ -50,6 +50,44 @@ export type Money = {
   currencyCode: string;
 };
 
+interface ReferenceField {
+  value: string;
+  key: string;
+  reference: Reference | null;
+}
+
+interface Reference {
+  id?: string;
+  image?: {
+    url: string;
+  };
+  fields: ReferenceField[];
+}
+
+interface Field {
+  key: string;
+  value: string;
+  reference: Reference | null;
+}
+
+interface Node {
+  fields: Field[];
+}
+
+type About = {
+  value: string;
+  references: {
+    nodes: Node[];
+  };
+};
+
+type FAQs = {
+  value: string;
+  references: {
+    nodes: Node[];
+  };
+};
+
 export type Page = {
   id: string;
   title: string;
@@ -59,26 +97,8 @@ export type Page = {
   seo?: SEO;
   createdAt: string;
   updatedAt: string;
-  about: {
-    references: {
-      nodes: {
-        fields: {
-          key: string;
-          value: string;
-        }[];
-      }[];
-    };
-  };
-  faqs: {
-    references: {
-      nodes: {
-        fields: {
-          key: string;
-          value: string;
-        }[];
-      }[];
-    };
-  };
+  about: About;
+  faqs: FAQs;
 };
 
 type nutritionFacts = {

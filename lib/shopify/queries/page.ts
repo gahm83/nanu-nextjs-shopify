@@ -20,14 +20,18 @@ const pageFragment = /* GraphQL */ `
                 key
                 value
                 reference {
-                  ... on MediaImage {
-                    image {
-                      url
-                    }
-                  }
                   ... on Metaobject {
                     fields {
                       value
+                      key
+                      reference {
+                        ... on MediaImage {
+                          id
+                          image {
+                            url
+                          }
+                        }
+                      }
                     }
                   }
                 }
