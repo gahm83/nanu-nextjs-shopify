@@ -15,7 +15,7 @@ export default async function Footer() {
   return (
     <footer className="bg-[#532826] font-portland text-sm font-semibold">
       {/*  space-y-16 py-16 */}
-      <div className="mx-auto w-11/12 space-y-9 pb-9 pt-14 lg:max-w-screen-xl lg:space-y-12 lg:pb-12 lg:pt-16">
+      <div className="lg:max-w-full-xl mx-auto w-11/12 space-y-9 pb-9 pt-14 lg:space-y-12 lg:pb-12 lg:pt-16">
         <div className="flex flex-col lg:flex-row">
           <div className="lg:mr-auto">
             <NewsletterForm />

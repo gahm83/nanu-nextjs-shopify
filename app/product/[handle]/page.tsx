@@ -80,7 +80,7 @@ export default async function ProductPage({ params }: { params: { handle: string
         }}
       />
       <section>
-        <div className="mx-auto w-11/12 max-w-screen-xl py-8 ">
+        <div className="max-w-full-xl mx-auto w-11/12 py-8 ">
           <div className="grid gap-4 lg:grid-cols-2 xl:gap-8">
             <div className="px-5 lg:max-h-[600px] lg:overflow-y-scroll lg:p-0">
               <div className="grid grid-cols-2 gap-4">
@@ -148,7 +148,7 @@ async function RelatedProducts({ id }: { id: string }) {
   if (!relatedProducts.length) return null;
 
   return (
-    <div className="mx-auto w-11/12 py-16 lg:max-w-screen-xl">
+    <div className="lg:max-w-full-xl mx-auto w-11/12 py-16">
       <h2 className="mb-14 text-center font-portland text-4xl font-black uppercase text-[#532826]">
         Shop More Products
       </h2>

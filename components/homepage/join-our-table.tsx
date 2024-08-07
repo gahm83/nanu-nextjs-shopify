@@ -4,7 +4,7 @@ function JoinOurTable() {
   return (
     <section>
       <div className="relative overflow-x-hidden py-16">
-        <div className="mx-auto w-11/12 max-w-screen-xl">
+        <div className="max-w-full-xl mx-auto w-11/12">
           <h2 className="font-portland text-3xl font-black uppercase text-[#532826] lg:text-4xl">
             Join our table
           </h2>

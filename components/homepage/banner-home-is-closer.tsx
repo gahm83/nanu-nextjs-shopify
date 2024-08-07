@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import ShapeRomboid from '../svg/shape-romboid';
 import ShapeSnowflake from '../svg/shape-snowflake';
 
@@ -15,7 +16,7 @@ function BannerHomeIsCloser() {
               fill
             />
           </figure>
-          <div className="relative w-9/12 max-w-screen-xl py-[24vw] md:py-[12vw] lg:w-11/12">
+          <div className="max-w-full-xl relative w-9/12 py-[24vw] md:py-[12vw] lg:w-11/12">
             <div className="lg:grid lg:grid-cols-2">
               <div className="relative lg:col-start-2">
                 <ShapeSnowflake className="absolute left-[-60px] top-[-60px] h-[20px] w-[20px] text-[#8DC8E8] lg:h-[40px] lg:w-[40px] [&_svg]:animate-blink-4" />
@@ -25,12 +26,12 @@ function BannerHomeIsCloser() {
                   Home is closer than you think
                 </h2>
                 <div className="flex items-center justify-start">
-                  <a
-                    href="#"
+                  <Link
+                    href="/shop"
                     className="block border-2 border-solid border-[#8DC8E8] bg-[#8DC8E8] px-6 py-4 text-center font-portland text-lg font-black uppercase text-[#532826] transition-all duration-150 hover:bg-transparent hover:text-[#8DC8E8] lg:py-2"
                   >
                     Find Nanu Near You
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

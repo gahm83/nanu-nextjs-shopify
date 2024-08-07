@@ -29,6 +29,7 @@ import {
   Connection,
   Image,
   Menu,
+  MetaObject,
   Page,
   Product,
   ShopifyAddToCartOperation,
@@ -352,6 +353,16 @@ export async function getMenu(handle: string): Promise<Menu[]> {
       path: item.url.replace(domain, '').replace('/collections', '/shop').replace('/pages', '')
     })) || []
   );
+}
+
+export async function getMetaObjects(handle: string): Promise<MetaObject> {
+  const res = await shopifyFetch<ShopifyPageOperation>({
+    query: getPageQuery,
+    cache: 'no-store',
+    variables: { handle }
+  });
+
+  return res.body.data.pageByHandle;
 }
 
 export async function getPage(handle: string): Promise<Page> {

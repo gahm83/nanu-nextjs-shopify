@@ -88,6 +88,10 @@ type FAQs = {
   };
 };
 
+export type MetaObject = {
+  [key: string]: any;
+};
+
 export type Page = {
   id: string;
   title: string;

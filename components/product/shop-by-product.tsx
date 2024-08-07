@@ -116,7 +116,7 @@ export function ShopByProduct() {
   return (
     <section className="relative before:absolute before:left-5 before:right-5 before:top-0 before:block before:h-[5px] before:bg-border-wood before:bg-repeat-space before:content-['']">
       <div className="py-16">
-        <div className="mx-auto w-11/12 max-w-screen-lg">
+        <div className="max-w-full-lg mx-auto w-11/12">
           <div className="flex flex-col items-center lg:flex-row">
             <h2 className="px-[16%] text-center font-portland text-3xl font-black uppercase text-[#532826] lg:px-0 lg:text-4xl">
               Shop by Product

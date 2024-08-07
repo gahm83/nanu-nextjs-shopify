@@ -61,7 +61,7 @@ export function ProductDescription({ product }: { product: Product }) {
     <>
       <AnimatePresence>
         {showPopup && (
-          <div className="fixed inset-0 z-[100] h-screen w-screen overflow-y-auto bg-black/70 md:flex md:items-center md:justify-center">
+          <div className="fixed inset-0 z-[100] h-screen w-full overflow-y-auto bg-black/70 md:flex md:items-center md:justify-center">
             <motion.div
               className="w-full p-10 pt-12 "
               initial={{ opacity: 0, y: -200 }}

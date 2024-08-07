@@ -2,20 +2,30 @@
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect } from 'react';
 import TenOff from '../svg/ten-off';
 
 function Modal() {
-  const [showPopup, setShowPopup] = React.useState(true);
+  const [visible, setVisible] = React.useState(false);
+
+  useEffect(() => {
+    let pop_status = localStorage.getItem('pop_status');
+    if (!pop_status) {
+      setVisible(true);
+      localStorage.setItem('pop_status', 'visible');
+    }
+  }, []);
+
+  if (!visible) return null;
 
   const togglePopup = () => {
-    setShowPopup(!showPopup);
+    setVisible(!visible);
   };
 
   return (
     <AnimatePresence>
-      {showPopup && (
-        <div className="fixed inset-0 z-[100] h-screen w-screen overflow-y-auto bg-black/70 md:flex md:items-center md:justify-center">
+      {visible && (
+        <div className="fixed inset-0 z-[100] h-screen w-full overflow-y-auto bg-black/70 md:flex md:items-center md:justify-center">
           <motion.div
             className="w-full p-10 pt-12 "
             initial={{ opacity: 0, y: -200 }}
@@ -23,7 +33,7 @@ function Modal() {
             exit={{ opacity: 0, y: -200 }}
             transition={{ duration: 0.4 }}
           >
-            <div className="relative mx-auto w-full max-w-[380px] rounded-lg bg-[#532826] lg:w-full lg:max-w-screen-lg">
+            <div className="lg:max-w-full-lg relative mx-auto w-full max-w-[380px] rounded-lg bg-[#532826] lg:w-full">
               <div className="flex flex-col-reverse lg:grid lg:grid-cols-2">
                 <div className="flex flex-col items-center space-y-5 py-8 lg:justify-between lg:px-9 lg:py-20">
                   <div className="flex w-8/12 justify-center lg:w-9/12">

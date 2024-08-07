@@ -12,7 +12,7 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
         </p>
         <Collections />
       </div>
-      <div className="mx-auto w-11/12 pb-16 lg:max-w-screen-xl">{children}</div>
+      <div className="lg:max-w-full-xl mx-auto w-11/12 pb-16">{children}</div>
       <ShopByProduct />
       {/* <div className="relative py-28 before:absolute before:left-1 before:right-1 before:top-10 before:block before:h-[5px] before:bg-border-wood before:bg-repeat-space before:content-['']">
       </div> */}
