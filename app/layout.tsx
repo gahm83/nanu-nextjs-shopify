@@ -39,7 +39,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   return (
     <html lang="en">
-      <body>
+      <body className="bg-[#532826] text-[#F6E7E0] antialiased">
         <FreeShippingBanner />
         <Navbar pathName={pathName} />
         <main className="w-full overflow-x-hidden bg-[#F6E7E0]">{children}</main>
