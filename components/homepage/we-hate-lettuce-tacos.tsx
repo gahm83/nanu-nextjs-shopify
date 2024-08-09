@@ -4,6 +4,7 @@
 // import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MotionValue, motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRef } from 'react';
 import FullVegan from '../svg/full-vegan';
 import GlutenFree from '../svg/gluten-free';
@@ -101,12 +102,12 @@ const WeHateLettuceTacos = () => {
           </span>
         </h2>
         <div className="mt-12 flex items-center justify-center lg:mt-24">
-          <a
-            href="#"
+          <Link
+            href="/shop"
             className="w-48 border-2 border-solid border-[#532826] bg-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#F6E7E0] lg:py-2"
           >
             Show more
-          </a>
+          </Link>
         </div>
       </div>
     </section>

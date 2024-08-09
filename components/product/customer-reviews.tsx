@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { CustomerReviewCard } from '../reviews/reviewCard';
 import StarRating from './star-rating';
 
@@ -134,12 +135,12 @@ export function CustomerReviews() {
             </div>
           </div>
           <div className="mt-10 flex items-center justify-center">
-            <a
-              href="#"
+            <Link
+              href="/shop"
               className="max-w-52 border-2 border-solid border-[#532826] bg-[#532826] py-4 text-center font-portland text-lg font-black uppercase text-[#F6E7E0] lg:px-6 lg:py-2"
             >
               Show more
-            </a>
+            </Link>
           </div>
         </div>
       </div>

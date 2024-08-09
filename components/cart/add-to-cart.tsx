@@ -8,6 +8,7 @@ import { ProductVariant } from 'lib/shopify/types';
 import { useSearchParams } from 'next/navigation';
 import { useFormState, useFormStatus } from 'react-dom';
 import AddToBagIcon from '../icons/add-to-bag';
+import OutOfStockIcon from '../icons/out-of-stock';
 
 function SubmitButton({
   availableForSale,
@@ -29,7 +30,7 @@ function SubmitButton({
   if (!availableForSale) {
     return (
       <button aria-disabled className={clsx(buttonClasses, disabledClasses)}>
-        Out Of Stock
+        <OutOfStockIcon className="h-[24px] w-[25px] fill-[#532826] group-hover:fill-[#EDD3C5]" />
       </button>
     );
   }
@@ -66,7 +67,7 @@ function SubmitButton({
       {isProduct ? (
         <span>Add to Bag</span>
       ) : (
-        <AddToBagIcon className="h-[24px] w-[46px] group-hover:fill-[#EDD3C5]" />
+        <AddToBagIcon className="h-[24px] w-[46px] fill-[#532826] group-hover:fill-[#EDD3C5]" />
       )}
     </button>
   );
