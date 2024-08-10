@@ -80,7 +80,14 @@ function JoinOurTable() {
           <h2 className="font-portland text-3xl font-black uppercase text-[#532826] lg:text-4xl">
             Join our table
           </h2>
-          <Swiper spaceBetween={24} slidesPerView={6.5}>
+          <Swiper
+            spaceBetween={24}
+            slidesPerView={2.5}
+            breakpoints={{
+              768: { slidesPerView: 4.5 },
+              1024: { slidesPerView: 6.5 }
+            }}
+          >
             {instagramFeed &&
               instagramFeed.data.map((post: InstagramPost) => (
                 <SwiperSlide key={post.id} className="group relative h-[300px] w-full">

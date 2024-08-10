@@ -33,7 +33,7 @@ function Modal() {
             exit={{ opacity: 0, y: -200 }}
             transition={{ duration: 0.4 }}
           >
-            <div className="relative mx-auto w-full max-w-[380px] rounded-lg bg-[#532826] lg:max-w-screen-lg">
+            <div className="relative mx-auto w-11/12 max-w-[380px] rounded-lg bg-[#532826] lg:max-w-screen-lg">
               <div className="flex flex-col-reverse lg:grid lg:grid-cols-2">
                 <div className="flex flex-col items-center space-y-5 py-8 lg:justify-between lg:px-9 lg:py-20">
                   <div className="flex w-8/12 justify-center lg:w-9/12">
