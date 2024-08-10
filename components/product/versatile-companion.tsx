@@ -37,7 +37,7 @@ export function VersatileCompanion() {
     <section>
       <div className="overflow-hidden bg-[#532826] px-8 py-10">
         <div className="border-top-sky border-bottom-sky relative mx-auto flex w-full flex-col bg-[#532826] py-20">
-          <div className="lg:max-w-full-xl relative mx-auto w-11/12">
+          <div className="lg:max-w-full-lg relative mx-auto w-11/12">
             <ShapeSnowflake className="blink-1 absolute bottom-full right-full h-5 w-5 -translate-x-1/2 -translate-y-1/2 transform text-[#8DC8E8] lg:h-10 lg:w-10" />
             <ShapeRomboid className="blink-3 absolute bottom-full right-full h-[10px] w-[10px] -translate-x-12 translate-y-12 transform text-[#8DC8E8] lg:h-5 lg:w-5" />
             <ShapeRomboid className="absolute bottom-full right-full h-[10px] w-[10px] -translate-y-9 translate-x-12 transform text-[#8DC8E8] lg:h-5 lg:w-5" />

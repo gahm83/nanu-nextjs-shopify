@@ -16,7 +16,7 @@ function BannerHomeIsCloser() {
               fill
             />
           </figure>
-          <div className="max-w-full-xl relative w-9/12 py-[24vw] md:py-[12vw] lg:w-11/12">
+          <div className="max-w-full-lg relative w-9/12 py-[24vw] md:py-[12vw] lg:w-11/12">
             <div className="lg:grid lg:grid-cols-2">
               <div className="relative lg:col-start-2">
                 <ShapeSnowflake className="absolute left-[-60px] top-[-60px] h-[20px] w-[20px] text-[#8DC8E8] lg:h-[40px] lg:w-[40px] [&_svg]:animate-blink-4" />

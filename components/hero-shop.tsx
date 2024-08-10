@@ -29,7 +29,7 @@ function HeroShop() {
             fill
           />
         </figure>
-        <div className="max-w-full-xl relative mx-auto w-9/12 pb-24 pt-48">
+        <div className="max-w-full-lg relative mx-auto w-9/12 pb-24 pt-48">
           <h2 className="font-portland text-5xl uppercase leading-none text-white lg:max-w-[50%] lg:text-7xl">
             Home is one bite away
           </h2>

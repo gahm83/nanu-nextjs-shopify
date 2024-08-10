@@ -55,7 +55,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-full-xl relative mx-auto flex w-11/12 flex-col rounded-lg bg-[#532826] px-6 py-24 before:absolute before:left-6 before:right-6 before:top-10 before:block before:h-[6px] before:bg-border-sky before:bg-[auto_6px] before:bg-repeat-space before:content-[''] after:absolute after:bottom-10 after:left-6 after:right-6 after:block after:h-[5px] after:bg-border-sky after:bg-[auto_5px] after:bg-repeat-space after:content-[''] xl:px-24">
+      <div className="max-w-full-lg relative mx-auto flex w-11/12 flex-col rounded-lg bg-[#532826] px-6 py-24 before:absolute before:left-6 before:right-6 before:top-10 before:block before:h-[6px] before:bg-border-sky before:bg-[auto_6px] before:bg-repeat-space before:content-[''] after:absolute after:bottom-10 after:left-6 after:right-6 after:block after:h-[5px] after:bg-border-sky after:bg-[auto_5px] after:bg-repeat-space after:content-[''] xl:px-24">
         <div className="grid gap-4 md:grid-cols-3">
           {cardItems &&
             cardItems.map((item, index) => (
