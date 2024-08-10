@@ -1,6 +1,5 @@
 import { ProductCard } from '@/components/grid/product-card';
 import { CustomerReviews } from '@/components/product/customer-reviews';
-import Modal from '@/components/product/modal';
 import { StraighFromOurKitchen } from '@/components/product/straight-from-our-kitchen';
 import { VersatileCompanion } from '@/components/product/versatile-companion';
 import { Gallery } from 'components/product/gallery';
@@ -11,6 +10,7 @@ import { Image as TImage } from 'lib/shopify/types';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import Script from 'next/script';
 import { Suspense } from 'react';
 export async function generateMetadata({
   params
@@ -74,6 +74,7 @@ export default async function ProductPage({ params }: { params: { handle: string
 
   return (
     <>
+      <Script src="<https://loox.io/widget/loox.js?shop=0690d7-0d.myshopify.com>" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -139,7 +140,6 @@ export default async function ProductPage({ params }: { params: { handle: string
       <CustomerReviews />
       <StraighFromOurKitchen />
       <RelatedProducts id={product.id} />
-      <Modal />
     </>
   );
 }
