@@ -81,6 +81,13 @@ type About = {
   };
 };
 
+type Recipes = {
+  value: string;
+  references: {
+    nodes: Node[];
+  };
+};
+
 type FAQs = {
   value: string;
   references: {
@@ -99,10 +106,11 @@ export type Page = {
   body: string;
   bodySummary: string;
   seo?: SEO;
-  createdAt: string;
-  updatedAt: string;
   about: About;
   faqs: FAQs;
+  recipes: Recipes;
+  createdAt: string;
+  updatedAt: string;
 };
 
 type nutritionFacts = {

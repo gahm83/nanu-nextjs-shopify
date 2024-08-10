@@ -53,6 +53,27 @@ const pageFragment = /* GraphQL */ `
           }
         }
       }
+      recipes: metafield(namespace: "custom", key: "recipes") {
+        value
+        references(first: 10) {
+          nodes {
+            ... on Metaobject {
+              fields {
+                value
+                key
+                reference {
+                  ... on MediaImage {
+                    id
+                    image {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
       createdAt
       updatedAt
     }

@@ -1,8 +1,19 @@
 'use client';
 import Image from 'next/image';
+import { useState } from 'react';
 import ShapeRomboid from '../svg/shape-romboid';
 
-function NanusCookBook() {
+interface Recipe {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+}
+
+function NanusCookBook({ recipes }: { recipes: Recipe[] }) {
+  const [slide, setSlide] = useState('recipe-top');
+  const recipePosition = ['recipe-top', 'recipe-right', 'recipe-bottom', 'recipe-left'];
+
   return (
     <section>
       <div className="relative py-16">
@@ -17,13 +28,30 @@ function NanusCookBook() {
             <div className="col-span-4 flex bg-[#532826] p-8">
               <div className="relative py-5">
                 <div className="border-top-sky border-bottom-sky">
-                  <h2 className="font-portland text-3xl font-black uppercase leading-none tracking-tighter text-[#F6E7E0]">
-                    Nanu's Shrimp Tacos
-                  </h2>
-                  <p className="text-xl font-medium leading-none text-[#F6E7E0]">
-                    Place shrimps into your favorite tortilla and drizzle with our Chilli & Oil
-                    sauce. (Fit up to 4 lines of text)
-                  </p>
+                  {recipes &&
+                    recipes.map((recipe, idx) => (
+                      <div
+                        key={recipe.title}
+                        className={`space-y-5 ${slide === recipePosition[idx] ? 'block' : 'hidden'}`}
+                      >
+                        <h2 className="font-portland text-3xl font-black uppercase leading-none tracking-tighter text-[#F6E7E0]">
+                          {recipe.title}
+                        </h2>
+                        <figure>
+                          <a href={recipe.url} target="_blank">
+                            <Image
+                              src={recipe.image}
+                              alt={recipe.title}
+                              width="810"
+                              height="1440"
+                            />
+                          </a>
+                        </figure>
+                        <p className="text-xl font-medium leading-none text-[#F6E7E0]">
+                          {recipe.description}
+                        </p>
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>
@@ -35,22 +63,34 @@ function NanusCookBook() {
                   alt="Nanu's Shrimp Tacos"
                   className="object-cover"
                 />
-                <button className="group absolute left-[36%] top-[22%] h-[80px] w-[80px] text-[#8DC8E8]">
+                <button
+                  onClick={() => setSlide('recipe-top')}
+                  className="group absolute left-[36%] top-[22%] h-[80px] w-[80px] text-[#8DC8E8]"
+                >
                   <ShapeRomboid className="absolute inset-0 flex h-full w-full items-center justify-center [&>*:first-child]:absolute [&>*:first-child]:h-full [&>*:first-child]:w-full [&>*:first-child]:opacity-50 [&>*:last-child]:absolute [&>*:last-child]:h-[45px] [&>*:last-child]:w-[45px] ">
                     <ShapeRomboid />
                   </ShapeRomboid>
                 </button>
-                <button className="group absolute left-[63%] top-[23%] h-[80px] w-[80px] text-[#8DC8E8]">
+                <button
+                  onClick={() => setSlide('recipe-right')}
+                  className="group absolute left-[63%] top-[23%] h-[80px] w-[80px] text-[#8DC8E8]"
+                >
                   <ShapeRomboid className="absolute inset-0 flex h-full w-full items-center justify-center [&>*:first-child]:absolute [&>*:first-child]:h-full [&>*:first-child]:w-full [&>*:first-child]:opacity-50 [&>*:last-child]:absolute [&>*:last-child]:h-[45px] [&>*:last-child]:w-[45px] ">
                     <ShapeRomboid />
                   </ShapeRomboid>
                 </button>
-                <button className="group absolute left-[52%] top-[50%] h-[80px] w-[80px] text-[#8DC8E8]">
+                <button
+                  onClick={() => setSlide('recipe-bottom')}
+                  className="group absolute left-[52%] top-[50%] h-[80px] w-[80px] text-[#8DC8E8]"
+                >
                   <ShapeRomboid className="absolute inset-0 flex h-full w-full items-center justify-center [&>*:first-child]:absolute [&>*:first-child]:h-full [&>*:first-child]:w-full [&>*:first-child]:opacity-50 [&>*:last-child]:absolute [&>*:last-child]:h-[45px] [&>*:last-child]:w-[45px] ">
                     <ShapeRomboid />
                   </ShapeRomboid>
                 </button>
-                <button className="group absolute left-[27%] top-[40%] h-[80px] w-[80px] text-[#8DC8E8]">
+                <button
+                  onClick={() => setSlide('recipe-left')}
+                  className="group absolute left-[27%] top-[40%] h-[80px] w-[80px] text-[#8DC8E8]"
+                >
                   <ShapeRomboid className="absolute inset-0 flex h-full w-full items-center justify-center [&>*:first-child]:absolute [&>*:first-child]:h-full [&>*:first-child]:w-full [&>*:first-child]:opacity-50 [&>*:last-child]:absolute [&>*:last-child]:h-[45px] [&>*:last-child]:w-[45px] ">
                     <ShapeRomboid />
                   </ShapeRomboid>

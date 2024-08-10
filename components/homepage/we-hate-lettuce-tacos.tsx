@@ -38,13 +38,7 @@ const WeHateLettuceTacos = () => {
     <section ref={container}>
       <div className="lg:max-w-full-xl mx-auto w-11/12 py-12 lg:py-20">
         <figure className="mx-auto mb-5 w-[16.666667vw] lg:w-[9vw]">
-          <Image
-            src="/images/nanu-logo-top.svg"
-            width={200}
-            height={230}
-            objectFit="cover"
-            alt="Nanu Roots"
-          />
+          <Image src="/images/nanu-logo-top.svg" width={200} height={230} alt="Nanu Roots" />
         </figure>
         <h2 className="relative mx-auto w-8/12 text-center font-portland text-[8vw] uppercase leading-tight text-[#532826] lg:w-7/12 lg:text-[4.3vw]">
           <motion.div
