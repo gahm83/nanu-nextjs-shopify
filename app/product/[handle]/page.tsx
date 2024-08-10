@@ -1,5 +1,6 @@
 import { ProductCard } from '@/components/grid/product-card';
 import { CustomerReviews } from '@/components/product/customer-reviews';
+import Modal from '@/components/product/modal';
 import { StraighFromOurKitchen } from '@/components/product/straight-from-our-kitchen';
 import { VersatileCompanion } from '@/components/product/versatile-companion';
 import { Gallery } from 'components/product/gallery';
@@ -138,6 +139,7 @@ export default async function ProductPage({ params }: { params: { handle: string
       <CustomerReviews />
       <StraighFromOurKitchen />
       <RelatedProducts id={product.id} />
+      <Modal />
     </>
   );
 }
