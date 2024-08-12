@@ -1,27 +1,5 @@
-import ContactForm from '@/components/layout/contact-form';
+import ContactForm from '@/components/forms/contact';
 import Image from 'next/image';
-
-/*
-export async function generateMetadata({
-  params
-}: {
-  params: { page: string };
-}): Promise<Metadata> {
-  const page = await getPage(params.page);
-
-  if (!page) return notFound();
-
-  return {
-    title: page.seo?.title || page.title,
-    description: page.seo?.description || page.bodySummary,
-    openGraph: {
-      publishedTime: page.createdAt,
-      modifiedTime: page.updatedAt,
-      type: 'article'
-    }
-  };
-}
-  */
 
 export default async function Page({ params }: { params: { page: string } }) {
   return (
@@ -45,19 +23,6 @@ export default async function Page({ params }: { params: { page: string } }) {
             </h2>
           </div>
           <div className="mx-auto w-11/12 max-w-[960px] bg-[#532826]">
-            {/* <form onSubmit={handleSubmit(onSubmit)}>
-              <h2 className="font-portland font-bold text-2xl uppercase">We will be happy to hear from you</h2>
-              <div className="space-y-5 text-justify text-xl font-medium text-[#532826]">
-                <p>Do you have any comments about our products? Would you like to be part of our distributor network? Or you just want to say hello Nanu!</p>
-                <p><strong>Just drop us a message!</strong></p>
-              </div>
-              <div>
-                <input defaultValue="test" {...register("example")} />
-                <input {...register("exampleRequired", { required: true })} />
-                {errors.exampleRequired && <span>This field is required</span>}
-              </div>
-              <button type="submit">Send Message</button>
-            </form> */}
             <ContactForm />
           </div>
         </div>

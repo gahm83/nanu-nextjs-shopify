@@ -206,7 +206,7 @@ const ContactForm = () => {
 
         <button
           type="submit"
-          className="border-2 border-solid border-[#8FC8E7] bg-[#8FC8E7] px-6 py-2 py-4 text-center font-portland text-lg font-black uppercase text-[#532826] max-lg:flex-grow lg:min-w-48"
+          className="border-2 border-solid border-[#8FC8E7] bg-[#8FC8E7] px-6 py-2 text-center font-portland text-lg font-black uppercase text-[#532826] max-lg:flex-grow lg:min-w-48"
         >
           Send message
         </button>
