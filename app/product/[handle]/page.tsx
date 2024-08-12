@@ -1,5 +1,6 @@
 import { ProductCard } from '@/components/grid/product-card';
 import { CustomerReviews } from '@/components/product/customer-reviews';
+import ReviewForm from '@/components/product/modal';
 import { StraighFromOurKitchen } from '@/components/product/straight-from-our-kitchen';
 import { VersatileCompanion } from '@/components/product/versatile-companion';
 import { Gallery } from 'components/product/gallery';
@@ -10,7 +11,6 @@ import { Image as TImage } from 'lib/shopify/types';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import Script from 'next/script';
 import { Suspense } from 'react';
 export async function generateMetadata({
   params
@@ -74,7 +74,6 @@ export default async function ProductPage({ params }: { params: { handle: string
 
   return (
     <>
-      <Script src="<https://loox.io/widget/loox.js?shop=0690d7-0d.myshopify.com>" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -140,6 +139,7 @@ export default async function ProductPage({ params }: { params: { handle: string
       <CustomerReviews />
       <StraighFromOurKitchen />
       <RelatedProducts id={product.id} />
+      <ReviewForm id={product.id} />
     </>
   );
 }
@@ -150,7 +150,7 @@ async function RelatedProducts({ id }: { id: string }) {
   if (!relatedProducts.length) return null;
 
   return (
-    <div className="lg:max-w-full-lg mx-auto w-11/12 py-16">
+    <div className="mx-auto w-11/12 py-16 lg:max-w-screen-xl">
       <h2 className="mb-14 text-center font-portland text-4xl font-black uppercase text-[#532826]">
         Shop More Products
       </h2>
