@@ -55,17 +55,6 @@ const ProductReviewForm = ({ productId }: { productId: string }) => {
     }
   };
 
-  // {
-  //   "shop_domain": "example.myshopify.com",
-  //   "platform": "shopify",
-  //   "id": 999999,
-  //   "email": "john@example.com",
-  //   "name": "John Smith",
-  //   "reviewer_name_format": "",
-  //   "rating": 5,
-  //   "title": "Review title",
-  //     "body": "Review body",
-
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 px-5 py-4">
       <input {...register('shop_domain', { value: '0690d7-0d.myshopify.com' })} type="hidden" />

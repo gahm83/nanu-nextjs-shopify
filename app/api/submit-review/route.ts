@@ -2,18 +2,17 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    const res = await fetch('https://judge.me/reviews', {
+    const res = await fetch('https://judge.me/api/v1/reviews', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(body) // Ensure the body is a stringified JSON object
+      body: JSON.stringify(body)
     });
 
     const contentType = res.headers.get('Content-Type');
     if (contentType && contentType.includes('application/json')) {
       const data = await res.json();
-      console.log(data);
 
       return new Response(JSON.stringify({ data }), {
         headers: {
