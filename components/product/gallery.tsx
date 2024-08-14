@@ -35,40 +35,27 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
   };
 
   return (
-    <div className="relative w-full overflow-hidden lg:aspect-square">
-      {isDesktop ? (
-        images.map((image, index) => (
-          <Image
-            className={`h-full w-full object-contain ${index === 1 && 'opacity-0 transition-opacity duration-150 hover:opacity-100'}`}
-            fill
-            sizes="(min-width: 1024px) 66vw, 100vw"
-            alt={image.altText as string}
-            src={image.src as string}
-            priority={true}
-          />
-        ))
-      ) : (
-        <Swiper
-          modules={[Navigation, Pagination]}
-          navigation={true}
-          pagination={pagination}
-          slidesPerView={1}
-          className="pagination-dots dark-foreground w-full"
-        >
-          {images.map((image, index) => (
-            <SwiperSlide key={index} className="aspect-square w-full">
-              <Image
-                className="h-full w-full object-cover"
-                fill
-                sizes="(min-width: 1024px) 66vw, 100vw"
-                alt={image.altText as string}
-                src={image.src as string}
-                priority={true}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      )}
+    <div className="relative w-full overflow-hidden">
+      <Swiper
+        modules={[Navigation, Pagination]}
+        navigation={true}
+        pagination={pagination}
+        slidesPerView={1}
+        className="pagination-dots dark-foreground w-full"
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={index} className="aspect-[1.2/1] w-full">
+            <Image
+              className="h-full w-full object-cover"
+              fill
+              sizes="(min-width: 1024px) 66vw, 100vw"
+              alt={image.altText as string}
+              src={image.src as string}
+              priority={true}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 }

@@ -29,8 +29,6 @@ const ProductReviewForm = ({ productId }: { productId: string }) => {
   const shopifyProductId = productId.split('/');
   const id = Number(shopifyProductId[shopifyProductId.length - 1]);
 
-  console.log(id);
-
   useEffect(() => {
     console.log(rating);
   }, [rating]);

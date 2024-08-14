@@ -17,7 +17,7 @@ function NanusCookBook({ recipes }: { recipes: Recipe[] }) {
   return (
     <section>
       <div className="relative py-16">
-        <div className="max-w-full-lg mx-auto w-11/12">
+        <div className="mx-auto w-11/12 max-w-screen-lg">
           <h2 className="text-center font-portland text-3xl font-black uppercase text-[#532826] lg:text-4xl">
             Nanu's Cook Book
           </h2>

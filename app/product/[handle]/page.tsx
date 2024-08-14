@@ -1,22 +1,23 @@
 import { ProductCard } from '@/components/grid/product-card';
+import MouseScroll from '@/components/layout/mouse-scroll';
 import { CustomerReviews } from '@/components/product/customer-reviews';
 import ReviewForm from '@/components/product/modal';
 import { StraighFromOurKitchen } from '@/components/product/straight-from-our-kitchen';
 import { VersatileCompanion } from '@/components/product/versatile-companion';
-import { Gallery } from 'components/product/gallery';
+// import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
-import { getProduct, getProductRecommendations } from 'lib/shopify';
-import { Image as TImage } from 'lib/shopify/types';
+import { getPage, getProduct, getProductRecommendations } from 'lib/shopify';
+// import { Image as TImage } from 'lib/shopify/types';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { Suspense } from 'react';
+// import { Suspense } from 'react';
 export async function generateMetadata({
   params
 }: {
   params: { handle: string };
 }): Promise<Metadata> {
+  const page = await getPage('nanus-cook-book');
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
@@ -81,14 +82,15 @@ export default async function ProductPage({ params }: { params: { handle: string
         }}
       />
       <section>
-        <div className="max-w-full-lg mx-auto w-11/12 py-8 ">
+        <div className="mx-auto w-11/12 max-w-screen-lg pb-8 pt-28">
           <div className="grid gap-4 lg:grid-cols-2 xl:gap-8">
-            <div className="px-5 lg:max-h-[600px] lg:overflow-y-scroll lg:p-0">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="col-span-2 aspect-[1.2/1] rounded-xl bg-[#F2D2C3]">
+            <MouseScroll />
+            {/* <div className="px-5 lg:max-h-[600px] lg:overflow-y-scroll lg:p-0">
+              <div className="grid grid-cols-2 gap-4 ">
+                <div className="col-span-2 rounded-xl overflow-hidden bg-[#F2D2C3]">
                   <Suspense
                     fallback={
-                      <div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden" />
+                      <div className="relative aspect-[1.2/1] w-full " />
                     }
                   >
                     <Gallery
@@ -127,7 +129,7 @@ export default async function ProductPage({ params }: { params: { handle: string
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="flex flex-grow rounded-xl bg-[#FFF5F0]">
               <ProductDescription product={product} />
             </div>

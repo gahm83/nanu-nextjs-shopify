@@ -11,8 +11,7 @@ const Header = ({ children }: { children: ReactNode }) => {
   const controls = useAnimation();
   const pathNames = ['/', '/about-us', '/faqs', '/contact-us'];
   const shopPathPattern = /^\/shop(\/(sauces|tortillas))?$/;
-  const animateBg = pathName.indexOf(pathName) > -1 || shopPathPattern.test(pathName);
-  const threshold = 150;
+  const animateBg = pathNames.indexOf(pathName) > -1 || shopPathPattern.test(pathName);
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     latest > 150 ? controls.start('visible') : controls.start('hidden');
