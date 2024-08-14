@@ -110,12 +110,17 @@ a {
   }
 }
 .pagination-dots {
-  @apply max-lg:!grid
-    max-lg:grid-flow-row
-    max-lg:grid-cols-[1fr_min-content_1fr]
-    max-lg:gap-y-8;
+  @apply !grid
+    grid-cols-[1fr_min-content_1fr]
+    grid-rows-[1fr_min-content]
+    gap-y-8;
   .swiper-wrapper {
-    @apply max-lg:col-span-3;
+    @apply col-span-3 row-span-1;
+  }
+  .swiper-pagination,
+  .swiper-button-prev,
+  .swiper-button-next {
+    @apply col-span-1 row-start-2;
   }
   .swiper-button-prev,
   .swiper-button-next {
@@ -129,32 +134,24 @@ a {
         before:content-[''];
   }
   .swiper-button-prev {
-    @apply col-span-1
-        row-start-2
+    @apply col-start-1
         justify-end
         pr-2
         before:border-b-2
-        before:border-l-2
-        lg:hidden;
+        before:border-l-2;
   }
   .swiper-button-next {
-    @apply col-span-1
-        col-start-3
-        row-start-2
+    @apply col-start-3
         justify-start
         pl-2
         before:border-r-2
-        before:border-t-2
-        lg:hidden;
+        before:border-t-2;
   }
-  > .swiper-pagination {
-    @apply col-span-1
-      col-start-2
-      row-start-2
+  .swiper-pagination {
+    @apply col-start-2
       flex
       items-center
-      justify-center
-      lg:hidden;
+      justify-center;
 
     span {
       @apply flex
@@ -176,7 +173,7 @@ a {
       }
     }
   }
-  &.dark-foreground {
+  /* &.dark-foreground {
     @apply grid grid-flow-row grid-cols-[1fr_min-content_1fr] gap-y-4 pb-4;
     .swiper-button-prev,
     .swiper-button-next {
@@ -190,7 +187,7 @@ a {
         }
       }
     }
-  }
+  } */
 }
 
 @layer components {

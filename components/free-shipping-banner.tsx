@@ -13,7 +13,7 @@ const FreeShippingBanner = () => {
   // });
 
   return (
-    <motion.div className="free-shipping-banner flex h-[48px] w-full items-center justify-center space-x-4 overflow-hidden bg-[#8DC8E8] lg:h-[60px]">
+    <motion.div className="free-shipping-banner flex h-[60px] w-full items-center justify-center space-x-4 overflow-hidden bg-[#8DC8E8]">
       <ShapeRomboid className="relative block h-3 w-3 lg:h-4 lg:w-4 [&_svg]:fill-[#532826]" />
       <span className="block font-bold text-[#532826] md:text-lg lg:text-xl">
         FREE SHIPPING ON ORDERS OVER $50

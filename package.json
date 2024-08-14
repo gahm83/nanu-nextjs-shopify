@@ -36,6 +36,7 @@
     "postcss-nested": "^6.0.1",
     "react": "18.2.0",
     "react-blaze-slider": "^1.7.2",
+    "react-custom-scroll": "^7.0.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.52.2",
     "react-intersection-observer": "^9.10.3",

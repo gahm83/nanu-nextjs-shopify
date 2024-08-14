@@ -1,75 +1,98 @@
-// ScrollAnimation.tsx
 'use client';
-import { motion, useAnimation } from 'framer-motion';
-import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import React, { useRef, useState } from 'react';
 
-const ScrollAnimation: React.FC = () => {
-  const controls = useAnimation();
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!container) return; // Check if container is null
-
-      const containerHeight = container.offsetHeight; // TypeScript should recognize this now
-      const mousePosition = e.clientY - container.getBoundingClientRect().top;
-      const distanceFromEdge = 100;
-      const maxSpeed = 2;
-
-      let strength = 0;
-      if (mousePosition < distanceFromEdge) {
-        strength = distanceFromEdge - mousePosition;
-        controls.start({ y: -strength * (maxSpeed / distanceFromEdge) });
-      } else if (mousePosition > containerHeight - distanceFromEdge) {
-        strength = mousePosition - (containerHeight - distanceFromEdge);
-        controls.start({ y: strength * (maxSpeed / distanceFromEdge) });
-      } else {
-        controls.start({ y: 0 });
-      }
-    };
-
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener('mousemove', handleMouseMove);
-      }
-    };
-  }, [controls]);
-
-  return (
-    <div
-      ref={containerRef}
-      style={{
-        overflow: 'hidden',
-        height: '300px', // adjust as needed
-        position: 'relative'
-      }}
-    >
-      <motion.div
-        animate={controls}
-        transition={{ type: 'tween', duration: 0.2 }}
-        style={{
-          height: '100%',
-          width: '100%',
-          position: 'absolute'
-        }}
-      >
-        <div
-          className="h-[150%]"
-          style={{
-            background: 'linear-gradient(to bottom, #fff, #000)'
-          }}
-        >
-          {/* Your content here */}
-        </div>
-      </motion.div>
-    </div>
-  );
+const css = {
+  box: {
+    backgroundColor: 'linen',
+    width: '30vw',
+    height: '30vw',
+    position: 'relative' as const
+  },
+  fly: {
+    position: 'absolute' as const,
+    width: '20px',
+    height: '20px',
+    margin: '-10px',
+    backgroundColor: 'red',
+    borderRadius: 10
+  }
 };
 
-export default ScrollAnimation;
+interface Coordinates {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  centerX: number;
+  centerY: number;
+}
+
+function getRelativeCoordinates(
+  event: React.MouseEvent,
+  referenceElement: HTMLDivElement | null
+): Coordinates {
+  const position = {
+    x: event.pageX,
+    y: event.pageY
+  };
+
+  const offset = {
+    left: referenceElement?.offsetLeft || 0,
+    top: referenceElement?.offsetTop || 0,
+    width: referenceElement?.clientWidth || 0,
+    height: referenceElement?.clientHeight || 0
+  };
+
+  let reference = referenceElement?.offsetParent as HTMLElement | null;
+
+  while (reference) {
+    offset.left += reference.offsetLeft;
+    offset.top += reference.offsetTop;
+    reference = reference.offsetParent as HTMLElement | null;
+  }
+
+  return {
+    x: position.x - offset.left,
+    y: position.y - offset.top,
+    width: offset.width,
+    height: offset.height,
+    centerX: (position.x - offset.left - offset.width / 2) / (offset.width / 2),
+    centerY: (position.y - offset.top - offset.height / 2) / (offset.height / 2)
+  };
+}
+
+export default function MouseScroll() {
+  const [mousePosition, setMousePosition] = useState<Partial<Coordinates>>({});
+  const boxRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    setMousePosition(getRelativeCoordinates(e, boxRef.current));
+
+    console.log();
+  };
+
+  return (
+    <motion.div
+      ref={boxRef}
+      onMouseMove={(e) => handleMouseMove(e)}
+      className="relative h-full w-full"
+    >
+      <motion.div
+        animate={{
+          x: mousePosition.x,
+          y: mousePosition.y
+        }}
+        className="h-[150%] w-full"
+      />
+      <div className="absolute left-0 top-0 z-10 text-black">
+        {mousePosition.x} / {mousePosition.y}
+        <br />
+        {mousePosition.centerX} / {mousePosition.centerY}
+        <br />
+        {mousePosition.width} / {mousePosition.height}
+        <br />
+      </div>
+    </motion.div>
+  );
+}
