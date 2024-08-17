@@ -1,11 +1,23 @@
 'use client';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion } from 'framer-motion';
-import React from 'react';
+import { useSearchParams } from 'next/navigation';
+import React, { useEffect } from 'react';
 import ProductReviewForm from '../forms/product-review';
 
 function Modal({ id }: { id: string }) {
-  const [visible, setVisible] = React.useState(true);
+  const [visible, setVisible] = React.useState(false);
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams.toString());
+    const name = params.get('name');
+    const email = params.get('email');
+
+    if (name && email) {
+      setVisible(true);
+    }
+  }, []);
 
   const togglePopup = () => {
     setVisible(!visible);
