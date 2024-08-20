@@ -166,7 +166,7 @@ export default async function ProductPage({ params }: { params: { handle: string
       <CustomerReviews />
       <StraighFromOurKitchen recipes={recipes} />
       <RelatedProducts id={product.id} />
-      <ReviewForm id={product.id} />
+      <ReviewForm productId={product.id} />
     </>
   );
 }

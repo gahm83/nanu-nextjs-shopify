@@ -5,23 +5,25 @@ import { useSearchParams } from 'next/navigation';
 import React, { useEffect } from 'react';
 import ProductReviewForm from '../forms/product-review';
 
-function Modal({ id }: { id: string }) {
+function Modal({ productId }: { productId: string }) {
   const [visible, setVisible] = React.useState(false);
   const searchParams = useSearchParams();
 
+  const shopifyProductId = productId.split('/');
+  const id = Number(shopifyProductId[shopifyProductId.length - 1]);
+
   useEffect(() => {
+    const submitted_review = localStorage.getItem('submitted_review');
     const params = new URLSearchParams(searchParams.toString());
     const name = params.get('name');
     const email = params.get('email');
 
-    if (name && email) {
+    if (name && email && submitted_review !== `${id}`) {
       setVisible(true);
     }
   }, []);
 
-  const togglePopup = () => {
-    setVisible(!visible);
-  };
+  const togglePopup = () => setVisible(!visible);
 
   return (
     <AnimatePresence>
@@ -35,7 +37,7 @@ function Modal({ id }: { id: string }) {
             transition={{ duration: 0.4 }}
           >
             <div className="relative mx-auto w-11/12 max-w-[420px] rounded-lg bg-[#532826]">
-              <ProductReviewForm productId={id} />
+              <ProductReviewForm productId={`${id}`} />
               <button
                 onClick={togglePopup}
                 className="group absolute left-full top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-[#532826]"

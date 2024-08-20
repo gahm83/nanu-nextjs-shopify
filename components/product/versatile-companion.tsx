@@ -4,28 +4,33 @@ import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useMediaQuery } from 'usehooks-ts';
+import IconDipped from '../svg/icon-dipped';
+import IconFried from '../svg/icon-fried';
+import IconGrilled from '../svg/icon-grilled';
+import IconToasted from '../svg/icon-toasted';
+import IconWrapped from '../svg/icon-wrapped';
 import ShapeRomboid from '../svg/shape-romboid';
 import ShapeSnowflake from '../svg/shape-snowflake';
 
 const versatileCompanionItems = [
   {
-    icon: '/images/icon-wrapped.svg',
+    icon: <IconWrapped />,
     title: 'Wrapped'
   },
   {
-    icon: '/images/icon-toasted.svg',
+    icon: <IconToasted />,
     title: 'Toasted'
   },
   {
-    icon: '/images/icon-fried.svg',
+    icon: <IconFried />,
     title: 'Fried'
   },
   {
-    icon: '/images/icon-grilled.svg',
+    icon: <IconGrilled />,
     title: 'Grilled'
   },
   {
-    icon: '/images/icon-dipped.svg',
+    icon: <IconDipped />,
     title: 'Dipped'
   }
 ];
@@ -73,8 +78,8 @@ export function VersatileCompanion() {
                 {versatileCompanionItems &&
                   versatileCompanionItems.map((item, index) => (
                     <SwiperSlide key={index} className="lg:w-1/5">
-                      <figure className="flex items-center justify-center">
-                        <Image src={item.icon} alt={item.title} height={78} width={141} />
+                      <figure className="flex items-center justify-center [&_svg]:w-32">
+                        {item.icon}
                       </figure>
                       <div className="mt-4 space-y-4 px-6 text-center">
                         <h2 className="mx-auto text-center font-portland text-2xl font-black uppercase leading-none">
