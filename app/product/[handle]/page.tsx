@@ -7,11 +7,12 @@ import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getPage, getProduct, getProductRecommendations } from 'lib/shopify';
-import { Image as TImage } from 'lib/shopify/types';
+import { Recipe, Image as TImage } from 'lib/shopify/types';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
+
 export async function generateMetadata({
   params
 }: {
@@ -73,13 +74,6 @@ export default async function ProductPage({ params }: { params: { handle: string
     }
   };
 
-  interface Recipe {
-    title: string;
-    description: string;
-    image: string;
-    url: string;
-  }
-
   const recipes: Recipe[] = page.recipes.references.nodes.map((node) => {
     const recipe: Recipe = {
       title: '',
@@ -99,9 +93,16 @@ export default async function ProductPage({ params }: { params: { handle: string
         recipe.image = field.reference?.image?.url as string;
       }
     });
-
     return recipe;
   });
+
+  console.log(product.pictures.references.nodes);
+
+  const pictures: TImage[] = product.pictures.references.nodes.map((node: { image: TImage }) => ({
+    url: node.image.url,
+    width: node.image.width,
+    height: node.image.height
+  }));
 
   return (
     <>
@@ -116,7 +117,7 @@ export default async function ProductPage({ params }: { params: { handle: string
           <div className="grid gap-4 lg:grid-cols-2 xl:gap-8">
             <div className="lg:max-h-[600px] lg:overflow-y-scroll lg:p-0">
               <div className="grid grid-cols-2 gap-4 ">
-                <div className="col-span-2 overflow-hidden rounded-xl bg-[#F2D2C3]">
+                <div className="col-span-2 overflow-hidden rounded-xl">
                   <Suspense fallback={<div className="relative aspect-[1.2/1] w-full " />}>
                     <Gallery
                       images={product.images.map((image: TImage) => ({
@@ -126,8 +127,23 @@ export default async function ProductPage({ params }: { params: { handle: string
                     />
                   </Suspense>
                 </div>
-                <div className="relative col-span-2 hidden aspect-[16/9] w-full overflow-hidden rounded-xl bg-[#F2D2C3] lg:block ">
-                  <Image
+                {pictures &&
+                  pictures.map((node, idx) => (
+                    <div
+                      key={idx}
+                      className={`relative hidden w-full overflow-hidden rounded-xl lg:block ${idx == 0 ? 'col-span-2 aspect-[16/9]' : 'aspect-square'}`}
+                    >
+                      <Image
+                        src={node.url}
+                        alt="Nanu's Heritage Doods"
+                        width={node.width}
+                        height={node.height}
+                        className="w-full object-cover"
+                      />
+                    </div>
+                  ))}
+                {/*<div className="relative hidden lg:block aspect-[16/9] w-full overflow-hidden rounded-xl col-span-2">
+                  <Image 
                     src="/images/hero-producto.jpg"
                     alt="Nanu's Heritage Doods"
                     width={800}
@@ -135,7 +151,7 @@ export default async function ProductPage({ params }: { params: { handle: string
                     className="w-full object-cover"
                   />
                 </div>
-                <div className="relative hidden aspect-square w-full overflow-hidden rounded-xl bg-[#F2D2C3] lg:block ">
+                <div className="relative hidden lg:block w-full overflow-hidden rounded-xl">
                   <Image
                     src="/images/nanu-01.jpg"
                     alt="Nanu's Heritage Doods"
@@ -144,7 +160,7 @@ export default async function ProductPage({ params }: { params: { handle: string
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                 </div>
-                <div className="relative hidden aspect-square w-full overflow-hidden rounded-xl bg-[#F2D2C3] lg:block ">
+                <div className="relative hidden lg:block w-full overflow-hidden rounded-xl">
                   <Image
                     src="/images/nanu-02.jpg"
                     alt="Nanu's Heritage Doods"
@@ -152,7 +168,7 @@ export default async function ProductPage({ params }: { params: { handle: string
                     height={600}
                     className="absolute inset-0 h-full w-full object-cover"
                   />
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="flex flex-grow rounded-xl bg-[#FFF5F0]">

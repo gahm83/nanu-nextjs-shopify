@@ -43,7 +43,7 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
         className="pagination-dots dark-foreground w-full"
       >
         {images.map((image, index) => (
-          <SwiperSlide key={index} className="aspect-[1.2/1] w-full">
+          <SwiperSlide key={index} className="aspect-[1.2/1] w-full overflow-hidden rounded-xl">
             <Image
               className="h-full w-full object-cover"
               fill

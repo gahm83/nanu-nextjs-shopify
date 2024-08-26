@@ -113,7 +113,7 @@ a {
   @apply !grid
     grid-cols-[1fr_min-content_1fr]
     grid-rows-[1fr_min-content]
-    gap-y-8;
+    gap-y-4;
   .swiper-wrapper {
     @apply col-span-3 row-span-1;
   }
@@ -125,6 +125,7 @@ a {
   .swiper-button-prev,
   .swiper-button-next {
     @apply flex
+        cursor-pointer
         items-center
         before:h-3
         before:w-3
@@ -157,6 +158,7 @@ a {
       @apply flex
         h-6
         w-6
+        cursor-pointer
         items-center
         justify-center
         px-1
@@ -173,8 +175,8 @@ a {
       }
     }
   }
-  /* &.dark-foreground {
-    @apply grid grid-flow-row grid-cols-[1fr_min-content_1fr] gap-y-4 pb-4;
+  &.dark-foreground {
+    /* @apply grid grid-flow-row grid-cols-[1fr_min-content_1fr] gap-y-4 pb-4; */
     .swiper-button-prev,
     .swiper-button-next {
       @apply before:border-[#532826];
@@ -187,7 +189,7 @@ a {
         }
       }
     }
-  } */
+  }
 }
 
 @layer components {

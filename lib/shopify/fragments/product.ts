@@ -81,6 +81,20 @@ const productFragment = /* GraphQL */ `
         }
       }
     }
+    pictures: metafield(namespace: "custom", key: "pictures") {
+      value
+      references(first: 10) {
+        nodes {
+          ... on MediaImage {
+            image {
+              url
+              width
+              height
+            }
+          }
+        }
+      }
+    }
     seo {
       ...seo
     }

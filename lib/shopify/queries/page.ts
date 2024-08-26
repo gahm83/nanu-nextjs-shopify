@@ -65,7 +65,9 @@ const pageFragment = /* GraphQL */ `
                   ... on MediaImage {
                     id
                     image {
-                      url
+                      src
+                      width
+                      height
                     }
                   }
                 }

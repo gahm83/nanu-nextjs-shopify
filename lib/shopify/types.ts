@@ -40,6 +40,28 @@ export type Image = {
   height: number;
 };
 
+export type Recipe = {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+};
+
+export type Picture = {
+  url: string;
+  width: number;
+  height: number;
+};
+
+export type MediaImage = {
+  id: string;
+  image: {
+    src: string;
+    width: number;
+    height: number;
+  };
+};
+
 export type Menu = {
   title: string;
   path: string;
@@ -138,6 +160,7 @@ export type Product = Omit<ShopifyProduct, 'variants' | 'images'> & {
   stock?: number;
   ingredients?: metaValue;
   nutritionFacts?: nutritionFacts;
+  pictures?: any;
 };
 
 export type ProductOption = {
@@ -200,6 +223,7 @@ export type ShopifyProduct = {
   variants: Connection<ProductVariant>;
   featuredImage: Image;
   images: Connection<Image>;
+  pictures: Connection<Image>;
   seo: SEO;
   tags: string[];
   updatedAt: string;
