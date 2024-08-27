@@ -24,10 +24,6 @@ const WeHateLettuceTacos = () => {
   const useParallax = (value: MotionValue<number>, distance: number) =>
     useTransform(value, [0, 1], [distance, -distance]);
 
-  // useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-  //   console.log('Page scroll: ', latest);
-  // });
-
   const y1 = useParallax(scrollYProgress, 100);
   const y2 = useParallax(scrollYProgress, 250);
   const y3 = useParallax(scrollYProgress, 200);

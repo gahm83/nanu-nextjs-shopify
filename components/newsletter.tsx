@@ -28,8 +28,6 @@ const NewsletterForm: React.FC = () => {
   const handleSubmit = (e: FormEvent): void => {
     e.preventDefault();
     if (emailValid) {
-      // Handle successful submission (e.g., send to server)
-      console.log('Email submitted:', email);
     } else {
       setErrorMessage('Please enter a valid email address');
     }

@@ -13,7 +13,6 @@ export function CustomerReviews({ productId }: { productId: string }) {
         const reviewsRes = await fetch(`/api/reviews/${productId}`);
         const data = await reviewsRes.json();
         setReviews(data.reviews || []);
-        console.log(data.reviews);
       } catch (error) {
         console.error('Failed to fetch reviews:', error);
       }

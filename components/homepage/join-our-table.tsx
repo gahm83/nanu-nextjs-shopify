@@ -46,7 +46,6 @@ function JoinOurTable() {
       }
 
       const feed = await data.json();
-      console.log(feed);
 
       setInstagramFeed((prevFeed) => {
         if (prevFeed && prevFeed.data.length > 0) {

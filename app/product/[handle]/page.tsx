@@ -55,8 +55,6 @@ export default async function ProductPage({ params }: { params: { handle: string
   const product = await getProduct(params.handle);
   const page = await getPage('nanus-cook-book');
 
-  console.log(page.recipes.references.nodes);
-
   if (!product) return notFound();
 
   const match = product.id.match(/\d+/);

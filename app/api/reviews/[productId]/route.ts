@@ -14,7 +14,6 @@ export async function GET(request: Request, { params }: { params: { productId: s
     productIdUrl.searchParams.append('external_id', productId);
 
     const internalIdResponse = await fetch(productIdUrl.toString());
-    console.log(internalIdResponse);
 
     if (!internalIdResponse.ok) {
       const errorData = await internalIdResponse.json();

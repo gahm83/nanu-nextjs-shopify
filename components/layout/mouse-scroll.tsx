@@ -66,11 +66,8 @@ export default function MouseScroll() {
   const [mousePosition, setMousePosition] = useState<Partial<Coordinates>>({});
   const boxRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleMouseMove = (e: React.MouseEvent) =>
     setMousePosition(getRelativeCoordinates(e, boxRef.current));
-
-    console.log();
-  };
 
   return (
     <motion.div
