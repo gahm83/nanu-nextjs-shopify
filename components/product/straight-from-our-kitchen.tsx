@@ -1,67 +1,11 @@
 'use client';
 // import 'swiper/css';
+import { Recipe } from 'lib/shopify/types';
 import Image from 'next/image';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ShapeRomboid from '../svg/shape-romboid';
 import { default as ShapeFlower, default as ShapeSnowflake } from '../svg/shape-snowflake';
-
-const recipeItems = [
-  {
-    steps: [
-      {
-        text: 'Vegetarian Quesadillas',
-        image: '/images/receta-01.jpg'
-      },
-      {
-        text: 'Heat a skillet over medium heat and place a tortilla on it. Add grated cheese on one half of the tortilla, then add the chopped vegetables on top of the cheese.',
-        image: '/images/receta-02.jpg'
-      },
-      {
-        text: 'Fold the tortilla in half over the filling. Cook until the bottom is golden brown and crispy, then flip and cook the other side. Serve hot with salsa and sour cream.',
-        image: '/images/receta-03.jpg'
-      }
-    ]
-  },
-  {
-    steps: [
-      {
-        text: 'Chicken Fajitas',
-        image: '/images/receta-02.jpg'
-      },
-      {
-        text: 'Heat oil in a skillet over medium-high heat. Add the marinated chicken strips and sliced bell peppers and onions. Cook until the chicken is fully cooked and the vegetables are tender.',
-        image: '/images/receta-03.jpg'
-      },
-      {
-        text: 'Warm tortillas in a separate skillet or microwave. Fill each tortilla with the cooked chicken and vegetable mixture. Serve hot with guacamole and salsa.',
-        image: '/images/receta-01.jpg'
-      }
-    ]
-  },
-  {
-    steps: [
-      {
-        text: 'Breakfast Burritos',
-        image: '/images/receta-03.jpg'
-      },
-      {
-        text: 'Warm tortillas on a separate skillet or in the microwave. Place a scoop of cooked sausage and scrambled eggs in the center of each tortilla.',
-        image: '/images/receta-01.jpg'
-      },
-      {
-        text: 'Sprinkle shredded cheese on top of the filling, then fold the sides of the tortilla inward and roll it up tightly to form a burrito.',
-        image: '/images/receta-02.jpg'
-      }
-    ]
-  }
-];
-interface Recipe {
-  title: string;
-  description: string;
-  image: string;
-  url: string;
-}
 
 export function StraighFromOurKitchen({ recipes }: { recipes: Recipe[] }) {
   const pagination = {
@@ -103,10 +47,10 @@ export function StraighFromOurKitchen({ recipes }: { recipes: Recipe[] }) {
                     className="relative aspect-[0.56/1] overflow-hidden rounded-xl"
                   >
                     <Image
-                      src={recipe.image}
-                      width="1024"
-                      height="1024"
-                      alt="Receta"
+                      src={recipe.image.url}
+                      width={recipe.image.width}
+                      height={recipe.image.height}
+                      alt={recipe.title}
                       className="h-full w-full object-cover object-center"
                     />
                     <div className="after:to-12% absolute inset-0 before:absolute before:inset-0 before:block before:h-full before:w-full before:bg-gradient-to-b before:from-black/60 before:to-transparent before:to-45% before:content-[''] after:absolute after:inset-0 after:block after:h-full after:w-full after:bg-gradient-to-b after:from-transparent after:from-45% after:to-black/80 after:content-['']">

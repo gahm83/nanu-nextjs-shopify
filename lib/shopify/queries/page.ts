@@ -11,6 +11,29 @@ const pageFragment = /* GraphQL */ `
       seo {
         ...seo
       }
+      collections: metafield(namespace: "custom", key: "collections") {
+        value
+        references(first: 10) {
+          nodes {
+            ... on Metaobject {
+              fields {
+                key
+                value
+                reference {
+                  ... on MediaImage {
+                    id
+                    image {
+                      src
+                      width
+                      height
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
       about: metafield(namespace: "content", key: "about") {
         value
         references(first: 10) {
@@ -28,7 +51,9 @@ const pageFragment = /* GraphQL */ `
                         ... on MediaImage {
                           id
                           image {
-                            url
+                            src
+                            width
+                            height
                           }
                         }
                       }
@@ -65,7 +90,7 @@ const pageFragment = /* GraphQL */ `
                   ... on MediaImage {
                     id
                     image {
-                      src
+                      url
                       width
                       height
                     }

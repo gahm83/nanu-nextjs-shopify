@@ -1,14 +1,8 @@
 'use client';
+import { Recipe } from '@/lib/shopify/types';
 import Image from 'next/image';
 import { useState } from 'react';
 import ShapeRomboid from '../svg/shape-romboid';
-
-interface Recipe {
-  title: string;
-  description: string;
-  image: string;
-  url: string;
-}
 
 function NanusCookBook({ recipes }: { recipes: Recipe[] }) {
   const [slide, setSlide] = useState('recipe-top');
@@ -40,10 +34,10 @@ function NanusCookBook({ recipes }: { recipes: Recipe[] }) {
                         <figure>
                           <a href={recipe.url} target="_blank">
                             <Image
-                              src={recipe.image}
+                              src={recipe.image.url}
                               alt={recipe.title}
-                              width="810"
-                              height="1440"
+                              width={recipe.image.width}
+                              height={recipe.image.height}
                             />
                           </a>
                         </figure>
@@ -55,8 +49,8 @@ function NanusCookBook({ recipes }: { recipes: Recipe[] }) {
                 </div>
               </div>
             </div>
-            <div className="col-span-8 hidden lg:block">
-              <figure className="relative aspect-square">
+            <div className="col-span-8 hidden lg:flex">
+              <figure className="relative aspect-square flex-grow">
                 <Image
                   src="/images/nanu-shrimp-tacos.jpg"
                   fill

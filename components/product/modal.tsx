@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import React, { useEffect } from 'react';
 import ProductReviewForm from '../forms/product-review';
 
-function Modal({ productId }: { productId: string }) {
+function ReviewForm({ productId }: { productId: string }) {
   const [visible, setVisible] = React.useState(false);
   const searchParams = useSearchParams();
 
@@ -53,4 +53,4 @@ function Modal({ productId }: { productId: string }) {
   );
 }
 
-export default Modal;
+export default ReviewForm;

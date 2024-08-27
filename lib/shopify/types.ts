@@ -40,13 +40,6 @@ export type Image = {
   height: number;
 };
 
-export type Recipe = {
-  title: string;
-  description: string;
-  image: string;
-  url: string;
-};
-
 export type Picture = {
   url: string;
   width: number;
@@ -60,6 +53,40 @@ export type MediaImage = {
     width: number;
     height: number;
   };
+};
+
+export type Reviewer = {
+  id: number;
+  external_id: string | null;
+  email: string;
+  name: string;
+  phone: string | null;
+  accepts_marketing: boolean;
+  unsubscribed_at: string | null;
+  tags: string | null;
+};
+
+export type Review = {
+  id: number;
+  title: string;
+  body: string;
+  rating: number;
+  product_external_id: number;
+  reviewer: Reviewer;
+  source: string;
+  curated: string;
+  published: boolean;
+  hidden: boolean;
+  verified: string;
+  featured: boolean;
+  created_at: string;
+  updated_at: string;
+  has_published_pictures: boolean;
+  has_published_videos: boolean;
+  pictures: string[];
+  ip_address: string;
+  product_title: string;
+  product_handle: string;
 };
 
 export type Menu = {
@@ -108,6 +135,17 @@ type Recipes = {
   references: {
     nodes: Node[];
   };
+};
+
+export type Recipe = {
+  title: string;
+  description: string;
+  image: {
+    url: string;
+    width?: number;
+    height?: number;
+  };
+  url: string;
 };
 
 type FAQs = {

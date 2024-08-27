@@ -6,6 +6,7 @@ import Modal from '@/components/homepage/modal';
 import NanusCookBook from '@/components/homepage/nanus-cook-book';
 import ProductTabs from '@/components/homepage/product-tabs';
 import WeHateLettuceTacos from '@/components/homepage/we-hate-lettuce-tacos';
+import { Recipe } from '@/lib/shopify/types';
 import { getPage } from 'lib/shopify';
 
 export const metadata = {
@@ -18,18 +19,17 @@ export const metadata = {
 export default async function HomePage() {
   const page = await getPage('home');
 
-  interface Recipe {
-    title: string;
-    description: string;
-    image: string;
-    url: string;
-  }
+  console.log(page);
 
   const recipes: Recipe[] = page.recipes.references.nodes.map((node) => {
     const recipe: Recipe = {
       title: '',
       description: '',
-      image: '',
+      image: {
+        url: '',
+        width: 0,
+        height: 0
+      },
       url: ''
     };
 
@@ -40,8 +40,12 @@ export default async function HomePage() {
         recipe.description = field.value;
       } else if (field.key === 'url') {
         recipe.url = field.value;
-      } else if (field.key === 'image') {
-        recipe.image = field.reference?.image?.url as string;
+      } else if (field.key === 'image' && field.reference?.image) {
+        recipe.image = field.reference.image as {
+          url: string;
+          width: number;
+          height: number;
+        };
       }
     });
 

@@ -55,7 +55,12 @@ export default async function ProductPage({ params }: { params: { handle: string
   const product = await getProduct(params.handle);
   const page = await getPage('nanus-cook-book');
 
+  console.log(page.recipes.references.nodes);
+
   if (!product) return notFound();
+
+  const match = product.id.match(/\d+/);
+  const productId = match ? match[0] : null;
 
   const productJsonLd = {
     '@context': 'https://schema.org',
@@ -78,7 +83,11 @@ export default async function ProductPage({ params }: { params: { handle: string
     const recipe: Recipe = {
       title: '',
       description: '',
-      image: '',
+      image: {
+        url: '',
+        width: 0,
+        height: 0
+      },
       url: ''
     };
 
@@ -89,20 +98,25 @@ export default async function ProductPage({ params }: { params: { handle: string
         recipe.description = field.value;
       } else if (field.key === 'url') {
         recipe.url = field.value;
-      } else if (field.key === 'image') {
-        recipe.image = field.reference?.image?.url as string;
+      } else if (field.key === 'image' && field.reference?.image) {
+        recipe.image = field.reference.image as {
+          url: string;
+          width: number;
+          height: number;
+        };
       }
     });
+
     return recipe;
   });
 
-  console.log(product.pictures.references.nodes);
-
-  const pictures: TImage[] = product.pictures.references.nodes.map((node: { image: TImage }) => ({
-    url: node.image.url,
-    width: node.image.width,
-    height: node.image.height
-  }));
+  const pictures: TImage[] = product.pictures?.references?.nodes?.map(
+    (node: { image: TImage }) => ({
+      url: node.image.url,
+      width: node.image.width,
+      height: node.image.height
+    })
+  );
 
   return (
     <>
@@ -142,47 +156,19 @@ export default async function ProductPage({ params }: { params: { handle: string
                       />
                     </div>
                   ))}
-                {/*<div className="relative hidden lg:block aspect-[16/9] w-full overflow-hidden rounded-xl col-span-2">
-                  <Image 
-                    src="/images/hero-producto.jpg"
-                    alt="Nanu's Heritage Doods"
-                    width={800}
-                    height={600}
-                    className="w-full object-cover"
-                  />
-                </div>
-                <div className="relative hidden lg:block w-full overflow-hidden rounded-xl">
-                  <Image
-                    src="/images/nanu-01.jpg"
-                    alt="Nanu's Heritage Doods"
-                    width={800}
-                    height={600}
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                </div>
-                <div className="relative hidden lg:block w-full overflow-hidden rounded-xl">
-                  <Image
-                    src="/images/nanu-02.jpg"
-                    alt="Nanu's Heritage Doods"
-                    width={800}
-                    height={600}
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                </div> */}
               </div>
             </div>
             <div className="flex flex-grow rounded-xl bg-[#FFF5F0]">
               <ProductDescription product={product} />
             </div>
           </div>
-          {/* <RelatedProducts id={product.id} /> */}
         </div>
       </section>
       <VersatileCompanion />
-      <CustomerReviews />
+      <CustomerReviews productId={`${productId}`} />
       <StraighFromOurKitchen recipes={recipes} />
       <RelatedProducts id={product.id} />
-      <ReviewForm productId={product.id} />
+      <ReviewForm productId={`${productId}`} />
     </>
   );
 }

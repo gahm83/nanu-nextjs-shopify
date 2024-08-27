@@ -21,8 +21,8 @@ function SubmitButton({
 }) {
   const { pending } = useFormStatus();
   const buttonClasses = isProduct
-    ? 'bg-[#532826] border-2 border-[#532826] font-portland font-bold text-xl flex-grow-1 uppercase h-[50px] w-full'
-    : 'relative group flex items-center justify-center w-20 h-12 transition-all duration-300 bg-[#EDD3C5] hover:bg-[#532826]';
+    ? 'flex items-center justify-center bg-[#532826] font-portland font-bold text-xl flex-grow-1 uppercase h-[50px] w-full'
+    : 'flex items-center justify-center relative group  w-20 h-12 transition-all duration-300 bg-[#EDD3C5] hover:bg-[#532826]';
 
   isProduct;
   const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
@@ -30,7 +30,8 @@ function SubmitButton({
   if (!availableForSale) {
     return (
       <button aria-disabled className={clsx(buttonClasses, disabledClasses)}>
-        <OutOfStockIcon className="h-[24px] w-[25px] fill-[#532826] group-hover:fill-[#EDD3C5]" />
+        <span className="mr-3 hidden md:block">Out of stock</span>
+        <OutOfStockIcon className="fill-[#EDD3C5] group-hover:fill-[#EDD3C5]" />
       </button>
     );
   }

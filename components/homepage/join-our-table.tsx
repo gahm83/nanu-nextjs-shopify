@@ -74,56 +74,62 @@ function JoinOurTable() {
   }, []);
 
   return (
-    <section>
-      <div className="relative overflow-x-hidden py-16">
-        <div className="ml-[calc(100%-91.666667%)] space-y-10">
-          <h2 className="font-portland text-3xl font-black uppercase text-[#532826] lg:text-4xl">
-            Join our table
-          </h2>
-          <Swiper
-            spaceBetween={24}
-            slidesPerView={2.5}
-            breakpoints={{
-              768: { slidesPerView: 4.5 },
-              1024: { slidesPerView: 6.5 }
-            }}
-          >
-            {instagramFeed &&
-              instagramFeed.data.map((post: InstagramPost) => (
-                <SwiperSlide key={post.id} className="group relative h-[300px] w-full">
-                  <Link
-                    href={post.permalink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative"
-                  >
-                    {post.media_type === 'VIDEO' ? (
-                      <video
-                        src={post.media_url}
-                        controls={false}
-                        className="h-full w-full object-cover"
-                      />
-                    ) : (
-                      <Image
-                        src={post.media_url}
-                        alt={post.caption ?? ''}
-                        className="h-full w-full object-cover"
-                        width={300}
-                        height={300}
-                      />
-                    )}
-                    {post.caption && (
-                      <div className="absolute inset-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 p-4 opacity-0 transition duration-300 group-hover:opacity-100">
-                        <p className="truncate text-center text-xs text-white">{post.caption}</p>
-                      </div>
-                    )}
-                  </Link>
-                </SwiperSlide>
-              ))}
-          </Swiper>
-        </div>
-      </div>
-    </section>
+    <>
+      {instagramFeed && (
+        <section>
+          <div className="relative overflow-x-hidden py-16">
+            <div className="ml-[calc(100%-91.666667%)] space-y-10">
+              <h2 className="font-portland text-3xl font-black uppercase text-[#532826] lg:text-4xl">
+                Join our table
+              </h2>
+              <Swiper
+                spaceBetween={24}
+                slidesPerView={2.5}
+                breakpoints={{
+                  768: { slidesPerView: 4.5 },
+                  1024: { slidesPerView: 6.5 }
+                }}
+              >
+                {instagramFeed &&
+                  instagramFeed.data.map((post: InstagramPost) => (
+                    <SwiperSlide key={post.id} className="group relative h-[300px] w-full">
+                      <Link
+                        href={post.permalink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative"
+                      >
+                        {post.media_type === 'VIDEO' ? (
+                          <video
+                            src={post.media_url}
+                            controls={false}
+                            className="h-full w-full object-cover"
+                          />
+                        ) : (
+                          <Image
+                            src={post.media_url}
+                            alt={post.caption ?? ''}
+                            className="h-full w-full object-cover"
+                            width={300}
+                            height={300}
+                          />
+                        )}
+                        {post.caption && (
+                          <div className="absolute inset-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 p-4 opacity-0 transition duration-300 group-hover:opacity-100">
+                            <p className="truncate text-center text-xs text-white">
+                              {post.caption}
+                            </p>
+                          </div>
+                        )}
+                      </Link>
+                    </SwiperSlide>
+                  ))}
+              </Swiper>
+            </div>
+          </div>
+        </section>
+      )}
+    </>
   );
 }
 

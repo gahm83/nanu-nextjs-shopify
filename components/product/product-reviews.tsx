@@ -1,11 +1,12 @@
 'use client';
+import { Review } from '@/lib/shopify/types';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { CustomerReviewCard } from '../reviews/reviewCard';
 import StarRating from './star-rating';
-
-export function CustomerReviews({ productId }: { productId: string }) {
-  const [reviews, setReviews] = useState([]);
+export function ProductReviews({ productId }: { productId: string }) {
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const [sortOption, setSortOption] = useState('most-recent');
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -13,7 +14,6 @@ export function CustomerReviews({ productId }: { productId: string }) {
         const reviewsRes = await fetch(`/api/reviews/${productId}`);
         const data = await reviewsRes.json();
         setReviews(data.reviews || []);
-        console.log(data.reviews);
       } catch (error) {
         console.error('Failed to fetch reviews:', error);
       }
@@ -21,6 +21,18 @@ export function CustomerReviews({ productId }: { productId: string }) {
 
     fetchReviews();
   }, [productId]);
+
+  const sortReviews = (reviews: Review[]) => {
+    switch (sortOption) {
+      case 'highest-rated':
+        return [...reviews].sort((a, b) => b.rating - a.rating);
+      case 'most-recent':
+      default:
+        return [...reviews].sort(
+          (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        );
+    }
+  };
 
   return (
     <section>
@@ -37,9 +49,14 @@ export function CustomerReviews({ productId }: { productId: string }) {
             </div>
             <div className="flex items-center justify-between font-portland text-xl uppercase text-[#532826] lg:space-x-12">
               <p className="font-bold">Sort</p>
-              <div className="after:borde relative flex after:pointer-events-none after:absolute after:right-0 after:top-1/2 after:-ml-2 after:h-0 after:w-0 after:border-[6px] after:border-solid after:border-transparent after:border-t-[#532826] after:content-['']">
-                <select className="h-14 flex-grow appearance-none bg-transparent pr-7 font-black uppercase outline-none">
-                  <option value="">Most Recent</option>
+              <div className="relative flex after:absolute after:right-0 after:top-1/2 after:-ml-2 after:h-0 after:w-0 after:border-[6px] after:border-solid after:border-transparent after:border-t-[#532826]">
+                <select
+                  className="h-14 flex-grow appearance-none bg-transparent pr-7 font-black uppercase outline-none"
+                  value={sortOption}
+                  onChange={(e) => setSortOption(e.target.value)}
+                >
+                  <option value="most-recent">Most Recent</option>
+                  <option value="highest-rated">Highest Rated</option>
                 </select>
               </div>
             </div>
@@ -55,9 +72,9 @@ export function CustomerReviews({ productId }: { productId: string }) {
         </div>
 
         <div className="relative mx-auto w-11/12 py-10 lg:max-w-[1120px]">
-          <div className="relative after:absolute after:inset-x-0 after:bottom-0 after:z-10 after:block after:h-[380px] after:w-full after:bg-gradient-to-b after:from-transparent after:to-[#F6E7E0] after:content-[''] lg:max-h-[780px] lg:overflow-hidden">
+          <div className="relative after:absolute after:inset-x-0 after:bottom-0 after:z-10 after:block after:h-[380px] after:w-full after:bg-gradient-to-b after:from-transparent after:to-[#F6E7E0] lg:max-h-[780px] lg:overflow-hidden">
             <div className="space-y-8 md:columns-2 md:gap-8 lg:columns-3">
-              {reviews.map((item, index) => (
+              {sortReviews(reviews).map((item, index) => (
                 <CustomerReviewCard key={index} review={item} />
               ))}
             </div>

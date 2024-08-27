@@ -6,7 +6,7 @@ import SocialMenu from './social-menu';
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
 export default async function Footer() {
-  // const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
   // const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : '');
   // const skeleton = 'w-full h-6 animate-pulse rounded bg-neutral-200 dark:bg-neutral-700';
   // const menu = await getMenu('next-js-frontend-footer-menu');
@@ -43,7 +43,7 @@ export default async function Footer() {
         {/* <div className="flex items-center justify-between"> */}
         <div className="grid-row-2 grid grid-cols-2 items-center justify-center gap-y-3 lg:flex lg:justify-between">
           <span className="col-span-2 row-start-2 place-self-center">
-            © 2023 Nanu Herritage Foods
+            © {currentYear} Nanu Herritage Foods
           </span>
           <span className="place-self-center">Terms & Conditions</span>
           <span className="place-self-center">Privacy Policy</span>
