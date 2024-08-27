@@ -22,16 +22,15 @@ function SubmitButton({
   const { pending } = useFormStatus();
   const buttonClasses = isProduct
     ? 'flex items-center justify-center bg-[#532826] font-portland font-bold text-xl flex-grow-1 uppercase h-[50px] w-full'
-    : 'flex items-center justify-center relative group  w-20 h-12 transition-all duration-300 bg-[#EDD3C5] hover:bg-[#532826]';
+    : 'flex items-center justify-center relative group w-20 h-12 transition-all duration-300 bg-[#EDD3C5] hover:bg-[#532826] [&_svg]:fill-[#532826] hover:[&_svg]:fill-[#EDD3C5]';
 
-  isProduct;
   const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
 
   if (!availableForSale) {
     return (
       <button aria-disabled className={clsx(buttonClasses, disabledClasses)}>
         <span className="mr-3 hidden md:block">Out of stock</span>
-        <OutOfStockIcon className="fill-[#EDD3C5] group-hover:fill-[#EDD3C5]" />
+        <OutOfStockIcon />
       </button>
     );
   }

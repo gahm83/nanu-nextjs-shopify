@@ -6,7 +6,7 @@ import Modal from '@/components/homepage/modal';
 import NanusCookBook from '@/components/homepage/nanus-cook-book';
 import ProductTabs from '@/components/homepage/product-tabs';
 import WeHateLettuceTacos from '@/components/homepage/we-hate-lettuce-tacos';
-import { Recipe } from '@/lib/shopify/types';
+import { HomeCollection, Recipe } from '@/lib/shopify/types';
 import { getPage } from 'lib/shopify';
 
 export const metadata = {
@@ -18,8 +18,6 @@ export const metadata = {
 
 export default async function HomePage() {
   const page = await getPage('home');
-
-  console.log(page);
 
   const recipes: Recipe[] = page.recipes.references.nodes.map((node) => {
     const recipe: Recipe = {
@@ -52,10 +50,35 @@ export default async function HomePage() {
     return recipe;
   });
 
+  const collections: HomeCollection[] = page.collections.references.nodes.map((node) => {
+    const collection: HomeCollection = {
+      title: '',
+      image: {
+        src: '',
+        width: 0,
+        height: 0
+      }
+    };
+
+    node.fields.forEach((field) => {
+      if (field.key === 'name') {
+        collection.title = field.value;
+      } else if (field.key === 'image' && field.reference?.image) {
+        collection.image = field.reference.image as {
+          src: string;
+          width: number;
+          height: number;
+        };
+      }
+    });
+
+    return collection;
+  });
+
   return (
     <>
       <Hero />
-      <MeetOurFamily />
+      <MeetOurFamily collections={collections} />
       <WeHateLettuceTacos />
       <ProductTabs />
       <NanusCookBook recipes={recipes} />

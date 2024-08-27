@@ -33,28 +33,28 @@ function Modal() {
             exit={{ opacity: 0, y: -200 }}
             transition={{ duration: 0.4 }}
           >
-            <div className="relative mx-auto w-11/12 max-w-[380px] rounded-lg bg-[#532826] lg:max-w-screen-xl">
+            <div className="relative mx-auto w-full rounded-lg bg-[#532826] max-lg:max-w-[420px] lg:max-w-screen-xl ">
               <div className="flex flex-col-reverse lg:grid lg:grid-cols-2">
-                <div className="flex flex-col items-center space-y-5 py-8 lg:justify-between lg:px-9 lg:py-20">
+                <div className="flex flex-col items-center justify-center space-y-5 py-8 lg:justify-between lg:px-9 lg:py-20">
                   <div className="flex w-8/12 justify-center lg:w-9/12">
                     <TenOff />
                   </div>
                   <p className="text-center text-xl font-medium leading-none lg:text-2xl">
                     When you <span className="text-[#8DC8E8]">sign up</span> for our emails!
                   </p>
-                  <p className="text-center text-2xl font-medium leading-none lg:text-3xl">
+                  <p className="text-center text-2xl font-medium leading-none max-lg:px-5 lg:text-3xl">
                     Get access to exclusive sales
                     <br className="hidden lg:block" /> and new product drops!
                   </p>
                   <div className="flex w-full justify-center lg:w-10/12">
                     <form
                       action=""
-                      className="flex flex-col items-stretch text-xl font-medium md:flex-row"
+                      className="flex w-full flex-col items-stretch text-xl font-medium max-lg:px-5 md:flex-row"
                     >
                       <input
                         type="text"
                         placeholder="Your email address"
-                        className="h-[48px] appearance-none border-2 border-[#F6E7E0] bg-transparent pl-4 placeholder:text-[#F6E7E0]/70"
+                        className="h-[48px] appearance-none border-2 border-[#F6E7E0] bg-transparent pl-4 placeholder:text-[#F6E7E0]/70 max-lg:text-center"
                       />
                       <button type="submit" className="h-[48px] bg-[#F6E7E0] px-4 text-[#532826]">
                         Sign up

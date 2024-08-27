@@ -99,44 +99,6 @@ export type Money = {
   currencyCode: string;
 };
 
-interface ReferenceField {
-  value: string;
-  key: string;
-  reference: Reference | null;
-}
-
-interface Reference {
-  id?: string;
-  image?: {
-    url: string;
-  };
-  fields: ReferenceField[];
-}
-
-interface Field {
-  key: string;
-  value: string;
-  reference: Reference | null;
-}
-
-interface Node {
-  fields: Field[];
-}
-
-type About = {
-  value: string;
-  references: {
-    nodes: Node[];
-  };
-};
-
-type Recipes = {
-  value: string;
-  references: {
-    nodes: Node[];
-  };
-};
-
 export type Recipe = {
   title: string;
   description: string;
@@ -148,10 +110,12 @@ export type Recipe = {
   url: string;
 };
 
-type FAQs = {
-  value: string;
-  references: {
-    nodes: Node[];
+export type HomeCollection = {
+  title: string;
+  image: {
+    src: string;
+    width?: number;
+    height?: number;
   };
 };
 
@@ -166,9 +130,80 @@ export type Page = {
   body: string;
   bodySummary: string;
   seo?: SEO;
-  about: About;
-  faqs: FAQs;
-  recipes: Recipes;
+  collections: {
+    value: string;
+    references: {
+      nodes: {
+        fields: {
+          key: string;
+          value: string;
+          reference: {
+            id: string;
+            image: {
+              src: string;
+              width: number;
+              height: number;
+            };
+          } | null;
+        }[];
+      }[];
+    };
+  };
+  about: {
+    value: string;
+    references: {
+      nodes: {
+        fields: {
+          key: string;
+          value: string;
+          reference: {
+            fields: {
+              key: string;
+              value: string;
+              reference: null | {
+                id: string;
+                image: {
+                  src: string;
+                  width: number;
+                  height: number;
+                };
+              };
+            }[];
+          } | null;
+        }[];
+      }[];
+    };
+  };
+  faqs: {
+    value: string;
+    references: {
+      nodes: {
+        fields: {
+          key: string;
+          value: string;
+        }[];
+      }[];
+    };
+  };
+  recipes: {
+    value: string;
+    references: {
+      nodes: {
+        fields: {
+          key: string;
+          value: string;
+          reference: {
+            id: string;
+            image: {
+              url: string;
+              width: number;
+              height: number;
+            };
+          } | null;
+        }[];
+      }[];
+    };
+  };
   createdAt: string;
   updatedAt: string;
 };

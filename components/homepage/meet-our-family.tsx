@@ -2,25 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ShapeFlower from '../svg/shape-puff';
 
-const collectionItems = [
-  {
-    url: '/shop/tortillas',
-    image: '/images/home/meet-our-family/shop-tortillas.jpg',
-    title: 'Shop Tortillas'
-  },
-  {
-    url: '/shop/sauces',
-    image: '/images/home/meet-our-family/shop-salsas.jpg',
-    title: 'Shop Salsas'
-  },
-  {
-    url: '/shop/bundles',
-    image: '/images/home/meet-our-family/shop-bundles.jpg',
-    title: 'Shop Bundles'
-  }
-];
+import { HomeCollection } from '@/lib/shopify/types';
 
-const MeetOurFamily = () => {
+const MeetOurFamily = ({ collections }: { collections: HomeCollection[] }) => {
   return (
     <section>
       <div className="meet-our-family mx-auto flex w-11/12 flex-col py-12 lg:grid lg:max-w-screen-xl lg:auto-rows-max lg:grid-cols-6 lg:gap-8 lg:py-20">
@@ -44,20 +28,20 @@ const MeetOurFamily = () => {
           </Link>
         </div>
         <div className="flex flex-col gap-4 lg:col-span-6 lg:grid lg:grid-cols-3">
-          {collectionItems &&
-            collectionItems.map((item, index) => (
+          {collections &&
+            collections.map((item, index) => (
               <Link
-                href={item.url}
+                href={`/shop/${item.title.toString}`}
                 key={index}
-                className="group relative flex aspect-[0.7/1] flex-col items-stretch justify-center bg-[#EDD3C5] after:absolute after:bottom-10 after:left-10 after:right-10 after:block after:h-[5px] after:bg-border-wood after:bg-repeat-space after:content-['']"
+                className="group relative flex flex-col items-stretch justify-center after:absolute after:bottom-10 after:left-10 after:right-10 after:block after:h-[5px] after:bg-border-wood after:bg-repeat-space after:content-['']"
               >
-                <figure className="relative mb-14 aspect-square">
+                <figure className="relative mb-14 aspect-[0.7/1]">
                   <Image
-                    src={item.image}
+                    src={item.image.src}
                     alt={item.title}
-                    width={512}
-                    height={512}
-                    className="absolute inset-0 h-full w-full"
+                    width={item.image.width}
+                    height={item.image.height}
+                    className="absolute inset-0 h-full w-full object-contain"
                   />
                   <ShapeFlower className="absolute right-10 top-4 h-20 w-20 [&_svg:first-child]:absolute [&_svg:first-child]:h-full [&_svg:first-child]:w-full [&_svg:first-child]:text-[#8DC8E8] [&_svg:first-child]:transition [&_svg:first-child]:duration-300 group-hover:[&_svg:first-child]:rotate-90 ">
                     <svg

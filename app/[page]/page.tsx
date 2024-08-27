@@ -75,7 +75,11 @@ export default async function Page({ params }: { params: { page: string } }) {
       value: {
         title: string;
         subtitle: string;
-        url: string;
+        image: {
+          src: string;
+          width: number;
+          height: number;
+        };
       };
     };
 
@@ -114,9 +118,13 @@ export default async function Page({ params }: { params: { page: string } }) {
             const imageValue: any = {};
             referenceFields.forEach((refField) => {
               if (refField.key === 'image') {
-                imageValue[refField.key] = refField.reference?.image?.url;
-
-                // console.log(refField.reference?.image.url);
+                if (refField.reference?.image) {
+                  imageValue[refField.key] = {
+                    src: refField.reference.image.src,
+                    width: refField.reference.image.width,
+                    height: refField.reference.image.height
+                  };
+                }
               } else {
                 imageValue[refField.key] = refField.value;
               }
@@ -126,7 +134,7 @@ export default async function Page({ params }: { params: { page: string } }) {
               value: {
                 title: imageValue['title'],
                 subtitle: imageValue['subtitle'],
-                url: imageValue['image']
+                image: imageValue['image']
               }
             });
           }
@@ -196,10 +204,10 @@ export default async function Page({ params }: { params: { page: string } }) {
                   <>
                     <figure className="flex flex-col items-center justify-center py-20">
                       <Image
-                        src={section.value.url}
+                        src={section.value.image.src}
                         alt={`${section.value.title} | ${section.value.subtitle}`}
-                        width={480}
-                        height={480}
+                        width={section.value.image.width}
+                        height={section.value.image.height}
                         className="w-1/2 max-w-[480px]"
                       />
                     </figure>
