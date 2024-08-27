@@ -48,7 +48,7 @@ export function VariantSelector({
   const combinations: Combination[] = variants.map((variant) => ({
     id: variant.id,
     availableForSale: variant.availableForSale,
-    // Adds key / value pairs for each variant (ie. "color": "Black" and "size": 'M").
+    price: variant.price.amount, // Include price in the combinations
     ...variant.selectedOptions.reduce(
       (accumulator, option) => ({ ...accumulator, [option.name.toLowerCase()]: option.value }),
       {}
@@ -70,8 +70,16 @@ export function VariantSelector({
           // Update the option params using the current option to reflect how the url *would* change,
           // if the option was clicked.
           optionSearchParams.set(optionNameLowerCase, value);
-          const optionUrl = createUrl(pathname, optionSearchParams);
 
+          // Find the combination with the selected option and set the price in the URL params
+          const matchedCombination = combinations.find(
+            (combination) => combination[optionNameLowerCase] === value
+          );
+          if (matchedCombination) {
+            optionSearchParams.set('price', matchedCombination.price as string);
+          }
+
+          const optionUrl = createUrl(pathname, optionSearchParams);
           // In order to determine if an option is available for sale, we need to:
           //
           // 1. Filter out all other param state

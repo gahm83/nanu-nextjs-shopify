@@ -24,10 +24,13 @@ import { VariantSelector } from './variant-selector';
 export function ProductDescription({ product }: { product: Product }) {
   const [cantidad, setCantidad] = React.useState(1);
   const [showPopup, setShowPopup] = React.useState(false);
+  const [variantPrice, setVariantPrice] = React.useState<string | null>('');
   const [variantQty, setVariantQty] = React.useState<string | null>('');
   const searchParams = useSearchParams();
   const collection = product.collections.edges[0].node.handle;
   const defaultVariantId = product?.variants[0]?.id;
+
+  console.log(product);
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -48,12 +51,17 @@ export function ProductDescription({ product }: { product: Product }) {
   };
 
   useEffect(() => {
-    const packSize = searchParams.get('pack size');
+    const packSize = searchParams.get('packs');
+    const price = searchParams.get('price');
 
     if (packSize!!) {
       const packSizeArr = packSize?.split(' ');
-      const quantity = `${packSizeArr![0]} Salsas`;
+      const quantity = `${packSizeArr[0]} Salsa${packSizeArr[0] != '1' ? 's' : ''}`;
       setVariantQty(quantity);
+    }
+
+    if (price!!) {
+      setVariantPrice(price);
     }
   }, [searchParams]);
 
@@ -136,7 +144,7 @@ export function ProductDescription({ product }: { product: Product }) {
         <div className="grid grid-cols-2 items-center border border-[#532826] text-center font-portland text-xl font-bold uppercase text-[#532826] md:max-lg:flex md:max-lg:items-stretch xl:flex xl:items-stretch">
           <div className="col-span-2 border border-[#532826] bg-[#EDD3C5] py-2 md:max-lg:flex-grow md:max-lg:px-2 xl:flex-grow xl:px-2">
             <Price
-              amount={product.priceRange.minVariantPrice.amount}
+              amount={variantPrice! ? variantPrice : product.priceRange.minVariantPrice.amount}
               currencyCode={product.priceRange.minVariantPrice.currencyCode}
             />
           </div>
