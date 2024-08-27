@@ -194,7 +194,7 @@ a {
 
 @layer components {
   .bg-hero {
-    background-image: url(/images/home/hero/bg-hero-bottom.png), url(/images/home/hero/bg-hero.jpg);
+    background-image: url(/images/pyramid-bottom.png), url(/images/home/hero/bg-hero.jpg);
     background-repeat: repeat-x, no-repeat;
   }
   .bg-button-hero {

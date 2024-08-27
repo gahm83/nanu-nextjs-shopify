@@ -29,7 +29,7 @@ function SubmitButton({
   if (!availableForSale) {
     return (
       <button aria-disabled className={clsx(buttonClasses, disabledClasses)}>
-        <span className="mr-3 hidden md:block">Out of stock</span>
+        {isProduct && <span className="mr-3 hidden md:block">Out of stock</span>}
         <OutOfStockIcon />
       </button>
     );
