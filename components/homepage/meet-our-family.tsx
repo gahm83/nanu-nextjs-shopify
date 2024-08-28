@@ -31,7 +31,7 @@ const MeetOurFamily = ({ collections }: { collections: HomeCollection[] }) => {
           {collections &&
             collections.map((item, index) => (
               <Link
-                href={`/shop/${item.title.toString}`}
+                href={`/shop/${item.title.toLowerCase()}`}
                 key={index}
                 className="group relative flex flex-col items-stretch justify-center after:absolute after:bottom-10 after:left-10 after:right-10 after:block after:h-[5px] after:bg-border-wood after:bg-repeat-space after:content-['']"
               >
