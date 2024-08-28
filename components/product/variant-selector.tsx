@@ -36,6 +36,7 @@ export function VariantSelector({
     if (defaultVariant) {
       defaultVariant.selectedOptions.forEach((option) => {
         params.set(option.name.toLowerCase(), option.value);
+        params.set('price', defaultVariant.price.amount);
       });
       router.replace(createUrl(pathname, params), { scroll: false });
     }

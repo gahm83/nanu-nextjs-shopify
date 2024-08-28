@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import NewsletterForm from '../newsletter';
+import Nanu from '../svg/nanu';
 import SocialMenu from './social-menu';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
@@ -38,15 +38,18 @@ export default async function Footer() {
           </nav>
         </div>
         <div className="relative aspect-[3/1]">
-          <Image src="/images/nanu.svg" alt="Nenu Heritage Foods" fill={true} />
+          <Nanu />
         </div>
-        {/* <div className="flex items-center justify-between"> */}
         <div className="grid-row-2 grid grid-cols-2 items-center justify-center gap-y-3 lg:flex lg:justify-between">
           <span className="col-span-2 row-start-2 place-self-center">
             © {currentYear} Nanu Herritage Foods
           </span>
-          <span className="place-self-center">Terms & Conditions</span>
-          <span className="place-self-center">Privacy Policy</span>
+          <Link href="/terms-and-conditions" className="place-self-center">
+            Terms & Conditions
+          </Link>
+          <Link href="/privacy-policy" className="place-self-center">
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>

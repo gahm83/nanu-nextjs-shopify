@@ -30,8 +30,6 @@ export function ProductDescription({ product }: { product: Product }) {
   const collection = product.collections.edges[0].node.handle;
   const defaultVariantId = product?.variants[0]?.id;
 
-  console.log(product);
-
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
@@ -51,13 +49,17 @@ export function ProductDescription({ product }: { product: Product }) {
   };
 
   useEffect(() => {
-    const packSize = searchParams.get('packs');
+    const packSize = searchParams.get('pack size');
     const price = searchParams.get('price');
 
     if (packSize!!) {
-      const packSizeArr = packSize?.split(' ');
-      const quantity = `${packSizeArr[0]} Salsa${packSizeArr[0] != '1' ? 's' : ''}`;
-      setVariantQty(quantity);
+      if (packSize === 'Single') {
+        setVariantQty('1 Salsa');
+      } else {
+        const packSizeArr = packSize?.split(' ');
+        const quantity = `${packSizeArr[0]} Salsa${packSizeArr[0] != '1' ? 's' : ''}`;
+        setVariantQty(quantity);
+      }
     }
 
     if (price!!) {
@@ -90,7 +92,7 @@ export function ProductDescription({ product }: { product: Product }) {
                     <Image
                       src={product.nutritionFacts?.reference?.image.src as string}
                       alt={product.title}
-                      className="mx-auto h-auto w-full cursor-pointer"
+                      className="mx-auto h-auto w-full cursor-pointer border border-white"
                       width={406}
                       height={500}
                     />
@@ -104,20 +106,20 @@ export function ProductDescription({ product }: { product: Product }) {
                         <p>{product.ingredients?.value}</p>
                       </div>
                       {collection === 'tortillas' ? (
-                        <div className="relative flex aspect-[16/9] justify-between">
-                          <GlutenFree className="absolute top-0 w-28 rotate-[15deg]" />
-                          <MadeWithFewIngredients className="absolute bottom-0 left-[55%] w-24 -translate-x-1/2 rotate-[15deg]" />
-                          <FullVegan className="absolute right-4 w-28 -translate-y-1/2 rotate-[-16deg]" />
+                        <div className="relative mt-[24%] flex aspect-[16/9] justify-between lg:mt-0">
+                          <GlutenFree className="absolute top-0 w-[34%] rotate-[15deg]" />
+                          <MadeWithFewIngredients className="absolute bottom-0 left-[55%] w-[29%] -translate-x-1/2 rotate-[15deg]" />
+                          <FullVegan className="absolute right-4 w-[34%] -translate-y-1/2 rotate-[-16deg]" />
                           <ShapeSnowflake className="absolute right-[10px] top-[140px] h-5 w-5 [&_svg]:fill-[#8DC8E8]" />
                           <ShapeSnowflake className="absolute left-[42%] top-[6%] h-5 w-5 [&_svg]:fill-[#8DC8E8]" />
                           <ShapeRomboid className="absolute left-[20%] top-[80%] h-[10] w-[10] [&_svg]:fill-[#8DC8E8]" />
                           <ShapeRomboid className="absolute left-[78%] top-[90%] h-[10] w-[10] [&_svg]:fill-[#8DC8E8]" />
                         </div>
                       ) : (
-                        <div className="relative flex aspect-[16/9] justify-between">
-                          <NoArtificialFlavours className="absolute top-0 w-28 rotate-[15deg]" />
-                          <MadeWithCleanIngredients className="absolute bottom-0 left-[55%] w-24 -translate-x-1/2 rotate-[15deg]" />
-                          <HandmadeSmallBatches className="absolute right-0 w-36 -translate-y-1/2 rotate-[-16deg]" />
+                        <div className="relative mt-[24%] flex aspect-[16/9] justify-between lg:mt-0">
+                          <NoArtificialFlavours className="absolute top-0 w-[34%] rotate-[15deg]" />
+                          <MadeWithCleanIngredients className="absolute bottom-0 left-[55%] w-[29%] -translate-x-1/2 rotate-[15deg]" />
+                          <HandmadeSmallBatches className="absolute right-0 w-[44%] -translate-y-1/2 rotate-[-16deg]" />
                           <ShapeSnowflake className="absolute right-[10px] top-[140px] h-5 w-5 [&_svg]:fill-[#8DC8E8]" />
                           <ShapeSnowflake className="absolute left-[42%] top-[6%] h-5 w-5 [&_svg]:fill-[#8DC8E8]" />
                           <ShapeRomboid className="absolute left-[20%] top-[80%] h-[10] w-[10] [&_svg]:fill-[#8DC8E8]" />
@@ -149,7 +151,7 @@ export function ProductDescription({ product }: { product: Product }) {
             />
           </div>
           <div className="border border-[#532826] py-2 md:max-lg:flex-grow xl:flex-grow">
-            {variantQty! ? variantQty : product.quantity?.value}
+            {variantQty}
           </div>
           <div className="border border-[#532826] py-2 md:max-lg:flex-grow xl:flex-grow">
             {product.weight?.value} OZ

@@ -34,7 +34,7 @@ export function ProductCard({
             </p>
           </div>
         </div>
-        <div className="mt-4 flex items-stretch space-x-4">
+        <div className="mt-4 flex items-stretch space-x-5">
           {hideDescription ? (
             <Link
               href={`/product/${product.handle}`}
@@ -44,7 +44,7 @@ export function ProductCard({
             </Link>
           ) : (
             <>
-              <p className="font-athiti text-lg font-medium leading-none text-[#532826]">
+              <p className="line-clamp-2 font-athiti text-lg font-medium leading-tight text-[#532826]">
                 {product.description}
               </p>
               <div className="hidden h-12 items-center justify-center border-2 border-[#532826] px-3 lg:flex ">

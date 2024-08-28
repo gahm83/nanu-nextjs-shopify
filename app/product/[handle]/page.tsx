@@ -130,11 +130,13 @@ export default async function ProductPage({ params }: { params: { handle: string
             <div className="lg:max-h-[600px] lg:overflow-y-scroll lg:p-0">
               <div className="grid grid-cols-2 gap-4 ">
                 <div className="col-span-2 overflow-hidden rounded-xl">
-                  <Suspense fallback={<div className="relative aspect-[1.2/1] w-full " />}>
+                  <Suspense fallback={<div className="relative aspect-square w-full " />}>
                     <Gallery
                       images={product.images.map((image: TImage) => ({
-                        src: image.url,
-                        altText: image.altText
+                        url: image.url,
+                        altText: image.altText,
+                        width: image.width,
+                        height: image.height
                       }))}
                     />
                   </Suspense>
