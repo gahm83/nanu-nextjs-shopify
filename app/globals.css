@@ -190,6 +190,13 @@ a {
       }
     }
   }
+  &.mobile-only {
+    .swiper-pagination,
+    .swiper-button-prev,
+    .swiper-button-next {
+      @apply lg:!hidden;
+    }
+  }
 }
 
 @layer components {
