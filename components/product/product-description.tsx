@@ -59,7 +59,14 @@ export function ProductDescription({ product }: { product: Product }) {
         setVariantQty(quantity);
       }
     } else if (packs !== null) {
-      setVariantQty('1 Salsa');
+      console.log(packs);
+      if (packs === '1') {
+        setVariantQty('1 Salsa');
+      } else {
+        const packSizeArr = packs?.split(' ');
+        const quantity = `${packSizeArr[0]} Salsa${packSizeArr[0] != '1' ? 's' : ''}`;
+        setVariantQty(quantity);
+      }
     } else {
       setVariantQty(product.quantity?.value);
     }
