@@ -22,7 +22,6 @@ export async function POST(request: Request) {
       });
     } else {
       const text = await res.text();
-      console.error('Response is not JSON:', text);
 
       return new Response(JSON.stringify({ error: 'Invalid response from server' }), {
         headers: {
@@ -32,8 +31,6 @@ export async function POST(request: Request) {
       });
     }
   } catch (error) {
-    console.error('Error:', error);
-
     return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
       headers: {
         'Content-Type': 'application/json'

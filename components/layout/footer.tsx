@@ -14,6 +14,7 @@ export default async function Footer() {
   // const skeleton = 'w-full h-6 animate-pulse rounded bg-neutral-200 dark:bg-neutral-700';
   // const menu = await getMenu('next-js-frontend-footer-menu');
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
+  const emailTo = social.filter((item) => item.title === 'Email')[0]?.path;
 
   return (
     <footer className="bg-[#532826] font-portland text-sm font-semibold">
@@ -22,8 +23,13 @@ export default async function Footer() {
           <div className="lg:mr-auto">
             <NewsletterForm />
           </div>
-          <div className="mt-9 lg:order-last lg:ml-20 lg:mt-0 lg:flex lg:flex-col lg:justify-between">
+          <div className="mt-9 lg:order-last lg:ml-20 lg:mt-0 lg:flex lg:flex-col lg:space-y-4">
             <SocialMenu menu={social} classname="[&_a_svg]:fill-[#F6E7E0]" />
+            {emailTo && (
+              <a href={emailTo} rel="noreferrer" target="_blank">
+                {emailTo?.split(':')[1]}
+              </a>
+            )}
           </div>
           <nav className="mt-16 grid grid-cols-2 lg:mt-0 lg:gap-8">
             <div className="flex flex-col space-y-2">

@@ -14,6 +14,7 @@ export default function MobileMenu({ menu, social }: { menu: Menu[]; social: Men
   const [isOpen, setIsOpen] = useState(false);
   const openMobileMenu = () => setIsOpen(true);
   const closeMobileMenu = () => setIsOpen(false);
+  const emailTo = social.filter((item) => item.title === 'Email')[0]?.path;
 
   useEffect(() => {
     const handleResize = () => {
@@ -120,12 +121,16 @@ export default function MobileMenu({ menu, social }: { menu: Menu[]; social: Men
                   menu={social}
                   classname="justify-center w-full [&_a_svg]:fill-[#532826]"
                 />
-                <a
-                  href="mailto:nanufoodsllc@gmail.com"
-                  className="font-portland text-lg  font-bold text-[#532826]"
-                >
-                  nanufoodsllc@gmail.com
-                </a>
+                {emailTo && (
+                  <a
+                    href={emailTo}
+                    className="font-portland text-lg  font-bold text-[#532826]"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    {emailTo?.split(':')[1]}
+                  </a>
+                )}
               </div>
             </Dialog.Panel>
           </Transition.Child>
