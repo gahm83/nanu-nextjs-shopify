@@ -278,15 +278,27 @@ export default async function Page({ params }: { params: { page: string } }) {
 
   return (
     <>
-      <h1 className="mb-8 text-5xl font-bold">{page.title}</h1>
-      <Prose className="mb-8" html={page.body as string} />
-      <p className="text-sm italic">
-        {`This document was last updated on ${new Intl.DateTimeFormat(undefined, {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        }).format(new Date(page.updatedAt))}.`}
-      </p>
+      <section>
+        <div className="border-pyramid-bottom relative max-lg:h-[110vw] max-lg:max-h-[600px]">
+          <Image
+            src="/images/hero-faq.jpg"
+            alt="About Us"
+            width={1440}
+            height={720}
+            className="block w-full object-cover object-center max-lg:absolute max-lg:inset-0 max-lg:h-full"
+          />
+        </div>
+      </section>
+      <section>
+        <div className="mx-auto w-10/12 max-w-[800px] pb-24">
+          <div className="border-bottom-sky-lg relative my-14 px-10 py-14 text-center">
+            <h2 className="font-portland text-4xl font-bold uppercase text-[#532826] md:text-5xl">
+              {page.title}
+            </h2>
+          </div>
+          <Prose html={page.body as string} />
+        </div>
+      </section>
     </>
   );
 }

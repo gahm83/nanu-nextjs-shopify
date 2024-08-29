@@ -204,6 +204,16 @@ export type Page = {
       }[];
     };
   };
+  contact: {
+    value: string;
+    reference: {
+      id: string;
+      fields: {
+        key: string;
+        value: string;
+      }[];
+    };
+  };
   createdAt: string;
   updatedAt: string;
 };

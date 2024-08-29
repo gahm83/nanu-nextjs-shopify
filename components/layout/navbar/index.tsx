@@ -10,14 +10,14 @@ const { SITE_NAME } = process.env;
 
 export default async function Navbar({ pathName }: { pathName?: string | null }) {
   const menu = await getMenu('next-js-frontend-header-menu');
-  const shopPathPattern = /^\/shop(\/.*)?$/;
+  const social = await getMenu('social-menu');
 
   return (
     <Header>
       <div className="relative mx-auto flex w-11/12 items-end py-3 lg:py-5">
         <div className="lg:hidden">
           <Suspense fallback={null}>
-            <MobileMenu menu={menu} />
+            <MobileMenu menu={menu} social={social} />
           </Suspense>
         </div>
         <Logo />

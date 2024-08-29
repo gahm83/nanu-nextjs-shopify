@@ -17,9 +17,6 @@ import NoArtificialFlavours from '../svg/no-artificial-flavours';
 import ShapeRomboid from '../svg/shape-romboid';
 import ShapeSnowflake from '../svg/shape-snowflake';
 import { VariantSelector } from './variant-selector';
-// import badges from '/images/Badges.png';
-// import imageClose from '/images/Close.png';
-// import dashedIngredients from '/images/ingredientes-dashed.png';
 
 export function ProductDescription({ product }: { product: Product }) {
   const [cantidad, setCantidad] = React.useState(1);
@@ -50,9 +47,10 @@ export function ProductDescription({ product }: { product: Product }) {
 
   useEffect(() => {
     const packSize = searchParams.get('pack size');
+    const packs = searchParams.get('packs');
     const price = searchParams.get('price');
 
-    if (packSize!!) {
+    if (packSize !== null) {
       if (packSize === 'Single') {
         setVariantQty('1 Salsa');
       } else {
@@ -60,9 +58,13 @@ export function ProductDescription({ product }: { product: Product }) {
         const quantity = `${packSizeArr[0]} Salsa${packSizeArr[0] != '1' ? 's' : ''}`;
         setVariantQty(quantity);
       }
+    } else if (packs !== null) {
+      setVariantQty('1 Salsa');
+    } else {
+      setVariantQty(product.quantity?.value);
     }
 
-    if (price!!) {
+    if (price !== null) {
       setVariantPrice(price);
     }
   }, [searchParams]);
@@ -160,12 +162,12 @@ export function ProductDescription({ product }: { product: Product }) {
         {product.descriptionHtml ? (
           <Prose
             html={product.descriptionHtml}
-            className="font-athiti text-lg font-medium text-[#532826]"
+            className="py-5 font-athiti text-lg font-medium text-[#532826]"
           />
         ) : (
           <p className="font-athiti text-lg font-medium text-[#532826]">{product.description}</p>
         )}
-        <div className="my-2 flex w-full items-end gap-4 xl:mt-auto">
+        <div className="my-2 flex w-full items-end gap-4 empty:hidden xl:mt-auto">
           <Suspense fallback={null}>
             <VariantSelector
               options={product.options}

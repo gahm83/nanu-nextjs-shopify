@@ -1,16 +1,14 @@
 'use client';
 
 import { Dialog, Transition } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Menu } from 'lib/shopify/types';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { Fragment, useEffect, useState } from 'react';
-
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Menu } from 'lib/shopify/types';
-
 import SocialMenu from '../social-menu';
 
-export default function MobileMenu({ menu }: { menu: Menu[] }) {
+export default function MobileMenu({ menu, social }: { menu: Menu[]; social: Menu[] }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
@@ -118,7 +116,10 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                 </nav>
               </div>
               <div className="mt-auto flex flex-col items-center space-y-2">
-                <SocialMenu classname="text-[#532826] justify-center w-full" />
+                <SocialMenu
+                  menu={social}
+                  classname="justify-center w-full [&_a_svg]:fill-[#532826]"
+                />
                 <a
                   href="mailto:nanufoodsllc@gmail.com"
                   className="font-portland text-lg  font-bold text-[#532826]"

@@ -101,6 +101,18 @@ const pageFragment = /* GraphQL */ `
           }
         }
       }
+      contact: metafield(namespace: "footer", key: "contact_info") {
+        value
+        reference {
+          ... on Metaobject {
+            id
+            fields {
+              key
+              value
+            }
+          }
+        }
+      }
       createdAt
       updatedAt
     }
