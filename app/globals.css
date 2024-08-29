@@ -112,7 +112,7 @@ a {
 .pagination-dots {
   @apply !grid
     grid-cols-[1fr_min-content_1fr]
-    grid-rows-[1fr_min-content]
+    grid-rows-[1fr_40px]
     gap-y-4;
   .swiper-wrapper {
     @apply col-span-3 row-span-1;

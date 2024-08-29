@@ -58,7 +58,6 @@ function JoinOurTable() {
       });
       setAfter(feed.paging?.cursors.after);
     } catch (err: any) {
-      console.error('Error fetching Instagram feed:', err.message);
       setError(err.message);
     }
   };

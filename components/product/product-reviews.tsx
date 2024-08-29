@@ -36,7 +36,7 @@ export function ProductReviews({ productId }: { productId: string }) {
 
   return (
     <section>
-      {reviews ? (
+      {reviews && reviews.length ? (
         <div className="py-16">
           <h1 className="mb-14 text-center font-portland text-4xl font-black uppercase text-[#532826]">
             Customer Reviews
@@ -91,14 +91,14 @@ export function ProductReviews({ productId }: { productId: string }) {
           </div>
         </div>
       ) : (
-        <div className="mx-auto w-11/12 lg:max-w-[1120px]">
-          <div className="space-y-5">
-            <span className="text-[#8DC8E8]">*</span>
-            <h2 className="font-plam-canyon-drive text-5xl font-normal">
+        <div className="mx-auto w-11/12 py-24 lg:max-w-[1120px]">
+          <div className="text-center font-plam-canyon-drive text-7xl font-normal">
+            <span className="text-[#8DC8E8]">* </span>
+            <h2 className="inline text-[#532826]">
               Be the first to share your thoughts on this product! Your review could help others
               make the right choice. We can't wait to hear from you!
             </h2>
-            <span className="text-[#8DC8E8]">*</span>
+            <span className="text-[#8DC8E8]"> *</span>
           </div>
         </div>
       )}

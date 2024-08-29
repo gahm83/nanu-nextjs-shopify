@@ -1,6 +1,6 @@
 import { ProductCard } from '@/components/grid/product-card';
-import { CustomerReviews } from '@/components/product/customer-reviews';
 import ReviewForm from '@/components/product/modal';
+import { ProductReviews } from '@/components/product/product-reviews';
 import { StraighFromOurKitchen } from '@/components/product/straight-from-our-kitchen';
 import { VersatileCompanion } from '@/components/product/versatile-companion';
 import { Gallery } from 'components/product/gallery';
@@ -77,7 +77,7 @@ export default async function ProductPage({ params }: { params: { handle: string
     }
   };
 
-  const recipes: Recipe[] = page.recipes.references.nodes.map((node) => {
+  const recipes: Recipe[] = page.recipes?.references?.nodes?.map((node) => {
     const recipe: Recipe = {
       title: '',
       description: '',
@@ -127,45 +127,50 @@ export default async function ProductPage({ params }: { params: { handle: string
       <section>
         <div className="mx-auto w-11/12 max-w-screen-lg pb-8 pt-28">
           <div className="grid gap-4 lg:grid-cols-2 xl:gap-8">
-            <div className="lg:max-h-[600px] lg:overflow-y-scroll lg:p-0">
-              <div className="grid grid-cols-2 gap-4 ">
-                <div className="col-span-2 overflow-hidden rounded-xl">
-                  <Suspense fallback={<div className="relative aspect-square w-full " />}>
-                    <Gallery
-                      images={product.images.map((image: TImage) => ({
-                        url: image.url,
-                        altText: image.altText,
-                        width: image.width,
-                        height: image.height
-                      }))}
-                    />
-                  </Suspense>
-                </div>
-                {pictures &&
-                  pictures.map((node, idx) => (
-                    <div
-                      key={idx}
-                      className={`relative hidden w-full overflow-hidden rounded-xl lg:block ${idx == 0 ? 'col-span-2 aspect-[16/9]' : 'aspect-square'}`}
-                    >
-                      <Image
-                        src={node.url}
-                        alt="Nanu's Heritage Doods"
-                        width={node.width}
-                        height={node.height}
-                        className="w-full object-cover"
+            <div className="relative">
+              <div className="absolute h-full w-full overflow-auto">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="col-span-2 overflow-hidden rounded-xl">
+                    <Suspense fallback={<div className="relative aspect-square w-full " />}>
+                      <Gallery
+                        images={product.images.map((image: TImage) => ({
+                          url: image.url,
+                          altText: image.altText,
+                          width: image.width,
+                          height: image.height
+                        }))}
                       />
-                    </div>
-                  ))}
+                    </Suspense>
+                  </div>
+                  {pictures &&
+                    pictures.map((node, idx) => {
+                      // className={`relative hidden w-full overflow-hidden rounded-xl lg:block ${idx == 0 ? 'col-span-2 aspect-[16/9]' : 'aspect-square'}`}
+                      return (
+                        <div
+                          key={idx}
+                          className="relative col-span-2 hidden aspect-[16/9] w-full overflow-hidden rounded-xl lg:block"
+                        >
+                          <Image
+                            src={node.url}
+                            alt="Nanu's Heritage Doods"
+                            width={node.width}
+                            height={node.height}
+                            className="w-full object-cover"
+                          />
+                        </div>
+                      );
+                    })}
+                </div>
               </div>
             </div>
-            <div className="flex flex-grow rounded-xl bg-[#FFF5F0]">
+            <div className="flex place-self-start rounded-xl bg-[#FFF5F0] lg:min-h-[600px]">
               <ProductDescription product={product} />
             </div>
           </div>
         </div>
       </section>
       <VersatileCompanion />
-      <CustomerReviews productId={`${productId}`} />
+      <ProductReviews productId={`${productId}`} />
       <StraighFromOurKitchen recipes={recipes} />
       <RelatedProducts id={product.id} />
       <ReviewForm productId={`${productId}`} />

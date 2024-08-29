@@ -48,7 +48,6 @@ export async function GET(request: Request, { params }: { params: { productId: s
     const data = await reviewsResponse.json();
     return NextResponse.json({ reviews: data.reviews }, { status: 200 });
   } catch (error) {
-    console.error('Error fetching data:', error);
     return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
   }
 }

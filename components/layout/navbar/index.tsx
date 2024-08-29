@@ -9,7 +9,7 @@ import MobileMenu from './mobile-menu';
 const { SITE_NAME } = process.env;
 
 export default async function Navbar({ pathName }: { pathName?: string | null }) {
-  const menu = await getMenu('next-js-frontend-header-menu');
+  const menu = await getMenu('main-menu');
   const social = await getMenu('social-menu');
 
   return (

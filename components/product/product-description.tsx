@@ -24,7 +24,7 @@ export function ProductDescription({ product }: { product: Product }) {
   const [variantPrice, setVariantPrice] = React.useState<string | null>('');
   const [variantQty, setVariantQty] = React.useState<string | null>('');
   const searchParams = useSearchParams();
-  const collection = product.collections.edges[0].node.handle;
+  const collection = product.collections?.edges[0]?.node?.handle;
   const defaultVariantId = product?.variants[0]?.id;
 
   const togglePopup = () => {
@@ -99,7 +99,7 @@ export function ProductDescription({ product }: { product: Product }) {
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="max-md:row-start-2">
                     <Image
-                      src={product.nutritionFacts?.reference?.image.src as string}
+                      src={product.nutritionFacts?.reference?.image?.src as string}
                       alt={product.title}
                       className="mx-auto h-auto w-full cursor-pointer border border-white"
                       width={406}
@@ -143,7 +143,7 @@ export function ProductDescription({ product }: { product: Product }) {
           </div>
         )}
       </AnimatePresence>
-      <div className="flex flex-grow flex-col px-6 py-5 xl:px-10 xl:py-8">
+      <div className="flex flex-grow flex-col justify-between px-6 py-5 xl:px-10 xl:py-8">
         <div className="border-bottom-sky relative hidden lg:block">
           <h4 className="pb-4 font-plam-canyon-drive text-5xl font-normal capitalize text-[#532826]">
             {collection}
@@ -155,8 +155,8 @@ export function ProductDescription({ product }: { product: Product }) {
         <div className="grid grid-cols-2 items-center border border-[#532826] text-center font-portland text-xl font-bold uppercase text-[#532826] md:max-lg:flex md:max-lg:items-stretch xl:flex xl:items-stretch">
           <div className="col-span-2 border border-[#532826] bg-[#EDD3C5] py-2 md:max-lg:flex-grow md:max-lg:px-2 xl:flex-grow xl:px-2">
             <Price
-              amount={variantPrice! ? variantPrice : product.priceRange.minVariantPrice.amount}
-              currencyCode={product.priceRange.minVariantPrice.currencyCode}
+              amount={variantPrice! ? variantPrice : product.priceRange?.minVariantPrice?.amount}
+              currencyCode={product.priceRange?.minVariantPrice?.currencyCode}
             />
           </div>
           <div className="border border-[#532826] py-2 md:max-lg:flex-grow xl:flex-grow">

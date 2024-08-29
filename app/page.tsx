@@ -19,38 +19,7 @@ export const metadata = {
 export default async function HomePage() {
   const page = await getPage('home');
 
-  const recipes: Recipe[] = page.recipes.references.nodes.map((node) => {
-    const recipe: Recipe = {
-      title: '',
-      description: '',
-      image: {
-        url: '',
-        width: 0,
-        height: 0
-      },
-      url: ''
-    };
-
-    node.fields.forEach((field) => {
-      if (field.key === 'title') {
-        recipe.title = field.value;
-      } else if (field.key === 'description') {
-        recipe.description = field.value;
-      } else if (field.key === 'url') {
-        recipe.url = field.value;
-      } else if (field.key === 'image' && field.reference?.image) {
-        recipe.image = field.reference.image as {
-          url: string;
-          width: number;
-          height: number;
-        };
-      }
-    });
-
-    return recipe;
-  });
-
-  const collections: HomeCollection[] = page.collections.references.nodes.map((node) => {
+  const collections: HomeCollection[] = page.collections?.references?.nodes?.map((node) => {
     const collection: HomeCollection = {
       title: '',
       image: {
@@ -73,6 +42,35 @@ export default async function HomePage() {
     });
 
     return collection;
+  });
+
+  const recipes: Recipe[] = page.recipes?.references?.nodes?.map((node) => {
+    const recipe: Recipe = {
+      title: '',
+      description: '',
+      image: {
+        url: '',
+        width: 0,
+        height: 0
+      },
+      url: ''
+    };
+    node.fields.forEach((field) => {
+      if (field.key === 'title') {
+        recipe.title = field.value;
+      } else if (field.key === 'description') {
+        recipe.description = field.value;
+      } else if (field.key === 'url') {
+        recipe.url = field.value;
+      } else if (field.key === 'image' && field.reference?.image) {
+        recipe.image = field.reference.image as {
+          url: string;
+          width: number;
+          height: number;
+        };
+      }
+    });
+    return recipe;
   });
 
   return (
