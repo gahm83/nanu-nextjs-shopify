@@ -31,8 +31,16 @@ export default async function Footer() {
               </a>
             )}
           </div>
-          <nav className="mt-16 grid grid-cols-2 lg:mt-0 lg:gap-8">
-            <div className="flex flex-col space-y-2">
+          <nav className="mt-16 grid auto-rows-min grid-cols-2 lg:mt-0 lg:gap-x-8">
+            {/* <div className="flex flex-col space-y-2"> */}
+            <Link href="/shop">SHOP</Link>
+            <Link href="/about-us">ABOUT US</Link>
+            <a>RECIPES</a>
+            <Link href="/shop">FIND IN STORE</Link>
+            <Link href="/faqs">FAQs</Link>
+            <Link href="/contact-us">CONTACT US</Link>
+            {/* </div> */}
+            {/* <div className="flex flex-col space-y-2">
               <Link href="/shop">SHOP</Link>
               <Link href="/about-us">ABOUT US</Link>
               <a>RECIPES</a>
@@ -41,7 +49,7 @@ export default async function Footer() {
               <Link href="/shop">FIND IN STORE</Link>
               <Link href="/faqs">FAQs</Link>
               <Link href="/contact-us">CONTACT US</Link>
-            </div>
+            </div> */}
           </nav>
         </div>
         <div className="relative aspect-[3/1]">

@@ -1,6 +1,7 @@
 'use client';
+import { HeroColumn, Picture } from 'lib/shopify/types';
+import Image from 'next/image';
 import Link from 'next/link';
-import { useMediaQuery } from 'usehooks-ts';
 import ButtonFindInStore from '../svg/button-find-in-store';
 import ButtonShopNow from '../svg/button-shop-now';
 import HappierGutLife from '../svg/happier-gut-life';
@@ -31,11 +32,23 @@ const cardItems = [
   }
 ];
 
-const Hero = () => {
-  const matches = useMediaQuery('(min-width: 1024px)');
+const Hero = ({ image, columns }: { image: Picture; columns: HeroColumn[] }) => {
+  console.log(columns[1]);
 
   return (
-    <div className="hero-banner before:bg-hero relative before:absolute before:inset-x-0 before:top-0 before:block before:h-[1000px] before:w-full before:bg-sze-sm before:bg-pos-sm before:content-[''] lg:before:bg-sze-lg lg:before:bg-pos-lg">
+    <div className="hero-banner relative">
+      <figure
+        className="border-pyramid-bottom
+    absolute inset-x-0 top-0 block h-[1000px] w-full"
+      >
+        <Image
+          src={image.url}
+          alt=""
+          width={image.width}
+          height={image.height}
+          className="h-full w-full object-cover object-center"
+        />
+      </figure>
       <div className="flex w-full flex-col justify-center">
         <div className="relative flex flex-grow flex-col items-center pb-24 pt-56 lg:pt-80 ">
           <HeroMobile className="aspect-[1.31/1] w-[80vw] max-w-[420px] md:hidden" />
@@ -57,15 +70,22 @@ const Hero = () => {
       </div>
       <div className="relative mx-auto flex w-11/12 max-w-screen-xl flex-col rounded-lg bg-[#532826] px-6 py-24 before:absolute before:left-6 before:right-6 before:top-10 before:block before:h-[6px] before:bg-border-sky before:bg-[auto_6px] before:bg-repeat-space before:content-[''] after:absolute after:bottom-10 after:left-6 after:right-6 after:block after:h-[5px] after:bg-border-sky after:bg-[auto_5px] after:bg-repeat-space after:content-[''] xl:px-24">
         <div className="grid gap-4 md:grid-cols-3">
-          {cardItems &&
-            cardItems.map((item, index) => (
+          {columns &&
+            columns.map((item, index) => (
               <div key={index} className="max-w-80">
-                {item.icon}
+                <div className="flex justify-center">
+                  <Image
+                    src={item.image.url}
+                    width={item.image.width}
+                    height={item.image.width}
+                    alt={item.title}
+                  />
+                </div>
                 <div className="mt-4 space-y-4 text-center lg:px-6">
                   <h2 className="mx-auto text-center font-portland text-2xl uppercase leading-none">
                     {item.title}
                   </h2>
-                  <p className="leading-tight">{item.description}</p>
+                  <p className="leading-tight">{item.content}</p>
                 </div>
               </div>
             ))}

@@ -2,12 +2,13 @@
 // import { useGSAP } from '@gsap/react';
 // import gsap from 'gsap';
 // import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Picture } from '@/lib/shopify/types';
 import Image from 'next/image';
 
 // gsap.registerPlugin(useGSAP);
 // gsap.registerPlugin(ScrollTrigger);
 
-function HeroShop() {
+function HeroShop({ image }: { image: Picture }) {
   // useGSAP(() => {
   //   ScrollTrigger.create({
   //     trigger: 'body',
@@ -23,10 +24,11 @@ function HeroShop() {
       <div className="hero-shop border-pyramid-bottom relative flex w-full items-center justify-center">
         <figure className="absolute inset-0 h-full w-full">
           <Image
-            src="/images/home/bg-banner.jpg"
+            src={image.url}
+            width={image.width}
+            height={image.height}
             alt="Home is closer than you think"
-            className="object-cover object-center"
-            fill
+            className="h-full w-full object-cover object-center"
           />
         </figure>
         <div className="max-w-full-lg relative mx-auto w-9/12 pb-24 pt-48">

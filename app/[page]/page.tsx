@@ -30,7 +30,7 @@ export default async function Page({ params }: { params: { page: string } }) {
   const page = await getPage(params.page);
   if (!page) return notFound();
 
-  if (page.title === 'About us') {
+  if (page.handle === 'about-us') {
     type MetaobjectField = {
       key: string;
       value: string;
@@ -148,10 +148,10 @@ export default async function Page({ params }: { params: { page: string } }) {
         <section>
           <div className="border-pyramid-bottom relative max-lg:h-[110vw] max-lg:max-h-[600px]">
             <Image
-              src="/images/hero-about.jpg"
+              src={page.hero.reference.image.url}
+              width={page.hero.reference.image.width}
+              height={page.hero.reference.image.height}
               alt="About Us"
-              width={1440}
-              height={720}
               className="block w-full object-cover object-center max-lg:absolute max-lg:inset-0 max-lg:h-full"
             />
           </div>
@@ -254,10 +254,10 @@ export default async function Page({ params }: { params: { page: string } }) {
         <section>
           <div className="border-pyramid-bottom relative max-lg:h-[110vw] max-lg:max-h-[600px]">
             <Image
-              src="/images/hero-faq.jpg"
-              alt="About Us"
-              width={1440}
-              height={720}
+              src={page.hero.reference.image.url}
+              width={page.hero.reference.image.width}
+              height={page.hero.reference.image.height}
+              alt={page.title}
               className="block w-full object-cover object-center max-lg:absolute max-lg:inset-0 max-lg:h-full"
             />
           </div>
@@ -281,10 +281,10 @@ export default async function Page({ params }: { params: { page: string } }) {
       <section>
         <div className="border-pyramid-bottom relative max-lg:h-[110vw] max-lg:max-h-[600px]">
           <Image
-            src="/images/hero-faq.jpg"
-            alt="About Us"
-            width={1440}
-            height={720}
+            src={page.hero.reference.image.url}
+            width={page.hero.reference.image.width}
+            height={page.hero.reference.image.height}
+            alt={page.title}
             className="block w-full object-cover object-center max-lg:absolute max-lg:inset-0 max-lg:h-full"
           />
         </div>

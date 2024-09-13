@@ -6,7 +6,7 @@ import Modal from '@/components/homepage/modal';
 import NanusCookBook from '@/components/homepage/nanus-cook-book';
 import ProductTabs from '@/components/homepage/product-tabs';
 import WeHateLettuceTacos from '@/components/homepage/we-hate-lettuce-tacos';
-import { HomeCollection, Recipe } from '@/lib/shopify/types';
+import { HeroColumn, HomeCollection, Recipe } from '@/lib/shopify/types';
 import { getPage } from 'lib/shopify';
 
 export const metadata = {
@@ -18,6 +18,23 @@ export const metadata = {
 
 export default async function HomePage() {
   const page = await getPage('home');
+
+  console.log(page);
+
+  const heroColumns: HeroColumn[] = page.hero_columns.references.nodes.map((node) => {
+    const imageField = node.fields.find((field) => field.key === 'image')?.reference?.image;
+    const titleField = node.fields.find((field) => field.key === 'titulo')?.value;
+    const contentField = node.fields.find((field) => field.key === 'content')?.value;
+    return {
+      image: {
+        url: imageField?.src || '',
+        width: imageField?.width || 0,
+        height: imageField?.height || 0
+      },
+      title: titleField || '',
+      content: contentField || ''
+    };
+  });
 
   const collections: HomeCollection[] = page.collections?.references?.nodes?.map((node) => {
     const collection: HomeCollection = {
@@ -75,7 +92,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <Hero />
+      <Hero image={page.hero?.reference?.image} columns={heroColumns} />
       <MeetOurFamily collections={collections} />
       <WeHateLettuceTacos />
       <ProductTabs />

@@ -110,6 +110,16 @@ export type Recipe = {
   url: string;
 };
 
+export type HeroColumn = {
+  image: {
+    url: string;
+    width: number;
+    height: number;
+  };
+  title: string;
+  content: string;
+};
+
 export type HomeCollection = {
   title: string;
   image: {
@@ -130,6 +140,36 @@ export type Page = {
   body: string;
   bodySummary: string;
   seo?: SEO;
+  hero: {
+    value: string;
+    reference: {
+      id: string;
+      image: {
+        url: string;
+        width: number;
+        height: number;
+      };
+    };
+  };
+  hero_columns: {
+    value: string;
+    references: {
+      nodes: {
+        fields: {
+          key: string;
+          value: string;
+          reference: {
+            id: string;
+            image: {
+              src: string;
+              width: number;
+              height: number;
+            };
+          } | null;
+        }[];
+      }[];
+    };
+  };
   collections: {
     value: string;
     references: {
