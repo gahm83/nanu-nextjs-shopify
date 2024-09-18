@@ -11,15 +11,26 @@ const pageFragment = /* GraphQL */ `
       seo {
         ...seo
       }
-      hero: metafield(namespace: "layout", key: "hero_image") {
+      top_banner: metafield(namespace: "layout", key: "top_banner_text") {
+        value
+      }
+      hero_banner: metafield(namespace: "layout", key: "hero_banner") {
         value
         reference {
-          ... on MediaImage {
-            id
-            image {
-              url
-              width
-              height
+          ... on Metaobject {
+            fields {
+              key
+              value
+              reference {
+                ... on MediaImage {
+                  id
+                  image {
+                    src
+                    width
+                    height
+                  }
+                }
+              }
             }
           }
         }
@@ -41,6 +52,32 @@ const pageFragment = /* GraphQL */ `
                       height
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+      banner: metafield(namespace: "layout", key: "banner") {
+        value
+        reference {
+          ... on Metaobject {
+            fields {
+              key
+              value
+              reference {
+                ... on MediaImage {
+                  image {
+                    src
+                    width
+                    height
+                  }
+                }
+              }
+              reference {
+                ... on Page {
+                  id
+                  handle
                 }
               }
             }

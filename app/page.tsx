@@ -6,7 +6,7 @@ import Modal from '@/components/homepage/modal';
 import NanusCookBook from '@/components/homepage/nanus-cook-book';
 import ProductTabs from '@/components/homepage/product-tabs';
 import WeHateLettuceTacos from '@/components/homepage/we-hate-lettuce-tacos';
-import { HeroColumn, HomeCollection, Recipe } from '@/lib/shopify/types';
+import { Banner, HeroBanner, HeroColumn, HomeCollection, Recipe } from '@/lib/shopify/types';
 import { getPage } from 'lib/shopify';
 
 export const metadata = {
@@ -20,6 +20,39 @@ export default async function HomePage() {
   const page = await getPage('home');
 
   console.log(page);
+  const heroBanner: HeroBanner = {
+    image: {
+      src:
+        page.hero_banner.reference.fields.find((field) => field.key === 'image')?.reference?.image
+          ?.src || '',
+      width:
+        page.hero_banner.reference.fields.find((field) => field.key === 'image')?.reference?.image
+          ?.width || 0,
+      height:
+        page.hero_banner.reference.fields.find((field) => field.key === 'image')?.reference?.image
+          ?.height || 0
+    },
+    title: page.hero_banner.reference.fields.find((field) => field.key === 'title')?.value || ''
+  };
+
+  const banner: Banner = {
+    cta: {
+      url: page.banner.reference.fields.find((field) => field.key === 'cta_page')?.value ?? '',
+      link: page.banner.reference.fields.find((field) => field.key === 'cta_link')?.value ?? ''
+    },
+    image: {
+      src:
+        page.banner.reference.fields.find((field) => field.key === 'image')?.reference?.image
+          ?.src ?? '',
+      width:
+        page.banner.reference.fields.find((field) => field.key === 'image')?.reference?.image
+          ?.width ?? 0,
+      height:
+        page.banner.reference.fields.find((field) => field.key === 'image')?.reference?.image
+          ?.height ?? 0
+    },
+    title: page.banner.reference.fields.find((field) => field.key === 'title')?.value ?? ''
+  };
 
   const heroColumns: HeroColumn[] = page.hero_columns.references.nodes.map((node) => {
     const imageField = node.fields.find((field) => field.key === 'image')?.reference?.image;
@@ -92,12 +125,12 @@ export default async function HomePage() {
 
   return (
     <>
-      <Hero image={page.hero?.reference?.image} columns={heroColumns} />
+      <Hero data={heroBanner} columns={heroColumns} />
       <MeetOurFamily collections={collections} />
       <WeHateLettuceTacos />
       <ProductTabs />
       <NanusCookBook recipes={recipes} />
-      <BannerHomeIsCloser />
+      <BannerHomeIsCloser data={banner} />
       <JoinOurTable />
       <Modal />
     </>

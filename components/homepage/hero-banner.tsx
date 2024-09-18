@@ -1,40 +1,15 @@
 'use client';
-import { HeroColumn, Picture } from 'lib/shopify/types';
+import { HeroBanner, HeroColumn } from 'lib/shopify/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import ButtonFindInStore from '../svg/button-find-in-store';
 import ButtonShopNow from '../svg/button-shop-now';
-import HappierGutLife from '../svg/happier-gut-life';
 import HeroDesktop from '../svg/hero-desktop';
 import HeroMobile from '../svg/hero-mobile';
 import ShapeRomboid from '../svg/shape-romboid';
 import ShapeSnowflake from '../svg/shape-snowflake';
-import TasteOfHome from '../svg/taste-of-home';
-import UnmatchedCompanion from '../svg/unmatched-companion';
 
-const cardItems = [
-  {
-    icon: <TasteOfHome />,
-    title: 'A taste of home',
-    description:
-      'We are your companion in every bite, providing heartfelt warmth no matter where you are.'
-  },
-  {
-    icon: <UnmatchedCompanion />,
-    title: 'An unmatched companion',
-    description:
-      'For breakfast toast? Yup. For nachos? Yas! In tacos? Of course. Do your own thing!'
-  },
-  {
-    icon: <HappierGutLife />,
-    title: 'Happier gut, happier life',
-    description: 'Gluten-free, low carb, made with natural ingredients and lots of love!'
-  }
-];
-
-const Hero = ({ image, columns }: { image: Picture; columns: HeroColumn[] }) => {
-  console.log(columns[1]);
-
+const Hero = ({ data, columns }: { data: HeroBanner; columns: HeroColumn[] }) => {
   return (
     <div className="hero-banner relative">
       <figure
@@ -42,10 +17,10 @@ const Hero = ({ image, columns }: { image: Picture; columns: HeroColumn[] }) => 
     absolute inset-x-0 top-0 block h-[1000px] w-full"
       >
         <Image
-          src={image.url}
+          src={data.image.src}
           alt=""
-          width={image.width}
-          height={image.height}
+          width={data.image.width}
+          height={data.image.height}
           className="h-full w-full object-cover object-center"
         />
       </figure>

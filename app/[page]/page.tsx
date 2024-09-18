@@ -1,5 +1,7 @@
+import ContactForm from '@/components/forms/contact';
 import ShopifyRichText from '@/components/layout/ShopifyRichText';
 import Accordion from '@/components/layout/accordion';
+import { HeroBanner } from '@/lib/shopify/types';
 import Prose from 'components/prose';
 import { getPage } from 'lib/shopify';
 import type { Metadata } from 'next';
@@ -28,7 +30,37 @@ export async function generateMetadata({
 
 export default async function Page({ params }: { params: { page: string } }) {
   const page = await getPage(params.page);
+
   if (!page) return notFound();
+
+  const heroBanner: HeroBanner = {
+    image: {
+      src:
+        page.hero_banner.reference.fields.find((field) => field.key === 'image')?.reference?.image
+          ?.src || '',
+      width:
+        page.hero_banner.reference.fields.find((field) => field.key === 'image')?.reference?.image
+          ?.width || 0,
+      height:
+        page.hero_banner.reference.fields.find((field) => field.key === 'image')?.reference?.image
+          ?.height || 0
+    },
+    title: page.hero_banner.reference.fields.find((field) => field.key === 'title')?.value || ''
+  };
+
+  const PageHero = () => (
+    <section>
+      <div className="border-pyramid-bottom relative max-lg:h-[110vw] max-lg:max-h-[600px]">
+        <Image
+          src={heroBanner.image.src}
+          width={heroBanner.image.width}
+          height={heroBanner.image.height}
+          alt={page.title}
+          className="block w-full object-cover object-center max-lg:absolute max-lg:inset-0 max-lg:h-full"
+        />
+      </div>
+    </section>
+  );
 
   if (page.handle === 'about-us') {
     type MetaobjectField = {
@@ -145,17 +177,7 @@ export default async function Page({ params }: { params: { page: string } }) {
 
     return (
       <>
-        <section>
-          <div className="border-pyramid-bottom relative max-lg:h-[110vw] max-lg:max-h-[600px]">
-            <Image
-              src={page.hero.reference.image.url}
-              width={page.hero.reference.image.width}
-              height={page.hero.reference.image.height}
-              alt="About Us"
-              className="block w-full object-cover object-center max-lg:absolute max-lg:inset-0 max-lg:h-full"
-            />
-          </div>
-        </section>
+        <PageHero />
         <section>
           <div className="mx-auto w-10/12 max-w-[800px] pb-24">
             <div className="border-bottom-sky-lg relative my-14 px-10 py-14 text-center">
@@ -251,17 +273,7 @@ export default async function Page({ params }: { params: { page: string } }) {
 
     return (
       <>
-        <section>
-          <div className="border-pyramid-bottom relative max-lg:h-[110vw] max-lg:max-h-[600px]">
-            <Image
-              src={page.hero.reference.image.url}
-              width={page.hero.reference.image.width}
-              height={page.hero.reference.image.height}
-              alt={page.title}
-              className="block w-full object-cover object-center max-lg:absolute max-lg:inset-0 max-lg:h-full"
-            />
-          </div>
-        </section>
+        <PageHero />
         <section>
           <div className="mx-auto w-11/12 pb-24">
             <div className="border-bottom-sky-lg relative mx-auto my-14 max-w-[800px] px-10 py-14 text-center">
@@ -276,19 +288,29 @@ export default async function Page({ params }: { params: { page: string } }) {
     );
   }
 
+  if (page.handle == 'contact-us') {
+    return (
+      <>
+        <PageHero />
+        <section>
+          <div className="mx-auto w-11/12 pb-24">
+            <div className="border-bottom-sky-lg relative mx-auto my-14 max-w-[800px] px-10 py-14 text-center">
+              <h2 className="font-portland text-4xl font-bold uppercase text-[#532826] md:text-5xl">
+                Get in touch
+              </h2>
+            </div>
+            <div className="mx-auto w-11/12 max-w-[960px] bg-[#532826]">
+              <ContactForm />
+            </div>
+          </div>
+        </section>
+      </>
+    );
+  }
+
   return (
     <>
-      <section>
-        <div className="border-pyramid-bottom relative max-lg:h-[110vw] max-lg:max-h-[600px]">
-          <Image
-            src={page.hero.reference.image.url}
-            width={page.hero.reference.image.width}
-            height={page.hero.reference.image.height}
-            alt={page.title}
-            className="block w-full object-cover object-center max-lg:absolute max-lg:inset-0 max-lg:h-full"
-          />
-        </div>
-      </section>
+      <PageHero />
       <section>
         <div className="mx-auto w-10/12 max-w-[800px] pb-24">
           <div className="border-bottom-sky-lg relative my-14 px-10 py-14 text-center">

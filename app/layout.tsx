@@ -1,6 +1,7 @@
 import FreeShippingBanner from '@/components/free-shipping-banner';
 import Footer from 'components/layout/footer';
 import Navbar from 'components/layout/navbar';
+import { getPage } from 'lib/shopify';
 import { ensureStartsWith } from 'lib/utils';
 import { headers } from 'next/headers';
 import { ReactNode } from 'react';
@@ -36,11 +37,14 @@ export const metadata = {
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const headersList = headers();
   const pathName = headersList.get('x-current-path');
+  const page = await getPage('home');
+
+  console.log(page);
 
   return (
     <html lang="en">
       <body className="bg-[#532826] text-[#F6E7E0] antialiased">
-        <FreeShippingBanner />
+        <FreeShippingBanner text={page.top_banner.value as string} />
         <Navbar pathName={pathName} />
         <main className="w-full overflow-x-hidden bg-[#F6E7E0]">{children}</main>
         <Footer />

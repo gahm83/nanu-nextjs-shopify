@@ -140,15 +140,24 @@ export type Page = {
   body: string;
   bodySummary: string;
   seo?: SEO;
-  hero: {
+  top_banner: {
+    value: string;
+  };
+  hero_banner: {
     value: string;
     reference: {
-      id: string;
-      image: {
-        url: string;
-        width: number;
-        height: number;
-      };
+      fields: {
+        key: string;
+        value: string;
+        reference?: {
+          id: string;
+          image?: {
+            src: string;
+            width: number;
+            height: number;
+          };
+        };
+      }[];
     };
   };
   hero_columns: {
@@ -167,6 +176,23 @@ export type Page = {
             };
           } | null;
         }[];
+      }[];
+    };
+  };
+  banner: {
+    value: string;
+    reference: {
+      fields: {
+        key: string;
+        value: string;
+        reference?: {
+          id: string;
+          image?: {
+            src: string;
+            width: number;
+            height: number;
+          };
+        };
       }[];
     };
   };
@@ -485,5 +511,27 @@ export type ShopifyProductsOperation = {
     query?: string;
     reverse?: boolean;
     sortKey?: string;
+  };
+};
+
+export type HeroBanner = {
+  image: {
+    src: string;
+    width: number;
+    height: number;
+  };
+  title: string;
+};
+
+export type Banner = {
+  title: string;
+  image: {
+    src: string;
+    width: number;
+    height: number;
+  };
+  cta: {
+    url: string;
+    link: string;
   };
 };
