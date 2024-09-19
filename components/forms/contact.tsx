@@ -1,5 +1,6 @@
 'use client';
 import clsx from 'clsx';
+import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 interface FormData {
@@ -9,6 +10,7 @@ interface FormData {
   state: string;
   message: string;
   agreement: boolean;
+  submitError?: string;
 }
 
 const states = [
@@ -82,11 +84,40 @@ const ContactForm = () => {
     register,
     handleSubmit,
     watch,
+    setError,
     formState: { errors }
   } = useForm<FormData>({ mode: 'onBlur', reValidateMode: 'onBlur' });
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    alert('Form submitted successfully!');
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    console.log(data);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ ...data })
+      });
+
+      console.log(response);
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        // Handle non-OK response
+        setError('submitError', {
+          type: 'manual',
+          message: 'Failed to submit review. Please try again later.'
+        });
+      }
+    } catch (error) {
+      // Handle fetch error
+      setError('submitError', {
+        type: 'manual',
+        message: 'An unexpected error occurred. Please try again later.'
+      });
+    }
   };
 
   return (

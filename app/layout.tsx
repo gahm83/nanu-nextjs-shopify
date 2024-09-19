@@ -39,8 +39,6 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const pathName = headersList.get('x-current-path');
   const page = await getPage('home');
 
-  console.log(page);
-
   return (
     <html lang="en">
       <body className="bg-[#532826] text-[#F6E7E0] antialiased">

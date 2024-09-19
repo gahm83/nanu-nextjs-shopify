@@ -19,7 +19,6 @@ export const metadata = {
 export default async function HomePage() {
   const page = await getPage('home');
 
-  console.log(page);
   const heroBanner: HeroBanner = {
     image: {
       src:

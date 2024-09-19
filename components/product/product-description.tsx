@@ -59,7 +59,6 @@ export function ProductDescription({ product }: { product: Product }) {
         setVariantQty(quantity);
       }
     } else if (packs !== null) {
-      console.log(packs);
       if (packs === '1') {
         setVariantQty('1 Salsa');
       } else {

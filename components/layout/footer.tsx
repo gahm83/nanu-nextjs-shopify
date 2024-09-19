@@ -20,7 +20,7 @@ export default async function Footer() {
     <footer className="bg-[#532826] font-portland text-sm font-semibold">
       <div className="mx-auto w-11/12 space-y-9 pb-9 pt-14 lg:max-w-screen-xl lg:space-y-12 lg:pb-12 lg:pt-16">
         <div className="flex flex-col lg:flex-row">
-          <div className="lg:mr-auto">
+          <div className="w-1/2 lg:mr-auto">
             <NewsletterForm />
           </div>
           <div className="mt-9 lg:order-last lg:ml-20 lg:mt-0 lg:flex lg:flex-col lg:space-y-4">

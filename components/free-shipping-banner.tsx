@@ -4,14 +4,7 @@ import ShapeRomboid from './svg/shape-romboid';
 
 const FreeShippingBanner = ({ text }: { text: string }) => {
   const { scrollY } = useScroll();
-
-  console.log(text);
-
   const height = useTransform(scrollY, [0, 60], [60, 0]);
-
-  // useMotionValueEvent(scrollY, 'change', (latest: number) => {
-  //   setHidden(latest > 60)
-  // });
 
   return (
     <motion.div className="free-shipping-banner flex h-[60px] w-full items-center justify-center space-x-4 overflow-hidden bg-[#8DC8E8]">

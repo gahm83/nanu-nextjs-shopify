@@ -5,7 +5,6 @@ import ShapeRomboid from '../svg/shape-romboid';
 import ShapeSnowflake from '../svg/shape-snowflake';
 
 function BannerHomeIsCloser({ data }: { data: Banner }) {
-  console.log(data);
   return (
     <section>
       <div className="py-8 lg:py-16">
