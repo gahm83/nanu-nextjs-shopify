@@ -14,18 +14,15 @@ interface MailData {
 export async function POST(req: Request) {
   try {
     const { address }: MailData = await req.json();
-
     const data = {
       address: address,
       subscribed: 'yes',
       upsert: 'yes'
     };
-
     const response = await mg.lists.members.createMember(
       process.env.MAILGUN_MAILING_LIST as string,
       data as any
     );
-
     return NextResponse.json({ success: true, message: response });
   } catch (error: any) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });

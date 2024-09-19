@@ -39,7 +39,6 @@ const NewsletterForm: React.FC = () => {
         });
 
         if (response.ok) {
-          // setSubmitted('Successfully added to the list!');
           setSubmitted(true);
         } else {
           setSubmitted(false);
