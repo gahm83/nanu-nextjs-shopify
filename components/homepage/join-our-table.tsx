@@ -35,7 +35,7 @@ function JoinOurTable() {
 
   const fetchFeed = async (after: string | null = null) => {
     try {
-      let url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp,permalink&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_TOKEN}`;
+      let url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp,permalink&access_token=${process.env.INSTAGRAM_PUBLIC_TOKEN}`;
       if (after) {
         url += `&after=${after}`;
       }
