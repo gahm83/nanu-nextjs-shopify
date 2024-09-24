@@ -36,6 +36,7 @@ function JoinOurTable() {
   const fetchFeed = async (after: string | null = null) => {
     try {
       let url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp,permalink&access_token=${process.env.INSTAGRAM_PUBLIC_TOKEN}`;
+
       if (after) {
         url += `&after=${after}`;
       }
@@ -49,9 +50,15 @@ function JoinOurTable() {
 
       setInstagramFeed((prevFeed) => {
         if (prevFeed && prevFeed.data.length > 0) {
+          // Combine the old and new data while filtering out duplicates
+          const combinedData = [...prevFeed.data, ...feed.data];
+          const uniqueData = combinedData.filter(
+            (post, index, self) => index === self.findIndex((p) => p.id === post.id)
+          );
+
           return {
             ...feed,
-            data: [...prevFeed.data, ...feed.data]
+            data: uniqueData
           };
         }
         return feed;
@@ -70,6 +77,8 @@ function JoinOurTable() {
   useEffect(() => {
     fetchFeed();
   }, []);
+
+  console.log(instagramFeed);
 
   return (
     <>
