@@ -104,7 +104,7 @@ function JoinOurTable() {
                         href={post.permalink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative"
+                        className="relative block"
                       >
                         {post.media_type === 'VIDEO' ? (
                           <video
@@ -122,11 +122,11 @@ function JoinOurTable() {
                           />
                         )}
                         {post.caption && (
-                          <div className="absolute inset-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 p-4 opacity-0 transition duration-300 group-hover:opacity-100">
-                            <p className="truncate text-center text-xs text-white">
+                          <span className="absolute bottom-0 left-0 right-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 p-4 opacity-0 transition duration-300 group-hover:opacity-100">
+                            <span className="truncate text-center text-xs text-white">
                               {post.caption}
-                            </p>
-                          </div>
+                            </span>
+                          </span>
                         )}
                       </Link>
                     </SwiperSlide>
