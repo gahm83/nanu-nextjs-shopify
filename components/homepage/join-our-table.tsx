@@ -78,8 +78,6 @@ function JoinOurTable() {
     fetchFeed();
   }, []);
 
-  console.log(instagramFeed);
-
   return (
     <>
       {instagramFeed && (
